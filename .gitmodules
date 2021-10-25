@@ -1,0 +1,4 @@
+[submodule ".zprezto"]
+	path = .zprezto
+	url = git@github.com:aelesbao/prezto.git
+	branch = custom
