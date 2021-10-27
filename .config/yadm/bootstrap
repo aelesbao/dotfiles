@@ -1,0 +1,93 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+
+export GITHUB_USER="${GITHUB_USER:-aelesbao}"
+export BOOTSTRAP_D="${0:A}.d"
+
+
+function _log() {
+  local level="${1}"
+  local message="${@:$#}"
+  printf "$level %s\033[0m\n" "$message"
+}
+
+function info() {
+  _log "\033[1;37m∷" "${@:$#}"
+}
+
+function notice() {
+  _log "\033[0;34m⁚" "${@:$#}"
+}
+
+function success() {
+ _log "\033[0;32m⁚" "${@:$#}"
+}
+
+function warn() {
+  _log "\033[0;33m∴" "${@:$#}"
+}
+
+function error() {
+  _log "\033[0;31m⁘" "${@:$#}"
+}
+
+function msg() {
+  _log "\033[0;37m⁚" "${@:$#}"
+}
+
+function fail() {
+  error "${@}" >&2
+  exit 1
+}
+
+function ask() {
+  printf "\033[0;36m⁖ ${@:$#}\033[0m [y/n] ‣ "
+  if read -q "choice?"; then
+    echo
+    return 0
+  else
+    echo
+    return 1
+  fi
+}
+
+function result() {
+  local result="$?"
+  local message="${@:$#}"
+
+  if [[ "${result}" == "0" ]]; then
+    success "[✔] ${message} succeeded"
+  else
+    error "[✖] ${message} failed"
+  fi
+}
+
+function title() {
+  echo
+  echo -e "\033[1;35m≡ ${@:$#}\033[0m"
+}
+
+function is-macos() {
+  [[ "$OSTYPE" == darwin* ]]
+}
+
+
+cd "$HOME"
+
+if [[ ! -d "$BOOTSTRAP_D" ]]; then
+  fail "bootstrap scripts directory $BOOTSTRAP_D not found"
+fi
+
+title "Running bootstrap scripts"
+find -L "$BOOTSTRAP_D" -type f | sort | while IFS= read -r bootstrap; do
+  if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
+      echo
+      notice "bootstrapping ${bootstrap:t:r}..."
+      {
+        source "$bootstrap"
+      } || false
+      result "bootstrap ${bootstrap:t:r}"
+  fi
+done
