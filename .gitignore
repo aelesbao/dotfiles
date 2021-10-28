@@ -1,0 +1,47 @@
+# Local settings
+.irbrc
+.rspec_parallel
+local.sbt
+
+# Editors
+*.swp
+.ensime
+.session.vim
+.idea/
+.bsp/
+*.iml
+*.sublime-*
+.metadata/
+.settings/
+.project
+.externalToolBuilders/
+rebel.xml
+
+# Caches
+.cache
+.classpath
+.cap_tasks~
+.factorypath
+.history
+test_*_files/
+.tags
+.tags1
+tags
+ctags
+
+# direnv
+.envrc
+.direnv
+
+# OS specific
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Versions
+.ruby-version
+.python-version
+.java-version

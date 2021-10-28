@@ -1,0 +1,167 @@
+[user]
+	name = Augusto Elesbão
+	email = aelesbao@gmail.com
+  useconfigonly = true
+  signingkey = 1206F374
+
+[url "git@github.com:aelesbao/"]
+  insteadOf = "git://github.com/aelesbao/"
+  insteadOf = "aelesbao:"
+
+[url "git://github.com/"]
+  insteadOf = "github:"
+  insteadOf = "gh:"
+
+[url "git@github.com:"]
+  pushInsteadOf = "github:"
+  pushInsteadOf = "gh:"
+
+[url "https://aur4.archlinux.org/"]
+  insteadOf = "aur:"
+
+[url "aur@aur4.archlinux.org:"]
+  pushInsteadOf = "aur:"
+
+[url "git@heroku.com:"]
+  insteadOf = "heroku:"
+
+[url "git@bitbucket.org:"]
+  insteadOf = "bitbucket:"
+
+[url "git@gitlab.com:"]
+  insteadOf = "gitlab:"
+
+[url "git@gitlab.com:dharmaworks/"]
+  insteadOf = "dw:"
+
+[url "git@gitlab.com:collabchain/"]
+  insteadOf = "cc:"
+  insteadOf = "collabchain:"
+
+[url "git@github.com:hidotmatrix/"]
+  insteadOf = "dotmatrix:"
+
+[url "git@github.com:anmolnetwork/"]
+  insteadOf = "anmol:"
+
+[url "git@github.com:getyourguide/"]
+  insteadOf = "getyourguide:"
+  insteadOf = "gyg:"
+
+[core]
+  editor = vim
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+  whitespace = trailing-space,space-before-tab
+  pager = diff-so-fancy | less --tabs=4 -RFX
+
+[branch]
+  autosetuprebase = always
+
+[push]
+  default = upstream
+
+[alias]
+  st      = status
+  s       = status -s -b
+  commit  = commit -v
+  ci      = commit -v
+  cis     = !git ci
+  ;cis     = commit -v -S
+  amend   = !git ci --amend -C HEAD
+  fixup   = !git ci --fixup=$(git rev-parse --verify HEAD)
+  co      = checkout
+  w       = whatchanged
+  wiff    = diff --color-words --word-diff
+  ediff   = diff --ext-diff
+  search  = log -S
+  l       = log --graph --decorate --date=local
+  lol     = !git l --oneline --abbrev-commit
+  lola    = !git lol --all
+  lstat   = !git l --patch-with-stat --summary
+  dh      = diff HEAD
+  pull    = pull --ff-only
+  plr     = pull --rebase --prune
+  head    = rev-parse --short --verify HEAD
+  news    = log -p HEAD@{1}..HEAD@{0}
+  publish = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+  publish-pr = !git publish && git pull-request -a aelesbao
+  clean   = clean -i
+  clear   = clean -i
+  current-branch = !git symbolic-ref -q --short HEAD || git describe --tags --exact-match
+
+[format]
+  pretty = format:%C(bold yellow)%h%C(reset) %s %C(red)%d%C(reset) %n%C(magenta)%ad%C(reset) %n%C(blue)%an%C(reset)%n
+
+[diff]
+	tool = vscode
+  ;renames = copies
+
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+
+[difftool "vscode"]
+  cmd = code -n --wait --diff $LOCAL $REMOTE
+
+[merge]
+	tool = vscode
+  ff = only
+  ;conflictstyle = diff3
+
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+	trustExitCode = false
+	keepBackup = false
+
+[mergetool "vscode"]
+  cmd = code -n --wait $MERGED
+	keepBackup = false
+
+[github]
+  user = aelesbao
+
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+
+[rerere]
+	enabled = true
+
+[rebase]
+	autosquash = true
+
+[workspaces]
+	sandbox = ~/workspace/sandbox
+	sources = ~/workspace/sources
+	courses = ~/workspace/courses
+	backup = ~/workspace/backup
+	collabchain = ~/workspace/collabchain
+	dharmaworks = ~/workspace/dharmaworks
+	dotmatrix = ~/workspace/dotmatrix
+
+[apply]
+	whitespace = warn
+
+[color]
+  ui     = true
+  pager  = true
+
+[color "diff-highlight"]
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+	oldNormal = red bold
+
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[credential]
+	helper = osxkeychain
+
+[init]
+	defaultBranch = main
