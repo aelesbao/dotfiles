@@ -45,3 +45,6 @@ Thumbs.db
 .ruby-version
 .python-version
 .java-version
+
+# dotfiles
+.Brewfile
