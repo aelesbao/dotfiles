@@ -42,4 +42,4 @@ Thumbs.db
 .java-version
 
 # dotfiles
-.Brewfile
+.Brewfile*
