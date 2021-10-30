@@ -53,7 +53,9 @@ defaults write com.apple.dock wvous-br-corner -int 4
 defaults write com.apple.dock wvous-br-modifier -int 0
 
 
-if ! xcode-select --print-path &> /dev/null; then
+if xcode-select --print-path &> /dev/null; then
+  notice "XCode Command Line Tools already configured"
+else
   title "Installing XCode Command Line Tools"
 
   # Prompt user to install the XCode Command Line Tools

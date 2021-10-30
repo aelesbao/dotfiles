@@ -73,6 +73,28 @@ function is-macos() {
   [[ "$OSTYPE" == darwin* ]]
 }
 
+function pkg-install() {
+  local pkg="${1}"
+  msg "Installing $pkg"
+
+  if is-macos; then
+    # brew install $pkg
+  else
+    fail "Unsupported OS: $(uname -a)"
+  fi
+}
+
+function require() {
+  local pkg="${1}"
+  local path="${2:-}"
+
+  if ([[ -n "$path" ]] && [[ -d "$path" ]]) || (( $+commands[$pkg] )); then
+    return
+  fi
+
+  pkg-install $pkg
+}
+
 
 cd "$HOME"
 
