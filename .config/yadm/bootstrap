@@ -78,7 +78,7 @@ function pkg-install() {
   msg "Installing $pkg"
 
   if is-macos; then
-    # brew install $pkg
+    brew install $pkg
   else
     fail "Unsupported OS: $(uname -a)"
   fi
