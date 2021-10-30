@@ -75,6 +75,8 @@ if is_macos; then
   if ! command_exists brew; then
     info "Installing Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  else
+    brew update && brew upgrade && brew cleanup
   fi
 fi
 
