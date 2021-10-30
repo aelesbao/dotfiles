@@ -47,7 +47,7 @@ command_exists() {
 
 pkg_install() {
   local pkg="${1:?}"
-  info "Installing $tool"
+  info "Installing $pkg"
 
   if is_macos; then
     brew install $pkg
