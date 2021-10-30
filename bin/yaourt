@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "$1" == -Ss* || "$@" == -S*--search* || "$1" == -Si* || "$@" == -S*--info* || "$1" == -Q* ]]; then
+  /usr/bin/yaourt "$@"
+  exit $?
+fi
+
+sudo etckeeper pre-install
+
+/usr/bin/yaourt "$@"
+EXIT_CODE=$?
+
+sudo etckeeper post-install
+exit $EXIT_CODE

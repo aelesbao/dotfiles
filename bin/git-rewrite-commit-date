@@ -1,0 +1,11 @@
+#!/bin/sh
+
+commit="$1"
+date="$2"
+
+export GIT_AUTHOR_DATE="$date"
+export GIT_COMMITTER_DATE="$date"
+
+git rebase -i "$commit"^
+git commit --amend --no-edit --date "$date"
+git rebase --continue

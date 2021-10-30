@@ -1,0 +1,18 @@
+#!/bin/bash
+
+gone_branches=$(git branch -vv | grep gone | awk '{print $1}')
+
+if [ -z "$gone_branches" ]; then
+  echo "Nothing to delete"
+  exit
+fi
+
+echo "You are about to delete the following branches:"
+echo "$gone_branches" | awk '{print "* ", $1}'
+echo ""
+
+read -p "Confirm? (y/N) " -n 1 -r
+echo
+if [[ ${REPLY} =~ ^[Yy]$ ]]; then
+  git branch -D $gone_branches
+fi

@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+[[ "$1" == "purple" ]] && color=d189e2
+[[ -z "$color" ]] && color=default
+
+it2setcolor tab ${color}

@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+curl -s "https://internal-delegation-api.elrond.com/accounts/$1/delegations" \
+  | jq '(.[0].claimableRewards | tonumber) / 1000000000000000000'

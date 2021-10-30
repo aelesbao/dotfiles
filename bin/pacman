@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "$1" != -S && "$1" != -S*u && "$1" != -U ]]; then
+    /usr/bin/pacman "$@"
+    exit $?
+fi
+
+[[ $EUID -eq 0 ]] && etckeeper pre-install
+
+/usr/bin/pacman "$@"
+EXIT_CODE=$?
+
+[[ $EUID -eq 0 ]] && etckeeper post-install
+exit $EXIT_CODE

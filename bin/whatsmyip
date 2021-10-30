@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -s 'http://wtfismyip.com/text'

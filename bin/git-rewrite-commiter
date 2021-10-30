@@ -1,0 +1,41 @@
+#!/bin/sh
+
+if [ $# -lt 4 ]; then
+  echo <<END
+usage: git rewrite-committer [options] <old_email> <new_name> <new_email> <git-filter-branch options>
+
+! ATENTION: use at your own risk ;)
+END
+  exit 1
+fi
+
+export old_email=$1 && shift
+export new_name=$1 && shift
+export new_email=$1 && shift
+
+echo "Rewriting commits from <$old_email> to $new_name <$new_email>"
+git filter-branch --env-filter '
+  an="$GIT_AUTHOR_NAME"
+  am="$GIT_AUTHOR_EMAIL"
+  cn="$GIT_COMMITTER_NAME"
+  cm="$GIT_COMMITTER_EMAIL"
+
+  if [ "$GIT_COMMITTER_EMAIL" = "$old_email" ]; then
+    cn="$new_name"
+    cm="$new_email"
+  fi
+
+  if [ "$GIT_AUTHOR_EMAIL" = "$old_email" ]; then
+    an="$new_name"
+    am="$new_email"
+  fi
+
+  export GIT_AUTHOR_NAME="$an"
+  export GIT_AUTHOR_EMAIL="$am"
+  export GIT_COMMITTER_NAME="$cn"
+  export GIT_COMMITTER_EMAIL="$cm"
+' $@
+
+export old_email=
+export new_name=
+export new_email=

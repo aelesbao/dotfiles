@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+RED='\033[0;31m'
+COLOR_OFF='\033[0m'
+
+protected_branch='master'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+if [[ $current_branch = $protected_branch ]]; then
+  fixup_commits=$(git log --color --oneline --abbrev-commit --grep=fixup @{u}..)
+  if [[ -n "$fixup_commits" ]]; then
+    printf "${RED}Rebase your changes man!${COLOR_OFF}\n"
+    printf "$fixup_commits\n\n"
+    exit 1
+  fi
+fi
+
+exit 0

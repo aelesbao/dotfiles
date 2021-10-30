@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+current_branch=$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)
+
+old_v=$(git describe --tags --abbrev=0 master)
+new_v="${1}"
+
+if [[ ${current_branch} == 'master' ]]; then
+  changelog=$(git log --format='format:%h %s' "${old_v}..HEAD")
+
+  git tag -s -a "${new_v}" -F- <<EOF
+  ${new_v}
+
+  ${changelog}
+EOF
+else
+  ticket_number=$(echo "${current_branch}" | grep -E -o 'LOG.-\d+')
+  new_v="${old_v}-${ticket_number}-${new_v}"
+
+  git tag "${new_v}"
+fi
+
+read -p "Push tag ${new_v} to origin? (y/N) " -n 1 -r
+echo
+if [[ ${REPLY} =~ ^[Yy]$ ]]; then
+  git push origin "$(git describe --tags --exact-match)"
+fi

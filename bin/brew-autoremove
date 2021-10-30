@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+declare -a leaves=("${(@f)$(brew leaves)}")
+declare -A visited_formulas
+
+check_formulas() {
+  for formula in "$@"; do
+    if [[ -z `brew uses --installed $formula` ]] && (( ${leaves[(i)$formula]} > ${#leaves} )) && ! (( ${+visited_formulas[$formula]} )) && [[ $formula != "brew-cask" ]]; then
+      brew info $formula
+      read "input?$formula is not depended on by other formulas. Remove? [y/N] "
+      visited_formulas[$formula]=1
+      if [[ "${input}" =~ "Y|y" ]]; then
+        brew remove $formula
+        check_formulas `brew deps --1 --installed $formula`
+      fi
+      print '\n'
+    fi
+  done
+}
+
+echo "Searching for formulas not depended on by other formulas..."
+
+check_formulas `brew list`

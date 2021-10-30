@@ -1,0 +1,6 @@
+#!/bin/bash
+
+modified_files="$(git status --porcelain | grep '^ M' | sed 's/^ M //g')"
+if [[ -n "${modified_files}" ]]; then
+  rubocop -a ${modified_files}
+fi

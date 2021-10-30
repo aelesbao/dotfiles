@@ -1,0 +1,2 @@
+#!/bin/sh
+git log --graph --oneline --decorate $( git fsck --no-reflog | awk '/dangling commit/ {print $3}'  )

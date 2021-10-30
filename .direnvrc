@@ -1,0 +1,164 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+
+red="$(tput setaf 1)"
+green="$(tput setaf 2)"
+yellow="$(tput setaf 3)"
+blue="$(tput setaf 4)"
+reset="$(tput sgr0)"
+
+
+_fail() {
+  (>&2 printf "${red}%s${reset}\n" "${1}")
+  return 1
+}
+
+_warn() {
+  (>&2 printf "${yellow}%s${reset}\n" "${1}")
+  return 0
+}
+
+_info() {
+  (>&2 printf "${green}%s${reset}\n" "${1}")
+  return 0
+}
+
+_notice() {
+  (>&2 printf "${blue}%s${reset}\n" "${1}")
+  return 0
+}
+
+# sets tab name and color in iTerm2
+layout_tab() {
+  local title="${1:-$(basename "$(pwd)")}"
+  local color="${2:-default}"
+
+  printf '\e]1;%s\a' "${title}"
+  echo -en "\033]0;${title}\a"
+
+  [[ -z "${color}" ]] && return
+
+  if ! [[ -f "${HOME}/.iterm2/it2setcolor" ]]; then
+    _fail "to use custom tab settings, please install the iTerm2 Shell Integration"
+    return 1
+  fi
+
+  # Mac OS tags
+  [[ "$color" == "yellow" ]] && color=p3:eddd68
+  [[ "$color" == "orange" ]] && color=p3:ecb05b
+  [[ "$color" == "purple" ]] && color=p3:b990d5
+  [[ "$color" == "pink" ]] && color=p3:d189e2
+  [[ "$color" == "green" ]] && color=p3:b6dc60
+  [[ "$color" == "blue" ]] && color=p3:6fa2f1
+  [[ "$color" == "red" ]] && color=p3:ea7468
+
+  ~/.iterm2/it2setcolor tab "${color}"
+}
+
+use_dotenv() {
+  local envfile="${1:-.env}"
+  [[ -f ${envfile} ]] && export $(egrep -v '^#' ${envfile} | xargs)
+}
+
+# use a certain Python version
+use_python() {
+  set -eo pipefail
+
+  has pyenv || return 1
+
+  eval "$(pyenv init --path)"
+
+  local pyversion="${1:-${PYENV_VERSION}}"
+  [[ -f .python-version ]] && pyversion="$(head .python-version)"
+
+  if [[ -z "${pyversion}" ]]; then
+    _fail "you should specify a python version or add a .python-version file to the project root"
+    return 1
+  fi
+
+  if ! [[ -d "${PYENV_ROOT}/versions/${pyversion}" ]]; then
+    pyenv install "${pyversion}"
+    pyenv shell "${pyversion}"
+    pip install --upgrade pip setuptools virtualenv
+  fi
+
+  if ! [[ -f .python-version ]]; then
+    pyenv shell "${pyversion}"
+  fi
+}
+
+layout_virtualenv() {
+  set -eo pipefail
+
+  has virtualenv || return 1
+
+  local venv="${1:-.venv}"
+  [[ -d ${venv} ]] || virtualenv -p "$(pyenv which python)" "${venv}"
+
+  # shellcheck disable=SC1091
+  source "${venv}/bin/activate"
+}
+
+# use a certain Java version
+use_java() {
+  set -eo pipefail
+
+  has jenv || return 1
+
+  [[ "${JENV_LOADED}" == "1" ]] || eval "$(jenv init -)"
+
+  local java_version="${1:-}"
+  [[ -f .java-version ]] && java_version="$(head .java-version)"
+
+  if [[ -z "${java_version}" ]]; then
+    _fail "you should specify a Java version or add a .java-version file to the project root"
+    return 1
+  fi
+
+  if ! [[ -f .java-version ]]; then
+    jenv shell "${java_version}"
+  fi
+
+  export JAVA_HOME
+  JAVA_HOME="$(jenv javahome)"
+}
+
+# Configure Databricks plugin
+use_databricks() {
+  set -eo pipefail
+
+  if [[ -z "${PYENV_ROOT}" ]]; then
+    _fail "you should have Python to setup Databricks"
+    return 1
+  fi
+
+  if ! ( has databricks ); then
+    pip install -U databricks-cli
+    [[ -f ~/.databrickscfg ]] || databricks configure --token
+  fi
+
+  if ! ( has databricks-connect ); then
+    _warn "databricks-connect is not installed"
+    return 1
+  fi
+
+  export DB_CONNECT_RUNTIME
+  DB_CONNECT_RUNTIME="$(pip show databricks-connect | grep 'Version' | grep -o '\d.\d')"
+
+  export SPARK_HOME
+  SPARK_HOME="$(dirname "$(databricks-connect get-jar-dir)")"
+}
+
+layout_aws() {
+  local profile="${1:-default}"
+  _info "Loading AWS credentials from profile '${profile}'"
+
+  export AWS_PROFILE
+  AWS_PROFILE="${profile}"
+
+  export AWS_ACCESS_KEY_ID
+  AWS_ACCESS_KEY_ID="$( grep -A2 "\[${profile}\]" ~/.aws/credentials | awk -F ' = ' '/aws_access_key_id/ {print $2}' )"
+
+  export AWS_SECRET_ACCESS_KEY
+  AWS_SECRET_ACCESS_KEY="$( grep -A2 "\[${profile}\]" ~/.aws/credentials | awk -F ' = ' '/aws_secret_access_key/ {print $2}' )"
+}
