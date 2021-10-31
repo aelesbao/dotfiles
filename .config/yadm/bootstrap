@@ -86,9 +86,9 @@ function pkg-install() {
 
 function require() {
   local pkg="${1}"
-  local path="${2:-}"
+  local pkg_path="${2:-}"
 
-  if ([[ -n "$path" ]] && [[ -d "$path" ]]) || (( $+commands[$pkg] )); then
+  if ([[ -n "$pkg_path" ]] && [[ -d "$pkg_path" ]]) || (( $+commands[$pkg] )); then
     return
   fi
 
