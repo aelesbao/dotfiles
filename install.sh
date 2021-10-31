@@ -90,6 +90,7 @@ info "Initializing the repository with yadm"
 if [[ -d "$HOME/.local/share/yadm/repo.git" ]]; then
   if ask "The yadm repository already exists. Do you want to overwrite it?"; then
     yadm clone "$DOTFILES_REPO" --bootstrap -f
+    yadm checkout .
   else
     fail "Aborting"
   fi
