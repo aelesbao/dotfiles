@@ -11,10 +11,13 @@ if is-macos; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
+  # Make sure curl is installed via Homebrew and using the latest version (with OpenSSL)
+  brew --prefix curl >/dev/null 2>&1 || brew install -f curl
+
   require dropbox "/Applications/Dropbox.app"
   require 1password "/Applications/1Password 7.app"
   require gpg-suite "/Applications/GPG Keychain.app"
-
-  warn "Now you should configure Dropbox, 1Password and your GPG keys. Get back to the terminal when finished."
-  ask "Are you ready to proceed?" || exit 1
 fi
+
+notice "Dependencies installed. If necessary, please configure them before proceeding."
+ask "Are you ready to continue?" || fail "Aborting"

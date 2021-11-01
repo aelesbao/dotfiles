@@ -79,6 +79,9 @@ if is_macos; then
     info "Updating Homebrew"
     brew update && brew upgrade && brew cleanup
   fi
+
+  # Make sure curl is installed via Homebrew and using the latest version (with OpenSSL)
+  brew reinstall -f curl
 fi
 
 require zsh
@@ -88,12 +91,10 @@ require yadm
 info "Initializing the repository with yadm"
 
 if [[ -d "$HOME/.local/share/yadm/repo.git" ]]; then
-  if ask "The yadm repository already exists. Do you want to overwrite it?"; then
-    yadm clone "$DOTFILES_REPO" --bootstrap -f
-    yadm checkout .
-  else
-    fail "Aborting"
-  fi
+  ask "The yadm repository already exists. Do you want to overwrite it?" || fail "Aborting"
+
+  yadm clone "$DOTFILES_REPO" --bootstrap -f
+  yadm checkout .
 else
   yadm clone "$DOTFILES_REPO" --bootstrap
 fi
