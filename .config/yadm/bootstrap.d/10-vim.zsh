@@ -21,7 +21,7 @@ if [[ -d "${HOME}/.vim/bundle" ]]; then
   ask "It seems like vim is already configured. Do you want to proceed anyway?" || return 0
 fi
 
-mkdir -p ~/.vim
+mkdir -p ~/.vim/tmp
 
 [ $# -eq 0 ] && set -- -
 vim +'BundleInstall' +'BundleClean!' +'BundleUpdate' +'qall' -R
