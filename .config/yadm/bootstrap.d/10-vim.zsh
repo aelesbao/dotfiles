@@ -28,6 +28,8 @@ vim +'BundleInstall' +'BundleClean!' +'BundleUpdate' +'qall' -R
 
 ln -s ~/.vim/bundle/Colour-Sampler-Pack ~/.vim/colors
 
-pushd ~/.vim/bundle/coc.nvim
-yarn install --frozen-lockfile
-popd
+if (( $+commands[yarn] )); then
+  pushd ~/.vim/bundle/coc.nvim
+  yarn install --frozen-lockfile
+  popd
+fi
