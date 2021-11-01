@@ -12,11 +12,10 @@ if is-macos; then
   fi
 
   # Make sure curl is installed via Homebrew and using the latest version (with OpenSSL)
-  brew --prefix curl >/dev/null 2>&1 || brew install -f curl
-
-  require dropbox "/Applications/Dropbox.app"
-  require 1password "/Applications/1Password 7.app"
-  require gpg-suite "/Applications/GPG Keychain.app"
+  require curl
+  require dropbox
+  require 1password
+  require gpg-suite
 fi
 
 notice "Dependencies installed. If necessary, please configure them before proceeding."
