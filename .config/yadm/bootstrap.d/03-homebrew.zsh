@@ -37,4 +37,4 @@ if ! mas account >/dev/null 2>&1; then
 fi
 
 info "Updating Homebrew bundle"
-brew bundle --global --no-lock
+brew bundle --global
