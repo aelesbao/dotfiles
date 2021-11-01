@@ -6,8 +6,13 @@
 set -euo pipefail
 
 if ! (( $+commands[rustup] )); then
-  msg "rustup not installed"
-  return 1
+  info "Installing Rust"
+  if (( $+commands[rustup-init] )); then
+    rustup-init -y
+    source "$HOME/.cargo/env"
+  else
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  fi
 fi
 
 info "Configuring Rust"
