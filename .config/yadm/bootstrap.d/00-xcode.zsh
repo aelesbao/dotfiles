@@ -6,7 +6,7 @@
 set -euo pipefail
 
 if ! is-macos; then
-  msg "Not in a MacOS"
+  msg "XCode Command Line Tools are only available on macOS"
   return
 fi
 

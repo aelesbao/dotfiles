@@ -7,7 +7,7 @@ set -euo pipefail
 
 if ! [[ -x /usr/local/opt/fzf/install ]]; then
   msg "fzf not installed"
-  return 0
+  return 1
 fi
 
 info "Configuring fzf"

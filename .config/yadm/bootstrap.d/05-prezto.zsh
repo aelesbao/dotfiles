@@ -7,7 +7,7 @@ set -euo pipefail
 
 if ! [[ -d "${ZDOTDIR:-$HOME}/.zprezto" ]]; then
   msg "~/.zprezto not found"
-  return 0
+  return 1
 fi
 
 info "Configuring Prezto"

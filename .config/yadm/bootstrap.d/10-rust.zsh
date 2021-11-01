@@ -7,7 +7,7 @@ set -euo pipefail
 
 if ! (( $+commands[rustup] )); then
   msg "rustup not installed"
-  return 0
+  return 1
 fi
 
 info "Configuring Rust"
