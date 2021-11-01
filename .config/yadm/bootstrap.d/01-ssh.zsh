@@ -15,7 +15,7 @@ else
   msg "SSH key $key_name created"
 fi
 
-declare public_key="$(ssh-keygen -y -f "${HOME}/.ssh/id_rsa")"
+declare public_key="$(ssh-keygen -y -f "${HOME}/.ssh/id_rsa" | cut -d ' ' -f 1,2)"
 declare github_keys="$(curl -fsSL "https://api.github.com/users/${GITHUB_USER}/keys")"
 if [[ "$github_keys" == *"$public_key"* ]]; then
   msg "The SSH key already exists in GitHub"
