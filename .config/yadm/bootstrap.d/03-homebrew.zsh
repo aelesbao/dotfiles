@@ -31,5 +31,5 @@ fi
 
 if [[ -f "$HOME/.Brewfile" ]]; then
   info "Updating Homebrew bundle"
-  brew bundle --global --cleanup
+  brew bundle --global --no-lock
 fi
