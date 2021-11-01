@@ -8,11 +8,11 @@ set -euo pipefail
 if ! (( $+commands[rustup] )); then
   info "Installing Rust"
   if (( $+commands[rustup-init] )); then
-    rustup-init -y
-    source "$HOME/.cargo/env"
+    rustup-init -y --no-modify-path
   else
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
   fi
+  source "$HOME/.cargo/env"
 fi
 
 info "Configuring Rust"
