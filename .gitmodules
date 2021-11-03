@@ -2,6 +2,7 @@
 	path = .zprezto
 	url = git@github.com:aelesbao/prezto.git
 	branch = custom
+  update = rebase
 [submodule ".config/kitty/kitty-themes"]
 	path = .config/kitty/kitty-themes
 	url = git@github.com:dexpota/kitty-themes.git
