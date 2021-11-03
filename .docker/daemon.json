@@ -1,1 +1,1 @@
-{"features":{"buildkit":true},"debug":false,"builder":{"gc":{"enabled":true,"defaultKeepStorage":"30GB"}},"experimental":false}
+{"features":{"buildkit":true},"debug":false,"builder":{"gc":{"enabled":true,"defaultKeepStorage":"30GB"}},"experimental":true}
