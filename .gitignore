@@ -1,3 +1,6 @@
+# Local config
+.gitconfig.local
+
 # Editors
 *.swp
 .ensime

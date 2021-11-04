@@ -1,20 +1,23 @@
 [user]
 	name = Augusto Elesbão
-	email = aelesbao@gmail.com
-  useconfigonly = true
-  signingkey = 1206F374
+  signingkey = FFAE83F3
+  useConfigOnly = true
 
-[url "git@github.com:aelesbao/"]
-  insteadOf = "git://github.com/aelesbao/"
-  insteadOf = "aelesbao:"
+[core]
+  editor = vim
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+  whitespace = trailing-space,space-before-tab
+  pager = diff-so-fancy | less --tabs=4 -RFX
 
-[url "git://github.com/"]
+[url "git@github.com:"]
   insteadOf = "github:"
   insteadOf = "gh:"
 
-[url "git@github.com:"]
-  pushInsteadOf = "github:"
-  pushInsteadOf = "gh:"
+[url "git@github.com:aelesbao/"]
+  insteadOf = "https://github.com/aelesbao/"
+  insteadOf = "git://github.com/aelesbao/"
+  insteadOf = "aelesbao:"
 
 [url "https://aur4.archlinux.org/"]
   insteadOf = "aur:"
@@ -31,45 +34,26 @@
 [url "git@gitlab.com:"]
   insteadOf = "gitlab:"
 
-[url "git@gitlab.com:dharmaworks/"]
-  insteadOf = "dw:"
-
-[url "git@gitlab.com:collabchain/"]
-  insteadOf = "cc:"
-  insteadOf = "collabchain:"
-
-[url "git@github.com:hidotmatrix/"]
-  insteadOf = "dotmatrix:"
-
-[url "git@github.com:anmolnetwork/"]
-  insteadOf = "anmol:"
-
-[url "git@github.com:getyourguide/"]
-  insteadOf = "getyourguide:"
-  insteadOf = "gyg:"
-
-[core]
-  editor = vim
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
-  whitespace = trailing-space,space-before-tab
-  pager = diff-so-fancy | less --tabs=4 -RFX
+[github]
+  user = aelesbao
 
 [branch]
-  autosetuprebase = always
+  autoSetupRebase = always
 
 [push]
   default = upstream
 
+[commit]
+  gpgSign = true
+  verbose = true
+
 [alias]
   st      = status
   s       = status -s -b
-  commit  = commit -v
-  ci      = commit -v
-  cis     = !git ci
-  ;cis     = commit -v -S
-  amend   = !git ci --amend -C HEAD
-  fixup   = !git ci --fixup=$(git rev-parse --verify HEAD)
+  ci      = commit
+  cis     = !git ci -S
+  amend   = !git cis --amend -C HEAD
+  fixup   = !git cis --fixup=$(git rev-parse --verify HEAD)
   co      = checkout
   w       = whatchanged
   wiff    = diff --color-words --word-diff
@@ -85,7 +69,6 @@
   head    = rev-parse --short --verify HEAD
   news    = log -p HEAD@{1}..HEAD@{0}
   publish = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
-  publish-pr = !git publish && git pull-request -a aelesbao
   clean   = clean -i
   clear   = clean -i
   current-branch = !git symbolic-ref -q --short HEAD || git describe --tags --exact-match
@@ -97,9 +80,6 @@
 	tool = vscode
   ;renames = copies
 
-[difftool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
-
 [difftool "vscode"]
   cmd = code -n --wait --diff $LOCAL $REMOTE
 
@@ -108,17 +88,9 @@
   ff = only
   ;conflictstyle = diff3
 
-[mergetool "p4mergetool"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-	trustExitCode = false
-	keepBackup = false
-
 [mergetool "vscode"]
   cmd = code -n --wait $MERGED
 	keepBackup = false
-
-[github]
-  user = aelesbao
 
 [filter "media"]
 	clean = git-media-clean %f
@@ -129,15 +101,6 @@
 
 [rebase]
 	autosquash = true
-
-[workspaces]
-	sandbox = ~/workspace/sandbox
-	sources = ~/workspace/sources
-	courses = ~/workspace/courses
-	backup = ~/workspace/backup
-	collabchain = ~/workspace/collabchain
-	dharmaworks = ~/workspace/dharmaworks
-	dotmatrix = ~/workspace/dotmatrix
 
 [apply]
 	whitespace = warn
@@ -165,3 +128,7 @@
 
 [init]
 	defaultBranch = main
+
+[include]
+  path = ~/.gitconfig.local
+
