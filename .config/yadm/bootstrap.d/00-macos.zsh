@@ -54,6 +54,7 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 
 msg "Configure dock size and magnification"
 defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock titlesize -int 48
 defaults write com.apple.dock titlesize -int 35
 defaults write com.apple.dock largesize -int 75
 
