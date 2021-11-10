@@ -80,7 +80,7 @@ info "Configuring keyboard and typing"
 # https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
 msg "Re-mapping Caps Lock to ESC"
 # Use LaunchAgent to remap Caps Lock to ESC on system boot
-launchctl load io.github.aelesbao.CapslockEscape.plist
+launchctl load ~/Library/LaunchAgents/io.github.aelesbao.CapslockEscape.plist
 
 msg "Disable press-and-hold for keys in favor of key repeat"
 defaults write -g ApplePressAndHoldEnabled -bool false
