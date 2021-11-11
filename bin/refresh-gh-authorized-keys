@@ -5,11 +5,11 @@ GITHUB_USER="${GITHUB_USER:-aelesbao}"
 mkdir -p ~/.ssh
 
 if ! [[ -f ~/.ssh/authorized_keys ]]; then
-  echo "Creating new ~/.ssh/authorized_keys"
+  echo -e "\033[1;37m∷ Creating new ~/.ssh/authorized_keys\033[0m"
   touch ~/.ssh/authorized_keys
 fi
 
-echo "\033[1;37m∷ Fetching keys from GitHub\033[0m"
+echo -e "\033[1;37m∷ Fetching keys from GitHub\033[0m"
 
 curl -fsSL "https://api.github.com/users/${GITHUB_USER}/keys" | jq -r '.[].key' | while IFS= read -r key; do
   echo "$key"
