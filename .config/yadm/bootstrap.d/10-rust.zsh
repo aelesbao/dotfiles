@@ -17,8 +17,13 @@ fi
 
 info "Configuring Rust"
 
+rustup set profile default
+
 rustup update nightly
 rustup update stable
 
 rustup target add wasm32-unknown-unknown --toolchain nightly
-rustup component add rustfmt
+
+rustup component add rls
+rustup component add rust-analysis
+rustup component add rust-src
