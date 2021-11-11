@@ -19,9 +19,10 @@ info "Configuring Rust"
 
 rustup set profile default
 
-rustup update nightly
 rustup update stable
+rustup target add wasm32-unknown-unknown
 
+rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
 rustup component add rls
