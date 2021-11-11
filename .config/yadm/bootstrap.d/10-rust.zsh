@@ -28,3 +28,5 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 rustup component add rls
 rustup component add rust-analysis
 rustup component add rust-src
+
+cargo install cargo-generate --features vendored-openssl

@@ -1,2 +1,5 @@
 [build]
 rustc-wrapper = "/usr/local/bin/sccache"
+
+[alias]
+gen = "generate"
