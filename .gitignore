@@ -43,6 +43,7 @@ Thumbs.db
 .ruby-version
 .python-version
 .java-version
+.nvmrc
 
 # dotfiles
 .Brewfile*
