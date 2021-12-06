@@ -1,23 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 
-set -eu
+set -euo pipefail
 
 
 export GITHUB_USER="aelesbao"
 export DOTFILES_REPO="https://github.com/$GITHUB_USER/dotfiles"
+export YADM_VERSION="3.1.1"
 
 
 title() {
-  echo "\033[1;35m≡ ${@:$#}\033[0m"
+  printf "\033[1;35m≡ %s\033[0m\n" "${@:$#}"
 }
 
 info() {
   echo
-  echo "\033[1;37m∷ ${@:$#}\033[0m"
+  printf "\033[1;37m∷ %s\033[0m\n" "${@:$#}"
 }
 
 fail() {
-  echo "\033[0;31m⁘ ${@:$#}" >&2
+  printf "\033[0;31m⁘ %s\n" "${@:$#}" >&2
   exit 1
 }
 
@@ -89,7 +90,12 @@ fi
 
 require zsh
 require git
-require yadm
+
+if is_macos; then
+  require yadm
+else
+  sudo -- sh -c "curl -fsSLo /usr/local/bin/yadm 'https://raw.githubusercontent.com/TheLocehiliosan/yadm/${YADM_VERSION}/yadm' && chmod a+x /usr/local/bin/yadm"
+fi
 
 info "Initializing the repository with yadm"
 

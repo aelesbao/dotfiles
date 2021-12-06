@@ -5,5 +5,5 @@ My personal and opinionated dotfiles. Uses [yadm](https://github.com/TheLocehili
 ## Installation
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/aelesbao/dotfiles/HEAD/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/aelesbao/dotfiles/HEAD/install.sh)"
 ```
