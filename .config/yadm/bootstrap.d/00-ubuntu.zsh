@@ -29,3 +29,11 @@ sudo apt install -y \
   rsync \
   wget \
   zip
+
+info "Installing manual packages"
+
+msg "lsd"
+version="$(get-latest-tag Peltoche/lsd)"
+pkg_path="$(mktemp -d)/lsd_${version}_amd64.deb"
+wget -O "${pkg_path}" "https://github.com/Peltoche/lsd/releases/download/${version}/lsd_${version}_amd64.deb"
+sudo dpkg -i "${pkg_path}"

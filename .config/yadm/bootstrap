@@ -119,6 +119,11 @@ function require() {
     fail "Failed to install $pkg"
 }
 
+function get-latest-tag() {
+  local repo="${1}"
+  curl -fsSL "https://api.github.com/repos/${repo}/tags" | jq -r ".[0].name"
+}
+
 
 cd "$HOME"
 
