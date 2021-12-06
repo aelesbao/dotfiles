@@ -16,7 +16,7 @@ if is-macos; then
   require dropbox
   require 1password
   require gpg-suite
-fi
 
-notice "Dependencies installed. If necessary, please configure them before proceeding."
-ask "Are you ready to continue?" || fail "Aborting"
+  notice "Dependencies installed. If necessary, please configure them before proceeding."
+  ask "Are you ready to continue?" || fail "Aborting"
+fi

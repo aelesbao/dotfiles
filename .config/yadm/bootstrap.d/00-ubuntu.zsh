@@ -26,6 +26,5 @@ sudo apt install -y \
   powerline \
   procps \
   rsync \
-  vim \
   wget \
   zip
