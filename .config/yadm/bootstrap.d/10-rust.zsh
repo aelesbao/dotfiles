@@ -30,6 +30,7 @@ rustup component add rust-analysis
 rustup component add rust-src
 
 if ! (( $+commands[sccache] )); then
+  export RUSTC_WRAPPER=
   cargo install sccache
 fi
 
