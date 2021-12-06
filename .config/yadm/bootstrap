@@ -126,8 +126,15 @@ if [[ ! -d "$BOOTSTRAP_D" ]]; then
   fail "bootstrap scripts directory $BOOTSTRAP_D not found"
 fi
 
+declare scripts_filter
+scripts_filter="*(${(j:.zsh|:)@}.zsh)*"
+
+declare -a bootstrap_scripts
+bootstrap_scripts=($(find "$BOOTSTRAP_D" -type f -name '*.zsh' | sort))
+bootstrap_scripts=(${(M)bootstrap_scripts:#${~scripts_filter}})
+
 title "Running bootstrap scripts"
-find -L "$BOOTSTRAP_D" -type f | sort | while IFS= read -r bootstrap; do
+for bootstrap in ${bootstrap_scripts[@]}; do
   if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
       echo
       notice "bootstrapping ${bootstrap:t:r}..."
