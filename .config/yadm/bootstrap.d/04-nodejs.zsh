@@ -14,12 +14,14 @@ if ! (( $+commands[nvm] )); then
   elif [ -s "$NVM_DIR/nvm.sh" ]; then
     source "$NVM_DIR/nvm.sh"
   else
-    msg "nvm not found, skipping..."
-    return 1
+    info "Installing nvm"
+    declare nvm_version
+    nvm_version="$(curl -fsSL "https://api.github.com/repos/nvm-sh/nvm/tags" | jq -r ".[0].name")"
+    curl -fsSLo- "https://raw.githubusercontent.com/nvm-sh/nvm/${nvm_version}/install.sh" | bash
+    source "$NVM_DIR/nvm.sh"
   fi
 fi
 
-info "Configuring Node.js"
-
+info "Installing Node.js"
 nvm install --lts
 nvm install node --default
