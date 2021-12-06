@@ -36,13 +36,12 @@ ask() {
   fi
 }
 
+has_command() {
+  command -v "$@" >/dev/null 2>&1
+}
 
 is_macos() {
   [[ "$OSTYPE" == darwin* ]]
-}
-
-command_exists() {
-  command -v "$@" >/dev/null 2>&1
 }
 
 pkg_install() {
@@ -51,6 +50,10 @@ pkg_install() {
 
   if is_macos; then
     brew install $pkg
+  elif has_command apt; then
+    sudo apt install -y $pkg
+  elif has_command pacman; then
+    sudo pacman -S --noconfirm $pkg
   else
     fail "Unsupported OS: $(uname -a)"
   fi
@@ -58,7 +61,7 @@ pkg_install() {
 
 require() {
   local pkg="${1:?}"
-  if ! command_exists "$pkg"; then
+  if ! has_command "$pkg"; then
     pkg_install $pkg
   fi
 }
@@ -66,13 +69,13 @@ require() {
 
 title "Installing $GITHUB_USER's .dotfiles"
 
-if command_exists hostinfo; then
+if has_command hostinfo; then
   info "System info"
   hostinfo
 fi
 
 if is_macos; then
-  if ! command_exists brew; then
+  if ! has_command brew; then
     info "Installing Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   else

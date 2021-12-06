@@ -69,8 +69,19 @@ function title() {
   echo -e "\033[1;35m≡ ${@:$#}\033[0m"
 }
 
+function has-command() {
+  command -v "$@" >/dev/null 2>&1
+}
 function is-macos() {
   [[ "$OSTYPE" == darwin* ]]
+}
+
+function is-ubuntu() {
+  has-command lsb_release && lsb_release -d | awk -F"\t" '{print $2}' | grep -iq "Ubuntu"
+}
+
+function is-arch() {
+  has-command pacman
 }
 
 function is-pkg-installed() {
@@ -78,6 +89,8 @@ function is-pkg-installed() {
 
   if is-macos; then
     { brew list --formula "$pkg" || brew list --cask "$pkg" } >/dev/null 2>&1
+  elif has-command dpkg-query; then
+    dpkg-query -W "$pkg" >/dev/null 2>&1
   else
     fail "Unsupported OS: $(uname -a)"
   fi
@@ -89,6 +102,10 @@ function pkg-install() {
 
   if is-macos; then
     brew install $pkg
+  elif has-command apt; then
+    sudo apt install -y $pkg
+  elif has-command pacman; then
+    sudo pacman -S --noconfirm $pkg
   else
     fail "Unsupported OS: $(uname -a)"
   fi
