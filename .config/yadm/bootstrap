@@ -72,6 +72,7 @@ function title() {
 function has-command() {
   command -v "$@" >/dev/null 2>&1
 }
+
 function is-macos() {
   [[ "$OSTYPE" == darwin* ]]
 }
