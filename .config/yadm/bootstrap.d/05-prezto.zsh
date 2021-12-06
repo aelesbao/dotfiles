@@ -18,4 +18,11 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 
 declare current_shell="$(finger $USER | grep 'Shell:*' | cut -f3 -d ':' | sed 's/ //g')"
-[[ "$current_shell" == /bin/zsh ]] || chsh -s /bin/zsh
+if [[ "$current_shell" == $(which zsh) ]]; then
+  msg "Changing $USER's shell to zsh"
+  if is-macos; then
+    chsh -s $(which zsh)
+  else
+    sudo chsh -s $(which zsh) $(whoami)
+  fi
+fi
