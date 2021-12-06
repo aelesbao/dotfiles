@@ -29,4 +29,8 @@ rustup component add rls
 rustup component add rust-analysis
 rustup component add rust-src
 
+if ! (( $+commands[sccache] )); then
+  cargo install sccache
+fi
+
 cargo install cargo-generate --features vendored-openssl
