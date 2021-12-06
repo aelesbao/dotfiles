@@ -22,6 +22,7 @@ sudo apt install -y \
   file \
   finger \
   language-pack-en-base \
+  libssl-dev \
   powerline \
   procps \
   rsync \
