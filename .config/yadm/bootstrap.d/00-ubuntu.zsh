@@ -12,15 +12,16 @@ fi
 
 
 info "Update and upgrade packages"
-
 export DEBIAN_FRONTEND=noninteractive
 sudo apt update && sudo apt upgrade -y
 
+info "Installing new packages"
 sudo apt install -y \
   build-essential \
   curl \
   file \
   finger \
+  jq \
   language-pack-en-base \
   libssl-dev \
   powerline \
