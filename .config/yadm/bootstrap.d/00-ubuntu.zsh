@@ -60,7 +60,7 @@ sudo apt install -y \
 info "Installing packages from GitHub Releases"
 install-gh-pkg-release "Peltoche/lsd"
 
-if (( $+commands[docker] )); then
+if ! (( $+commands[docker] )); then
   info "Installing Docker"
   curl -fsSLo- https://get.docker.com | bash
 fi
