@@ -72,3 +72,6 @@ unzip -u "$(download-gh-release ryanoasis/nerd-fonts Hack.zip)" -d ~/.local/shar
 info "Cleaning up"
 sudo apt autoremove -y
 sudo apt autoclean
+
+info "Generating locales"
+sudo locale-gen en_US.UTF-8 de_DE.UTF-8
