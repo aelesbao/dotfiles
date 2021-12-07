@@ -42,20 +42,28 @@ sudo apt update && sudo apt upgrade -y
 info "Installing apt packages"
 sudo apt install -y \
   build-essential \
+  ca-certificates \
   curl \
   file \
   finger \
+  gnupg \
   jq \
   language-pack-en-base \
   libssl-dev \
+  lsb-release \
   powerline \
   procps \
   rsync \
   wget \
   zip
 
-info "Installing manual packages"
+info "Installing packages from GitHub Releases"
 install-gh-pkg-release "Peltoche/lsd"
+
+if (( $+commands[docker] )); then
+  info "Installing Docker"
+  curl -fsSLo- https://get.docker.com | bash
+fi
 
 info "Installing fonts"
 mkdir -p ~/.local/share/fonts
