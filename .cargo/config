@@ -1,2 +1,5 @@
+[cargo-new]
+email = "https://github.com/aelesbao"
+
 [alias]
 gen = "generate"
