@@ -1,14 +1,14 @@
 [user]
-	name = Augusto Elesbão
+  name = Augusto Elesbão
   signingkey = FFAE83F3
   useConfigOnly = true
 
 [core]
   editor = vim
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
   whitespace = trailing-space,space-before-tab
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta || diff-so-fancy | less --tabs=4 -RFX || less --tabs=4 -RFX
 
 [url "git@github.com:"]
   insteadOf = "github:"
@@ -73,64 +73,71 @@
   clear   = clean -i
   current-branch = !git symbolic-ref -q --short HEAD || git describe --tags --exact-match
 
-[format]
-  pretty = format:%C(bold yellow)%h%C(reset) %s %C(red)%d%C(reset) %n%C(magenta)%ad%C(reset) %n%C(blue)%an%C(reset)%n
-
-[diff]
-	tool = vscode
-  ;renames = copies
-
-[difftool "vscode"]
-  cmd = code -n --wait --diff $LOCAL $REMOTE
-
-[merge]
-	tool = vscode
-  ff = only
-  ;conflictstyle = diff3
-
-[mergetool "vscode"]
-  cmd = code -n --wait $MERGED
-	keepBackup = false
+[init]
+  defaultBranch = main
 
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 
 [rerere]
-	enabled = true
+  enabled = true
 
 [rebase]
-	autosquash = true
+  autosquash = true
 
 [apply]
-	whitespace = warn
+  whitespace = warn
+
+[format]
+  pretty = format:%C(bold yellow)%h%C(reset) %s %C(red)%d%C(reset) %n%C(magenta)%ad%C(reset) %n%C(blue)%an%C(reset)%n
 
 [color]
   ui     = true
   pager  = true
 
 [color "diff-highlight"]
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-	oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+  oldNormal = red bold
 
 [color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[diff]
+  tool = vscode
+  ;renames = copies
+  colorMoved = default
+
+[difftool "vscode"]
+  cmd = code -n --wait --diff $LOCAL $REMOTE
+
+[merge]
+  tool = vscode
+  ff = only
+  conflictstyle = diff3
+
+[mergetool "vscode"]
+  cmd = code -n --wait $MERGED
+  keepBackup = false
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
-[init]
-	defaultBranch = main
+[hub]
+  protocol = ssh
 
 [include]
   path = ~/.gitconfig.local
-
-[hub]
-	protocol = ssh
