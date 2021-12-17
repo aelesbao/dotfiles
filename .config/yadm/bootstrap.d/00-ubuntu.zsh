@@ -61,6 +61,8 @@ sudo apt install -y \
 
 info "Installing manual packages"
 install-gh-pkg-release "Peltoche/lsd"
+install-gh-pkg-release "sharkdp/bat"
+install-gh-pkg-release "dandavison/delta" "git-delta"
 
 msg "diff-so-fancy"
 sudo add-apt-repository -y ppa:aos1/diff-so-fancy
