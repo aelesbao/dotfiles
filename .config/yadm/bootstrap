@@ -121,7 +121,7 @@ function require() {
 
 function get-latest-tag() {
   local repo="${1}"
-  curl -fsSL "https://api.github.com/repos/${repo}/tags" | jq -r ".[0].name"
+  curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" | jq -r ".tag_name"
 }
 
 
