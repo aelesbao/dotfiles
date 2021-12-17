@@ -1,5 +1,6 @@
 # Local config
 .gitconfig.local
+.config/kitty/local.conf
 
 # Editors
 *.swp
