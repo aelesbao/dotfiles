@@ -76,6 +76,9 @@
 [init]
   defaultBranch = main
 
+[git-extras]
+  default-branch = main
+
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
@@ -96,19 +99,19 @@
   ui     = true
   pager  = true
 
-[color "diff-highlight"]
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-  oldNormal = red bold
+;[color "diff-highlight"]
+  ;oldHighlight = red bold 52
+  ;newNormal = green bold
+  ;newHighlight = green bold 22
+  ;oldNormal = red bold
 
-[color "diff"]
-  meta = yellow
-  frag = magenta bold
-  commit = yellow bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
+;[color "diff"]
+  ;meta = yellow
+  ;frag = magenta bold
+  ;commit = yellow bold
+  ;old = red bold
+  ;new = green bold
+  ;whitespace = red reverse
 
 [diff]
   tool = vscode
@@ -132,6 +135,7 @@
 
 [delta]
   navigate = true
+  line-numbers = true
 
 [credential]
   helper = osxkeychain
