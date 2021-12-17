@@ -44,6 +44,7 @@ sudo apt install -y \
   build-essential \
   ca-certificates \
   curl \
+  dbus-user-session \
   file \
   finger \
   gnupg \
@@ -54,15 +55,24 @@ sudo apt install -y \
   powerline \
   procps \
   rsync \
+  uidmap \
   wget \
   zip
 
-info "Installing packages from GitHub Releases"
+info "Installing manual packages"
 install-gh-pkg-release "Peltoche/lsd"
+
+msg "diff-so-fancy"
+sudo add-apt-repository -y ppa:aos1/diff-so-fancy
+sudo apt install -y diff-so-fancy
 
 if ! (( $+commands[docker] )); then
   info "Installing Docker"
   curl -fsSLo- https://get.docker.com | bash
+
+  msg "Configuring Docker rootless mode"
+  sudo systemctl disable --now docker.service docker.socket
+  dockerd-rootless-setuptool.sh install
 fi
 
 info "Installing fonts"
