@@ -10,10 +10,10 @@ function download-gh-release() {
 
   local repo="${1}"
   local file="${2}"
-  local version="${3:-$(get-latest-tag "${repo}")}"
+  local version="${3}"
   local pkg_path="$(mktemp -d)/${file}"
 
-  curl -fsSLo "${pkg_path}" "https://github.com/${repo}/releases/download/${version}/${file}"
+  curl -fsSLo "${pkg_path}" "https://github.com/${repo}/releases/download/${version}/${file}" || fail "Failed to download ${file}"
   echo "${pkg_path}"
 }
 
@@ -23,7 +23,7 @@ function install-gh-pkg-release() {
   local repo="${1}"
   local pkg_name="${2:-${repo#*/}}"
   local version="${3:-$(get-latest-tag "${repo}")}"
-  local pkg_path="$(download-gh-release "${repo}" "${pkg_name}_${version}_amd64.deb" "${version}")"
+  local pkg_path="$(download-gh-release "${repo}" "${pkg_name}_${version#v}_amd64.deb" "${version}")"
 
   msg "Installing ${repo}"
   sudo dpkg -i "${pkg_path}"
