@@ -3,4 +3,4 @@
 brew bundle --global
 yadm encrypt
 yadm add ~/.local/share/yadm/archive
-yadm cis -m 'update Homebrew packages'
+yadm cis -m 'update encrypted files'
