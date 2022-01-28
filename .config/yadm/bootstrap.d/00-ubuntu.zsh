@@ -34,6 +34,8 @@ if ! is-ubuntu; then
   return
 fi
 
+info "Add external repositories"
+sudo add-apt-repository -y ppa:aos1/diff-so-fancy
 
 info "Update and upgrade packages"
 export DEBIAN_FRONTEND=noninteractive
@@ -45,6 +47,8 @@ sudo apt install -y \
   ca-certificates \
   curl \
   dbus-user-session \
+  diff-so-fancy \
+  exa \
   file \
   finger \
   gnupg \
@@ -64,10 +68,6 @@ install-gh-pkg-release "Peltoche/lsd"
 install-gh-pkg-release "sharkdp/bat"
 install-gh-pkg-release "dandavison/delta" "git-delta"
 
-msg "diff-so-fancy"
-sudo add-apt-repository -y ppa:aos1/diff-so-fancy
-sudo apt install -y diff-so-fancy
-
 if ! (( $+commands[docker] )); then
   info "Installing Docker"
   curl -fsSLo- https://get.docker.com | bash
@@ -76,6 +76,9 @@ if ! (( $+commands[docker] )); then
   sudo systemctl disable --now docker.service docker.socket
   dockerd-rootless-setuptool.sh install
 fi
+
+msg "Installing starship prompt"
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 info "Installing fonts"
 mkdir -p ~/.local/share/fonts
