@@ -10,9 +10,9 @@ $directory\
 $vcsh\
 $git_branch\
 $git_commit\
+$git_status\
 $git_state\
 $git_metrics\
-$git_status\
 $docker_context\
 $package\
 $cmake\
@@ -42,36 +42,84 @@ $status\
 $shell\
 $character"""
 
+[username]
+style_user = "bold fg:250"
+style_root = "bold fg:197"
+format = "[$user]($style) "
+
+[hostname]
+format =  "on [$hostname]($style)[:](244)"
+style = "bold 141"
+
 [directory]
-style = "blue"
+style = "bold fg:75"
 
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vicmd_symbol = "[❮](green)"
 
-[[battery.display]]
-threshold = 20
-
 [git_branch]
-format = "[$branch]($style)"
-style = "bright-black"
+format = "on [$symbol$branch]($style) "
+symbol = " "
+style = "200"
+
+[git_commit]
+format = "[( $hash)$tag]($style) "
+tag_disabled = false
+tag_symbol = ""
+style = "105"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
-# conflicted = "​"
-# untracked = "​"
-# modified = "​"
-# staged = "​"
-# renamed = "​"
-# deleted = "​"
+format = """([±\\[ \
+([$modified](bold 226) )\
+([$staged](bold 82) )\
+([$renamed](bold 155) )\
+([$deleted](bold 197) )\
+([$conflicted](165) )\
+([$untracked](125) )\
+([$stashed](80) )\
+([$ahead_behind](bold 215) )\
+\\]]($style) )"""
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇡⇣"
+up_to_date = ""
+conflicted = "⇄"
+untracked = ""
+modified = "⩫"
+staged = "+"
+renamed = "→⇢"
+deleted = "×"
 stashed = "≡"
+style = "244"
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+format = "[ $state( $progress_current/$progress_total)]($style) "
+rebase = "rebasing"
+merge = "merging"
+revert = "reverting"
+cherry_pick = "cherry-picking"
+bisect = "bisecting"
+am = "am"
+am_or_rebase = "am/rebase"
+style = "bright-red"
+
+[git_metrics]
+format = '([ [+$added](28)(/[-$deleted](124))](244) )'
+disabled = false
 
 [cmd_duration]
-format = "[$duration]($style) "
+format = "took [$duration]($style) "
 style = "yellow"
+
+[docker_context]
+only_with_files = false
+style = "31"
+
+[golang]
+format = "via [$symbol](244)[($version )]($style)"
+symbol = " "
+
+[[battery.display]]
+threshold = 20
