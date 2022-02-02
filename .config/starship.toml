@@ -118,7 +118,7 @@ only_with_files = false
 style = "31"
 
 [golang]
-format = "via [$symbol](244)[($version )]($style)"
+format = "via [$symbol($version )]($style)"
 symbol = " "
 
 [[battery.display]]
