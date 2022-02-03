@@ -123,3 +123,9 @@ symbol = " "
 
 [[battery.display]]
 threshold = 20
+
+[sudo]
+format = "[$symbol sudo]($style)"
+symbol = ""
+style = "bold red"
+disabled = false
