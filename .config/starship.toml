@@ -53,6 +53,7 @@ style = "bold 141"
 
 [directory]
 style = "bold fg:75"
+read_only = " "
 
 [character]
 success_symbol = "[❯](purple)"
@@ -115,6 +116,7 @@ style = "yellow"
 
 [docker_context]
 only_with_files = false
+symbol = " "
 style = "31"
 
 [golang]
@@ -125,7 +127,67 @@ symbol = " "
 threshold = 20
 
 [sudo]
-format = "[$symbol sudo]($style)"
+format = "[$symbol sudo]($style) "
 symbol = ""
 style = "bold red"
 disabled = false
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
