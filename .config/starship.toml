@@ -107,7 +107,7 @@ am_or_rebase = "am/rebase"
 style = "bright-red"
 
 [git_metrics]
-format = "[( [ +$added](28))( [-$deleted](124))](244) "
+format = "([( [ +$added](28))( [-$deleted](124))](244) )"
 disabled = false
 
 [cmd_duration]
