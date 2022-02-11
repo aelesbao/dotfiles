@@ -16,23 +16,17 @@ if is-macos && is-pkg-installed iterm2; then
   fi
 fi
 
-if has-command kitty; then
+if is-macos && has-command kitty; then
   info "Configuring Kitty"
+  kitty_app_path=$(find /Applications -name "kitty.app" -maxdepth 1)
 
-  msg "Set theme"
-  kitty +kitten themes --reload-in all --dump-theme Jellybeans >! ~/.config/kitty/current-theme.conf
+  msg "Set icon"
+  cp ~/.config/kitty/kitty-icon/kitty.icns ${kitty_app_path}/Contents/Resources/kitty.icns
+  cp ~/.config/kitty/kitty-icon/icon_128x128.png ${kitty_app_path}/Contents/Resources/kitty/logo/kitty-128.png
+  cp ~/.config/kitty/kitty-icon/icon_256x256.png ${kitty_app_path}/Contents/Resources/kitty/logo/kitty.png
 
-  if is-macos; then
-    kitty_app_path=$(find /Applications -name "kitty.app" -maxdepth 1)
-
-    msg "Set icon"
-    cp ~/.config/kitty/kitty-icon/kitty.icns ${kitty_app_path}/Contents/Resources/kitty.icns
-    cp ~/.config/kitty/kitty-icon/icon_128x128.png ${kitty_app_path}/Contents/Resources/kitty/logo/kitty-128.png
-    cp ~/.config/kitty/kitty-icon/icon_256x256.png ${kitty_app_path}/Contents/Resources/kitty/logo/kitty.png
-
-    msg "Refresh icon cache"
-    touch ${kitty_app_path}
-    rm /var/folders/*/*/*/com.apple.dock.iconcache
-    killall Dock
-  fi
+  msg "Refresh icon cache"
+  touch ${kitty_app_path}
+  rm /var/folders/*/*/*/com.apple.dock.iconcache
+  killall Dock
 fi
