@@ -1,7 +1,14 @@
 #!/bin/sh
 
-commit="$1"
-date="$2"
+set -eu
+
+commit="${1:-}"
+date="${2:-}"
+
+if [[ -z "$commit" ]] || [[ -z "$date" ]]; then
+  echo "usage: git rewrite-commit-date SHA DATE"
+  exit 1
+fi
 
 export GIT_AUTHOR_DATE="$date"
 export GIT_COMMITTER_DATE="$date"
