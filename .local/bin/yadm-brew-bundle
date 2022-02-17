@@ -1,6 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+if ! (( $+commands[brew] )); then
+echo "Homebrew not installed"
+exit 1
+fi
 
 brew bundle --global
+
 yadm encrypt
 yadm add ~/.local/share/yadm/archive
 yadm cis -m 'update encrypted files'

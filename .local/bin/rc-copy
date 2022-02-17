@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+# zparseopts
+
+SRC="${1}"
+DST="${2}"
+
+: RCLONE_RC_ADDR="${RCLONE_RC_ADDR:-192.168.0.3:5572}"
+: RCLONE_RC_USER="${RCLONE_RC_USER:-gui}"
+
+rclone rc \
+  --rc-addr "$RCLONE_RC_ADDR" \
+  --rc-user "$RCLONE_RC_USER" \
+  --rc-pass "$RCLONE_RC_PASS" \
+  sync/copy \
+  srcFs="$SRC" dstFs="$DST" | jq .
