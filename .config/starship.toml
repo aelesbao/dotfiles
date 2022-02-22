@@ -77,7 +77,7 @@ format = """([±\\[ \
 ([$staged](bold 82) )\
 ([$renamed](bold 155) )\
 ([$deleted](bold 197) )\
-([$conflicted](165) )\
+([$conflicted](202) )\
 ([$untracked](125) )\
 ([$stashed](80) )\
 ([$ahead_behind](bold 215) )\
