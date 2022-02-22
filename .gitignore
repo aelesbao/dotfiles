@@ -12,6 +12,7 @@
 *.sublime-*
 .metadata/
 .settings/
+.vscode/
 .project
 .externalToolBuilders/
 rebel.xml
