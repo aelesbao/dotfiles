@@ -49,6 +49,7 @@ sudo apt install -y \
   dbus-user-session \
   diff-so-fancy \
   exa \
+  fd-find \
   file \
   finger \
   gnupg \
