@@ -15,28 +15,51 @@ if ! (( $+commands[rustup] )); then
   source "$HOME/.cargo/env"
 fi
 
+echo
 info "Configuring Rust"
-
 rustup set profile default
 
-msg "Updating rust stable"
+echo
+info "Updating rust stable"
 rustup update stable
 rustup target add wasm32-unknown-unknown
 
-msg "Updating rust nightly"
+echo
+info "Updating rust nightly"
 rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
-msg "Installing rustup components"
+echo
+info "Installing rustup components"
 rustup component add rls
 rustup component add rust-analysis
 rustup component add rust-src
 rustup component add clippy
 
+function add-plugin() {
+  local name="$1"
+  local features="${2:-}"
+
+  msg "$name"
+  if [[ -z "$features" ]]; then
+    cargo install "$name"
+  else
+    cargo install "$name" --features "$features"
+  fi
+}
+
+echo
+info "Installing cargo plugins"
+
 if ! (( $+commands[sccache] )); then
-  msg "Installing sccache"
-  RUSTC_WRAPPER= cargo install sccache
+  RUSTC_WRAPPER= add-plugin sccache
 fi
 
-msg "Installing cargo-generate"
-cargo install cargo-generate --features vendored-openssl
+add-plugin cargo-binstall
+add-plugin cargo-make
+add-plugin cargo-modules
+add-plugin cargo-release
+add-plugin cargo-edit vendored-openssl
+add-plugin cargo-generate vendored-openssl
+add-plugin cargo-audit vendored-openssl,fix
+add-plugin cargo-run-script
