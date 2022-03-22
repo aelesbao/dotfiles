@@ -6,13 +6,12 @@
 set -euo pipefail
 
 if ! is-macos; then
-  msg "Homebrew is only available on macOS"
+  notice "Homebrew is only available on macOS"
   return
 fi
 
 if ! [[ -f "$HOME/.Brewfile" ]]; then
-  msg "~/.Brewfile not found"
-  return 1
+  fail "~/.Brewfile not found"
 fi
 
 info "Configuring Mac App Store CLI"

@@ -13,8 +13,7 @@ fi
 info "Configuring Vim"
 
 if ! [[ -f "${HOME}/.vimrc" ]]; then
-  msg "~/.vimrc not found"
-  return 1
+  fail "~/.vimrc not found"
 fi
 
 if [[ -d "${HOME}/.vim/bundle" ]]; then

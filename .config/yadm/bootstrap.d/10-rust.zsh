@@ -15,21 +15,16 @@ if ! (( $+commands[rustup] )); then
   source "$HOME/.cargo/env"
 fi
 
-echo
-info "Configuring Rust"
 rustup set profile default
 
-echo
 info "Updating rust stable"
 rustup update stable
 rustup target add wasm32-unknown-unknown
 
-echo
 info "Updating rust nightly"
 rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 
-echo
 info "Installing rustup components"
 rustup component add rls
 rustup component add rust-analysis
@@ -48,7 +43,6 @@ function add-plugin() {
   fi
 }
 
-echo
 info "Installing cargo plugins"
 
 if ! (( $+commands[sccache] )); then

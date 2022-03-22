@@ -14,6 +14,7 @@ function _log() {
 }
 
 function info() {
+  echo
   _log "\033[1;37m∷" "${@:$#}"
 }
 
@@ -22,14 +23,17 @@ function notice() {
 }
 
 function success() {
+  echo
  _log "\033[0;32m⁚" "${@:$#}"
 }
 
 function warn() {
+  echo
   _log "\033[0;33m∴" "${@:$#}"
 }
 
 function error() {
+  echo
   _log "\033[0;31m⁘" "${@:$#}"
 }
 
@@ -43,7 +47,7 @@ function fail() {
 }
 
 function ask() {
-  printf "\033[0;36m⁖ ${@:$#}\033[0m [y/n] ‣ "
+  printf "\n\033[0;36m⁖ ${@:$#}\033[0m [y/n] ‣ "
   if read -q "choice?"; then
     echo
     return 0
