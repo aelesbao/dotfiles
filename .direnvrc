@@ -55,11 +55,6 @@ layout_tab() {
   ~/.iterm2/it2setcolor tab "${color}"
 }
 
-use_dotenv() {
-  local envfile="${1:-.env}"
-  [[ -f ${envfile} ]] && export $(egrep -v '^#' ${envfile} | xargs)
-}
-
 # use a specific Node.js version
 use_nodejs() {
   set -eo pipefail
