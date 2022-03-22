@@ -49,11 +49,13 @@ if ! (( $+commands[sccache] )); then
   RUSTC_WRAPPER= add-plugin sccache
 fi
 
+add-plugin cargo-audit vendored-openssl,fix
 add-plugin cargo-binstall
-add-plugin cargo-make
-add-plugin cargo-modules
-add-plugin cargo-release
 add-plugin cargo-edit vendored-openssl
 add-plugin cargo-generate vendored-openssl
-add-plugin cargo-audit vendored-openssl,fix
+add-plugin cargo-make
+add-plugin cargo-modules
+add-plugin cargo-outdated vendored-openssl
+add-plugin cargo-release
 add-plugin cargo-run-script
+add-plugin twiggy
