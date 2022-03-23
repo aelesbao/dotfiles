@@ -55,7 +55,9 @@ add-plugin cargo-edit vendored-openssl
 add-plugin cargo-generate vendored-openssl
 add-plugin cargo-make
 add-plugin cargo-modules
+add-plugin cargo-nextest
 add-plugin cargo-outdated vendored-openssl
 add-plugin cargo-release
 add-plugin cargo-run-script
+add-plugin cargo-watch
 add-plugin twiggy
