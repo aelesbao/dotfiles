@@ -7,7 +7,8 @@ echo "Homebrew not installed"
 exit 1
 fi
 
-brew bundle --global
+HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew bundle --global
+brew cleanup
 
 yadm encrypt
 yadm add ~/.local/share/yadm/archive
