@@ -49,3 +49,8 @@ Thumbs.db
 
 # dotfiles
 .Brewfile*
+
+# Credentials
+.config/gh/hosts.yml
+.config/hub
+.config/op
