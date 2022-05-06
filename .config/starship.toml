@@ -66,9 +66,10 @@ symbol = " "
 style = "200"
 
 [git_commit]
-format = "[( $hash)$tag]($style) "
+format = "[( $hash$tag)]($style) "
+only_detached = true
 tag_disabled = false
-tag_symbol = ""
+tag_symbol = "  "
 style = "105"
 
 [git_status]
