@@ -8,6 +8,7 @@ exit 1
 fi
 
 HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew bundle --global
+brew upgrade
 brew cleanup
 
 yadm encrypt
