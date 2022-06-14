@@ -6,3 +6,6 @@
 [submodule ".config/kitty/kitty-icon"]
 	path = .config/kitty/kitty-icon
 	url = git@github.com:k0nserv/kitty-icon.git
+[submodule "/Users/aelesbao/.emacs.d"]
+	path = /Users/aelesbao/.emacs.d
+	url = https://github.com/doomemacs/doomemacs
