@@ -19,6 +19,9 @@
   insteadOf = "git://github.com/aelesbao/"
   insteadOf = "aelesbao:"
 
+[url "https://github.com"]
+  insteadOf = "git://github.com"
+
 [url "https://aur4.archlinux.org/"]
   insteadOf = "aur:"
 
