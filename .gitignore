@@ -16,6 +16,7 @@
 .project
 .externalToolBuilders/
 rebel.xml
+*.code-workspace
 
 # Caches
 .cache
