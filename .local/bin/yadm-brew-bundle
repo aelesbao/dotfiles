@@ -13,4 +13,4 @@ brew cleanup
 
 yadm encrypt
 yadm add ~/.local/share/yadm/archive
-yadm cis -m 'update encrypted files'
+yadm cis -m 'build: update encrypted files'
