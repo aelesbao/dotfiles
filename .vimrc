@@ -34,7 +34,6 @@ function! SetupVundle()
   Plugin 'jiangmiao/auto-pairs'
   Plugin 'scrooloose/syntastic'
   Plugin 'neomake/neomake'
-  "Plugin 'Shougo/neocomplete'
   Plugin 'neoclide/coc.nvim'
   Plugin 'Konfekt/FastFold'
   Plugin 'Konfekt/FoldText'
@@ -53,13 +52,11 @@ function! SetupVundle()
   Plugin 'kien/ctrlp.vim'
   Plugin 'majutsushi/tagbar'
   Plugin 'dbakker/vim-projectroot'
-  "Plugin 'aelesbao/vim-session'
   Plugin 'jeetsukumaran/vim-buffergator'
   Plugin 'bling/vim-bufferline'
   Plugin 'scrooloose/nerdtree'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'tpope/vim-vinegar'
-  "! Plugin 'MarcWebber/SmartTag'
 
   " Git
   Plugin 'tpope/vim-git'
@@ -71,7 +68,6 @@ function! SetupVundle()
 
   " Utilities
   Plugin 'tpope/vim-eunuch'
-  Plugin 'tpope/vim-heroku'
   Plugin 'tpope/vim-dispatch'
 
   " Html & JS
@@ -79,7 +75,6 @@ function! SetupVundle()
   Plugin 'tpope/vim-ragtag'
   Plugin 'mattn/emmet-vim'
   Plugin 'nono/vim-handlebars'
-  "Plugin 'vim-coffee-script'
   Plugin 'vim-eco'
   Plugin 'elzr/vim-json'
   Plugin 'briancollins/vim-jst'
@@ -89,15 +84,9 @@ function! SetupVundle()
 
   " Ruby
   Plugin 'vim-ruby/vim-ruby'
-  Plugin 'tpope/vim-rake'
-  Plugin 'tpope/vim-rails'
   Plugin 'tpope/vim-bundler'
   Plugin 'thoughtbot/vim-rspec'
-  Plugin 'ecomba/vim-ruby-refactoring'
   Plugin 'bfontaine/Brewfile.vim'
-
-  " Elixir
-  "Plugin 'elixir-lang/vim-elixir'
   
   " Rust
   Plugin 'rust-lang/rust.vim'
@@ -113,12 +102,6 @@ function! SetupVundle()
   "Plugin 'hashivim/vim-vaultproject'
   Plugin 'zimbatm/haproxy.vim'
 
-  " C/C++
-  "! Plugin 'vim-cmake-project'
-  "! Plugin 'DoxygenToolkit'
-  "! Plugin 'OmniCppComplete'
-  "! Plugin 'Rip-Rip/clang_complete'
-
   " Themes
   Plugin 'Colour-Sampler-Pack'
   Plugin 'bling/vim-airline'
@@ -126,9 +109,6 @@ function! SetupVundle()
   " Others
   Plugin 'nginx.vim'
   Plugin 'zaiste/tmux.vim'
-  "Plugin 'Rykka/riv.vim'
-  "Plugin 'jvirtanen/vim-octave'
-  "Plugin 'kylef/apiblueprint.vim'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
