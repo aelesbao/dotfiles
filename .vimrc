@@ -103,8 +103,15 @@ function! SetupVundle()
   Plugin 'zimbatm/haproxy.vim'
 
   " Themes
-  Plugin 'Colour-Sampler-Pack'
   Plugin 'bling/vim-airline'
+  Plugin 'nanotech/jellybeans.vim'
+  Plugin 'joshdick/onedark.vim'
+  Plugin 'jaredgorski/SpaceCamp'
+  Plugin 'tomasiser/vim-code-dark'
+  Plugin 'drewtempelmeyer/palenight.vim'
+  Plugin 'cocopon/iceberg.vim'
+  Plugin 'dracula/vim'
+  "Plugin 'folke/tokyonight.nvim'
 
   " Others
   Plugin 'nginx.vim'
@@ -281,10 +288,11 @@ set background=dark
 "set t_Co=256    " enable 256 colors in terminal
 
 if !isdirectory($HOME . '/.vim/colors')
-  silent !ln -s $HOME/.vim/bundle/Colour-Sampler-Pack $HOME/.vim/colors
+  "silent !ln -s $HOME/.vim/bundle/Colour-Sampler-Pack $HOME/.vim/colors
 endif
 
-colorscheme jellybeans
+colorscheme iceberg
+"colorscheme jellybeans
 "colorscheme wombat256
 
 set laststatus=2  " Always show status line.
