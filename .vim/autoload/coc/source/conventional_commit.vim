@@ -3,7 +3,7 @@ function! coc#source#conventional_commit#init() abort
   return {
         \ 'priority': 0,
         \ 'shortcut': 'Commit Type',
-        \ 'filetypes': ['gitcommit']
+        \ 'filetypes': ['gitcommit', 'pullrequest']
         \}
 endfunction
 
