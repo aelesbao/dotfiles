@@ -12,7 +12,6 @@ $git_branch\
 $git_commit\
 $git_status\
 $git_state\
-$git_metrics\
 $docker_context\
 $package\
 $cmake\
