@@ -110,6 +110,7 @@ function! SetupVundle()
   Plugin 'tomasiser/vim-code-dark'
   Plugin 'drewtempelmeyer/palenight.vim'
   Plugin 'cocopon/iceberg.vim'
+  Plugin 'arcticicestudio/nord-vim'
   Plugin 'dracula/vim'
   "Plugin 'folke/tokyonight.nvim'
 
@@ -291,9 +292,9 @@ if !isdirectory($HOME . '/.vim/colors')
   "silent !ln -s $HOME/.vim/bundle/Colour-Sampler-Pack $HOME/.vim/colors
 endif
 
-colorscheme iceberg
+colorscheme nord
+"colorscheme iceberg
 "colorscheme jellybeans
-"colorscheme wombat256
 
 set laststatus=2  " Always show status line.
 " Useful status information at bottom of screen
