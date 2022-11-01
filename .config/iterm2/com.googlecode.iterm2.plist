@@ -720,6 +720,10 @@
 	<true/>
 	<key>IRMemory</key>
 	<integer>4</integer>
+	<key>NeverWarnAboutShortLivedSessions_B9EC3D0D-F414-4886-8E16-2856B69B6A43</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_B9EC3D0D-F414-4886-8E16-2856B69B6A43_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1621,7 +1625,7 @@ Clear Buffer</string>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.10431518554687501</real>
+			<real>0.10000000000000001</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -1699,5 +1703,7 @@ Clear Buffer</string>
 	<false/>
 	<key>WindowNumber</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 </dict>
 </plist>
