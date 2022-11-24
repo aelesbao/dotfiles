@@ -292,8 +292,8 @@ if !isdirectory($HOME . '/.vim/colors')
   "silent !ln -s $HOME/.vim/bundle/Colour-Sampler-Pack $HOME/.vim/colors
 endif
 
-colorscheme nord
-"colorscheme iceberg
+"colorscheme nord
+colorscheme iceberg
 "colorscheme jellybeans
 
 set laststatus=2  " Always show status line.
