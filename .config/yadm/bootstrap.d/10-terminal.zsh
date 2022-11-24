@@ -7,6 +7,7 @@ set -euo pipefail
 
 if is-macos && is-pkg-installed iterm2; then
   info "Configuring iTerm"
+  macos-change-app-icon "iTerm" "$HOME/.config/iterm2/terminal-icons/icns/synthwave_option_6.icns"
 
   # Configure shared settings folder
   defaults write com.googlecode.iterm2 PrefsCustomFolder "~/.config/iterm2"
@@ -16,17 +17,10 @@ if is-macos && is-pkg-installed iterm2; then
   fi
 fi
 
-if is-macos && has-command kitty; then
+if has-command kitty; then
   info "Configuring Kitty"
-  kitty_app_path=$(find /Applications -name "kitty.app" -maxdepth 1)
 
-  msg "Set icon"
-  cp ~/.config/kitty/kitty-icon/kitty.icns ${kitty_app_path}/Contents/Resources/kitty.icns
-  cp ~/.config/kitty/kitty-icon/icon_128x128.png ${kitty_app_path}/Contents/Resources/kitty/logo/kitty-128.png
-  cp ~/.config/kitty/kitty-icon/icon_256x256.png ${kitty_app_path}/Contents/Resources/kitty/logo/kitty.png
-
-  msg "Refresh icon cache"
-  touch ${kitty_app_path}
-  rm /var/folders/*/*/*/com.apple.dock.iconcache
-  killall Dock
+  macos-change-app-icon "kitty" "$HOME/.config/kitty/kitty-icon/kitty.icns"
 fi
+
+macos-refresh-icons
