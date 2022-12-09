@@ -248,17 +248,18 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=0      " XML
 
-set mouse=
-"if has('mouse')
-"  set mouse=a           " Enable mouse for GVim and Terminal
-"  set mousehide         " Hide mouse after chars typed
-"  set scrolloff=3       " show 3 lines of context around the cursor
-"
-"  if &term =~ "xterm" || &term =~ "screen"
-"    " as of March 2013, this works:
-"    set ttymouse=xterm2
-"  endif
-"endif
+"set mouse=
+if has('mouse')
+  set mouse=a           " Enable mouse for GVim and Terminal
+  set mousehide         " Hide mouse after chars typed
+  set mousemodel=popup  " Right mouse button pops up a menu
+  set scrolloff=3       " show 3 lines of context around the cursor
+
+  if &term =~ "xterm" || &term =~ "screen"
+    " as of March 2013, this works:
+    set ttymouse=xterm2
+  endif
+endif
 
 " Disable arrow keys and ESC
 "inoremap <Left>  <NOP>
