@@ -2150,6 +2150,8 @@ Clear Buffer</string>
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>TabsHaveCloseButton</key>
+	<false/>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Notes</string>
