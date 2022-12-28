@@ -38,9 +38,6 @@
 [url "git@gitlab.com:"]
   insteadOf = "gitlab:"
 
-[github]
-  user = aelesbao
-
 [branch]
   autoSetupRebase = always
 
@@ -50,6 +47,12 @@
 [commit]
   gpgSign = true
   verbose = true
+
+[gpg]
+  format = openpgp
+
+[credential]
+  helper = osxkeychain
 
 [alias]
   st      = status
@@ -141,11 +144,11 @@
   navigate = true
   line-numbers = true
 
-[credential]
-  helper = osxkeychain
+[github]
+  user = aelesbao
 
 [hub]
-  protocol = ssh
+  protocol = https
 
 [include]
   path = ~/.gitconfig.local
