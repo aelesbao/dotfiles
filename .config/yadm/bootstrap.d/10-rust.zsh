@@ -30,6 +30,7 @@ rustup component add rls
 rustup component add rust-analysis
 rustup component add rust-src
 rustup component add clippy
+rustup component add llvm-tools-preview
 
 function add-plugin() {
   local name="$1"
@@ -59,4 +60,4 @@ add-plugin cargo-outdated vendored-openssl
 add-plugin cargo-release
 add-plugin cargo-run-script
 add-plugin cargo-watch
-
+add-plugin grcov
