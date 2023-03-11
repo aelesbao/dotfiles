@@ -3,3 +3,7 @@ email = "aelesbao@users.noreply.github.com"
 
 [alias]
 gen = "generate"
+nt = "nextest run"
+
+[registries.crates-io]
+protocol = "sparse"
