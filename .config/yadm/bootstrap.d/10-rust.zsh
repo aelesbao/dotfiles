@@ -61,3 +61,6 @@ add-plugin cargo-release
 add-plugin cargo-run-script
 add-plugin cargo-watch
 add-plugin grcov
+
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
