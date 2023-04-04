@@ -134,7 +134,7 @@
   conflictstyle = diff3
 
 [mergetool "vscode"]
-  cmd = code -n --wait $MERGED
+  cmd = code -n --wait -m $REMOTE $LOCAL $BASE $MERGED
   keepBackup = false
 
 [interactive]
