@@ -44,10 +44,11 @@ $status\
 $shell\
 $character"""
 
+# Displayed only in SSH connections
 [username]
 style_user = "bold fg:250"
 style_root = "bold fg:197"
-format = "[$user]($style) "
+format = " [$user]($style) "
 
 [hostname]
 format =  "on [$hostname]($style)[:](244)"
@@ -58,8 +59,8 @@ style = "bold fg:75"
 read_only = " "
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
+success_symbol = "[](purple)"
+error_symbol = "[!](red)"
 vicmd_symbol = "[❮](green)"
 
 [git_branch]
