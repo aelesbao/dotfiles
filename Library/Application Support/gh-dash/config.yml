@@ -5,20 +5,12 @@ prSections:
     filters: is:open archived:false -author:@me involves:@me
   - title: Needs My Review
     filters: is:open archived:false review-requested:@me
-  - title: DevX
-    filters: is:open archived:false project:archway-network/11
-  - title: NetX
-    filters: is:open archived:false project:archway-network/10
 
 issuesSections:
   - title: Assigned
     filters: is:open archived:false assignee:@me
   - title: Participating
     filters: is:open archived:false -author:@me -assignee:@me involves:@me
-  - title: DevX
-    filters: is:open archived:false project:archway-network/11
-  - title: NetX
-    filters: is:open archived:false project:archway-network/10
   - title: Created
     filters: is:open archived:false author:@me
 
@@ -28,4 +20,20 @@ defaults:
   preview:
     open: true
     width: 60
-  view: issues
+  view: prs
+
+repoPaths:
+  aelesbao/*: ~/workspace/sandbox/*
+  archway-network/*: ~/workspace/archway/*
+
+keybindings:
+  prs:
+    - key: C
+      command: >
+        cd {{.RepoPath}} &&
+        gh pr checkout {{.PrNumber}}
+    - key: v
+      command: >
+        cd {{.RepoPath}} &&
+        gh pr checkout {{.PrNumber}} &&
+        code .
