@@ -55,3 +55,6 @@ Thumbs.db
 .config/gh/hosts.yml
 .config/hub
 .config/op
+
+# Personal sandbox area
+.sandbox
