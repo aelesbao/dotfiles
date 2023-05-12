@@ -5,6 +5,7 @@ set -euo pipefail
 
 export GITHUB_USER="${GITHUB_USER:-aelesbao}"
 export BOOTSTRAP_D="${0:A}.d"
+export NON_INTERACTIVE=${NON_INTERACTIVE:-true}
 
 
 function _log() {

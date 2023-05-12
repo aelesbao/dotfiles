@@ -13,6 +13,16 @@ fi
 
 info "Configuring global properties"
 
+
+function confirm-defaults() {
+  local global="${1}"
+  local key="${2}"
+  local value="${3}" # read remaining args
+  # change args order if flag is not set
+  # if NON_INTERACTIVE=false
+  # read current config and ask if should change
+}
+
 msg "Set dark theme"
 defaults write -g AppleInterfaceStyle -string "Dark"
 
@@ -78,9 +88,10 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 info "Configuring keyboard and typing"
 
 # https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
-msg "Re-mapping Caps Lock to ESC"
-# Use LaunchAgent to remap Caps Lock to ESC on system boot
+msg "Re-mapping keys"
+# Remap Caps Lock to ESC on system boot
 launchctl load ~/Library/LaunchAgents/io.github.aelesbao.CapslockEscape.plist
+# Remap paragraph symbol to `
 launchctl load ~/Library/LaunchAgents/io.github.aelesbao.ParagraphToTilde.plist
 
 msg "Disable press-and-hold for keys in favor of key repeat"
