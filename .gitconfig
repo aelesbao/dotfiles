@@ -70,7 +70,8 @@
   lol     = !git l --oneline --abbrev-commit
   lola    = !git lol --all
   lstat   = !git l --patch-with-stat --summary
-  dh      = diff HEAD
+  lm      = !git lol "$(git branch -rl '*/HEAD' | awk -F/ '{print $NF}')"..HEAD
+  dm      = !git diff --no-ext-diff "$(git branch -rl '*/HEAD' | awk -F/ '{print $NF}')"..HEAD
   pull    = pull --ff-only
   plr     = pull --rebase --prune
   head    = rev-parse --short --verify HEAD
@@ -79,6 +80,7 @@
   clean   = clean -i
   clear   = clean -i
   current-branch = !git symbolic-ref -q --short HEAD || git describe --tags --exact-match
+  delete-remote-branch = !git push origin :"$(git rev-parse --abbrev-ref HEAD)"
 
 [init]
   defaultBranch = main
