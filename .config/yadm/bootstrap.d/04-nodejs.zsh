@@ -22,5 +22,4 @@ if ! (( $+commands[nvm] )); then
 fi
 
 info "Installing Node.js"
-nvm install --lts
-nvm install node --default
+nvm install stable --default --reinstall-packages-from=stable
