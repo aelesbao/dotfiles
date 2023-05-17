@@ -46,21 +46,20 @@ function add-plugin() {
 
 info "Installing cargo plugins"
 
-if ! (( $+commands[sccache] )); then
-  RUSTC_WRAPPER= add-plugin sccache
-fi
+RUSTC_WRAPPER= cargo binstall --no-confirm \
+  sccache \
+  cargo-audit \
+  cargo-edit \
+  cargo-generate \
+  cargo-make \
+  cargo-modules \
+  cargo-nextest \
+  cargo-outdated \
+  cargo-release \
+  cargo-run-script \
+  cargo-watch \
+  grcov
 
-add-plugin cargo-audit vendored-openssl,fix
-add-plugin cargo-edit vendored-openssl
-add-plugin cargo-generate vendored-openssl
-add-plugin cargo-make
-add-plugin cargo-modules
-add-plugin cargo-nextest
-add-plugin cargo-outdated vendored-openssl
-add-plugin cargo-release
-add-plugin cargo-run-script
-add-plugin cargo-watch
-add-plugin grcov
+sccache --start-server
 
 curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
-
