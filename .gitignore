@@ -13,6 +13,7 @@
 .metadata/
 .settings/
 .vscode/
+.fleet/
 .project
 .externalToolBuilders/
 rebel.xml
