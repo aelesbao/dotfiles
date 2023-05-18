@@ -56,7 +56,7 @@ style = "bold 141"
 
 [directory]
 style = "bold fg:75"
-read_only = " "
+read_only = " "
 
 [character]
 success_symbol = "[](purple)"
@@ -161,16 +161,16 @@ symbol = " "
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 
 [nix_shell]
 symbol = " "
 
 [package]
-symbol = " "
+symbol = " "
 
 [perl]
 symbol = " "
@@ -194,4 +194,4 @@ symbol = " "
 symbol = " "
 
 [swift]
-symbol = "ﯣ "
+symbol = " "
