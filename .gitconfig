@@ -145,6 +145,7 @@
 [delta]
   navigate = true
   line-numbers = true
+  side-by-side = true
 
 [github]
   user = aelesbao
