@@ -34,7 +34,7 @@ function! SetupVundle()
   Plugin 'jiangmiao/auto-pairs'
   Plugin 'scrooloose/syntastic'
   Plugin 'neomake/neomake'
-  Plugin 'neoclide/coc.nvim'
+  Plugin 'neoclide/coc.nvim', {'branch': 'release'}
   Plugin 'Konfekt/FastFold'
   Plugin 'Konfekt/FoldText'
 
@@ -79,7 +79,7 @@ function! SetupVundle()
   Plugin 'elzr/vim-json'
   Plugin 'briancollins/vim-jst'
   Plugin 'tpope/vim-markdown'
-  Plugin 'mxw/vim-jsx'
+  "Plugin 'mxw/vim-jsx'
   "Plugin 'mustache/vim-mustache-handlebars'
 
   " Ruby
@@ -98,7 +98,7 @@ function! SetupVundle()
   Plugin 'ekalinin/Dockerfile.vim'
   Plugin 'hashivim/vim-terraform'
   Plugin 'hashivim/vim-vagrant'
-  Plugin 'hashivim/vim-consul'
+  "Plugin 'hashivim/vim-consul'
   "Plugin 'hashivim/vim-vaultproject'
   Plugin 'zimbatm/haproxy.vim'
 
@@ -109,7 +109,7 @@ function! SetupVundle()
   Plugin 'jaredgorski/SpaceCamp'
   Plugin 'tomasiser/vim-code-dark'
   Plugin 'drewtempelmeyer/palenight.vim'
-  Plugin 'cocopon/iceberg.vim'
+  Plugin 'Cocopon/iceberg.vim'
   Plugin 'arcticicestudio/nord-vim'
   Plugin 'dracula/vim'
   "Plugin 'folke/tokyonight.nvim'
@@ -117,6 +117,7 @@ function! SetupVundle()
   " Others
   Plugin 'nginx.vim'
   Plugin 'zaiste/tmux.vim'
+  Plugin 'fladson/vim-kitty'
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -337,6 +338,7 @@ if has("autocmd")
     au BufRead,BufNewFile {*/.kube/config}                                      set ft=yaml
     au BufRead,BufNewFile {*Brewfile*}                                          set ft=ruby syntax=brewfile
     au BufRead,BufNewFile {*.tf.erb}                                            set ft=terraform
+    au BufRead,BufNewFile {.envrc}                                              set ft=sh
   augroup END
 
   augroup filetype_customs
