@@ -58,6 +58,7 @@ RUSTC_WRAPPER= cargo binstall --no-confirm \
   cargo-release \
   cargo-run-script \
   cargo-watch \
+  evcxr_repl \
   grcov
 
 sccache --start-server
