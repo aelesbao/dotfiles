@@ -127,8 +127,28 @@ style = "31"
 format = "via [$symbol($version )]($style)"
 symbol = " "
 
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰁾 "
+
 [[battery.display]]
-threshold = 20
+threshold = 10
+charging_symbol = "󰂆 "
+discharging_symbol = "󰁺 "
+style = "bold red"
+
+#[[battery.display]]
+#threshold = 20
+#charging_symbol = "󰂆 "
+#discharging_symbol = "󰁻 "
+#style = "bold yellow"
+
+[[battery.display]]
+threshold = 30
+charging_symbol = "󰂇 "
+discharging_symbol = "󰁼 "
+style = "fg:178"
 
 [sudo]
 format = "[$symbol sudo]($style) "
