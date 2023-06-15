@@ -6,12 +6,12 @@
 [submodule ".config/kitty/kitty-icon"]
 	path = .config/kitty/kitty-icon
 	url = git@github.com:k0nserv/kitty-icon.git
-[submodule "/Users/aelesbao/.emacs.d"]
-	path = /Users/aelesbao/.emacs.d
+[submodule ".emacs.d"]
+	path = .emacs.d
 	url = https://github.com/doomemacs/doomemacs
-[submodule "/Users/aelesbao/.config/iterm2/terminal-icons"]
-	path = /Users/aelesbao/.config/iterm2/terminal-icons
+[submodule ".config/iterm2/terminal-icons"]
+	path = .config/iterm2/terminal-icons
 	url = https://github.com/dhanishgajjar/terminal-icons
-[submodule "/Users/aelesbao/.config/iterm2/iterm2-icons"]
-	path = /Users/aelesbao/.config/iterm2/iterm2-icons
+[submodule ".config/iterm2/iterm2-icons"]
+	path = .config/iterm2/iterm2-icons
 	url = https://github.com/jasonlong/iterm2-icons
