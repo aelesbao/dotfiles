@@ -17,7 +17,7 @@ arch: x86_64
 
 # Container runtime to be used (docker, containerd).
 # Default: docker
-runtime: docker
+runtime: containerd
 
 # Kubernetes configuration for the virtual machine.
 kubernetes:
