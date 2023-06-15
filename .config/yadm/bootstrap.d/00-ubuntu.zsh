@@ -83,7 +83,7 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 info "Installing fonts"
 mkdir -p ~/.local/share/fonts
-unzip -u "$(download-gh-release ryanoasis/nerd-fonts Hack.zip)" -d ~/.local/share/fonts
+unzip -u "$(download-gh-release ryanoasis/nerd-fonts Hack.zip 'v3.0.2')" -d ~/.local/share/fonts
 
 info "Cleaning up"
 sudo apt autoremove -y
