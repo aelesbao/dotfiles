@@ -5,5 +5,5 @@ email = "aelesbao@users.noreply.github.com"
 gen = "generate"
 nt = "nextest run"
 
-[registries.crates-io]
-protocol = "sparse"
+[unstable]
+sparse-registry = true
