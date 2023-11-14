@@ -152,7 +152,7 @@ function macos-refresh-icons() {
 
   msg "Refreshing icon cache"
   sudo rm -rf /Library/Caches/com.apple.iconservices.store
-  rm -rf /var/folders/*/*/*/com.apple.dock.iconcache
+  sudo rm -rf /var/folders/*/*/*/com.apple.dock.iconcache
   killall Dock
 }
 
