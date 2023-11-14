@@ -1,28 +1,27 @@
-" Enable plugins
-set surround
-set multiple-cursors
-
-" Join command will be performed via IDE
-set ideajoin
+" Common settings
+set nu
+set relativenumber
 
 " Perform put via IDE
 set clipboard+=ideaput
 
-" Disable arrow keys and ESC
-"inoremap <Left>  <NOP>
-"inoremap <Right> <NOP>
-"inoremap <Up>    <NOP>
-"inoremap <Down>  <NOP>
-"nnoremap <Left>  <NOP>
-"nnoremap <Right> <NOP>
-"nnoremap <Up>    <NOP>
-"nnoremap <Down>  <NOP>
-"vnoremap <Left>  <NOP>
-"vnoremap <Right> <NOP>
-"vnoremap <Up>    <NOP>
-"vnoremap <Down>  <NOP>
+" Join command will be performed via IDE
+set ideajoin
+
+" Plugins " {{{
+
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+
+" Plugins settings
+let g:argtextobj_pairs="[:],(:),<:>"
+
+" }}}
 
 " Key mappings " {{{
+
 let mapleader=","
 let maplocalleader=","
 
@@ -41,3 +40,9 @@ map ]<Space> o<ESC>k^
 
 " Toggle comment
 map <leader>c<Space> :action CommentByLineComment<CR>
+
+" Reload config
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+" }}}
