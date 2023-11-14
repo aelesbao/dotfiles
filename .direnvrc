@@ -63,6 +63,8 @@ use_nodejs() {
 
   has nvm || return 1
 
+  export PATH="${PATH}:./node_modules/.bin"
+
   if [[ -f .nvmrc ]]; then
     nvm use
     return $?
