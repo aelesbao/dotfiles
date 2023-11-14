@@ -28,8 +28,11 @@ defaults write -g AppleInterfaceStyle -string "Dark"
 
 msg "Set system language and text format"
 defaults write -g AppleLanguages -array "en-US" "pt-BR" "de-DE"
-defaults write -g AppleLocale -string "en_DE"
+defaults write -g AppleLocale -string "en_US@rg=dezzzz"
+defaults write com.apple.dock loc -string "en_US:(null)"
+defaults write com.apple.dock region -string "DE"
 defaults write -g AppleMeasurementUnits -string "Centimeters"
+defaults write -g AppleTemperatureUnit -string "Celsius"
 defaults write -g AppleMetricUnits -bool true
 
 msg "Maximize windows on double-click"
@@ -39,17 +42,14 @@ msg "Show scrollbars when scrolling"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write -g AppleShowScrollBars -string "WhenScrolling"
 
-# msg "Stop apps from restoring old documents on relaunch"
-# defaults write -g ApplePersistence -bool false
+# msg "Allow apps to restore old documents on relaunch"
+defaults write -g ApplePersistence -bool true
 
 
 info "Configuring Dock & Dashboard"
 
 msg "Auto-hide the dock"
 defaults write com.apple.dock autohide -bool true
-
-msg "Don’t automatically rearrange Spaces based on most recent use"
-defaults write com.apple.dock mru-spaces -bool false
 
 msg "Minimize dock to application icon and set effect type"
 defaults write com.apple.dock minimize-to-application -bool true
@@ -68,6 +68,14 @@ defaults write com.apple.dock titlesize -int 48
 defaults write com.apple.dock titlesize -int 35
 defaults write com.apple.dock largesize -int 75
 
+info "Mission Control"
+
+msg "Group windows by application"
+defaults write com.apple.dock expose-group-apps -bool true
+
+msg "Don’t automatically rearrange Spaces based on most recent use"
+defaults write com.apple.dock mru-spaces -bool false
+
 # Hot corners possible values:
 #  0: no-op
 #  2: Mission Control
@@ -80,9 +88,14 @@ defaults write com.apple.dock largesize -int 75
 # 11: Launchpad
 # 12: Notification Center
 # 13: Lock Screen
+msg "Top left screen corner → Mission Control"
+defaults write com.apple.dock wvous-tl-corner -int 2
+defaults write com.apple.dock wvous-tl-modifier -int 0
+
 msg "Bottom right screen corner → Desktop"
 defaults write com.apple.dock wvous-br-corner -int 4
 defaults write com.apple.dock wvous-br-modifier -int 0
+
 
 
 info "Configuring keyboard and typing"
