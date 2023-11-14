@@ -22,8 +22,10 @@ rustup update stable
 rustup target add wasm32-unknown-unknown
 
 info "Updating rust nightly"
-rustup update nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
+if ask "Update to latest nightly version?"; then
+  rustup update nightly
+  rustup target add wasm32-unknown-unknown --toolchain nightly
+fi
 
 info "Installing rustup components"
 rustup component add rls
@@ -46,20 +48,24 @@ function add-plugin() {
 
 info "Installing cargo plugins"
 
-RUSTC_WRAPPER= cargo binstall --no-confirm \
-  sccache \
-  cargo-audit \
-  cargo-edit \
-  cargo-generate \
-  cargo-make \
-  cargo-modules \
-  cargo-nextest \
-  cargo-outdated \
-  cargo-release \
-  cargo-run-script \
-  cargo-watch \
-  evcxr_repl \
-  grcov
+function binstall() {
+  RUSTC_WRAPPER= cargo binstall --no-confirm ${@:$#}
+}
+
+binstall sccache
+binstall cargo-audit
+binstall cargo-edit
+binstall cargo-generate
+binstall cargo-info
+binstall cargo-make
+binstall cargo-modules
+binstall cargo-nextest
+binstall cargo-outdated
+LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CPPFLAGS="-I$(brew --prefix openssl@1.1)/include" binstall cargo-release
+binstall cargo-run-script
+binstall cargo-watch
+binstall evcxr_repl
+binstall grcov
 
 sccache --start-server
 
