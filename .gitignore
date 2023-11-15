@@ -8,6 +8,7 @@
 .session.vim
 .idea/
 .bsp/
+.vs/
 *.iml
 *.sublime-*
 .metadata/
