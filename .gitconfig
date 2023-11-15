@@ -11,17 +11,23 @@
   whitespace = trailing-space,space-before-tab
   pager = delta || diff-so-fancy | less --tabs=4 -RFX || less --tabs=4 -RFX
 
-[url "git@github.com:"]
+[url "https://github.com/"]
+  insteadOf = "git://github.com/"
+  insteadOf = "git@github.com:"
   insteadOf = "github:"
   insteadOf = "gh:"
 
-[url "git@github.com:aelesbao/"]
-  insteadOf = "https://github.com/aelesbao/"
-  insteadOf = "git://github.com/aelesbao/"
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+  pushInsteadOf = "git://github.com/"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "gh:"
+
+[url "https://github.com/aelesbao/"]
   insteadOf = "aelesbao:"
 
-[url "https://github.com"]
-  insteadOf = "git://github.com"
+[url "git@github.com:aelesbao/"]
+  pushInsteadOf = "aelesbao:"
 
 [url "https://aur4.archlinux.org/"]
   insteadOf = "aur:"
@@ -35,8 +41,11 @@
 [url "git@bitbucket.org:"]
   insteadOf = "bitbucket:"
 
-[url "git@gitlab.com:"]
+[url "https://gitlab.com/"]
   insteadOf = "gitlab:"
+
+[url "git@gitlab.com:"]
+  pushInsteadOf = "https://gitlab.com/"
 
 [branch]
   autoSetupRebase = always
@@ -108,20 +117,6 @@
   ui     = true
   pager  = true
 
-;[color "diff-highlight"]
-  ;oldHighlight = red bold 52
-  ;newNormal = green bold
-  ;newHighlight = green bold 22
-  ;oldNormal = red bold
-
-;[color "diff"]
-  ;meta = yellow
-  ;frag = magenta bold
-  ;commit = yellow bold
-  ;old = red bold
-  ;new = green bold
-  ;whitespace = red reverse
-
 [diff]
   tool = vscode
   ;renames = copies
@@ -145,13 +140,10 @@
 [delta]
   navigate = true
   line-numbers = true
-  side-by-side = true
+  ;side-by-side = true
 
 [github]
   user = aelesbao
-
-[hub]
-  protocol = https
 
 [include]
   path = ~/.gitconfig.local
