@@ -106,16 +106,21 @@ use_python() {
   fi
 }
 
-layout_virtualenv() {
+layout_venv() {
   set -eo pipefail
 
-  has virtualenv || return 1
-
   local venv="${1:-.venv}"
-  [[ -d ${venv} ]] || virtualenv -p "$(pyenv which python)" "${venv}"
+  [[ -d ${venv} ]] || python -m venv .venv
+
+  # `virtualenv` has been deprecated in favor of `python -m venv`
+  # has virtualenv && virtualenv -p "$(pyenv which python)" "${venv}"
 
   # shellcheck disable=SC1091
   source "${venv}/bin/activate"
+}
+
+layout_virtualenv() {
+  layout_venv "${@}"
 }
 
 # use a certain Java version
