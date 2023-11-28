@@ -36,11 +36,11 @@ $memory_usage\
 $env_var\
 $custom\
 $sudo\
+$time\
 $cmd_duration\
 $line_break\
 $jobs\
 $battery\
-$time\
 $status\
 $shell\
 $character"""
@@ -209,6 +209,12 @@ format = "[$symbol sudo]($style) "
 symbol = ""
 style = "bold red"
 disabled = false
+
+[time]
+disabled = false
+time_format = "%R"            # Hour:Minute Format
+style = "fg:white"
+format = '[ $time]($style) '
 
 [aws]
 symbol = "  "
