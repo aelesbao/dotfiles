@@ -76,7 +76,7 @@ neon-1 = "#f000d9"
 neon-2 = "#0abdc6"
 
 [os]
-format = "[$symbol](bold fg:250)"
+format = "[$symbol](fg:white)"
 disabled = false
 
 [os.symbols]
@@ -121,26 +121,28 @@ Unknown = " "
 Windows = "󰍲 "
 
 [username]
-style_user = "bold fg:250"
-style_root = "bold fg:197"
+style_user = "bold fg:full-white"
+style_root = "bold fg:bright-red"
 format = "[$user]($style) "
 disabled = false
 show_always = true
 
 [hostname]
 format = "on [$hostname]($style) "
-style = "bold 141"
+style = "bold fg:magenta"
 ssh_only = true
 disabled = false
 
 [directory]
-style = "bold fg:75"
+style = "bold fg:blue"
 format = "at [$path]($style)[$read_only]($read_only_style) "
 home_symbol = "󰋜 ~"
 read_only = "  "
-read_only_style = "197"
+read_only_style = "fg:bright-red"
 truncation_length = 4
 truncation_symbol = "…/"
+before_repo_root_style = "bold fg:magenta"
+repo_root_style = "bold fg:magenta"
 repo_root_format = "at []($before_repo_root_style) [$repo_root]($repo_root_style)[$path]($style) "
 
 [directory.substitutions]
@@ -153,32 +155,31 @@ repo_root_format = "at []($before_repo_root_style) [$repo_root]($repo_root_st
 "workspace" = " workspace"
 
 [character]
-success_symbol = "[](purple)"
-error_symbol = "[](red)"
-# vicmd_symbol = "[❮](green)"
+success_symbol = "[](fg:purple)"
+error_symbol = "[](fg:red)"
 
 [git_branch]
 format = "on [$symbol$branch]($style) "
 symbol = " "
-style = "200"
+style = "fg:neon-1"
 
 [git_commit]
 format = "[( $hash$tag)]($style) "
 only_detached = true
 tag_disabled = false
 tag_symbol = "  "
-style = "105"
+style = "fg:bright-magenta"
 
 [git_status]
 format = """([±\\[ \
-([$modified](bold 226) )\
-([$staged](bold 82) )\
-([$renamed](bold 155) )\
-([$deleted](bold 197) )\
-([$conflicted](202) )\
-([$untracked](125) )\
-([$stashed](80) )\
-([$ahead_behind](bold 215) )\
+([$modified](bold fg:bright-yellow) )\
+([$staged](bold fg:bright-green) )\
+([$renamed](bold fg:green) )\
+([$deleted](bold fg:bright-red) )\
+([$conflicted](fg:neon-3) )\
+([$untracked](fg:red dimmed) )\
+([$stashed](fg:neon-2) )\
+([$ahead_behind](bold fg:yellow) )\
 \\]]($style) )"""
 ahead = "⇡"
 behind = "⇣"
@@ -191,7 +192,7 @@ staged = "+"
 renamed = "➔"
 deleted = "×"
 stashed = "≡"
-style = "244"
+style = "fg:white dimmed"
 
 [git_state]
 format = "[ $state( $progress_current/$progress_total)]($style) "
@@ -202,24 +203,15 @@ cherry_pick = "cherry-picking"
 bisect = "bisecting"
 am = "am"
 am_or_rebase = "am/rebase"
-style = "bright-red"
+style = "fg:bright-red"
 
 [git_metrics]
-format = "([([ +$added](28))([ -$deleted](124))](244) )"
+format = "([([ +$added](fg:green dimmed))([ -$deleted](fg:red dimmed))](fg:white dimmed)) "
 disabled = false
 
 [cmd_duration]
 format = "took [$duration]($style) "
-style = "yellow"
-
-[docker_context]
-only_with_files = false
-symbol = " "
-style = "31"
-
-[golang]
-format = "via [$symbol($version )]($style)"
-symbol = " "
+style = "fg:yellow"
 
 [battery]
 full_symbol = "󰁹 "
@@ -230,31 +222,25 @@ discharging_symbol = "󰁾 "
 threshold = 10
 charging_symbol = "󰂆 "
 discharging_symbol = "󰁺 "
-style = "bold red"
-
-#[[battery.display]]
-#threshold = 20
-#charging_symbol = "󰂆 "
-#discharging_symbol = "󰁻 "
-#style = "bold yellow"
+style = "bold fg:red"
 
 [[battery.display]]
 threshold = 30
 charging_symbol = "󰂇 "
 discharging_symbol = "󰁼 "
-style = "fg:178"
+style = "fg:yellow"
 
 [sudo]
 format = "[$symbol sudo]($style) "
 symbol = ""
-style = "bold red"
+style = "bold fg:red"
 disabled = false
 
 [time]
 disabled = false
-time_format = "%R"            # Hour:Minute Format
-style = "fg:white"
-format = '[ $time]($style) '
+time_format = "%R"               # Hour:Minute Format
+style = "fg:white dimmed"
+format = 'at [ $time]($style) '
 
 [aws]
 symbol = "  "
@@ -268,11 +254,20 @@ symbol = " "
 [dart]
 symbol = " "
 
+[docker_context]
+only_with_files = false
+symbol = " "
+style = "bold fg:#1d63ed"
+
 [elixir]
 symbol = " "
 
 [elm]
 symbol = " "
+
+[golang]
+format = "[$symbol($version)]($style) "
+symbol = " "
 
 [hg_branch]
 symbol = " "
@@ -285,9 +280,13 @@ symbol = " "
 
 [kubernetes]
 symbol = "󱃾 "
+style = "bold fg:#326ce5"
 
 [memory_usage]
 symbol = "󰍛 "
+style = "bold fg:grey"
+format = "using [$symbol${ram}( | ${swap})]($style) "
+disabled = false
 
 [nim]
 symbol = "󰆥 "
