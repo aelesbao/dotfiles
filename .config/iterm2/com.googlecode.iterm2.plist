@@ -6079,6 +6079,8 @@ Clear Buffer</string>
 	<real>0.40000000000000002</real>
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
+	<key>StretchTabsToFillBar</key>
+	<true/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>TabsHaveCloseButton</key>
