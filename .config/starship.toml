@@ -43,7 +43,37 @@ $jobs\
 $battery\
 $status\
 $shell\
-$character"""
+$character\
+"""
+
+palette = 'cyberwave'
+
+# Pallete based on Tokyo Night Moon (https://github.com/folke/tokyonight.nvim)
+[palettes.cyberwave]
+black = "#1b1d2b"
+red = "#db4b4b"
+green = "#9ece6a"
+yellow = "#ff9e64"
+blue = "#7aa2f7"
+magenta = "#af87ff"
+cyan = "#7dcfff"
+white = "#a9b1d6"
+bright-black = "#444a73"
+bright-red = "#ff757f"
+bright-green = "#c3e88d"
+bright-yellow = "#ffc777"
+bright-blue = "#82aaff"
+bright-magenta = "#c099ff"
+bright-cyan = "#86e1fc"
+bright-white = "#c8d3f5"
+
+# extended colors
+rot = "#c53b53"
+grey = "#828bb8"
+full-white = "#ffffff"
+neon-3 = "#ff5f00"
+neon-1 = "#f000d9"
+neon-2 = "#0abdc6"
 
 [os]
 format = "[$symbol](bold fg:250)"
