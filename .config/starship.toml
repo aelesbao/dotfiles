@@ -105,12 +105,22 @@ disabled = false
 
 [directory]
 style = "bold fg:75"
+format = "at [$path]($style)[$read_only]($read_only_style) "
+home_symbol = "󰋜 ~"
 read_only = "  "
 read_only_style = "197"
-truncation_length = 1
+truncation_length = 4
 truncation_symbol = "…/"
-home_symbol = "󰋜 ~"
-format = "at [$path]($style)[$read_only]($read_only_style) "
+repo_root_format = "at []($before_repo_root_style) [$repo_root]($repo_root_style)[$path]($style) "
+
+[directory.substitutions]
+"Desktop" = " Desktop"
+"Documents" = "󰈙 Documents"
+"Downloads" = " Downloads"
+"Dropbox" = " Dropbox"
+"Music" = " Music"
+"Pictures" = " Pictures"
+"workspace" = " workspace"
 
 [character]
 success_symbol = "[](purple)"
