@@ -1,10 +1,11 @@
 # Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 # Inserts a blank line between shell prompts
 add_newline = true
 
 format = """
+$os\
 $username\
 $hostname\
 $shlvl\
@@ -44,24 +45,77 @@ $status\
 $shell\
 $character"""
 
-# Displayed only in SSH connections
+[os]
+format = "[$symbol](bold fg:250)"
+disabled = false
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
 [username]
 style_user = "bold fg:250"
 style_root = "bold fg:197"
-format = " [$user]($style) "
+format = "[$user]($style) "
+disabled = false
+show_always = true
 
 [hostname]
-format =  "on [$hostname]($style)[:](244)"
+format = "on [$hostname]($style) "
 style = "bold 141"
+ssh_only = true
+disabled = false
 
 [directory]
 style = "bold fg:75"
-read_only = " "
+read_only = "  "
+read_only_style = "197"
+truncation_length = 1
+truncation_symbol = "…/"
+home_symbol = "󰋜 ~"
+format = "at [$path]($style)[$read_only]($read_only_style) "
 
 [character]
 success_symbol = "[](purple)"
-error_symbol = "[!](red)"
-vicmd_symbol = "[❮](green)"
+error_symbol = "[](red)"
+# vicmd_symbol = "[❮](green)"
 
 [git_branch]
 format = "on [$symbol$branch]($style) "
@@ -159,6 +213,9 @@ disabled = false
 [aws]
 symbol = "  "
 
+[buf]
+symbol = " "
+
 [conda]
 symbol = " "
 
@@ -179,6 +236,9 @@ symbol = " "
 
 [julia]
 symbol = " "
+
+[kubernetes]
+symbol = "󱃾 "
 
 [memory_usage]
 symbol = "󰍛 "
@@ -202,7 +262,7 @@ symbol = " "
 symbol = " "
 
 [ruby]
-symbol = " "
+symbol = " "
 
 [rust]
 symbol = " "
