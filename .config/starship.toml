@@ -143,16 +143,17 @@ truncation_length = 4
 truncation_symbol = "…/"
 before_repo_root_style = "bold fg:magenta"
 repo_root_style = "bold fg:magenta"
-repo_root_format = "at []($before_repo_root_style) [$repo_root]($repo_root_style)[$path]($style) "
+repo_root_format = "at [ ]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) "
 
 [directory.substitutions]
 "Desktop" = " Desktop"
 "Documents" = "󰈙 Documents"
 "Downloads" = " Downloads"
 "Dropbox" = " Dropbox"
-"Music" = " Music"
-"Pictures" = " Pictures"
-"workspace" = " workspace"
+"Movies" = "󰿎 Movies"
+"Music" = "󱍙 Music"
+"Pictures" = "󰉏 Pictures"
+"workspace" = " workspace"
 
 [character]
 success_symbol = "[](fg:purple)"
