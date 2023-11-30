@@ -62,62 +62,32 @@ function! SetupVundle()
   Plugin 'tpope/vim-git'
   Plugin 'tpope/vim-fugitive'
   Plugin 'taq/vim-git-branch-info'
-  "Plugin 'mattn/gist-vim'
-  "Plugin 'gregsexton/gitv'
-  "Plugin 'airblade/vim-gitgutter'
 
   " Utilities
   Plugin 'tpope/vim-eunuch'
   Plugin 'tpope/vim-dispatch'
 
+  " Languages
+  Plugin 'sheerun/vim-polyglot'
+
   " Html & JS
-  Plugin 'othree/html5.vim'
   Plugin 'tpope/vim-ragtag'
   Plugin 'mattn/emmet-vim'
-  Plugin 'nono/vim-handlebars'
   Plugin 'vim-eco'
-  Plugin 'elzr/vim-json'
-  Plugin 'briancollins/vim-jst'
-  Plugin 'tpope/vim-markdown'
-  "Plugin 'mxw/vim-jsx'
-  "Plugin 'mustache/vim-mustache-handlebars'
 
-  " Ruby
-  Plugin 'vim-ruby/vim-ruby'
-  Plugin 'tpope/vim-bundler'
-  Plugin 'thoughtbot/vim-rspec'
-  Plugin 'bfontaine/Brewfile.vim'
-  
   " Rust
-  Plugin 'rust-lang/rust.vim'
   Plugin 'racer-rust/vim-racer'
-  Plugin 'cespare/vim-toml.git'
 
-  " DevOps
-  "Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
-  Plugin 'ekalinin/Dockerfile.vim'
-  Plugin 'hashivim/vim-terraform'
   Plugin 'hashivim/vim-vagrant'
-  "Plugin 'hashivim/vim-consul'
-  "Plugin 'hashivim/vim-vaultproject'
-  Plugin 'zimbatm/haproxy.vim'
+  Plugin 'fladson/vim-kitty'
 
   " Themes
   Plugin 'bling/vim-airline'
-  Plugin 'nanotech/jellybeans.vim'
-  Plugin 'joshdick/onedark.vim'
   Plugin 'jaredgorski/SpaceCamp'
-  Plugin 'tomasiser/vim-code-dark'
   Plugin 'drewtempelmeyer/palenight.vim'
   Plugin 'Cocopon/iceberg.vim'
-  Plugin 'arcticicestudio/nord-vim'
   Plugin 'dracula/vim'
-  "Plugin 'folke/tokyonight.nvim'
-
-  " Others
-  Plugin 'nginx.vim'
-  Plugin 'zaiste/tmux.vim'
-  Plugin 'fladson/vim-kitty'
+  "Plugin 'folke/tokyonight.nvim'  Works only on NeoVim"
 
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
@@ -288,15 +258,11 @@ set smartcase   " be sensitive when there's a capital letter
 set incsearch   " highlight matches as you type
 
 set background=dark
-"set t_Co=256    " enable 256 colors in terminal
+set termguicolors
 
-if !isdirectory($HOME . '/.vim/colors')
-  "silent !ln -s $HOME/.vim/bundle/Colour-Sampler-Pack $HOME/.vim/colors
-endif
-
-"colorscheme nord
-colorscheme iceberg
+"colorscheme iceberg
 "colorscheme jellybeans
+colorscheme dracula
 
 set laststatus=2  " Always show status line.
 " Useful status information at bottom of screen
@@ -456,7 +422,6 @@ endif
 let g:Powerline_symbols = 'fancy'
 
 " vim-airline
-"let g:airline_theme = 'jellybeans'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
