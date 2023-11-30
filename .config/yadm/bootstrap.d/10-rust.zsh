@@ -48,6 +48,10 @@ function add-plugin() {
 
 info "Installing cargo plugins"
 
+if ! (( $+commands[cargo-binstall] )); then
+  curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+fi
+
 function binstall() {
   RUSTC_WRAPPER= cargo binstall --no-confirm ${@:$#}
 }
@@ -69,4 +73,6 @@ binstall grcov
 
 sccache --start-server
 
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+if ask "Install wasm-pack?"; then
+  curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+fi
