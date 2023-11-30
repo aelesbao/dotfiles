@@ -15,3 +15,6 @@
 [submodule ".config/iterm2/iterm2-icons"]
 	path = .config/iterm2/iterm2-icons
 	url = https://github.com/jasonlong/iterm2-icons
+[submodule "/Users/aelesbao/.warp/themes/tokyo-night"]
+	path = /Users/aelesbao/.warp/themes/tokyo-night
+	url = https://github.com/bart-krakowski/warp-tokyo-night
