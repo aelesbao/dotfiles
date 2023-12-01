@@ -18,3 +18,6 @@
 [submodule ".warp/themes/tokyo-night"]
 	path = .warp/themes/tokyo-night
 	url = https://github.com/bart-krakowski/warp-tokyo-night
+[submodule ".config/alacritty/themes"]
+	path = .config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
