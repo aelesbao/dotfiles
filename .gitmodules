@@ -21,3 +21,6 @@
 [submodule ".config/alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule ".config/bat/themes/catppuccin"]
+	path = .config/bat/themes/catppuccin
+	url = https://github.com/catppuccin/bat
