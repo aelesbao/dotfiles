@@ -83,10 +83,8 @@ function! SetupVundle()
 
   " Themes
   Plugin 'bling/vim-airline'
-  Plugin 'jaredgorski/SpaceCamp'
-  Plugin 'drewtempelmeyer/palenight.vim'
-  Plugin 'Cocopon/iceberg.vim'
-  Plugin 'dracula/vim'
+  Plugin 'dracula/vim', { 'name': 'dracula' }
+  Plugin 'catppuccin/vim', { 'name': 'catppuccin' }
   "Plugin 'folke/tokyonight.nvim'  Works only on NeoVim"
 
   " All of your Plugins must be added before the following line
@@ -96,10 +94,10 @@ function! SetupVundle()
   "filetype plugin on
   "
   " Brief help
-  " :PluginList       - lists configured plugins
-  " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-  " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-  " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+  " :BundleList       - lists configured plugins
+  " :BundleInstall    - installs plugins; append `!` to update or just :PluginUpdate
+  " :BundleSearch foo - searches for foo; append `!` to refresh local cache
+  " :BundleClean      - confirms removal of unused plugins; append `!` to auto-approve removal
   "
   " see :h vundle for more details or wiki for FAQ
   " Put your non-Plugin stuff after this line
@@ -260,9 +258,8 @@ set incsearch   " highlight matches as you type
 set background=dark
 set termguicolors
 
-"colorscheme iceberg
-"colorscheme jellybeans
-colorscheme dracula
+"colorscheme dracula
+colorscheme catppuccin_macchiato
 
 set laststatus=2  " Always show status line.
 " Useful status information at bottom of screen
@@ -422,6 +419,7 @@ endif
 let g:Powerline_symbols = 'fancy'
 
 " vim-airline
+let g:airline_theme = 'catppuccin_mocha'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -727,53 +725,6 @@ function! Wipeout()
     " go back to our original tab page
     execute 'tabnext' l:currentTab
   endtry
-endfunction
-
-" function to pretty format a xml document
-" http://vim.wikia.com/wiki/Pretty-formatting_XML
-"
-function! DoPrettyXML()
-  " save the filetype so we can restore it later
-  let l:origft = &ft
-  set ft=
-  " delete the xml header if it exists. This will
-  " permit us to surround the document with fake tags
-  " without creating invalid xml.
-  1s/<?xml .*?>//e
-  " insert fake tags around the entire document.
-  " This will permit us to pretty-format excerpts of
-  " XML that may contain multiple top-level elements.
-  0put ='<PrettyXML>'
-  $put ='</PrettyXML>'
-  silent %!xmllint --format --recover -
-  " xmllint will insert an <?xml?> header. it's easy enough to delete
-  " if you don't want it.
-  " delete the fake tags
-  2d
-  $d
-  " restore the 'normal' indentation, which is one extra level
-  " too deep due to the extra tags we wrapped around the document.
-  silent %<
-  " back to home
-  1
-  " restore the filetype
-  execute "set ft=" . l:origft
-endfunction
-
-command! PrettyXML call DoPrettyXML()
-
-" Markdown to HTML
-function! Markdown2HTML()
-  let l:tmp_filename = '/tmp/' . shellescape(expand('%:t')) . '.html'
-  echom l:tmp_filename
-  silent exec 'w !markdown % > ' . l:tmp_filename
-  silent exec '!xdg-open ' . l:tmp_filename . ' &'
-endfunction
-
-command! Markdown2HTML call Markdown2HTML()
-nmap <leader>mh :Markdown2HTML<CR>
-
-function! SubstituteSelection()
 endfunction
 
 function! HighlightOverLength()
