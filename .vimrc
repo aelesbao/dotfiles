@@ -1,3 +1,7 @@
+" vim:fileencoding=utf-8:ft=vim:foldmethod=marker
+
+" Plugins " {{{
+
 function! SetupVundle()
   filetype off        " required !
 
@@ -103,7 +107,10 @@ function! SetupVundle()
   " Put your non-Plugin stuff after this line
 endfunction
 
+" "}}}
+
 " General "{{{
+
 if !isdirectory($HOME . '/.vim')
   call mkdir($HOME . '/.vim/tmp', "p")
 endif
@@ -148,6 +155,7 @@ set ttyfast
 " "}}}
 
 " Formatting "{{{
+
 set fo-=t " Do no auto-wrap text using textwidth (does not apply to comments)
 
 set nowrap
@@ -183,6 +191,7 @@ setglobal fileencoding=utf-8
 " "}}}
 
 " Visual "{{{
+
 set showmatch    " Show matching brackets.
 set matchtime=5  " Bracket blinking.
 
@@ -229,20 +238,6 @@ if has('mouse')
     set ttymouse=xterm2
   endif
 endif
-
-" Disable arrow keys and ESC
-"inoremap <Left>  <NOP>
-"inoremap <Right> <NOP>
-"inoremap <Up>    <NOP>
-"inoremap <Down>  <NOP>
-"nnoremap <Left>  <NOP>
-"nnoremap <Right> <NOP>
-"nnoremap <Up>    <NOP>
-"nnoremap <Down>  <NOP>
-"vnoremap <Left>  <NOP>
-"vnoremap <Right> <NOP>
-"vnoremap <Up>    <NOP>
-"vnoremap <Down>  <NOP>
 
 set splitbelow
 set splitright
@@ -341,6 +336,7 @@ endif
 " " }}}
 
 " Key mappings " {{{
+
 let mapleader=","
 let maplocalleader=","
 
@@ -411,7 +407,6 @@ endif
 " " }}}
 
 " " }}}
-
 
 " Plugins Settings " {{{
 
@@ -665,6 +660,7 @@ let g:jsx_ext_required = 1
 
 "  }}}
 
+" Helper functions " {{{
 
 " function to remove trailing white space (while saving cursor position)
 " http://vimcasts.org/episodes/tidying-whitespace/
@@ -749,3 +745,5 @@ function! HighlightOverLength()
 
   endif
 endfunction
+
+" "}}}
