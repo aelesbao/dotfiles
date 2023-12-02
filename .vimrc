@@ -53,7 +53,7 @@ function! SetupVundle()
   " Buffer/session manipulation and file search
   Plugin 'L9'
   Plugin 'rking/ag.vim'
-  Plugin 'kien/ctrlp.vim'
+  Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'majutsushi/tagbar'
   Plugin 'dbakker/vim-projectroot'
   Plugin 'jeetsukumaran/vim-buffergator'
@@ -613,10 +613,24 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 "autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
 
 " CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]((\.(git|hg|svn|history))|tmp|log|target|vendor|coverage|node_modules)$',
-      \ 'file': '\v\.(so|bkp|tmp|jpg|jpeg|gif|png|bmp|tiff|zip|rar|gz|jar)$',
-      \ }
+  \ 'dir':  '\v[\/]((\.(git|hg|svn|history))|tmp|log|target|vendor|coverage|node_modules)$',
+  \ 'file': '\v\.(exe|so|dll|bkp|tmp|jpg|jpeg|gif|png|bmp|tiff|zip|rar|gz|jar)$',
+  \ 'link': '',
+  \ }
+
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+  let g:ctrlp_clear_cache_on_exit = 0
+endif
 
 " ragtag
 let g:ragtag_global_maps = 1
