@@ -22,6 +22,7 @@ function! SetupVundle()
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'maxbrunsfeld/vim-yankstack'
   Plugin 'sjl/gundo.vim'
+  Plugin 'christoomey/vim-tmux-navigator'
 
   " Snippets
   Plugin 'garbas/vim-snipmate'
@@ -83,7 +84,7 @@ function! SetupVundle()
   Plugin 'racer-rust/vim-racer'
 
   Plugin 'hashivim/vim-vagrant'
-  Plugin 'fladson/vim-kitty'
+  "Plugin 'fladson/vim-kitty'
 
   " Themes
   Plugin 'bling/vim-airline'
