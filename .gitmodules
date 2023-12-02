@@ -6,9 +6,6 @@
 [submodule ".config/kitty/kitty-icon"]
 	path = .config/kitty/kitty-icon
 	url = https://github.com/k0nserv/kitty-icon
-[submodule ".emacs.d"]
-	path = .emacs.d
-	url = https://github.com/doomemacs/doomemacs
 [submodule ".config/iterm2/terminal-icons"]
 	path = .config/iterm2/terminal-icons
 	url = https://github.com/dhanishgajjar/terminal-icons
