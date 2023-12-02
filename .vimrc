@@ -253,8 +253,16 @@ set incsearch   " highlight matches as you type
 set background=dark
 set termguicolors
 
-"colorscheme dracula
-colorscheme catppuccin_macchiato
+function! SafeColorscheme(name, default) abort
+  let pat = 'colors/'.a:name.'.vim'
+  if !empty(globpath(&rtp, pat))
+    execute 'colorscheme ' . a:name
+  else
+    execute 'colorscheme ' . a:default
+  endif
+endfunction
+
+call SafeColorscheme('catppuccin_macchiato', 'slate')
 
 set laststatus=2  " Always show status line.
 " Useful status information at bottom of screen
