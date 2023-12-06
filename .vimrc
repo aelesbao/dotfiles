@@ -428,8 +428,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
-"let g:airline_section_x = '%{rvm#statusline()}'
-
 " Bufferline
 "let g:bufferline_active_buffer_left = '['
 "let g:bufferline_active_buffer_right = ']'
@@ -675,11 +673,13 @@ nnoremap <silent> <F8> :TagbarToggle<CR>
 " Buffergator
 nnoremap <silent> <leader>bg :BuffergatorToggle<CR>
 
-" ag - The Silver Searcher
-nmap <C-S-F> :Ag! 
-
 " JSX
 let g:jsx_ext_required = 1
+
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
+" If the tmux window is zoomed, keep it zoomed when moving from Vim to another pane
+let g:tmux_navigator_preserve_zoom = 1
 
 "  }}}
 
