@@ -50,30 +50,58 @@ palette = 'cyberwave'
 
 # Pallete based on Tokyo Night Moon (https://github.com/folke/tokyonight.nvim)
 [palettes.cyberwave]
-black = "#1b1d2b"
-red = "#db4b4b"
-green = "#9ece6a"
-yellow = "#ff9e64"
-blue = "#7aa2f7"
-magenta = "#af87ff"
-cyan = "#7dcfff"
-white = "#a9b1d6"
-bright-black = "#444a73"
-bright-red = "#ff757f"
-bright-green = "#c3e88d"
-bright-yellow = "#ffc777"
-bright-blue = "#82aaff"
+black          = "#1b1d2b"
+red            = "#db4b4b"
+green          = "#9ece6a"
+yellow         = "#ff9e64"
+blue           = "#7aa2f7"
+magenta        = "#af87ff"
+cyan           = "#7dcfff"
+white          = "#a9b1d6"
+bright-black   = "#444a73"
+bright-red     = "#ff757f"
+bright-green   = "#c3e88d"
+bright-yellow  = "#ffc777"
+bright-blue    = "#82aaff"
 bright-magenta = "#c099ff"
-bright-cyan = "#86e1fc"
-bright-white = "#c8d3f5"
+bright-cyan    = "#86e1fc"
+bright-white   = "#c8d3f5"
 
-# extended colors
-rot = "#c53b53"
-grey = "#828bb8"
+# extra colors
 full-white = "#ffffff"
-neon-3 = "#ff5f00"
-neon-1 = "#f000d9"
-neon-2 = "#0abdc6"
+rot        = "#c53b53"
+grey       = "#828bb8"
+neon-3     = "#ff5f00"
+neon-1     = "#f000d9"
+neon-2     = "#0abdc6"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo  = "#f2cdcd"
+pink      = "#f5c2e7"
+mauve     = "#cba6f7"
+red       = "#f38ba8"
+maroon    = "#eba0ac"
+peach     = "#fab387"
+yellow    = "#f9e2af"
+green     = "#a6e3a1"
+teal      = "#94e2d5"
+sky       = "#89dceb"
+sapphire  = "#74c7ec"
+blue      = "#89b4fa"
+lavender  = "#b4befe"
+text      = "#cdd6f4"
+subtext1  = "#bac2de"
+subtext0  = "#a6adc8"
+overlay2  = "#9399b2"
+overlay1  = "#7f849c"
+overlay0  = "#6c7086"
+surface2  = "#585b70"
+surface1  = "#45475a"
+surface0  = "#313244"
+base      = "#1e1e2e"
+mantle    = "#181825"
+crust     = "#11111b"
 
 [os]
 format = "[$symbol](fg:white)"
@@ -172,28 +200,28 @@ tag_symbol = "  "
 style = "fg:bright-magenta"
 
 [git_status]
-format = """([±\\[ \
+format = """([ \
 ([$modified](bold fg:bright-yellow) )\
 ([$staged](bold fg:bright-green) )\
 ([$renamed](bold fg:green) )\
 ([$deleted](bold fg:bright-red) )\
 ([$conflicted](fg:neon-3) )\
-([$untracked](fg:red dimmed) )\
+([$untracked](fg:blue dimmed) )\
 ([$stashed](fg:neon-2) )\
 ([$ahead_behind](bold fg:yellow) )\
-\\]]($style) )"""
-ahead = "⇡"
-behind = "⇣"
-diverged = "⇡⇣"
-up_to_date = ""
+]($style))"""
+ahead      = "⇡"
+behind     = "⇣"
+diverged   = "⇵"
 conflicted = "⇄"
-untracked = ""
-modified = "⩫"
-staged = "+"
-renamed = "➔"
-deleted = "×"
-stashed = "≡"
-style = "fg:white dimmed"
+up_to_date = "[󰄵](bold fg:green)"
+untracked  = ""
+modified   = ""
+staged     = ""
+renamed    = ""
+deleted    = ""
+stashed    = ""
+style      = "fg:white dimmed"
 
 [git_state]
 format = "[ $state( $progress_current/$progress_total)]($style) "
@@ -321,3 +349,6 @@ symbol = " "
 
 [swift]
 symbol = " "
+
+[zig]
+symbol = "⚡️ "
