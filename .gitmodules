@@ -24,3 +24,6 @@
 [submodule ".config/k9s/skins/catppuccin"]
 	path = .config/k9s/skins/catppuccin
 	url = https://github.com/catppuccin/k9s.git
+[submodule ".config/lazygit/catppuccin"]
+	path = .config/lazygit/catppuccin
+	url = https://github.com/catppuccin/lazygit
