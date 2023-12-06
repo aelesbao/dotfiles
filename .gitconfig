@@ -5,7 +5,6 @@
   useConfigOnly = true
 
 [core]
-  editor = vim
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   whitespace = trailing-space,space-before-tab
