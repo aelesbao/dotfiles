@@ -46,34 +46,7 @@ $shell\
 $character\
 """
 
-palette = 'cyberwave'
-
-# Pallete based on Tokyo Night Moon (https://github.com/folke/tokyonight.nvim)
-[palettes.cyberwave]
-black          = "#1b1d2b"
-red            = "#db4b4b"
-green          = "#9ece6a"
-yellow         = "#ff9e64"
-blue           = "#7aa2f7"
-magenta        = "#af87ff"
-cyan           = "#7dcfff"
-white          = "#a9b1d6"
-bright-black   = "#444a73"
-bright-red     = "#ff757f"
-bright-green   = "#c3e88d"
-bright-yellow  = "#ffc777"
-bright-blue    = "#82aaff"
-bright-magenta = "#c099ff"
-bright-cyan    = "#86e1fc"
-bright-white   = "#c8d3f5"
-
-# extra colors
-full-white = "#ffffff"
-rot        = "#c53b53"
-grey       = "#828bb8"
-neon-3     = "#ff5f00"
-neon-1     = "#f000d9"
-neon-2     = "#0abdc6"
+palette = 'catppuccin_mocha'
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -104,7 +77,7 @@ mantle    = "#181825"
 crust     = "#11111b"
 
 [os]
-format = "[$symbol](fg:white)"
+format = "[$symbol](fg:overlay2)"
 disabled = false
 
 [os.symbols]
@@ -149,15 +122,15 @@ Unknown = " "
 Windows = "󰍲 "
 
 [username]
-style_user = "bold fg:full-white"
-style_root = "bold fg:bright-red"
+style_user = "bold fg:text"
+style_root = "bold fg:red"
 format = "[$user]($style) "
 disabled = false
 show_always = true
 
 [hostname]
 format = "on [$hostname]($style) "
-style = "bold fg:magenta"
+style = "bold fg:lavender"
 ssh_only = true
 disabled = false
 
@@ -166,11 +139,11 @@ style = "bold fg:blue"
 format = "at [$path]($style)[$read_only]($read_only_style) "
 home_symbol = "󰋜 ~"
 read_only = "  "
-read_only_style = "fg:bright-red"
+read_only_style = "fg:red dimmed"
 truncation_length = 4
 truncation_symbol = "…/"
-before_repo_root_style = "bold fg:magenta"
-repo_root_style = "bold fg:magenta"
+before_repo_root_style = "bold fg:blue"
+repo_root_style = "bold fg:blue"
 repo_root_format = "at [ ]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) "
 
 [directory.substitutions]
@@ -184,31 +157,31 @@ repo_root_format = "at [ ]($before_repo_root_style)[$repo_root]($repo_root_st
 "workspace" = " workspace"
 
 [character]
-success_symbol = "[](fg:purple)"
+success_symbol = "[](fg:lavender)"
 error_symbol = "[](fg:red)"
 
 [git_branch]
 format = "on [$symbol$branch]($style) "
 symbol = " "
-style = "fg:neon-1"
+style = "fg:mauve"
 
 [git_commit]
 format = "[( $hash$tag)]($style) "
 only_detached = true
 tag_disabled = false
 tag_symbol = "  "
-style = "fg:bright-magenta"
+style = "fg:pink"
 
 [git_status]
 format = """([ \
-([$modified](bold fg:bright-yellow) )\
-([$staged](bold fg:bright-green) )\
-([$renamed](bold fg:green) )\
-([$deleted](bold fg:bright-red) )\
-([$conflicted](fg:neon-3) )\
-([$untracked](fg:blue dimmed) )\
-([$stashed](fg:neon-2) )\
-([$ahead_behind](bold fg:yellow) )\
+([$modified](bold fg:yellow) )\
+([$staged](bold fg:green) )\
+([$renamed](bold fg:teal) )\
+([$deleted](bold fg:red) )\
+([$conflicted](fg:red) )\
+([$untracked](fg:sky dimmed) )\
+([$stashed](fg:sapphire) )\
+([$ahead_behind](bold fg:peach) )\
 ]($style))"""
 ahead      = "⇡"
 behind     = "⇣"
@@ -221,7 +194,7 @@ staged     = ""
 renamed    = ""
 deleted    = ""
 stashed    = ""
-style      = "fg:white dimmed"
+style      = "fg:text dimmed"
 
 [git_state]
 format = "[ $state( $progress_current/$progress_total)]($style) "
@@ -232,15 +205,11 @@ cherry_pick = "cherry-picking"
 bisect = "bisecting"
 am = "am"
 am_or_rebase = "am/rebase"
-style = "fg:bright-red"
+style = "fg:maroon"
 
 [git_metrics]
-format = "([([ +$added](fg:green dimmed))([ -$deleted](fg:red dimmed))](fg:white dimmed)) "
-disabled = false
-
-[cmd_duration]
-format = "took [$duration]($style) "
-style = "fg:yellow"
+format = "([([ +$added](fg:green dimmed))([ -$deleted](fg:red dimmed))](fg:text dimmed)) "
+disabled = true
 
 [battery]
 full_symbol = "󰁹 "
@@ -251,13 +220,13 @@ discharging_symbol = "󰁾 "
 threshold = 10
 charging_symbol = "󰂆 "
 discharging_symbol = "󰁺 "
-style = "bold fg:red"
+style = "bold fg:red dimmed"
 
 [[battery.display]]
 threshold = 30
 charging_symbol = "󰂇 "
 discharging_symbol = "󰁼 "
-style = "fg:yellow"
+style = "fg:yellow dimmed"
 
 [sudo]
 format = "[$symbol sudo]($style) "
@@ -266,10 +235,14 @@ style = "bold fg:red"
 disabled = false
 
 [time]
-disabled = false
 time_format = "%R"               # Hour:Minute Format
-style = "fg:white dimmed"
-format = 'at [ $time]($style) '
+style = "fg:text dimmed"
+format = '[ $time]($style) '
+disabled = false
+
+[cmd_duration]
+format = "([took ([$duration](fg:yellow dimmed))]($style)) "
+style = "fg:text dimmed"
 
 [aws]
 symbol = "  "
@@ -313,9 +286,9 @@ style = "bold fg:#326ce5"
 
 [memory_usage]
 symbol = "󰍛 "
-style = "bold fg:grey"
+style = "bold fg:overlay1"
 format = "using [$symbol${ram}( | ${swap})]($style) "
-disabled = false
+disabled = true
 
 [nim]
 symbol = "󰆥 "
