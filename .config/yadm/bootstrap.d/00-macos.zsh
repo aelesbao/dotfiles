@@ -13,7 +13,6 @@ fi
 
 info "Configuring global properties"
 
-
 function confirm-defaults() {
   local global="${1}"
   local key="${2}"
@@ -42,7 +41,7 @@ msg "Show scrollbars when scrolling"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 defaults write -g AppleShowScrollBars -string "WhenScrolling"
 
-# msg "Allow apps to restore old documents on relaunch"
+msg "Allow apps to restore old documents on relaunch"
 defaults write -g ApplePersistence -bool true
 
 
@@ -67,6 +66,7 @@ defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock titlesize -int 48
 defaults write com.apple.dock titlesize -int 35
 defaults write com.apple.dock largesize -int 75
+
 
 info "Mission Control"
 
@@ -97,8 +97,7 @@ defaults write com.apple.dock wvous-br-corner -int 4
 defaults write com.apple.dock wvous-br-modifier -int 0
 
 
-
-info "Configuring keyboard and typing"
+info "Configuring keyboard and mappings"
 
 # https://developer.apple.com/library/archive/technotes/tn2450/_index.html#//apple_ref/doc/uid/DTS40017618-CH1-KEY_TABLE_USAGES
 msg "Re-mapping keys"
@@ -178,3 +177,8 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 msg "Enable subpixel font rendering on non-Apple LCDs"
 # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
 defaults write -g AppleFontSmoothing -int 1
+
+
+info "Persisting modified settings in permanent storage"
+
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
