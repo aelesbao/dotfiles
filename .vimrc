@@ -334,20 +334,13 @@ if has("autocmd")
     autocmd!
     autocmd BufEnter * call HighlightOverLength()
   augroup END
-
-  "augroup RainbowParentheses
-    "au VimEnter * RainbowParenthesesToggle
-    "au Syntax * RainbowParenthesesLoadRound
-    "au Syntax * RainbowParenthesesLoadSquare
-    "au Syntax * RainbowParenthesesLoadBraces
-  "augroup END
 endif
 " " }}}
 
 " Key mappings " {{{
 
-let mapleader=","
-let maplocalleader=","
+let mapleader=" "
+let maplocalleader=" "
 
 " save keystrokes, so we don't need to press the Shift key
 nnoremap ; :
