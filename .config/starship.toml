@@ -156,6 +156,14 @@ repo_root_format = "at [ ]($before_repo_root_style)[$repo_root]($repo_root_st
 "Pictures" = "󰉏 Pictures"
 "workspace" = " workspace"
 
+[shell]
+format = "[$indicator]($style)"
+style = "lavender dimmed"
+bash_indicator = " "
+fish_indicator = "󰈺 "
+zsh_indicator = ""
+disabled = false
+
 [character]
 success_symbol = "[](fg:lavender)"
 error_symbol = "[](fg:red)"
@@ -324,4 +332,4 @@ symbol = " "
 symbol = " "
 
 [zig]
-symbol = "⚡️ "
+symbol = " "
