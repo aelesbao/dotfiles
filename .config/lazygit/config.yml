@@ -1,4 +1,26 @@
+disableStartupPopups: true
+
+# one of: 'prompt' | 'create' | 'skip' | 'quit'
+notARepository: "quit"
+
+git:
+  commit:
+    signOff: true
+
+  merging:
+    args: "--no-ff"
+
+  parseEmoji: true
+
 gui:
+  showRandomTip: false
+  # show commit hashes alongside branch names
+  showBranchCommitHash: true
+  # nerd fonts version to use ("2" or "3"); empty means don't show nerd font icons
+  nerdFontsVersion: "3"
+  # for skipping the confirmation before launching the reword editor
+  skipRewordInEditorWarning: true
+
   theme:
     activeBorderColor:
       - '#b4befe'
