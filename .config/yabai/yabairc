@@ -1,0 +1,112 @@
+#!/usr/bin/env sh
+
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+#
+if csrutil status | grep -q "disabled"; then
+    yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+    sudo yabai --load-sa
+fi
+
+# default layout (can be bsp, stack or float)
+yabai -m config layout stack
+
+# -- global settings -- {{{
+
+yabai -m config \
+    insert_feedback_color  0xffd75f5f \
+    split_ratio            0.50 \
+    split_type             auto \
+    auto_balance           off
+
+# new window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config \
+    window_placement     second_child \
+    window_zoom_persist  on
+
+# Specify which display a newly created window should be managed in.
+# default: The display in which the window is created (standard macOS behaviour)
+# focused: The display that has focus when the window is created
+# cursor: The display that currently holds the mouse cursor
+yabai -m config window_origin_display  focused
+
+# padding between windows
+yabai -m config \
+    top_padding 5 \
+    bottom_padding 5 \
+    left_padding 5 \
+    right_padding 5 \
+    window_gap 5
+
+
+# mouse settings
+yabai -m config \
+    mouse_follows_focus off \
+    focus_follows_mouse off \
+    mouse_modifier ctrl \
+    mouse_action1 move \
+    mouse_action2 resize \
+    mouse_drop_action swap
+
+# extra settings that require System Integrity Protection to be partialy disabled
+if csrutil status | grep -q "disabled"; then
+    yabai -m config \
+        window_shadow                on \
+        window_animation_duration    0.0 \
+        window_animation_frame_rate  120 \
+        window_opacity               on \
+        window_opacity_duration      0.0 \
+        active_window_opacity        1.0 \
+        normal_window_opacity        0.90
+fi
+
+# }}}
+
+# -- spaces -- {{{
+
+# }}}
+
+# -- app rules -- {{{
+
+add_rule() {
+    app="$1"; shift
+    yabai -m rule --add label="$app" app="^$app$" "${@}"
+}
+
+add_rule_manage_off() {
+    add_rule "$1" manage=off
+}
+
+add_rule_grid() {
+    app="$1"
+    grid="${2:-4:4:1:1:2:2}"
+    add_rule "$app" manage=off grid="$grid"
+}
+
+# don't manage specific apps
+add_rule_manage_off "Caffeine"
+add_rule_manage_off "Calculator"
+add_rule_manage_off "JetBrains Toolbox"
+add_rule_manage_off "Karabiner-Elements"
+add_rule_manage_off "QuickTime Player"
+add_rule_manage_off "System Settings"
+
+# grid some apps
+# grid=<rows>:<cols>:<start-x>:<start-y>:<width>:<height>
+add_rule_grid "1Password"
+add_rule_grid "NordVPN"
+add_rule_grid "Telegram"
+add_rule_grid "WhatsApp"
+
+# open a few apps in fullscreen by default
+add_rule "Slack" display=1 native-fullscreen=on
+
+# }}}
+
+echo "yabai configuration loaded.."
+
+# vim:ft=sh:foldmethod=marker
