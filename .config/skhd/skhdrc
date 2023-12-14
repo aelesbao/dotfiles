@@ -62,7 +62,13 @@ cmd + alt + shift - k : yabai -m window --warp north
 cmd + alt + shift - h : yabai -m window --warp west
 cmd + alt + shift - l : yabai -m window --warp east
 
-# send window to desktop and follow focus
+# send window to display and follow focus
+hyper - 0x21 : yabai -m window --display prev && \
+               yabai -m display --focus prev
+hyper - 0x1E : yabai -m window --display next && \
+               yabai -m display --focus next
+
+# send window to space and follow focus
 cmd + alt + shift - 0x21 : yabai -m window --space prev && \
                            yabai -m space --focus prev
 cmd + alt + shift - 0x1E : yabai -m window --space next && \
