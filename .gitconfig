@@ -134,7 +134,7 @@
   keepBackup = false
 
 [interactive]
-  diffFilter = delta --color-only
+  diffFilter = delta --color-only || less --tabs=4 -RFX
 
 [delta]
   navigate = true
