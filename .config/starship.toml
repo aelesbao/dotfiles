@@ -172,18 +172,18 @@ style = "fg:pink"
 
 [git_status]
 format = """([ \
-([$modified](bold fg:yellow) )\
-([$staged](bold fg:green) )\
-([$renamed](bold fg:teal) )\
-([$deleted](bold fg:red) )\
+([$modified](fg:yellow) )\
+([$staged](fg:green) )\
+([$renamed](fg:teal) )\
+([$deleted](fg:red) )\
 ([$conflicted](fg:red) )\
 ([$untracked](fg:sky dimmed) )\
 ([$stashed](fg:sapphire) )\
-([$ahead_behind](bold fg:peach) )\
+([$ahead_behind](fg:peach) )\
 ]($style))"""
 ahead      = "⇡"
 behind     = "⇣"
-diverged   = "⇵"
+diverged   = "⇣⇡"
 conflicted = "⇄"
 up_to_date = "[󰄵](bold fg:green)"
 untracked  = ""
@@ -206,8 +206,8 @@ am_or_rebase = "am/rebase"
 style = "fg:maroon"
 
 [git_metrics]
-format = "([([ +$added](fg:green dimmed))([ -$deleted](fg:red dimmed))](fg:text dimmed)) "
-disabled = true
+format = "([([ +$added](fg:green dimmed))([ -$deleted](fg:red dimmed))](fg:text dimmed)) "
+disabled = false
 
 [battery]
 full_symbol = "󰁹 "
