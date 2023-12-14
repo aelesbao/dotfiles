@@ -36,8 +36,6 @@ $memory_usage\
 $env_var\
 $custom\
 $sudo\
-$time\
-$cmd_duration\
 $line_break\
 $jobs\
 $battery\
@@ -45,6 +43,8 @@ $status\
 $shell\
 $character\
 """
+
+right_format = """$time $cmd_duration"""
 
 palette = 'catppuccin_mocha'
 
@@ -126,7 +126,7 @@ style_user = "bold fg:text"
 style_root = "bold fg:red"
 format = "[$user]($style) "
 disabled = false
-show_always = true
+show_always = false
 
 [hostname]
 format = "on [$hostname]($style) "
@@ -136,25 +136,15 @@ disabled = false
 
 [directory]
 style = "bold fg:blue"
-format = "at [$path]($style)[$read_only]($read_only_style) "
+format = "[$path]($style)[$read_only]($read_only_style) "
 home_symbol = "󰋜 ~"
 read_only = "  "
 read_only_style = "fg:red dimmed"
 truncation_length = 4
 truncation_symbol = "…/"
-before_repo_root_style = "bold fg:blue"
+before_repo_root_style = "fg:blue"
 repo_root_style = "bold fg:blue"
-repo_root_format = "at [ ]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style) "
-
-[directory.substitutions]
-"Desktop" = " Desktop"
-"Documents" = "󰈙 Documents"
-"Downloads" = " Downloads"
-"Dropbox" = " Dropbox"
-"Movies" = "󰿎 Movies"
-"Music" = "󱍙 Music"
-"Pictures" = "󰉏 Pictures"
-"workspace" = " workspace"
+repo_root_format = "[ $repo_root]($repo_root_style)[$path]($style) "
 
 [shell]
 format = "[$indicator]($style)"
