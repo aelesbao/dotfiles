@@ -53,7 +53,6 @@
   default = upstream
 
 [commit]
-  gpgSign = true
   verbose = true
 
 [gpg]
@@ -65,7 +64,6 @@
 [alias]
   st      = status
   s       = status -s -b
-  ci      = commit -S
   cis     = !git ci -S
   amend   = !git cis --amend -C HEAD
   fixup   = !git cis --fixup=$(git rev-parse --verify HEAD)
