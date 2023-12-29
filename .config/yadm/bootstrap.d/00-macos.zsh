@@ -161,6 +161,9 @@ defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Docu
 msg "Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
+msg "Disable animations"
+defaults write com.apple.finder DisableAllAnimations -bool true
+
 
 info "Configuring screen"
 
