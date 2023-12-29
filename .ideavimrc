@@ -1,3 +1,5 @@
+" vim:ft=vim
+
 " Common settings
 set nu
 set relativenumber
@@ -22,8 +24,8 @@ let g:argtextobj_pairs="[:],(:),<:>"
 
 " Key mappings " {{{
 
-let mapleader=","
-let maplocalleader=","
+let mapleader=" "
+let maplocalleader=" "
 
 " save keystrokes, so we don't need to press the Shift key
 nnoremap ; :
@@ -39,7 +41,7 @@ map [<Space> O<ESC>j^
 map ]<Space> o<ESC>k^
 
 " Toggle comment
-map <leader>c<Space> :action CommentByLineComment<CR>
+map <leader>cc :action CommentByLineComment<CR>
 
 " Reload config
 nnoremap \e :e ~/.ideavimrc<CR>
