@@ -16,7 +16,6 @@ if ! (( $+commands[rustup] )); then
 fi
 
 rustup set profile default
-
 info "Updating rust stable"
 rustup update stable
 rustup target add wasm32-unknown-unknown
@@ -70,6 +69,8 @@ binstall cargo-run-script
 binstall cargo-watch
 binstall evcxr_repl
 binstall grcov
+
+RUSTC_WRAPPER= cargo install stylua --all-features
 
 sccache --start-server
 
