@@ -44,7 +44,7 @@ $shell\
 $character\
 """
 
-right_format = """$time $cmd_duration"""
+right_format = """$cmd_duration $time"""
 
 palette = 'catppuccin_mocha'
 
@@ -184,9 +184,9 @@ format = """([ \
 ahead      = "⇡"
 behind     = "⇣"
 diverged   = "⇣⇡"
-conflicted = "⇄"
-up_to_date = "[󰄵](bold fg:green)"
-untracked  = ""
+conflicted = ""
+up_to_date = ""
+untracked  = ""
 modified   = ""
 staged     = ""
 renamed    = ""
@@ -269,6 +269,9 @@ symbol = " "
 format = "[$symbol($version)]($style) "
 symbol = " "
 
+[helm]
+symbol = "⎈ "
+
 [hg_branch]
 symbol = " "
 
@@ -292,7 +295,7 @@ disabled = true
 symbol = "󰆥 "
 
 [nix_shell]
-symbol = " "
+symbol = " "
 
 [package]
 symbol = " "
@@ -320,6 +323,12 @@ symbol = " "
 
 [swift]
 symbol = " "
+
+[terraform]
+symbol = " "
+
+[vagrant]
+symbol = "⍱ "
 
 [zig]
 symbol = " "
