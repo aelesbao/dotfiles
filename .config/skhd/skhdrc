@@ -1,24 +1,27 @@
-# Keywords reference
+# Keys reference
 #
-# meh   = cmd + alt + ctrl
-# hyper = cmd + alt + ctrl + shift
-#
-# 0x29 = ;
-# 0x21 = [
-# 0x1E = ]
+# hyper | cmd + alt + ctrl + shift
+# 0x18  | =
+# 0x29  | ;
+# 0x21  | [
+# 0x1E  | ]
 
 # -- Displays --
 
 # change focus between external displays (left and right)
-meh - 0x21 : yabai -m display --focus prev
-meh - 0x1E : yabai -m display --focus next
+cmd + alt + ctrl - 0x21 : yabai -m display --focus prev
+cmd + alt + ctrl - 0x1E : yabai -m display --focus next
 
 # -- Spaces --
 
 # fast focus space
 cmd + ctrl - 0x29 : yabai -m space --focus recent
-cmd + ctrl - 0x21 : yabai -m space --focus prev
-cmd + ctrl - 0x1E : yabai -m space --focus next
+#cmd + ctrl - 0x21 : yabai -m space --focus prev
+#cmd + ctrl - 0x1E : yabai -m space --focus next
+
+# workaround until yabai's bug on macOS 14.2 is fixed
+cmd + ctrl - 0x21 : skhd -k "cmd + ctrl - left"
+cmd + ctrl - 0x1E : skhd -k "cmd + ctrl - right"
 
 # move spaces
 cmd + ctrl + shift - 0x21 : yabai -m space --move prev
@@ -33,14 +36,13 @@ cmd + ctrl + shift - y : yabai -m space --mirror y-axis
 # flip along x-axis
 cmd + ctrl + shift - x : yabai -m space --mirror x-axis
 
-# change space layout to bsp
+# change space layout
 cmd + ctrl + shift - b : yabai -m space --layout bsp
-
-# change space layout to bsp
 cmd + ctrl + shift - s : yabai -m space --layout stack
+cmd + ctrl + shift - f : yabai -m space --layout float
 
 # balance size of windows
-cmd + ctrl + shift - 0 : yabai -m space --balance
+cmd + ctrl + shift - 0x18 : yabai -m space --balance
 
 # -- Windows --
 
@@ -69,55 +71,56 @@ hyper - 0x1E : yabai -m window --display next && \
                yabai -m display --focus next
 
 # send window to space and follow focus
+#cmd + alt + shift - 0x21 : yabai -m window --space prev && \
+#                           yabai -m space --focus prev
+#cmd + alt + shift - 0x1E : yabai -m window --space next && \
+#                           yabai -m space --focus next
+
+# workaround until yabai's bug on macOS 14.2 is fixed
 cmd + alt + shift - 0x21 : yabai -m window --space prev && \
-                           yabai -m space --focus prev
+                           skhd -k "cmd + ctrl - left"
 cmd + alt + shift - 0x1E : yabai -m window --space next && \
-                           yabai -m space --focus next
+                           skhd -k "cmd + ctrl - right"
 
 # toggle window split type
 cmd + alt + shift - e : yabai -m window --toggle split
 
+# change split ration for the current window
+# resizes the current window to 1/2
+cmd + alt + shift - 2 : yabai -m window --ratio abs:0.5
+# resizes the current window to 2/3
+cmd + alt + shift - 3 : yabai -m window --ratio abs:0.33
+# resizes the current window to 2/3
+cmd + alt + shift - 4 : yabai -m window --ratio abs:0.25
+
 # float / unfloat window and center on screen
-cmd + alt + shift - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+cmd + alt + shift - t : yabai -m window --toggle float --grid 8:8:1:1:6:6
 
 # toggle window zoom
-cmd + alt + shift - d : yabai -m window --toggle zoom-parent
-cmd + alt + shift - f : yabai -m window --toggle zoom-fullscreen
+cmd + alt + shift - z : yabai -m window --toggle zoom-fullscreen
+cmd + alt + shift - f : yabai -m window --toggle native-fullscreen
+
+# make floating window fill entire or half screen
+cmd + alt + shift - up    : yabai -m window --grid 1:1:0:0:1:1
+cmd + alt + shift - down  : yabai -m window --grid 8:8:1:1:6:6
+cmd + alt + shift - left  : yabai -m window --grid 1:2:0:0:1:1
+cmd + alt + shift - right : yabai -m window --grid 1:2:1:1:1:1
+
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+hyper - n : yabai -m space --create && \
+            index="$(yabai -m query --spaces --display | jq 'map(select(.is-native-fullscreen == false))[-1].index')" && \
+            yabai -m window --space "${index}" && \
+            yabai -m space --focus "${index}"
 
 # -- Starting/Stopping/Restarting Yabai --
 
-meh - s : yabai --start-service
-meh - r : yabai --restart-service
-meh - q : yabai --stop-service
-
-## Check it out later
-# make floating window fill screen
-# shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
-
-# make floating window fill left-half of screen
-# shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
-
-# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-# shift + cmd - n : yabai -m space --create && \
-#                   index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-#                   yabai -m window --space "${index}" && \
-#                   yabai -m space --focus "${index}"
-
-# send window to monitor and follow focus
-# ctrl + cmd - c  : yabai -m window --display next; yabai -m display --focus next
-# ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
+hyper - s : yabai --start-service
+hyper - r : yabai --restart-service
+hyper - q : yabai --stop-service
 
 # move floating window
 # shift + ctrl - a : yabai -m window --move rel:-20:0
 # shift + ctrl - s : yabai -m window --move rel:0:20
-
-# increase window size
-# shift + alt - a : yabai -m window --resize left:-20:0
-# shift + alt - w : yabai -m window --resize top:0:-20
-
-# decrease window size
-# shift + cmd - s : yabai -m window --resize bottom:0:-20
-# shift + cmd - w : yabai -m window --resize top:0:20
 
 # set insertion point in focused container
 # ctrl + alt - h : yabai -m window --insert west
