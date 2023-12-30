@@ -167,7 +167,8 @@ duration = 0
 #    - Key0-Key9
 #
 #    A full list with available key codes can be found here:
-#    https://docs.rs/winit/*/winit/event/enum.VirtualKeyCode.html#variants
+#    https://docs.rs/winit/latest/winit/keyboard/enum.NamedKey.html
+#    https://docs.rs/winit/latest/winit/keyboard/enum.Key.html#variant.Dead
 #
 #    Instead of using the name of the keys, the `key` field also supports using
 #    the scancode of the desired key. Scancodes have to be specified as a
@@ -186,6 +187,8 @@ duration = 0
 #    of tmux. Note that applications use terminfo to map escape sequences back
 #    to keys. It is therefore required to update the terminfo when changing an
 #    escape sequence.
+#
+#    Reference: https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
 #
 # - `action`: Execute a predefined action
 #
@@ -372,9 +375,7 @@ bindings = [
 
   # window
   { key = "N", mods = "Command", action = "CreateNewWindow" },
-  { key = "Return", mods = "Command", action = "ToggleFullscreen" },
-
-  { key = "L", mods = "Command", action = "ClearLogNotice" },
+  { key = "T", mods = "Command", action = "CreateNewTab" },
 
   # font control
   { key = "Key0", mods = "Command", action = "ResetFontSize" },
@@ -383,4 +384,27 @@ bindings = [
   { key = "NumpadAdd", mods = "Command", action = "IncreaseFontSize" },
   { key = "Minus", mods = "Command", action = "DecreaseFontSize" },
   { key = "NumpadSubtract", mods = "Command", action = "DecreaseFontSize" },
+
+  # tmux integration
+  { key = "Return", mods = "Alt|Shift", chars = "\u001b[10;13~" },
+  { key = "Key0", mods = "Control", chars = "\u001b[5;48~" },
+  { key = "Key1", mods = "Control", chars = "\u001b[5;49~" },
+  { key = "Key2", mods = "Control", chars = "\u001b[5;50~" },
+  { key = "Key3", mods = "Control", chars = "\u001b[5;51~" },
+  { key = "Key4", mods = "Control", chars = "\u001b[5;52~" },
+  { key = "Key5", mods = "Control", chars = "\u001b[5;53~" },
+  { key = "Key6", mods = "Control", chars = "\u001b[5;54~" },
+  { key = "Key7", mods = "Control", chars = "\u001b[5;55~" },
+  { key = "Key8", mods = "Control", chars = "\u001b[5;56~" },
+  { key = "Key9", mods = "Control", chars = "\u001b[5;57~" },
+  { key = "Key0", mods = "Control|Alt", chars = "\u001b[7;48~" },
+  { key = "Key1", mods = "Control|Alt", chars = "\u001b[7;49~" },
+  { key = "Key2", mods = "Control|Alt", chars = "\u001b[7;50~" },
+  { key = "Key3", mods = "Control|Alt", chars = "\u001b[7;51~" },
+  { key = "Key4", mods = "Control|Alt", chars = "\u001b[7;52~" },
+  { key = "Key5", mods = "Control|Alt", chars = "\u001b[7;53~" },
+  { key = "Key6", mods = "Control|Alt", chars = "\u001b[7;54~" },
+  { key = "Key7", mods = "Control|Alt", chars = "\u001b[7;55~" },
+  { key = "Key8", mods = "Control|Alt", chars = "\u001b[7;56~" },
+  { key = "Key9", mods = "Control|Alt", chars = "\u001b[7;57~" },
 ]

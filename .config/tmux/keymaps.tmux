@@ -1,5 +1,8 @@
 # vim:fileencoding=utf-8:ft=tmux:foldmethod=marker
 
+# Assigns custom user keys
+run -b '~/.config/tmux/user-keys.sh'
+
 # too lazy to hold shift
 bind ';' command-prompt
 
@@ -10,9 +13,6 @@ set-window-option -g mode-keys vi
 bind -T copy-mode-vi v   send-keys -X begin-selection
 bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
 bind -T copy-mode-vi y   send-keys -X copy-selection-and-cancel
-
-# Zoom in and out
-bind -n M-S-Enter resize-pane -Z
 
 # Pane navigation
 bind h select-pane -L
@@ -25,6 +25,17 @@ bind -r H resize-pane -L 5
 bind -r J resize-pane -D 5
 bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
+
+# Zoom in and out
+bind -n User0 resize-pane -Z
+
+# Resize based on percentage
+bind User12 resize-pane -x '50%'
+bind User13 resize-pane -x '66%'
+bind User14 resize-pane -x '75%'
+bind User22 resize-pane -y '50%'
+bind User23 resize-pane -y '66%'
+bind User24 resize-pane -y '75%'
 
 # Pane split bindings
 bind '|'  split-window -fh -c "#{pane_current_path}"
@@ -44,15 +55,14 @@ bind -n 'M-j' if-shell "$is_vim" 'send-keys M-j' 'select-pane -D'
 bind -n 'M-k' if-shell "$is_vim" 'send-keys M-k' 'select-pane -U'
 bind -n 'M-l' if-shell "$is_vim" 'send-keys M-l' 'select-pane -R'
 
+# Select the last pane keeping the zoom status
+bind -n 'M-;' select-pane -Z -t :.+
+
 bind -T copy-mode-vi 'M-h' select-pane -L
 bind -T copy-mode-vi 'M-j' select-pane -D
 bind -T copy-mode-vi 'M-k' select-pane -U
 bind -T copy-mode-vi 'M-l' select-pane -R
 bind -T copy-mode-vi 'M-;' select-pane -l
-
-# Select the last pane keeping the zoom status
-# bind -n 'M-;' if-shell "$is_vim" 'send-keys M-\;' 'select-pane -Z -t :.+'
-bind -n 'M-;' select-pane -Z -t :.+
 
 # Window navigation
 bind -n 'M-H' previous-window
