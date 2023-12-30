@@ -44,6 +44,10 @@ set -g @plugin 'aelesbao/tmux-ctrlp'
 set -g @ctrlp_session_bind 's'
 
 
+# Copy pasting in terminal with vimium/vimperator like hints.
+set -g @plugin 'Morantron/tmux-fingers'
+
+
 # A Tokyo Night tmux theme directly inspired from Tokyo Night vim theme.
 # set -g @plugin 'fabioluciano/tmux-tokyo-night'
 
