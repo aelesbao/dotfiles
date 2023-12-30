@@ -6,6 +6,8 @@ set-option -g prefix C-s
 # Enables extended terminal capabilities in tmux
 # set-option -s default-terminal 'tmux-256color'
 
+set-option -s editor 'nvim'
+
 # Instructs the session to use True Color (24 bit) if the terminal supports it
 set-option -sa terminal-overrides ',*256color*:Tc'
 set-option -sa terminal-overrides ',alacritty*:Tc'
@@ -36,7 +38,7 @@ set-option -g status-position bottom
 
 # Enable visual alerts for windows. Hide bells/silence.
 set-window-option -g monitor-activity on # highlight active windows?
-set-option -g visual-activity on         # show a message on window activity?
+set-option -g visual-activity off        # show a message on window activity?
 set-option -g visual-silence on
 set-option -g visual-bell off
 set-option -g bell-action none
