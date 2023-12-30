@@ -45,28 +45,32 @@ set -g @ctrlp_session_bind 's'
 
 
 # A Tokyo Night tmux theme directly inspired from Tokyo Night vim theme.
-#set -g @plugin 'fabioluciano/tmux-tokyo-night'
+# set -g @plugin 'fabioluciano/tmux-tokyo-night'
 
 # Tokyo Night Theme configuration
-#set -g @theme_variation 'storm'
-#set -g @theme_left_separator ''
-#set -g @theme_right_separator ''
-#set -g @theme_plugin_datetime_format '%a %F %R'
+# set -g @theme_variation 'storm'
+# set -g @theme_left_separator ''
+# set -g @theme_right_separator ''
+# set -g @theme_plugin_datetime_format '%a %F %R'
 
 
 # Soothing pastel theme for Tmux.
 set -g @plugin 'catppuccin/tmux'
 
 # Catppuccin theme settings (use mocha on the host and frappe on ssh)
-if '[ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ]' \
-   "set -g @catppuccin_flavour 'mocha'" \
-   "set -g @catppuccin_flavour 'frappe'"
+%if "#{||:$SSH_CLIENT,$SSH_TTY}"
+   set -g @catppuccin_flavour "frappe"
+%else
+   set -g @catppuccin_flavour "mocha"
+%endif
 
 set -g @catppuccin_status_modules_right 'application session'
 
-if '[ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]' \
-   'set -ga @catppuccin_status_modules_right " host"' \
-   'set -ga @catppuccin_status_modules_right " battery"'
+%if "#{||:$SSH_CLIENT,$SSH_TTY}"
+   set -ga @catppuccin_status_modules_right " host"
+%else
+   set -ga @catppuccin_status_modules_right " battery"
+%endif
 
 set -ga @catppuccin_status_modules_right ' date_time'
 
@@ -79,7 +83,8 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 
 
 # Plug and play cpu percentage and icon indicator.
-#set -g @plugin 'tmux-plugins/tmux-cpu'
+# set -g @plugin 'tmux-plugins/tmux-cpu'
+
 
 # Plugin Manager installation {{{
 
