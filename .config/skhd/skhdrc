@@ -18,7 +18,6 @@ cmd + alt + ctrl - 0x1E : yabai -m display --focus next
 cmd + ctrl - 0x29 : yabai -m space --focus recent
 #cmd + ctrl - 0x21 : yabai -m space --focus prev
 #cmd + ctrl - 0x1E : yabai -m space --focus next
-
 # workaround until yabai's bug on macOS 14.2 is fixed
 cmd + ctrl - 0x21 : skhd -k "cmd + ctrl - left"
 cmd + ctrl - 0x1E : skhd -k "cmd + ctrl - right"
@@ -47,22 +46,22 @@ cmd + ctrl + shift - 0x18 : yabai -m space --balance
 # -- Windows --
 
 # change window focus within space
-ctrl + alt - j : yabai -m window --focus south
-ctrl + alt - k : yabai -m window --focus north
-ctrl + alt - h : yabai -m window --focus west
-ctrl + alt - l : yabai -m window --focus east
+cmd + ctrl - j : yabai -m window --focus south
+cmd + ctrl - k : yabai -m window --focus north
+cmd + ctrl - h : yabai -m window --focus west
+cmd + ctrl - l : yabai -m window --focus east
 
 # swap windows
-ctrl + alt + shift - j : yabai -m window --swap south
-ctrl + alt + shift - k : yabai -m window --swap north
-ctrl + alt + shift - h : yabai -m window --swap west
-ctrl + alt + shift - l : yabai -m window --swap east
+cmd + ctrl + shift - j : yabai -m window --swap south
+cmd + ctrl + shift - k : yabai -m window --swap north
+cmd + ctrl + shift - h : yabai -m window --swap west
+cmd + ctrl + shift - l : yabai -m window --swap east
 
 # move window and split
-cmd + alt + shift - j : yabai -m window --warp south
-cmd + alt + shift - k : yabai -m window --warp north
-cmd + alt + shift - h : yabai -m window --warp west
-cmd + alt + shift - l : yabai -m window --warp east
+cmd + ctrl + shift - j : yabai -m window --warp south
+cmd + ctrl + shift - k : yabai -m window --warp north
+cmd + ctrl + shift - h : yabai -m window --warp west
+cmd + ctrl + shift - l : yabai -m window --warp east
 
 # send window to display and follow focus
 hyper - 0x21 : yabai -m window --display prev && \
@@ -83,28 +82,28 @@ cmd + alt + shift - 0x1E : yabai -m window --space next && \
                            skhd -k "cmd + ctrl - right"
 
 # toggle window split type
-cmd + alt + shift - e : yabai -m window --toggle split
+cmd + ctrl + shift - e : yabai -m window --toggle split
 
 # change split ration for the current window
 # resizes the current window to 1/2
-cmd + alt + shift - 2 : yabai -m window --ratio abs:0.5
+cmd + ctrl + shift - 2 : yabai -m window --ratio abs:0.5
 # resizes the current window to 2/3
-cmd + alt + shift - 3 : yabai -m window --ratio abs:0.33
+cmd + ctrl + shift - 3 : yabai -m window --ratio abs:0.33
 # resizes the current window to 2/3
-cmd + alt + shift - 4 : yabai -m window --ratio abs:0.25
+cmd + ctrl + shift - 4 : yabai -m window --ratio abs:0.25
 
 # float / unfloat window and center on screen
-cmd + alt + shift - t : yabai -m window --toggle float --grid 8:8:1:1:6:6
+cmd + ctrl + shift - t : yabai -m window --toggle float --grid 8:8:1:1:6:6
 
 # toggle window zoom
-cmd + alt + shift - z : yabai -m window --toggle zoom-fullscreen
-cmd + alt + shift - f : yabai -m window --toggle native-fullscreen
+cmd + ctrl + shift - z : yabai -m window --toggle zoom-fullscreen
+cmd + ctrl + shift - f : yabai -m window --toggle native-fullscreen
 
 # make floating window fill entire or half screen
-cmd + alt + shift - up    : yabai -m window --grid 1:1:0:0:1:1
-cmd + alt + shift - down  : yabai -m window --grid 8:8:1:1:6:6
-cmd + alt + shift - left  : yabai -m window --grid 1:2:0:0:1:1
-cmd + alt + shift - right : yabai -m window --grid 1:2:1:1:1:1
+cmd + ctrl + shift - up    : yabai -m window --grid 1:1:0:0:1:1
+cmd + ctrl + shift - down  : yabai -m window --grid 8:8:1:1:6:6
+cmd + ctrl + shift - left  : yabai -m window --grid 1:2:0:0:1:1
+cmd + ctrl + shift - right : yabai -m window --grid 1:2:1:1:1:1
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 hyper - n : yabai -m space --create && \
@@ -112,15 +111,7 @@ hyper - n : yabai -m space --create && \
             yabai -m window --space "${index}" && \
             yabai -m space --focus "${index}"
 
-# -- Starting/Stopping/Restarting Yabai --
-
+# -- Yabai Service Control --
 hyper - s : yabai --start-service
 hyper - r : yabai --restart-service
 hyper - q : yabai --stop-service
-
-# move floating window
-# shift + ctrl - a : yabai -m window --move rel:-20:0
-# shift + ctrl - s : yabai -m window --move rel:0:20
-
-# set insertion point in focused container
-# ctrl + alt - h : yabai -m window --insert west
