@@ -42,7 +42,7 @@ dynamic_title = true
 #     - buttonless: Title bar, transparent background and no title bar buttons
 decorations = "buttonless"
 # Request compositor to blur content behind transparent windows.
-blur = true
+blur = false
 # Background opacity
 opacity = 0.95
 # Make `Option` key behave as `Alt` (macOS only):
