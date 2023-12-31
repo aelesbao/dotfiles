@@ -38,12 +38,12 @@ bind User23 resize-pane -y '66%'
 bind User24 resize-pane -y '75%'
 
 # Pane split bindings
-bind '|'  split-window -fh -c "#{pane_current_path}"
+bind '|' split-window -fh -c "#{pane_current_path}"
 bind '\' split-window -h -c "#{pane_current_path}"
-bind '-'  split-window -v -c "#{pane_current_path}"
-bind '_'  split-window -fv -c "#{pane_current_path}"
-bind '%'  split-window -h -c "#{pane_current_path}"
-bind '"'  split-window -v -c "#{pane_current_path}"
+bind '-' split-window -v -c "#{pane_current_path}"
+bind '_' split-window -fv -c "#{pane_current_path}"
+bind '%' split-window -h -c "#{pane_current_path}"
+bind '"' split-window -v -c "#{pane_current_path}"
 
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator

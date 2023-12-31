@@ -20,7 +20,7 @@ set -g @resurrect-save 'F5'
 set -g @resurrect-restore 'F6'
 
 # Restore additional programs
-set -g @resurrect-processes 'lazygit "~node dev" man'
+set -g @resurrect-processes 'btop lazygit "~node dev"'
 
 # Restore pane contents. Check the `default-command` tmux option;
 # it shouldn't contain `&&` or `||` operators.
