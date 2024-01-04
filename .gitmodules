@@ -33,3 +33,6 @@
 [submodule ".config/btop/catppuccin"]
 	path = .config/btop/catppuccin
 	url = https://github.com/catppuccin/btop
+[submodule ".config/fish/catppuccin"]
+	path = .config/fish/catppuccin
+	url = https://github.com/catppuccin/fish
