@@ -30,8 +30,8 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/aelesbao/nvim.git
-[submodule ".config/btop/catppuccin"]
-	path = .config/btop/catppuccin
+[submodule ".config/bpytop/catppuccin"]
+	path = .config/bpytop/catppuccin
 	url = https://github.com/catppuccin/btop
 [submodule ".config/fish/catppuccin"]
 	path = .config/fish/catppuccin
