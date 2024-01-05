@@ -17,12 +17,7 @@ arch: host
 
 # Container runtime to be used (docker, containerd).
 # Default: docker
-runtime: docker
-
-# Set custom hostname for the virtual machine.
-# Default: colima
-#          colima-profile_name for other profiles
-hostname: ""
+runtime: containerd
 
 # Kubernetes configuration for the virtual machine.
 kubernetes:
@@ -33,7 +28,7 @@ kubernetes:
   # Kubernetes version to use.
   # This needs to exactly match a k3s version https://github.com/k3s-io/k3s/releases
   # Default: latest stable release
-  version: v1.25.4+k3s1
+  version: v1.24.3+k3s1
   
   # Additional args to pass to k3s https://docs.k3s.io/cli/server
   # Default: traefik is disabled
@@ -71,6 +66,12 @@ network:
   #   example.com: 1.2.3.4
   dnsHosts:
     host.docker.internal: host.lima.internal
+  
+  # Network driver to use (slirp, gvproxy), (requires vmType `qemu`)
+  #   - slirp is the default user mode networking provided by Qemu
+  #   - gvproxy is an alternative to VPNKit based on gVisor https://github.com/containers/gvisor-tap-vsock
+  # Default: gvproxy
+  driver: gvproxy
 
 # ===================================================================== #
 # ADVANCED CONFIGURATION
@@ -97,14 +98,7 @@ forwardAgent: false
 #
 # Colima default behaviour: buildkit enabled
 # Default: {}
-docker:
-  builder:
-    gc:
-      defaultKeepStorage: 30GB
-      enabled: true
-  experimental: true
-  features:
-    buildkit: true
+docker: {}
 
 # Virtual Machine type (qemu, vz)
 # NOTE: this is macOS 13 only. For Linux and macOS <13.0, qemu is always used.
@@ -138,17 +132,25 @@ mountInotify: false
 # Options available for host emulation can be checked with: `qemu-system-$(arch) -cpu help`.
 # Instructions are also supported by appending to the cpu type e.g. "qemu64,+ssse3".
 # Default: host
-cpuType: ""
+cpuType: host
+
+# For a more general purpose virtual machine, Ubuntu container is optionally provided
+# as a layer on the virtual machine.
+# The underlying virtual machine is still accessible via `colima ssh --layer=false` or running `colima` in
+# the Ubuntu session.
+#
+# Default: false
+layer: false
 
 # Custom provision scripts for the virtual machine.
 # Provisioning scripts are executed on startup and therefore needs to be idempotent.
 #
-# EXAMPLE - script executed as root
+# EXAMPLE - script exected as root
 # provision:
 #   - mode: system
-#     script: apt-get install htop vim
+#     script: apk add htop vim
 #
-# EXAMPLE - script executed as user
+# EXAMPLE - script exected as user
 # provision:
 #   - mode: user
 #     script: |
