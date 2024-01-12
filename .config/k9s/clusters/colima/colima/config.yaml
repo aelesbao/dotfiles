@@ -1,0 +1,15 @@
+k9s:
+  cluster: colima
+  readOnly: false
+  namespace:
+    active: indexer
+    lockFavorites: false
+    favorites:
+    - all
+    - indexer
+    - default
+  view:
+    active: dp
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost
