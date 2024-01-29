@@ -16,11 +16,11 @@ cmd + alt + ctrl - 0x1E : yabai -m display --focus next
 
 # fast focus space
 cmd + ctrl - 0x29 : yabai -m space --focus recent
-#cmd + ctrl - 0x21 : yabai -m space --focus prev
-#cmd + ctrl - 0x1E : yabai -m space --focus next
+cmd + ctrl - 0x21 : yabai -m space --focus prev
+cmd + ctrl - 0x1E : yabai -m space --focus next
 # workaround until yabai's bug on macOS 14.2 is fixed
-cmd + ctrl - 0x21 : skhd -k "cmd + ctrl - left"
-cmd + ctrl - 0x1E : skhd -k "cmd + ctrl - right"
+#cmd + ctrl - 0x21 : skhd -k "cmd + ctrl - left"
+#cmd + ctrl - 0x1E : skhd -k "cmd + ctrl - right"
 
 # move spaces
 cmd + ctrl + shift - 0x21 : yabai -m space --move prev
@@ -58,10 +58,10 @@ cmd + ctrl + shift - h : yabai -m window --swap west
 cmd + ctrl + shift - l : yabai -m window --swap east
 
 # move window and split
-cmd + ctrl + shift - j : yabai -m window --warp south
-cmd + ctrl + shift - k : yabai -m window --warp north
-cmd + ctrl + shift - h : yabai -m window --warp west
-cmd + ctrl + shift - l : yabai -m window --warp east
+cmd + alt + shift - j : yabai -m window --warp south
+cmd + alt + shift - k : yabai -m window --warp north
+cmd + alt + shift - h : yabai -m window --warp west
+cmd + alt + shift - l : yabai -m window --warp east
 
 # send window to display and follow focus
 hyper - 0x21 : yabai -m window --display prev && \
@@ -70,16 +70,16 @@ hyper - 0x1E : yabai -m window --display next && \
                yabai -m display --focus next
 
 # send window to space and follow focus
-#cmd + alt + shift - 0x21 : yabai -m window --space prev && \
-#                           yabai -m space --focus prev
-#cmd + alt + shift - 0x1E : yabai -m window --space next && \
-#                           yabai -m space --focus next
+cmd + alt + shift - 0x21 : yabai -m window --space prev && \
+                           yabai -m space --focus prev
+cmd + alt + shift - 0x1E : yabai -m window --space next && \
+                           yabai -m space --focus next
 
 # workaround until yabai's bug on macOS 14.2 is fixed
-cmd + alt + shift - 0x21 : yabai -m window --space prev && \
-                           skhd -k "cmd + ctrl - left"
-cmd + alt + shift - 0x1E : yabai -m window --space next && \
-                           skhd -k "cmd + ctrl - right"
+#cmd + alt + shift - 0x21 : yabai -m window --space prev && \
+#                           skhd -k "cmd + ctrl - left"
+#cmd + alt + shift - 0x1E : yabai -m window --space next && \
+#                           skhd -k "cmd + ctrl - right"
 
 # toggle window split type
 cmd + ctrl + shift - e : yabai -m window --toggle split
@@ -87,10 +87,13 @@ cmd + ctrl + shift - e : yabai -m window --toggle split
 # change split ration for the current window
 # resizes the current window to 1/2
 cmd + ctrl + shift - 2 : yabai -m window --ratio abs:0.5
+cmd + alt + shift - 2 : yabai -m window --ratio abs:0.5
 # resizes the current window to 2/3
 cmd + ctrl + shift - 3 : yabai -m window --ratio abs:0.33
+cmd + alt + shift - 3 : yabai -m window --ratio abs:0.66
 # resizes the current window to 2/3
 cmd + ctrl + shift - 4 : yabai -m window --ratio abs:0.25
+cmd + alt + shift - 4 : yabai -m window --ratio abs:0.75
 
 # float / unfloat window and center on screen
 cmd + ctrl + shift - t : yabai -m window --toggle float --grid 8:8:1:1:6:6
@@ -112,6 +115,6 @@ hyper - n : yabai -m space --create && \
             yabai -m space --focus "${index}"
 
 # -- Yabai Service Control --
-hyper - s : yabai --start-service
-hyper - r : yabai --restart-service
-hyper - q : yabai --stop-service
+hyper - s : yabai --start-service && osascript -e 'display notification "Service started" with title "Yabai"'
+hyper - r : yabai --restart-service && osascript -e 'display notification "Service restarted" with title "Yabai"'
+hyper - q : yabai --stop-service && osascript -e 'display notification "Service stopped" with title "Yabai"'
