@@ -14,12 +14,12 @@ hotKeys:
     description: View deployments
     command: statefulsets
 
-  shift-x:
-    shortCut: Shift-x
-    description: XRay
-    command: xray
-
-  shift-p:
-    shortCut: Shift-p
-    description: Pulses
-    command: pulses
+  # alt-x:
+  #   shortCut: Shift-x
+  #   description: XRay
+  #   command: xray
+  #
+  # alt-p:
+  #   shortCut: Shift-p
+  #   description: Pulses
+  #   command: pulses

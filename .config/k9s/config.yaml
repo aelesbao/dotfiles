@@ -1,6 +1,5 @@
 k9s:
-  liveViewAutoRefresh: false
-  screenDumpDir: /Users/aelesbao/Library/Application Support/k9s/screen-dumps
+  liveViewAutoRefresh: true
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false
@@ -14,12 +13,6 @@ k9s:
     skin: catppuccin-mocha
   skipLatestRevCheck: false
   disablePodCounting: false
-  shellPod:
-    image: busybox:1.35.0
-    namespace: default
-    limits:
-      cpu: 100m
-      memory: 100Mi
   imageScans:
     enable: false
     exclusions:

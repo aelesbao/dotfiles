@@ -5,11 +5,11 @@ k9s:
     active: indexer
     lockFavorites: false
     favorites:
-    - all
-    - indexer
-    - default
+      - all
+      - default
+      - indexer
   view:
-    active: dp
+    active: pods
   featureGates:
     nodeShell: false
   portForwardAddress: localhost
