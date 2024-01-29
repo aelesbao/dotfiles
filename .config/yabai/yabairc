@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 #
 # for this to work you must configure sudo such that
@@ -8,30 +8,17 @@
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 #
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+. "$SCRIPT_DIR/util.sh"
+
 enable_script_addition=true
 
-if csrutil status | grep -q "disabled"; then
-    yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+if [ $enable_script_addition = true ] && is_system_protection_disabled; then
+    echo "Installing Yabai script-addition"
+    yabai -m signal --add event=dock_did_restart label="re-load script addition" action="sudo yabai --load-sa"
     sudo yabai --load-sa
 fi
-
-# utility functions {{{
-
-# shellcheck disable=SC2034
-single='length == 1'
-# shellcheck disable=SC2034
-samsung_odyssey_full='map(.index == 2 and .frame.w == 5120.0000) | any'
-# shellcheck disable=SC2034
-samsung_odyssey_half='map(.index == 2 and .frame.w == 2560.0000) | any'
-
-has_display() {
-    display_query="$1"
-    yabai -m query --displays | jq "$display_query"
-}
-
-# }}}
-
-# global settings {{{
 
 # default layout (can be bsp, stack or float)
 if has_display "$samsung_odyssey_full"; then
@@ -67,6 +54,9 @@ yabai -m config \
     right_padding 5 \
     window_gap 5
 
+# add 20 padding to the top and 0 padding to the bottom of every space located on the main display
+# yabai -m config external_bar main:20:0
+
 # mouse settings
 yabai -m config \
     mouse_follows_focus off \
@@ -77,130 +67,19 @@ yabai -m config \
     mouse_drop_action stack
 
 # extra settings that require System Integrity Protection to be partialy disabled
-if $enable_script_addition && csrutil status | grep -q "disabled"; then
+if [ $enable_script_addition = true ] && is_system_protection_disabled; then
     yabai -m config \
-        window_shadow                off \
+        window_shadow                on \
         window_animation_duration    0.0 \
         window_animation_frame_rate  120 \
-        window_opacity               on \
+        window_opacity               off \
         window_opacity_duration      0.0 \
         active_window_opacity        1.0 \
         normal_window_opacity        0.95
 fi
 
-# }}}
-
-# spaces {{{
-
-# display 1
-yabai -m space 1 --label email
-yabai -m space 2 --label slack
-yabai -m space 3 --label personal
-yabai -m space 4 --label chat
-
-# display 2
-if has_display "$samsung_odyssey_full"; then
-    yabai -m space 5 --label planning
-    yabai -m space 6 --label philabs-browsing
-    yabai -m space 7 --label philabs-work
-    yabai -m space 8 --label dotfiles
-    yabai -m space 9 --label home-lab
-    yabai -m space 10 --label sharethepi
-    yabai -m space 11 --label research
-
-    yabai -m config --space personal layout stack
-    yabai -m config --space chat layout float
-fi
-
-# }}}
-
-# app rules {{{
-
-add_rule() {
-    app="$1"; shift
-    yabai -m rule --add label="$app" app="^$app$" "${@}"
-}
-
-add_rule_manage_off() {
-    add_rule "$1" manage=off
-}
-
-add_rule_grid() {
-    app="$1"
-    grid="${2:-4:4:1:1:2:2}"
-    add_rule "$app" manage=off grid="$grid"
-}
-
-# don't manage specific apps
-add_rule_manage_off "Bartender 5"
-add_rule_manage_off "BetterTouchTool"
-add_rule_manage_off "Caffeine"
-add_rule_manage_off "Calculator"
-add_rule_manage_off "Digital Color Meter"
-add_rule_manage_off "Irvue"
-add_rule_manage_off "iStats Menus"
-add_rule_manage_off "JetBrains Toolbox"
-add_rule_manage_off "Karabiner-Elements"
-add_rule_manage_off "QuickTime Player"
-add_rule_manage_off "Raycast"
-add_rule_manage_off "System Settings"
-
-# grid some apps
-# grid=<rows>:<cols>:<start-x>:<start-y>:<width>:<height>
-add_rule_grid "1Password"
-add_rule_grid "NordVPN"
-# add_rule_grid "Linear" "10:10:2:1:6:8"
-
-# fixed spaces
-add_rule "Telegram" space="chat"
-add_rule "WhatsApp" space="chat"
-add_rule "Messages" space="chat"
-add_rule "Spotify" space="chat"
-add_rule "Calendar" space="planning"
-add_rule "Todoist" space="planning"
-add_rule "Linear" space="planning"
-
-# fix some pop-up
-#yabai -m rule --add \
-#    label="Wallets" \
-#    app="^Brave Browser$" \
-#    title="^(Metamask|Keplr|Station Wallet)$" \
-#    manage=off
-
-# Set all windows layer to normal
-yabai -m rule --add \
-    label="windows-layer-normal" \
-    app=".*" \
-    layer="normal"
-
-# Always show notification centre above all windows
-yabai -m rule --add \
-    label="windows-layer-above" \
-    app="^(Notification Cent.*|Raycast)$" \
-    layer="above"
-
-# Set all windows layer to normal
-yabai -m signal --add \
-    label="windows-layer-normal-switched" \
-    event="application_front_switched" \
-    action="yabai -m window --layer normal"
-yabai -m signal --add \
-    label="windows-layer-normal-created" \
-    event="window_created" \
-    action="yabai -m window --layer normal"
-yabai -m signal --add \
-    label="windows-layer-normal-focused" \
-    event="window_focused" \
-    action="yabai -m window --layer normal"
-
-# open a few apps in fullscreen by default
-# yabai -m signal --add \
-#     label="slack-fullscreen" \
-#     app="Slack" \
-#     display=1 \
-#     native-fullscreen=on
-
-# }}}
+. "$SCRIPT_DIR/spaces.sh"
+. "$SCRIPT_DIR/rules.sh"
 
 echo "yabai configuration loaded.."
 
