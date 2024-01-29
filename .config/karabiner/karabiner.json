@@ -20,9 +20,9 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to command+control+option+shift.",
+                                "description": "Change eject to command+control+option+shift",
                                 "from": {
-                                    "key_code": "caps_lock",
+                                    "consumer_key_code": "eject",
                                     "modifiers": {
                                         "optional": [
                                             "any"
