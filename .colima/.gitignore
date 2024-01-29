@@ -1,0 +1,7 @@
+*.sock
+*.log
+
+ssh_config
+
+_lima/
+_wrapper/
