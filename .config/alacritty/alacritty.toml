@@ -44,7 +44,7 @@ decorations = "buttonless"
 # Request compositor to blur content behind transparent windows.
 blur = false
 # Background opacity
-opacity = 0.95
+opacity = 0.90
 # Make `Option` key behave as `Alt` (macOS only):
 #   - OnlyLeft
 #   - OnlyRight
@@ -90,7 +90,7 @@ unfocused_hollow = true
 # screen buffer is active. This is used to allow mouse
 # scrolling for applications like `man`.
 #
-hide_when_typing = true
+hide_when_typing = false
 
 # Mouse bindings
 #
