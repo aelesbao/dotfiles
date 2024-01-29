@@ -4,7 +4,7 @@
 set-option -g prefix C-s
 
 # Enables extended terminal capabilities in tmux
-# set-option -s default-terminal 'tmux-256color'
+set-option -s default-terminal 'alacritty'
 
 set-option -s editor 'nvim'
 
@@ -15,6 +15,11 @@ set-option -sa terminal-overrides ',*kitty:Tc'
 
 # Enables undercurl in Alacritty
 set-option -sa terminal-features ",alacritty*:usstyle"
+
+# Undercurl support
+set -sa terminal-overrides ',*:Smulx=\E[4::%p1%dm'  
+# Underscore colors
+set -sa terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
 
 # Enable mouse mode (tmux 2.1 and above)
 set-option -g mouse on

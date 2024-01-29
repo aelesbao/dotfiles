@@ -12,7 +12,7 @@ set-window-option -g mode-keys vi
 # keybindings
 bind -T copy-mode-vi v   send-keys -X begin-selection
 bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
-bind -T copy-mode-vi y   send-keys -X copy-selection-and-cancel
+bind -T copy-mode-vi y   send-keys -X copy-selection
 
 # Pane navigation
 bind h select-pane -L
@@ -65,9 +65,7 @@ bind -T copy-mode-vi 'M-l' select-pane -R
 bind -T copy-mode-vi 'M-;' select-pane -l
 
 # Window navigation
-bind -n 'M-H' previous-window
 bind -n 'M-{' previous-window
-bind -n 'M-L' next-window
 bind -n 'M-}' next-window
 
 # Switch windows alt+number
