@@ -5,12 +5,16 @@ notARepository: "quit"
 
 git:
   commit:
-    signOff: true
+    signOff: false
 
   merging:
     args: "--no-ff"
 
   parseEmoji: true
+
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
 
 gui:
   showRandomTip: false
@@ -21,26 +25,112 @@ gui:
   # for skipping the confirmation before launching the reword editor
   skipRewordInEditorWarning: true
 
+  # https://pkg.go.dev/time#Time.Format
+  timeFormat: "2006-01-02 15:04:05"
+  shortTimeFormat: "15:04"
+
   theme:
     activeBorderColor:
-      - '#b4befe'
+      - "#b4befe"
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - "#a6adc8"
     optionsTextColor:
-      - '#89b4fa'
+      - "#89b4fa"
     selectedLineBgColor:
-      - '#313244'
+      - "#313244"
     selectedRangeBgColor:
-      - '#313244'
+      - "#313244"
     cherryPickedCommitBgColor:
-      - '#45475a'
+      - "#45475a"
     cherryPickedCommitFgColor:
-      - '#b4befe'
+      - "#b4befe"
     unstagedChangesColor:
-      - '#f38ba8'
+      - "#f38ba8"
     defaultFgColor:
-      - '#cdd6f4'
+      - "#cdd6f4"
     searchingActiveBorderColor:
-      - '#f9e2af'
+      - "#f9e2af"
 
+refresher:
+  refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
+  fetchInterval: 600 # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
+
+update:
+  method: never
+
+customCommands:
+  - key: "C"
+    context: "files"
+    description: "Create new conventional commit"
+    prompts:
+      - type: "menu"
+        key: "Type"
+        title: "Type of change"
+        options:
+          - name: "build"
+            description: "Changes that affect the build system or external dependencies"
+            value: "build"
+          - name: "feat"
+            description: "A new feature"
+            value: "feat"
+          - name: "fix"
+            description: "A bug fix"
+            value: "fix"
+          - name: "chore"
+            description: "Other changes that don't modify src or test files"
+            value: "chore"
+          - name: "ci"
+            description: "Changes to CI configuration files and scripts"
+            value: "ci"
+          - name: "docs"
+            description: "Documentation only changes"
+            value: "docs"
+          - name: "perf"
+            description: "A code change that improves performance"
+            value: "perf"
+          - name: "refactor"
+            description: "A code change that neither fixes a bug nor adds a feature"
+            value: "refactor"
+          - name: "revert"
+            description: "Reverts a previous commit"
+            value: "revert"
+          - name: "style"
+            description: "Changes that do not affect the meaning of the code"
+            value: "style"
+          - name: "test"
+            description: "Adding missing tests or correcting existing tests"
+            value: "test"
+      - type: "input"
+        title: "Scope (without parens)"
+        key: "Scope"
+        initialValue: ""
+      - type: "input"
+        title: "Breaking change - Add '!'"
+        key: "Breaking"
+        initialValue: ""
+      - type: "input"
+        title: "message"
+        key: "Message"
+        initialValue: ""
+      - type: "confirm"
+        key: "Confirm"
+        title: "Commit"
+        body: "Are you sure you want to commit?"
+    command: "git commit --message '{{.Form.Type}}{{if .Form.Scope}}({{.Form.Scope}}){{end}}{{.Form.Breaking}}: {{.Form.Message}}'"
+    loadingText: "Creating conventional commit..."
+
+  - key: "<c-p>"
+    context: "global"
+    description: "Create a pull request on GitHub"
+    prompts:
+      - type: "input"
+        title: "Title"
+        key: "Title"
+        initialValue: ""
+      - type: "input"
+        title: "Body"
+        key: "Body"
+        initialValue: ""
+    command: "hub pull-request --push --browse --message '{{.Form.Title}}' --message '{{.Form.Body}}'"
+    loadingText: "Creating pull request on GitHub"
