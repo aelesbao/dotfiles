@@ -14,6 +14,9 @@ bind -T copy-mode-vi v   send-keys -X begin-selection
 bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
 bind -T copy-mode-vi y   send-keys -X copy-selection
 
+# Switch to last opened session
+bind z switch-client -l
+
 # Pane navigation
 bind h select-pane -L
 bind j select-pane -D
