@@ -58,7 +58,9 @@ add_rule "Brave Browser" title="^(Share the Pi) - .*" space="sharethepi"
 add_rule "Brave Browser" title="^(VISA|Legal|Kitas) - .*" space="research"
 
 add_rule "Brave Browser" title=".*Phi Labs$" space="philabs-browsing"
-add_rule "Brave Browser" title="^(SubQuery) - .*" space="philabs-work"
+add_rule "Brave Browser" title="^(Work in Progress) - .*" space="philabs-work"
+
+add_rule "Brave Browser" title="^(Google Meet) - .*" display=1
 
 # fix some pop-up
 yabai -m rule --add app="^Brave Browser$" \
