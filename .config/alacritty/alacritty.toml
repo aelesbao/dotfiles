@@ -44,7 +44,7 @@ decorations = "buttonless"
 # Request compositor to blur content behind transparent windows.
 blur = false
 # Background opacity
-opacity = 0.90
+opacity = 0.95
 # Make `Option` key behave as `Alt` (macOS only):
 #   - OnlyLeft
 #   - OnlyRight
