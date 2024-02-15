@@ -125,12 +125,9 @@ customCommands:
     description: "Create a pull request on GitHub"
     prompts:
       - type: "input"
-        title: "Title"
-        key: "Title"
-        initialValue: ""
-      - type: "input"
-        title: "Body"
-        key: "Body"
-        initialValue: ""
-    command: "hub pull-request --push --browse --message '{{.Form.Title}}' --message '{{.Form.Body}}'"
+        title: "Base branch"
+        key: "Base"
+        initialValue: "main"
+    command: "hub pull-request --base '{{.Form.Base}}' --push --browse --edit"
     loadingText: "Creating pull request on GitHub"
+    subprocess: true
