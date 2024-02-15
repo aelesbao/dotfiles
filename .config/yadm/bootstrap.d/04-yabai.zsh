@@ -14,29 +14,29 @@ yabai --install-service
 
 notice "Setting up yabai scripting addition requires root access"
 if ask "Would you like to configure it?"; then
-  path=$(which yabai)
-  hash=shasum -a 256 $(which yabai) | cut -d ' ' -f1
-  sudo_line="$(whoami) ALL=(root) NOPASSWD: sha256:$hash $path --load-sa"
+  yabai_path="$(which yabai)"
+  yabai_hash="$(shasum -a 256 "$yabai_path" | cut -d ' ' -f1)"
+  sudo_line="$(whoami) ALL=(root) NOPASSWD: sha256:$yabai_hash $yabai_path --load-sa"
   sudoers_file="/private/etc/sudoers.d/yabai"
 
   msg "Adding to $sudoers_file"
   echo "$sudo_line" | sudo tee -a "$sudoers_file"
 fi
 
+notice "yabai requires accessibility permissions"
 yabai --start-service
 
-notice "yabai requires accessibility permissions"
-ask "Are you ready to continue?" || fail "Aborting"
-
-yabai --restart-service
-
+if ask "Did you have to enable the accessibility permissions and need to restart yabai?"; then
+  yabai --restart-service
+fi
 
 info "Configuring skhd"
 
 skhd --install-service
-skhd --start-service
 
 notice "skhd requires accessibility permissions"
-ask "Are you ready to continue?" || fail "Aborting"
+skhd --start-service
 
-skhd --restart-service
+if ask "Did you have to enable the accessibility permissions and need to restart skhd?"; then
+  yabai --restart-service
+fi
