@@ -1,0 +1,27 @@
+theme = "rose_pine"
+
+[editor]
+auto-save = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.whitespace]
+render = "all"
+
+[keys.normal]
+#";" = ":"
