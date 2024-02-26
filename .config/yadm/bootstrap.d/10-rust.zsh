@@ -22,7 +22,7 @@ rustup target add wasm32-unknown-unknown
 
 info "Updating rust nightly"
 if ask "Update to latest nightly version?"; then
-  rustup update nightly
+  rustup toolchain update nightly --allow-downgrade
   rustup target add wasm32-unknown-unknown --toolchain nightly
 fi
 
@@ -55,17 +55,20 @@ function binstall() {
   RUSTC_WRAPPER= cargo binstall --no-confirm ${@:$#}
 }
 
-binstall sccache
+# binstall sccache # <- installed with Homebrew
 binstall cargo-audit
 binstall cargo-edit
+binstall cargo-expand
 binstall cargo-generate
 binstall cargo-info
 binstall cargo-make
 binstall cargo-modules
 binstall cargo-nextest
 binstall cargo-outdated
-LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CPPFLAGS="-I$(brew --prefix openssl@1.1)/include" binstall cargo-release
+# LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CPPFLAGS="-I$(brew --prefix openssl@1.1)/include"
+binstall cargo-release
 binstall cargo-run-script
+binstall cargo-tarpaulin
 binstall cargo-watch
 binstall evcxr_repl
 binstall grcov
