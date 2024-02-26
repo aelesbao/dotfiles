@@ -13,6 +13,9 @@ fi
 export GIT_AUTHOR_DATE="$date"
 export GIT_COMMITTER_DATE="$date"
 
-git rebase -i "$commit"^
+git rebase --committer-date-is-author-date -i "$commit"^
 git commit --amend --no-edit --date "$date"
-git rebase --continue
+git rebase --continue || true
+
+# Show the new commit date
+git log --format=format:'%C(yellow)%h %C(cyan)%ai %C(blue)%ci%Creset %<(72)%s'
