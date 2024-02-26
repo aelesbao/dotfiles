@@ -7,3 +7,6 @@ nt = "nextest run"
 
 [unstable]
 sparse-registry = true
+
+[target.x86_64-apple-darwin]
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
