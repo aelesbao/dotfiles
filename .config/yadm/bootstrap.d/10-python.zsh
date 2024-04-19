@@ -40,7 +40,9 @@ fi
 
 info "Installing pipx packages"
 pipx install poetry
-#pipx install --include-deps ansible
-#pipx inject --include-apps ansible ansible-lint
-#pipx inject --include-apps ansible argcomplete
-#pipx inject ansible paramiko
+pipx install --include-deps ansible
+pipx inject ansible --include-apps ansible-creator
+pipx inject ansible --include-apps ansible-lint
+pipx inject ansible --include-apps ansible-navigator
+pipx inject ansible --include-apps argcomplete
+pipx inject ansible paramiko
