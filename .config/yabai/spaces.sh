@@ -20,10 +20,6 @@ if has_display "$samsung_odyssey_full"; then
     yabai -m space 8 --label dotfiles
     yabai -m space 9 --label home-lab
     yabai -m space 10 --label research
-    yabai -m space 11 --label sharethepi
-
-    yabai -m config --space personal layout stack
-    yabai -m config --space chat layout float
 
     yabai -m space planning --balance
     yabai -m space research --balance
@@ -35,7 +31,7 @@ else
     yabai -m space 7 --label dotfiles
     yabai -m space 8 --label home-lab
     yabai -m space 9 --label research
-    yabai -m space 10 --label sharethepi
-
-    yabai -m config --space chat layout float
 fi
+
+yabai -m config --space personal layout stack
+yabai -m config --space chat layout stack

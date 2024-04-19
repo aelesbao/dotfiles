@@ -24,6 +24,9 @@ add_rule_manage_off() {
     add_rule "($apps)" manage=off
 }
 
+# Set all windows layer to normal
+yabai -m rule --add app=".*" sub-layer="normal"
+
 # don't manage specific apps
 add_rule_manage_off \
     "Bartender 5" \
@@ -51,49 +54,40 @@ add_rule "Calendar" space="planning"
 add_rule "Todoist" space="planning"
 add_rule "Linear" space="planning"
 
-add_rule "Brave Browser" title=".*Personal$" space="personal"
-add_rule "Brave Browser" title="^(dotfiles) - .*" space="dotfiles"
-add_rule "Brave Browser" title="^(Home Lab|Trading) - .*" space="home-lab"
-add_rule "Brave Browser" title="^(Share the Pi) - .*" space="sharethepi"
-add_rule "Brave Browser" title="^(VISA|Legal|Kitas) - .*" space="research"
+add_rule "Brave Browser" title="^(dotfiles).*" space="dotfiles"
+add_rule "Brave Browser" title="^(Share the Pi).*" space="dotfiles"
+add_rule "Brave Browser" title="^(Home Lab|Trading).*" space="home-lab"
+add_rule "Brave Browser" title="^(VISA|Legal|Kitas).*" space="research"
 
-add_rule "Brave Browser" title=".*Phi Labs$" space="philabs-browsing"
-add_rule "Brave Browser" title="^(Work in Progress) - .*" space="philabs-work"
+add_rule "Brave Browser" title="^(Work in Progress).*" space="philabs-work"
 
-add_rule "Brave Browser" title="^(Google Meet) - .*" display=1
+add_rule "Brave Browser" title="^(Google Meet).*" display=1
 
-# fix some pop-up
-yabai -m rule --add app="^Brave Browser$" \
-    title="^(Metamask|Keplr|Station Wallet) - .*" \
-    manage=off \
-    layer="above"
-
-yabai -m rule --add app="^Calendar$" \
-    title!="^Calendar$" \
-    manage=off \
-    layer="above"
-
-# Set all windows layer to normal
-yabai -m rule --add app=".*" layer="normal"
+# Fix some pop-ups
+add_rule "Brave Browser" title="^(MetaMask|Keplr|Station Wallet).*" manage=off
 
 # Always show notification centre above all windows
-add_rule "(Notification Cent.*|Raycast)" layer="above"
+add_rule "(Notification Cent.*|Raycast)" sub-layer="above"
+
+# Always show calendar sub-windows above other windows
+add_rule "Calendar" title!="^Calendar$" manage=off sub-layer="above"
 
 # open a few apps in fullscreen by default
-add_rule "(Mimestream|Slack)" \
-    display=1 \
-    native-fullscreen=on
+add_rule "^(Mimestream|Slack)$" display=1 native-fullscreen=on
 
 # Set all windows layer to normal
 yabai -m signal --add \
     label="windows-layer-normal-switched" \
     event="application_front_switched" \
-    action="yabai -m window --layer normal"
+    app="^Brave Browser$" \
+    action="yabai -m window --sub-layer normal"
 yabai -m signal --add \
     label="windows-layer-normal-created" \
     event="window_created" \
-    action="yabai -m window --layer normal"
+    app="^Brave Browser$" \
+    action="yabai -m window --sub-layer normal"
 yabai -m signal --add \
     label="windows-layer-normal-focused" \
     event="window_focused" \
-    action="yabai -m window --layer normal"
+    app="^Brave Browser$" \
+    action="yabai -m window --sub-layer normal"
