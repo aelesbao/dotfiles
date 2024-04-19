@@ -20,7 +20,7 @@ k9s:
       labels: {}
   logger:
     tail: 200
-    buffer: 5000
+    buffer: 2000
     sinceSeconds: -1
     fullScreenLogs: false
     textWrap: false

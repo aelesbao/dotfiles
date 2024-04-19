@@ -11,15 +11,20 @@ hotKeys:
 
   shift-3:
     shortCut: Shift-3
-    description: View deployments
+    description: View stateful sets
     command: statefulsets
+
+  shift-4:
+    shortCut: Shift-4
+    description: View config maps
+    command: configmap
 
   # alt-x:
   #   shortCut: Shift-x
   #   description: XRay
   #   command: xray
-  #
-  # alt-p:
+
+  # shift-p:
   #   shortCut: Shift-p
   #   description: Pulses
   #   command: pulses

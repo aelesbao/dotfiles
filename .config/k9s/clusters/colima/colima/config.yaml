@@ -2,12 +2,13 @@ k9s:
   cluster: colima
   readOnly: false
   namespace:
-    active: indexer
+    active: all
     lockFavorites: false
     favorites:
       - all
       - default
-      - indexer
+      - ambur-indexer
+      - circulating-supply
   view:
     active: pods
   featureGates:
