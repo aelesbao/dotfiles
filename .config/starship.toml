@@ -36,6 +36,8 @@ $memory_usage\
 $env_var\
 $custom\
 $sudo\
+$time\
+$cmd_duration\
 $line_break\
 $jobs\
 $battery\
@@ -44,7 +46,7 @@ $shell\
 $character\
 """
 
-right_format = """$cmd_duration $time"""
+right_format = """"""
 
 palette = 'catppuccin_mocha'
 
@@ -155,8 +157,8 @@ zsh_indicator = ""
 disabled = false
 
 [character]
-success_symbol = "[](fg:lavender)"
-error_symbol = "[](fg:red)"
+success_symbol = "[›](fg:lavender)"
+error_symbol = "[›](fg:red)"
 
 [git_branch]
 format = "on [$symbol$branch]($style) "
@@ -180,7 +182,7 @@ format = """([ \
 ([$untracked](fg:sky dimmed) )\
 ([$stashed](fg:sapphire) )\
 ([$ahead_behind](fg:peach) )\
-]($style))"""
+]($style)) """
 ahead      = "⇡"
 behind     = "⇣"
 diverged   = "⇣⇡"
@@ -235,7 +237,7 @@ disabled = false
 [time]
 time_format = "%R"               # Hour:Minute Format
 style = "fg:text dimmed"
-format = '[ $time]($style) '
+format = '[at  $time]($style) '
 disabled = false
 
 [cmd_duration]
