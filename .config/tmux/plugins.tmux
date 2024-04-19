@@ -89,6 +89,7 @@ set -g @catppuccin_window_default_text "#W"
 
 # Plug and play battery percentage and icon indicator for Tmux.
 set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @batt_icon_status_attached ''
 
 # Plug and play cpu percentage and icon indicator.
 # set -g @plugin 'tmux-plugins/tmux-cpu'
