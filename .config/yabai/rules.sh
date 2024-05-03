@@ -33,6 +33,7 @@ add_rule_manage_off \
     "BetterTouchTool" \
     "Caffeine" \
     "Calculator" \
+    "DaisyDisk" \
     "Digital Color Meter" \
     "Irvue" \
     "iStat Menus" \
@@ -64,7 +65,7 @@ add_rule "Brave Browser" title="^(Work in Progress).*" space="philabs-work"
 add_rule "Brave Browser" title="^(Google Meet).*" display=1
 
 # Fix some pop-ups
-add_rule "Brave Browser" title="^(MetaMask|Keplr|Station Wallet).*" manage=off
+add_rule "Brave Browser" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet).*" manage=off
 
 # Always show notification centre above all windows
 add_rule "(Notification Cent.*|Raycast)" sub-layer="above"
