@@ -13,8 +13,11 @@ set-option -sa terminal-overrides ',*256color*:Tc'
 set-option -sa terminal-overrides ',alacritty*:Tc'
 set-option -sa terminal-overrides ',*kitty:Tc'
 
+# Enable hyperlinks (tmux 3.4 and above)
+set -ga terminal-features '*:hyperlinks'
+
 # Enables undercurl in Alacritty
-set-option -sa terminal-features ",alacritty*:usstyle"
+set-option -sa terminal-features ',alacritty*:usstyle'
 
 # Undercurl support
 set -sa terminal-overrides ',*:Smulx=\E[4::%p1%dm'  
