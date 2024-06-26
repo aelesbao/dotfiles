@@ -182,6 +182,12 @@ msg "Enable subpixel font rendering on non-Apple LCDs"
 defaults write -g AppleFontSmoothing -int 1
 
 
+info "Configuring system settings"
+
+msg "Enable Touch ID for sudo"
+sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
+
 info "Persisting modified settings in permanent storage"
 
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
