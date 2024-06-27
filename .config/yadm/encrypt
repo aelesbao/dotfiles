@@ -1,3 +1,4 @@
 .Brewfile
 .Brewfile.lock.json
 .config/rclone/rclone.conf
+.ssh/config
