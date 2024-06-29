@@ -9,5 +9,5 @@ nt = "nextest run"
 sparse-registry = true
 
 [target.x86_64-apple-darwin]
-# rustflags = ["-C", "link-arg=-fuse-ld=lld"]
-rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/bin/ld64.mold"]
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+# rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/bin/ld64.mold"]
