@@ -55,25 +55,27 @@ function binstall() {
   RUSTC_WRAPPER= cargo binstall --no-confirm ${@:$#}
 }
 
-# binstall sccache # <- installed with Homebrew
-binstall cargo-audit
-binstall cargo-edit
-binstall cargo-expand
-binstall cargo-generate
-binstall cargo-info
-binstall cargo-make
-binstall cargo-modules
-binstall cargo-nextest
-binstall cargo-outdated
-# LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CPPFLAGS="-I$(brew --prefix openssl@1.1)/include"
-binstall cargo-release
-binstall cargo-run-script
-binstall cargo-tarpaulin
-binstall cargo-watch
-binstall evcxr_repl
-binstall grcov
+if ask "Update installed crates?"; then
+  # binstall sccache # <- installed with Homebrew
+  binstall cargo-audit
+  binstall cargo-edit
+  binstall cargo-expand
+  binstall cargo-generate
+  binstall cargo-info
+  binstall cargo-make
+  binstall cargo-modules
+  binstall cargo-nextest
+  binstall cargo-outdated
+  # LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CPPFLAGS="-I$(brew --prefix openssl@1.1)/include"
+  binstall cargo-release
+  binstall cargo-run-script
+  binstall cargo-tarpaulin
+  binstall cargo-watch
+  binstall evcxr_repl
+  binstall grcov
 
-RUSTC_WRAPPER= cargo install stylua --all-features
+  RUSTC_WRAPPER= cargo install stylua --all-features
+fi
 
 sccache --start-server
 
