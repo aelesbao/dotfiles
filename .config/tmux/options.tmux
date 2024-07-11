@@ -45,8 +45,8 @@ set-option -g automatic-rename off
 set-option -g status-position bottom
 
 # Enable visual alerts for windows. Hide bells/silence.
-set-window-option -g monitor-activity on # highlight active windows?
-set-option -g visual-activity off        # show a message on window activity?
+set-window-option -g monitor-activity off # highlight active windows?
+set-option -g visual-activity off         # show a message on window activity?
 set-option -g visual-silence on
 set-option -g visual-bell off
 set-option -g bell-action none
@@ -59,4 +59,4 @@ set-window-option -g aggressive-resize on
 set-option -g detach-on-destroy off
 
 # Improves the Ctrl+L history cleaning
-set-option -pg scroll-on-clear off
+set-option -g scroll-on-clear off
