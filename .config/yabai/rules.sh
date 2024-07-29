@@ -65,7 +65,8 @@ add_rule "Brave Browser" title="^(Work in Progress).*" space="philabs-work"
 add_rule "Brave Browser" title="^(Google Meet).*" display=1
 
 # Fix some pop-ups
-add_rule "Brave Browser" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet).*" manage=off
+add_rule "Brave Browser" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet).*" manage=off
+add_rule "(RustRover|GoLand)" title="^(Settings|Keyboard Shortcut|Move Module|.*Delete|.*Signature|Inline|.*Refactor|Inspect).*" manage=off
 
 # Always show notification centre above all windows
 add_rule "(Notification Cent.*|Raycast)" sub-layer="above"
