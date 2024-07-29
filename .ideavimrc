@@ -40,8 +40,29 @@ nnoremap <leader>= gqip
 map [<Space> O<ESC>j^
 map ]<Space> o<ESC>k^
 
-" Toggle comment
-map <leader>cc :action CommentByLineComment<CR>
+" Move lines up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Duplicate lines
+nnoremap <A-d> Yp
+
+" IntelliJ Actions
+map gcc :action CommentByLineComment<CR>
+
+map <C-w>L :action MoveTabRight<CR>
+map <C-w>J :action MoveTabDown<CR>
+map <C-w>z :action MaximizeEditorInSplit<CR>
+map <M-l> :action NextSplitter<CR>
+map <M-h> :action PrevSplitter<CR>
+
+map <C-p> :action GotoFile<CR>
+
+map <leader>ee :action ActivateProjectToolWindow<CR>
+map <leader>gg :action ActivateCommitToolWindow<CR>
+
+map <M-S-R> :action Run<CR>
+map <M-S-D> :action Debug<CR>
 
 " Reload config
 nnoremap \e :e ~/.ideavimrc<CR>
