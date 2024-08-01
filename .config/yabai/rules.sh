@@ -10,25 +10,29 @@ for i in $(yabai -m rule --list | jq -r '.[] | .index' | sort -n -r); do
 done
 
 add_rule() {
+    yabai -m rule --add "${@}"
+}
+
+add_app_rule() {
     app="$1"; shift
     yabai -m rule --add app="^$app$" "${@}"
 }
 
-add_rule_manage_off() {
+add_app_rule_manage_off() {
     apps=""
     for app in "$@"; do
         apps="$apps$app|"
     done
 
     apps="${apps%?}"
-    add_rule "($apps)" manage=off
+    add_app_rule "($apps)" manage=off
 }
 
 # Set all windows layer to normal
-yabai -m rule --add app=".*" sub-layer="normal"
+add_rule app=".*" sub-layer="normal"
 
 # don't manage specific apps
-add_rule_manage_off \
+add_app_rule_manage_off \
     "Bartender 5" \
     "BetterTouchTool" \
     "Caffeine" \
@@ -46,38 +50,43 @@ add_rule_manage_off \
     "NordVPN"
 
 # fixed spaces
-add_rule "Telegram" space="chat"
-add_rule "WhatsApp" space="chat"
-add_rule "Messages" space="chat"
-add_rule "Spotify" space="chat"
+add_app_rule "Telegram" space="chat"
+add_app_rule "WhatsApp" space="chat"
+add_app_rule "Messages" space="chat"
+add_app_rule "Spotify" space="chat"
 
-add_rule "Calendar" space="planning"
-add_rule "Todoist" space="planning"
-add_rule "Linear" space="planning"
+add_app_rule "Calendar" space="planning"
+add_app_rule "Todoist" space="planning"
+add_app_rule "Linear" space="planning"
 
-add_rule "Brave Browser" title="^(dotfiles).*" space="dotfiles"
-add_rule "Brave Browser" title="^(Share the Pi).*" space="dotfiles"
-add_rule "Brave Browser" title="^(Home Lab|Trading).*" space="home-lab"
-add_rule "Brave Browser" title="^(VISA|Legal|Kitas).*" space="research"
+add_app_rule "Brave Browser" title="^(dotfiles).*" space="dotfiles"
+add_app_rule "Brave Browser" title="^(Share the Pi).*" space="dotfiles"
+add_app_rule "Brave Browser" title="^(Home Lab|Trading).*" space="home-lab"
+add_app_rule "Brave Browser" title="^(VISA|Legal|Kitas).*" space="research"
 
-add_rule "Brave Browser" title="^(Work in Progress).*" space="philabs-work"
+add_app_rule "Brave Browser" title="^(Work in Progress).*" space="philabs-work"
 
-add_rule "Brave Browser" title="^(Google Meet).*" display=1
+add_app_rule "Brave Browser" title="^(Google Meet).*" display=1
 
 # Fix some pop-ups
-add_rule "Brave Browser" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet).*" manage=off
-add_rule "(RustRover|GoLand)" title="^(Settings|Keyboard Shortcut|Move Module|.*Delete|.*Signature|Inline|.*Refactor|Inspect).*" manage=off
+add_app_rule "Brave Browser" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet).*" manage=off
 
-# Always show notification centre above all windows
-add_rule "(Notification Cent.*|Raycast)" sub-layer="above"
+# IDEs
+add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ|Visual Studio|Neovide|Zed)" display=2
+add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ)" \
+    title="^(Settings|Keyboard Shortcut|Move Module|.*Delete|.*Signature|Inline|.*Refactor|Inspect).*" \
+    manage=off
+
+# Always show notification center (or centre) above all windows
+add_app_rule "(Notification Cent.*|Raycast)" sub-layer="above"
 
 # Always show calendar sub-windows above other windows
-add_rule "Calendar" title!="^Calendar$" manage=off sub-layer="above"
+add_app_rule "Calendar" title!="^Calendar$" manage=off sub-layer="above"
 
 # open a few apps in fullscreen by default
-add_rule "^(Mimestream|Slack)$" display=1 native-fullscreen=on
+add_app_rule "^(Mimestream|Slack)$" display=1 native-fullscreen=on
 
-# Set all windows layer to normal
+# Set all Brave windows' layer to normal
 yabai -m signal --add \
     label="windows-layer-normal-switched" \
     event="application_front_switched" \
