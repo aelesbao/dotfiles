@@ -89,6 +89,15 @@ add_app_rule "Calendar" title!="^Calendar$" manage=off sub-layer="above"
 # open a few apps in fullscreen by default
 add_app_rule "^(Mimestream|Slack)$" display=1 native-fullscreen=on
 
+# Set non-resizable windows as floating
+# shellcheck disable=SC2016
+yabai -m signal --add \
+    label="float-non-resizable-window" \
+    event="window_created" \
+    action='yabai -m query --windows --window \
+        | jq -e ".\"can-resize\" == false and .\"is-floating\" == false" >/dev/null \
+        && yabai -m window --toggle float'
+
 # Set all Brave windows' layer to normal
 yabai -m signal --add \
     label="brave-layer-normal-switched" \
