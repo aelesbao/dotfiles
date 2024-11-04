@@ -60,3 +60,7 @@ set-option -g detach-on-destroy off
 
 # Improves the Ctrl+L history cleaning
 set-option -g scroll-on-clear off
+
+# Improved copy mode
+# set vi-mode
+set-window-option -g mode-keys vi

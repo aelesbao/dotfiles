@@ -6,10 +6,7 @@ run -b '~/.config/tmux/user-keys.sh'
 # too lazy to hold shift
 bind ';' command-prompt
 
-# Improved copy mode
-# set vi-mode
-set-window-option -g mode-keys vi
-# keybindings
+# vi keymap
 bind -T copy-mode-vi v   send-keys -X begin-selection
 bind -T copy-mode-vi C-v send-keys -X rectangle-toggle
 bind -T copy-mode-vi y   send-keys -X copy-selection
