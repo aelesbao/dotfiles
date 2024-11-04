@@ -33,6 +33,7 @@ add_rule app=".*" sub-layer="normal"
 
 # don't manage specific apps
 add_app_rule_manage_off \
+    "1Password" \
     "Bartender 5" \
     "BetterTouchTool" \
     "Caffeine" \
@@ -40,14 +41,15 @@ add_app_rule_manage_off \
     "DaisyDisk" \
     "Digital Color Meter" \
     "Irvue" \
-    "iStat Menus" \
     "JetBrains Toolbox" \
     "Karabiner-Elements" \
+    "NordVPN" \
+    "OneCast" \
     "QuickTime Player" \
     "Raycast" \
     "System Settings" \
-    "1Password" \
-    "NordVPN"
+    "balenaEtcher" \
+    "iStat Menus"
 
 # fixed spaces
 add_app_rule "Telegram" space="chat"
@@ -68,13 +70,14 @@ add_app_rule "Brave Browser" title="^(Work in Progress).*" space="philabs-work"
 
 add_app_rule "Brave Browser" title="^(Google Meet).*" display=1
 
-# Fix some pop-ups
-add_app_rule "Brave Browser" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet).*" manage=off
+# Fix browser pop-ups
+add_app_rule "(Brave Browser|Firefox|Arc)" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet|Sui Wallet).*" manage=off
+add_app_rule "Arc" title="^(Profile).*" manage=off
 
 # IDEs
 add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ|Visual Studio|Neovide|Zed)" display=2
 add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ)" \
-    title="^(Settings|Keyboard Shortcut|Move Module|.*Delete|.*Signature|Inline|.*Refactor|Inspect).*" \
+    title="^.*(Settings|Shortcut|Module|Delete|Signature|Inline|Refactor|Inspect|Build|Plugin|Rename|Member).*" \
     manage=off
 
 # Always show notification center (or centre) above all windows
@@ -88,17 +91,17 @@ add_app_rule "^(Mimestream|Slack)$" display=1 native-fullscreen=on
 
 # Set all Brave windows' layer to normal
 yabai -m signal --add \
-    label="windows-layer-normal-switched" \
+    label="brave-layer-normal-switched" \
     event="application_front_switched" \
     app="^Brave Browser$" \
     action="yabai -m window --sub-layer normal"
 yabai -m signal --add \
-    label="windows-layer-normal-created" \
+    label="brave-layer-normal-created" \
     event="window_created" \
     app="^Brave Browser$" \
     action="yabai -m window --sub-layer normal"
 yabai -m signal --add \
-    label="windows-layer-normal-focused" \
+    label="brave-layer-normal-focused" \
     event="window_focused" \
     app="^Brave Browser$" \
     action="yabai -m window --sub-layer normal"
