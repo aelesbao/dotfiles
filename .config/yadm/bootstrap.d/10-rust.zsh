@@ -33,7 +33,9 @@ rustup component add rust-src
 rustup component add clippy
 rustup component add llvm-tools-preview
 
-function add-plugin() {
+info "Installing cargo plugins"
+
+function cinstall() {
   local name="$1"
   local features="${2:-}"
 
@@ -45,15 +47,13 @@ function add-plugin() {
   fi
 }
 
-info "Installing cargo plugins"
+function binstall() {
+  RUSTC_WRAPPER= cargo binstall --no-confirm ${@:$#}
+}
 
 if ! (( $+commands[cargo-binstall] )); then
   curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 fi
-
-function binstall() {
-  RUSTC_WRAPPER= cargo binstall --no-confirm ${@:$#}
-}
 
 if ask "Update installed crates?"; then
   # binstall sccache # <- installed with Homebrew
@@ -66,8 +66,7 @@ if ask "Update installed crates?"; then
   binstall cargo-modules
   binstall cargo-nextest
   binstall cargo-outdated
-  # LDFLAGS="-L$(brew --prefix openssl@1.1)/lib" CPPFLAGS="-I$(brew --prefix openssl@1.1)/include"
-  binstall cargo-release
+  cinstall cargo-release
   binstall cargo-run-script
   binstall cargo-tarpaulin
   binstall cargo-watch
@@ -77,6 +76,7 @@ if ask "Update installed crates?"; then
   RUSTC_WRAPPER= cargo install stylua --all-features
 fi
 
+msg "Starting sccache server"
 sccache --start-server
 
 if ask "Install wasm-pack?"; then
