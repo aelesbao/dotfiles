@@ -34,11 +34,11 @@ set -g @plugin 'aelesbao/tmux-ctrlp'
 # Remap to avoid conflict with the prefix
 set -g @ctrlp_session_bind 's'
 
-# Copy pasting in terminal with vimium/vimperator like hints.
-set -g @plugin 'Morantron/tmux-fingers'
-set -g @fingers-jump-key /
-# Cosmos address matcher
-set -g @fingers-pattern-0 '([a-z]+)1([qpzry9x8gf2tvdw0s3jn54khce6mua7l]+)'
+# # Copy pasting in terminal with vimium/vimperator like hints.
+# set -g @plugin 'Morantron/tmux-fingers'
+# set -g @fingers-jump-key /
+# # Cosmos address matcher
+# set -g @fingers-pattern-0 '([a-z]+)1([qpzry9x8gf2tvdw0s3jn54khce6mua7l]+)'
 
 # Search your tmux scrollback buffer using fuzzy matching
 set -g @plugin 'roosta/tmux-fuzzback'
