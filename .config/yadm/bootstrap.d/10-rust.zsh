@@ -53,6 +53,7 @@ fi
 
 if ask "Update installed crates?"; then
   # binstall sccache # <- installed with Homebrew
+  cargo-install bacon
   binstall cargo-audit
   binstall cargo-edit
   binstall cargo-expand
