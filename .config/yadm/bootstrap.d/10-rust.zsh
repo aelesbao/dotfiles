@@ -35,16 +35,12 @@ rustup component add llvm-tools-preview
 
 info "Installing cargo plugins"
 
-function cinstall() {
+function cargo-install() {
   local name="$1"
-  local features="${2:-}"
+  local extra=${@:2}
 
   msg "$name"
-  if [[ -z "$features" ]]; then
-    cargo install "$name"
-  else
-    cargo install "$name" --features "$features"
-  fi
+  RUSTC_WRAPPER= cargo install --locked "$name" ${extra[@]}
 }
 
 function binstall() {
@@ -66,14 +62,13 @@ if ask "Update installed crates?"; then
   binstall cargo-modules
   binstall cargo-nextest
   binstall cargo-outdated
-  cinstall cargo-release
+  cargo-install cargo-release
   binstall cargo-run-script
   binstall cargo-tarpaulin
   binstall cargo-watch
   binstall evcxr_repl
   binstall grcov
-
-  RUSTC_WRAPPER= cargo install stylua --all-features
+  cargo-install stylua --all-features
 fi
 
 msg "Starting sccache server"
