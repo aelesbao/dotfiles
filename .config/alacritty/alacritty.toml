@@ -1,16 +1,13 @@
-import = ["~/.config/alacritty/themes/themes/catppuccin_mocha.toml"]
-
+[general]
 # Live config reload (changes require restart)
 live_config_reload = true
-
-# Should display the render timer
-# "debug.render_timer" = false
+import = ["~/.config/alacritty/themes/themes/catppuccin_mocha.toml"]
 
 # Shell
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["--login"]
 
