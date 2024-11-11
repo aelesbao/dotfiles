@@ -65,34 +65,51 @@ set -g @1password-key 'o'
 # set -g @theme_plugin_datetime_format '%a %F %R'
 
 # Soothing pastel theme for Tmux.
-set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'catppuccin/tmux#v2.1.0'
+
+if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
+   "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 
 # Catppuccin theme settings (use mocha on the host and frappe on ssh)
-%if "#{||:$SSH_CLIENT,$SSH_TTY}"
-   set -g @catppuccin_flavour "frappe"
+%if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
+   set -g @catppuccin_flavor "frappe"
 %else
-   set -g @catppuccin_flavour "mocha"
+   set -g @catppuccin_flavor "mocha"
 %endif
 
-set -g @catppuccin_status_modules_right 'application session'
+set -g @catppuccin_window_text " #W"
+set -g @catppuccin_window_current_text " #W"
 
-%if "#{||:$SSH_CLIENT,$SSH_TTY}"
-   set -ga @catppuccin_status_modules_right " host"
-%else
-   set -ga @catppuccin_status_modules_right " battery"
+set -g @catppuccin_status_background "#{@thm_bg}"
+
+set -g status-right-length 100
+set -g status-left-length 100
+
+set -g status-left ""
+
+%if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
+   set -g status-left "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]█#[noreverse]  "
+   set -gaF status-left "#[fg=#{@thm_fg},bg=#{@thm_surface_0}] ##H "
 %endif
 
-set -ga @catppuccin_status_modules_right ' date_time'
+set -g status-right "#{E:@catppuccin_status_application}"
+set -ga status-right "#{E:@catppuccin_status_session}"
+set -gaF status-right "#{E:@catppuccin_status_cpu}"
 
-set -g @catppuccin_window_current_text "#W"
-set -g @catppuccin_window_default_text "#W"
+%if "#{==:0,#{||:#{SSH_CLIENT},#{SSH_TTY}}}"
+   set -gaF status-right "#{E:@catppuccin_status_battery}"
+%endif
+
+set -gaF status-right "#{E:@catppuccin_status_date_time}"
 
 # Plug and play battery percentage and icon indicator for Tmux.
 set -g @plugin 'tmux-plugins/tmux-battery'
 set -g @batt_icon_status_attached ''
 
 # Plug and play cpu percentage and icon indicator.
-# set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+
+set -g @cpu_percentage_format "%2.0f%%"
 
 # Plugin Manager installation {{{
 
