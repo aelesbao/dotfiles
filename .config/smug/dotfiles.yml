@@ -1,0 +1,8 @@
+session: dotfiles
+root: ~
+
+windows:
+  - name: git
+    commands:
+      - lazygit -g ~/.local/share/yadm/repo.git -w ~
+  - name: "\U000F02DC ~"
