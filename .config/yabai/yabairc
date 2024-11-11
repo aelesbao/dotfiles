@@ -21,7 +21,7 @@ if [ $enable_script_addition = true ] && is_system_protection_disabled; then
 fi
 
 # default layout (can be bsp, stack or float)
-if has_display "$samsung_odyssey_full"; then
+if has_ultrawide_display; then
     yabai -m config layout bsp
 else
     yabai -m config layout stack

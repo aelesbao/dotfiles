@@ -11,23 +11,22 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 yabai -m space 1 --label email
 yabai -m space 2 --label slack
 yabai -m space 3 --label personal
-yabai -m space 4 --label chat
+yabai -m space 4 --label comms
 
 # display 2
-if has_display "$samsung_odyssey_full"; then
+if has_external_display; then
     echo "Configuring spaces with external monitor"
 
     yabai -m space 5 --label planning
     yabai -m space 6 --label browsing
     yabai -m space 7 --label work
 
-    yabai -m space planning --balance
+    yabai -m config --space personal layout stack
+    yabai -m config --space comms layout stack
+    yabai -m config --space planning auto_balance on
 else
     echo "Configuring spaces without external monitor"
 
     yabai -m space 5 --label browsing
     yabai -m space 6 --label work
 fi
-
-yabai -m config --space personal layout stack
-yabai -m config --space chat layout stack

@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # cleanup existing rules first
 for i in $(yabai -m rule --list | jq -r '.[] | .index' | sort -n -r); do
-    yabai -m rule --remove "$i";
+    yabai -m rule --remove "$i"
 done
 
 add_rule() {
@@ -14,7 +14,8 @@ add_rule() {
 }
 
 add_app_rule() {
-    app="$1"; shift
+    app="$1"
+    shift
     yabai -m rule --add app="^$app$" "${@}"
 }
 
@@ -52,30 +53,19 @@ add_app_rule_manage_off \
     "iStat Menus"
 
 # fixed spaces
-add_app_rule "Telegram" space="chat"
-add_app_rule "WhatsApp" space="chat"
-add_app_rule "Messages" space="chat"
-add_app_rule "Spotify" space="chat"
+add_app_rule "(Messages|Signal|Telegram|WhatsApp)" space="comms"
+add_app_rule "Spotify" space="comms"
 
 add_app_rule "Calendar" space="planning"
 add_app_rule "Todoist" space="planning"
 add_app_rule "Linear" space="planning"
-
-add_app_rule "Brave Browser" title="^(dotfiles).*" space="dotfiles"
-add_app_rule "Brave Browser" title="^(Share the Pi).*" space="dotfiles"
-add_app_rule "Brave Browser" title="^(Home Lab|Trading).*" space="home-lab"
-add_app_rule "Brave Browser" title="^(VISA|Legal|Kitas).*" space="research"
-
-add_app_rule "Brave Browser" title="^(Work in Progress).*" space="philabs-work"
-
-add_app_rule "Brave Browser" title="^(Google Meet).*" display=1
 
 # Fix browser pop-ups
 add_app_rule "(Brave Browser|Firefox|Arc)" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet|Sui Wallet).*" manage=off
 add_app_rule "Arc" title="^(Profile).*" manage=off
 
 # IDEs
-add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ|Visual Studio|Neovide|Zed)" display=2
+add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ|Visual Studio|Neovide|Zed)" space="work"
 add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ)" \
     title="^.*(Settings|Shortcut|Module|Delete|Signature|Inline|Refactor|Inspect|Build|Plugin|Rename|Member).*" \
     manage=off
