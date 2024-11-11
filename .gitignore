@@ -40,6 +40,9 @@ Logs
 .envrc
 .direnv
 
+# Project local smug config
+.smug.yml
+
 # OS specific
 .DS_Store
 .DS_Store?
