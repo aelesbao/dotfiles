@@ -1,7 +1,7 @@
 # Local config
 .gitconfig.local
-.config/kitty/local.conf
 .z*.local
+.tmux.conf
 
 # Editors
 *.swp
@@ -59,11 +59,6 @@ Thumbs.db
 
 # dotfiles
 .Brewfile*
-
-# Credentials
-.config/gh/hosts.yml
-.config/hub
-.config/op
 
 # Personal sandbox area
 .sandbox
