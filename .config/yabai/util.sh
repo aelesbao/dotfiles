@@ -1,22 +1,31 @@
-has_display() {
+query_displays() {
     display_query="$1"
-    yabai -m query --displays | jq -e "$display_query"
+    yabai -m query --displays | jq -re "$display_query"
 }
 
 has_external_display() {
-    has_display 'length > 1'
+    query_displays 'length > 1'
 }
 
 has_fullhd_display() {
-    has_display 'map(.frame.w == 1920.0000) | any'
+    query_displays 'map(.frame.w == 1920.0000) | any'
 }
 
 has_uwfhd_display() {
-    has_display 'map(.frame.w == 2560.0000) | any'
+    query_displays 'map(.frame.w == 2560.0000) | any'
 }
 
 has_ultrawide_display() {
-    has_display 'map(.frame.w == 5120.0000) | any'
+    query_displays 'map(.frame.w == 5120.0000) | any'
+}
+
+get_ultrawide_display() {
+    query_displays '.[] | select(.frame.w == 5120.0000) | .index'
+}
+
+get_app_window() {
+    app_name="$1"
+    yabai -m query --windows | jq --arg app_name="$app_name" '.[] | select(.app == $app_name)'
 }
 
 is_system_protection_disabled() {
