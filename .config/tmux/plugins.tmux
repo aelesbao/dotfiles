@@ -103,12 +103,13 @@ set -gaF status-right "#{E:@catppuccin_status_cpu}"
 set -gaF status-right "#{E:@catppuccin_status_date_time}"
 
 # Plug and play battery percentage and icon indicator for Tmux.
-set -g @plugin 'tmux-plugins/tmux-battery'
-set -g @batt_icon_status_attached ''
+%if "#{==:0,#{||:#{SSH_CLIENT},#{SSH_TTY}}}"
+   set -g @plugin 'tmux-plugins/tmux-battery'
+   set -g @batt_icon_status_attached ''
+%endif
 
 # Plug and play cpu percentage and icon indicator.
 set -g @plugin 'tmux-plugins/tmux-cpu'
-
 set -g @cpu_percentage_format "%2.0f%%"
 
 # Plugin Manager installation {{{
@@ -118,6 +119,6 @@ if "test ! -d ~/.config/tmux/plugins/tpm" \
    "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.config/tmux/plugins/tpm/tpm'
+run ~/.config/tmux/plugins/tpm/tpm
 
 # }}}
