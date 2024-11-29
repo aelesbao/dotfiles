@@ -7,7 +7,6 @@ yellow="$(tput setaf 3)"
 blue="$(tput setaf 4)"
 reset="$(tput sgr0)"
 
-
 _fail() {
   (>&2 printf "${red}%s${reset}\n" "${1}")
   return 1
@@ -95,9 +94,9 @@ use_python() {
     return 1
   fi
 
-  if ! [[ -d "${PYENV_ROOT}/versions/${pyversion}" ]]; then
-    pyenv install "${pyversion}"
-    pyenv shell "${pyversion}"
+  if ! pyenv versions --bare | grep -q "${pyversion}"; then
+    echo "Installing Python ${pyversion}"
+    pyenv install --skip-existing "${pyversion}"
     pip install --upgrade pip setuptools virtualenv
   fi
 
@@ -156,12 +155,12 @@ use_databricks() {
     return 1
   fi
 
-  if ! ( has databricks ); then
+  if ! (has databricks); then
     pip install -U databricks-cli
     [[ -f ~/.databrickscfg ]] || databricks configure --token
   fi
 
-  if ! ( has databricks-connect ); then
+  if ! (has databricks-connect); then
     _warn "databricks-connect is not installed"
     return 1
   fi
@@ -181,8 +180,8 @@ layout_aws() {
   AWS_PROFILE="${profile}"
 
   export AWS_ACCESS_KEY_ID
-  AWS_ACCESS_KEY_ID="$( grep -A2 "\[${profile}\]" ~/.aws/credentials | awk -F ' = ' '/aws_access_key_id/ {print $2}' )"
+  AWS_ACCESS_KEY_ID="$(grep -A2 "\[${profile}\]" ~/.aws/credentials | awk -F ' = ' '/aws_access_key_id/ {print $2}')"
 
   export AWS_SECRET_ACCESS_KEY
-  AWS_SECRET_ACCESS_KEY="$( grep -A2 "\[${profile}\]" ~/.aws/credentials | awk -F ' = ' '/aws_secret_access_key/ {print $2}' )"
+  AWS_SECRET_ACCESS_KEY="$(grep -A2 "\[${profile}\]" ~/.aws/credentials | awk -F ' = ' '/aws_secret_access_key/ {print $2}')"
 }
