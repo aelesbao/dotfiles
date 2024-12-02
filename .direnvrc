@@ -94,10 +94,9 @@ use_python() {
     return 1
   fi
 
-  if ! pyenv versions --bare | grep -q "${pyversion}"; then
+  if ! pyenv versions --bare | grep "${pyversion}"; then
     echo "Installing Python ${pyversion}"
     pyenv install --skip-existing "${pyversion}"
-    pip install --upgrade pip setuptools virtualenv
   fi
 
   if ! [[ -f .python-version ]]; then
