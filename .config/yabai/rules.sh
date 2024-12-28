@@ -50,7 +50,8 @@ add_app_rule_manage_off \
     "Raycast" \
     "System Settings" \
     "balenaEtcher" \
-    "iStat Menus"
+    "iStat Menus" \
+    "gcups"
 
 # fixed spaces
 add_app_rule "(Messages|Signal|Telegram|WhatsApp)" space="comms"
@@ -63,7 +64,7 @@ add_app_rule "^(Calendar|Todoist|Linear)$" space="personal"
 add_app_rule "TradingView" space="browsing"
 
 # fix browser pop-ups
-add_app_rule "(Brave Browser|Firefox|Arc)" title="^(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet|Sui Wallet).*" manage=off
+add_app_rule "(Brave Browser|Firefox|Arc)" title="^(Litle Arc - )?(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet|Sui Wallet).*" manage=off
 add_app_rule "Arc" title="^(Profile).*" manage=off
 
 # development
