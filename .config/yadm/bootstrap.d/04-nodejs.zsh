@@ -14,7 +14,7 @@ if ! (( $+commands[nvm] )); then
   elif [ -s "$NVM_DIR/nvm.sh" ]; then
     source "$NVM_DIR/nvm.sh"
   else
-    nvm_version="$(get-latest-tag nvm-sh/nvm)"
+    nvm_version="$(gh-latest-tag nvm-sh/nvm)"
     info "Installing nvm ${nvm_version}"
     curl -fsSLo- "https://raw.githubusercontent.com/nvm-sh/nvm/${nvm_version}/install.sh" | bash
     source "$NVM_DIR/nvm.sh"

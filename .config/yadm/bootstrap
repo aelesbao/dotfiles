@@ -4,7 +4,7 @@ set -euo pipefail
 
 
 export GITHUB_USER="${GITHUB_USER:-aelesbao}"
-export BOOTSTRAP_D="${0:A}.d"
+export BOOTSTRAP_DIR="${0:A}.d"
 export NON_INTERACTIVE=${NON_INTERACTIVE:-true}
 
 
@@ -82,49 +82,55 @@ function is-macos() {
   [[ "$OSTYPE" == darwin* ]]
 }
 
-function is-ubuntu() {
-  has-command lsb_release && lsb_release -d | awk -F"\t" '{print $2}' | grep -iq "Ubuntu"
+function is-linux() {
+  [[ "$OSTYPE" == linux* ]]
 }
 
-function is-arch() {
-  has-command pacman
+function get-distro() {
+  has-command lsb_release && lsb_release -is
 }
 
-function is-pkg-installed() {
+function has-pkg() {
   local pkg="${1}"
 
   if is-macos; then
     { brew list --formula "$pkg" || brew list --cask "$pkg" } >/dev/null 2>&1
   elif has-command dpkg-query; then
     dpkg-query -W "$pkg" >/dev/null 2>&1
+  elif has-command pacman; then
+    pacman -Qi "$pkg" >/dev/null 2>&1
   else
-    fail "Unsupported OS: $(uname -a)"
+    fail "Unsupported OS: $(get-distro)"
   fi
 }
 
-function pkg-install() {
-  local pkg="${1}"
+function add-pkg() {
+  local pkg=${@}
   msg "Installing $pkg"
 
-  if is-macos; then
+  if has-command brew; then
     brew install $pkg
   elif has-command apt; then
     sudo apt install -y $pkg
+  elif has-command pamac; then
+    pamac install --no-confirm $pkg
+  elif has-command yay; then
+    yay -S --noconfirm $pkg
   elif has-command pacman; then
     sudo pacman -S --noconfirm $pkg
   else
-    fail "Unsupported OS: $(uname -a)"
+    fail "Unsupported OS: $(get-distro)"
   fi
 }
 
 function require() {
   local pkg="${1}"
-  is-pkg-installed "$pkg" || \
-    pkg-install "$pkg" || \
+  has-pkg "$pkg" || \
+    add-pkg "$pkg" || \
     fail "Failed to install $pkg"
 }
 
-function get-latest-tag() {
+function gh-latest-tag() {
   local repo="${1}"
   curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" | jq -r ".tag_name"
 }
@@ -156,28 +162,32 @@ function macos-refresh-icons() {
   killall Dock
 }
 
+function run-boot() {
+  local scripts_dir="${1}"
+  local scripts_filter="*(${(j:.zsh|:)@}.zsh)*"
+
+  declare -a bootstrap_scripts
+  bootstrap_scripts=($(find "$scripts_dir" -type f -name '*.zsh' | sort))
+  bootstrap_scripts=(${(M)bootstrap_scripts:#${~scripts_filter}})
+
+  title "Running bootstrap scripts"
+  for bootstrap in ${bootstrap_scripts[@]}; do
+    if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
+        echo
+        notice "bootstrapping ${bootstrap:t:r}..."
+        {
+          source "$bootstrap"
+        } || false
+        result "bootstrap ${bootstrap:t:r}"
+    fi
+  done
+}
+
 
 cd "$HOME"
 
-if [[ ! -d "$BOOTSTRAP_D" ]]; then
-  fail "bootstrap scripts directory $BOOTSTRAP_D not found"
+if [[ ! -d "$BOOTSTRAP_DIR" ]]; then
+  fail "bootstrap scripts directory $BOOTSTRAP_DIR not found"
 fi
 
-declare scripts_filter
-scripts_filter="*(${(j:.zsh|:)@}.zsh)*"
-
-declare -a bootstrap_scripts
-bootstrap_scripts=($(find "$BOOTSTRAP_D" -type f -name '*.zsh' | sort))
-bootstrap_scripts=(${(M)bootstrap_scripts:#${~scripts_filter}})
-
-title "Running bootstrap scripts"
-for bootstrap in ${bootstrap_scripts[@]}; do
-  if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
-      echo
-      notice "bootstrapping ${bootstrap:t:r}..."
-      {
-        source "$bootstrap"
-      } || false
-      result "bootstrap ${bootstrap:t:r}"
-  fi
-done
+run-boot "$BOOTSTRAP_DIR"

@@ -11,8 +11,6 @@ if ! is-macos; then
 fi
 
 
-info "Configuring global properties"
-
 function confirm-defaults() {
   local global="${1}"
   local key="${2}"
@@ -21,6 +19,14 @@ function confirm-defaults() {
   # if NON_INTERACTIVE=false
   # read current config and ask if should change
 }
+
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+
+info "Configuring global settings"
 
 msg "Set dark theme"
 defaults write -g AppleInterfaceStyle -string "Dark"
@@ -180,16 +186,3 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 msg "Enable subpixel font rendering on non-Apple LCDs"
 # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
 defaults write -g AppleFontSmoothing -int 1
-
-
-info "Configuring system settings"
-
-msg "Enable Touch ID for sudo"
-pam_reattach="$(brew --prefix pam-reattach)/lib/pam/pam_reattach.so"
-sed "s/^#auth/auth       optional       ${pam_reattach:gs/\//\\\/} ignore_ssh\nauth/" /etc/pam.d/sudo_local.template | \
-  sudo tee /etc/pam.d/sudo_local
-
-
-info "Persisting modified settings in permanent storage"
-
-/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u

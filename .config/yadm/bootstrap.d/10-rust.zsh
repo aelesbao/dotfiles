@@ -65,6 +65,7 @@ if ask "Update installed crates?"; then
   binstall cargo-outdated
   cargo-install cargo-release
   binstall cargo-run-script
+  binstall cargo-shuttle
   binstall cargo-tarpaulin
   binstall cargo-watch
   binstall evcxr_repl

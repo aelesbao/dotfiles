@@ -6,7 +6,7 @@
 set -euo pipefail
 
 if is-macos; then
-  if is-pkg-installed iterm2; then
+  if has-pkg iterm2; then
     info "Configuring iTerm"
     macos-change-app-icon "iTerm" "$HOME/.config/iterm2/terminal-icons/icns/synthwave_option_6.icns"
 
