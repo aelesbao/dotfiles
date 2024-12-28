@@ -1,1 +1,8 @@
-/Users/aelesbao/workspace/sandbox/dotfiles/.config/yadm/hooks/post_pull
+#!/bin/bash
+
+echo "YADM_HOOK_COMMAND: $YADM_HOOK_COMMAND"
+echo "YADM_HOOK_FULL_COMMAND: $YADM_HOOK_FULL_COMMAND"
+echo "YADM_HOOK_REPO: $YADM_HOOK_REPO"
+echo "YADM_HOOK_WORK: $YADM_HOOK_WORK"
+
+yadm decrypt
