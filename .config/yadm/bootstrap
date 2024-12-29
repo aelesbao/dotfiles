@@ -137,13 +137,12 @@ function gh-latest-tag() {
 
 function run-boot() {
   local scripts_dir="${1}"
-  local scripts_filter="*(${(j:.zsh|:)@}.zsh)*"
+  local scripts_filter="${2:-}"
 
   declare -a bootstrap_scripts
   bootstrap_scripts=($(find "$scripts_dir" -type f -name '*.zsh' | sort))
-  bootstrap_scripts=(${(M)bootstrap_scripts:#${~scripts_filter}})
+  [[ -n "$scripts_filter" ]] && bootstrap_scripts=(${(M)bootstrap_scripts:#${~scripts_filter}})
 
-  title "Running bootstrap scripts"
   for bootstrap in ${bootstrap_scripts[@]}; do
     if [[ -x "$bootstrap" && ! "$bootstrap" =~ "##" && ! "$bootstrap" =~ "~$" ]]; then
         echo
@@ -163,4 +162,20 @@ if [[ ! -d "$BOOTSTRAP_DIR" ]]; then
   fail "bootstrap scripts directory $BOOTSTRAP_DIR not found"
 fi
 
-run-boot "$BOOTSTRAP_DIR"
+if is-macos; then
+  title "Running Darwin bootstrap scripts"
+  run-boot "$BOOTSTRAP_DIR/macos"
+elif is-linux; then
+  [[ -f /etc/os-release ]] || fail "Missing /etc/os-release file"
+  source /etc/os-release
+
+  title "Running $PRETTY_NAME bootstrap scripts"
+  run-boot "$BOOTSTRAP_DIR/linux" "$ID_LIKE"
+
+  if ! (grep -q "^$USER:.*:$(command -v zsh)\$" /etc/passwd); then
+    sudo chsh -s "$(command -v zsh)" "$USER"
+  fi
+fi
+
+title "Running shared bootstrap scripts"
+run-boot "$BOOTSTRAP_DIR/shared" "*(${(j:.zsh|:)@}.zsh)*"
