@@ -11,16 +11,6 @@ if ! is-macos; then
 fi
 
 
-function confirm-defaults() {
-  local global="${1}"
-  local key="${2}"
-  local value="${3}" # read remaining args
-  # change args order if flag is not set
-  # if NON_INTERACTIVE=false
-  # read current config and ask if should change
-}
-
-
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
@@ -186,3 +176,8 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 msg "Enable subpixel font rendering on non-Apple LCDs"
 # Reference: https://github.com/kevinSuttle/macOS-Defaults/issues/17#issuecomment-266633501
 defaults write -g AppleFontSmoothing -int 1
+
+
+info "Persisting modified settings in permanent storage"
+
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
