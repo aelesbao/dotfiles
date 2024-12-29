@@ -130,6 +130,17 @@ function require() {
     fail "Failed to install $pkg"
 }
 
+function open() {
+  local url="${1}"
+  if is-macos; then
+    /usr/bin/open "$url"
+  elif has-command xdg-open; then
+    xdg-open "$url"
+  else
+    printf 'Navigate to \e]8;;%s\e\\%s\e]8;;\e\\\n' "$url" "$url"
+  fi
+}
+
 function gh-latest-tag() {
   local repo="${1}"
   curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" | jq -r ".tag_name"
