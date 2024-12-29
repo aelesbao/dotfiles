@@ -6,7 +6,7 @@
 set -euo pipefail
 
 if ! has-command pacman; then
-  msg "Not in a Arch Linux based system"
+  msg "Could not find pacman. Skipping Arch setup."
   return
 fi
 
@@ -33,15 +33,7 @@ sudo pacman -Syyu --noconfirm
 
 add-pkg \
   base-devel \
+  curl \
+  flatpak \
   git \
-  rsync
-  tree \
-  wget \
-  zsh \
-  zsh-completions \
-  zsh-syntax-highlighting
-
-if ! (pacman -Qi zsh >/dev/null); then
-  sudo chsh -s "$(command -v zsh)" "$(whoami)"
-fi
-
+  zsh

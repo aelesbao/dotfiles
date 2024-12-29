@@ -5,8 +5,8 @@
 
 set -euo pipefail
 
-if ! has-command apt-get; then
-  msg "Not in a Debian based system"
+if ! has-command apt; then
+  msg "Could not find apt. Skipping Debian setup."
   return
 fi
 
@@ -20,13 +20,9 @@ add-pkg \
   build-essential \
   ca-certificates \
   curl \
+  flatpak \
   git \
-  language-pack-en-base \
-  libssl-dev \
-  rsync \
-  uidmap \
-  wget \
-  zip
+  libssl-dev
 
 info "Cleaning up"
 sudo apt autoremove -y
@@ -34,8 +30,6 @@ sudo apt autoclean
 
 info "Generating locales"
 sudo locale-gen en_US.UTF-8 pt_BR.UTF-8 de_DE.UTF-8
-
-# TODO: Install flatpak and remaining dependencies
 
 if ! has-command brew && ask "Would you like to use Homebrew for package management?"; then
   info "Installing Homebrew"
