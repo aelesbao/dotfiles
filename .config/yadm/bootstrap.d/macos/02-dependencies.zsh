@@ -11,15 +11,14 @@ if ! is-macos; then
 fi
 
 
-if ! (( $+commands[brew] )); then
+if ! has-command brew; then
   info "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Make sure curl is installed via Homebrew and using the latest version (with OpenSSL)
-require curl
+info "Installing 1Password and GPG Tools"
 require 1password
 require gpg-suite
 
-notice "Dependencies installed. If necessary, please configure them before proceeding."
+notice "Dependencies installed. Please configure them accordingly before proceeding."
 ask "Are you ready to continue?" || fail "Aborting"
