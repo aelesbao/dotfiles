@@ -171,6 +171,7 @@ cd "$HOME"
 info "Updating yadm submodules"
 yadm submodule update --recursive --init
 
+
 if [[ ! -d "$BOOTSTRAP_DIR" ]]; then
   fail "bootstrap scripts directory $BOOTSTRAP_DIR not found"
 fi
@@ -184,10 +185,6 @@ elif is-linux; then
 
   title "Running $PRETTY_NAME bootstrap scripts"
   run-boot "$BOOTSTRAP_DIR/linux" "$ID_LIKE"
-
-  if ! (grep -q "^$USER:.*:$(command -v zsh)\$" /etc/passwd); then
-    sudo chsh -s "$(command -v zsh)" "$USER"
-  fi
 fi
 
 title "Running shared bootstrap scripts"

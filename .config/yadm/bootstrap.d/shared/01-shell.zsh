@@ -5,14 +5,16 @@
 
 set -euo pipefail
 
-declare current_shell="$(finger $USER | grep 'Shell:*' | cut -f3 -d ':' | sed 's/ //g')"
-if [[ "$current_shell" == $(which zsh) ]]; then
-  info "Changing $USER's shell to zsh"
+
+declare zsh_path="$(command -v zsh)"
+if is_macos && ! (dscl . -read ~/ UserShell | grep -q "UserShell: $zsh_path") || \
+  is_linux && ! (grep -q "^$USER:.*:$(command -v zsh)\$" /etc/passwd); then
+  info "Changing $USER's shell to $zsh_path"
 
   if is-macos; then
-    chsh -s $(which zsh)
+    chsh -s "$zsh_path"
   else
-    sudo chsh -s $(which zsh) $(whoami)
+    sudo chsh -s "$zsh_path" "$USER"
   fi
 fi
 
