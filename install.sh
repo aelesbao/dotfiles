@@ -45,8 +45,12 @@ is_macos() {
   [[ "$OSTYPE" == darwin* ]]
 }
 
+is_linux() {
+  [[ "$OSTYPE" == linux* ]]
+}
+
 get_distro() {
-  has_command lsb_release && lsb_release -is
+  has_command lsb_release && lsb_release -is 2>/dev/null
 }
 
 is_debian() {
@@ -59,7 +63,7 @@ has_pkg() {
   if is_macos; then
     (brew list --formula "$pkg" || brew list --cask "$pkg") >/dev/null 2>&1
   elif has_command dpkg-query; then
-    dpkg-query -W "$pkg" >/dev/null 2>&1
+    (dpkg-query -W "$pkg" || (has-command brew && brew list --formula "$pkg")) >/dev/null 2>&1
   elif has_command pacman; then
     pacman -Qi "$pkg" >/dev/null 2>&1
   else
@@ -72,10 +76,10 @@ add_pkg() {
   pkg=${*}
   msg "Installing $pkg"
 
-  if has_command brew; then
-    brew install $pkg
-  elif has_command apt; then
+  if has_command apt; then
     sudo apt install -y $pkg
+  elif has_command brew; then
+    brew install $pkg
   elif has_command pamac; then
     pamac install --no-confirm $pkg
   elif has_command yay; then
@@ -96,15 +100,14 @@ require() {
 
 title "Installing $GITHUB_USER's .dotfiles"
 
-if has_command hostinfo; then
-  info "System info"
-  hostinfo
+if is_linux && [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 if has_command brew; then
   info "Updating Homebrew"
   brew update && brew upgrade
-elif is_macos || (is_debian && ask "Would you like to use Homebrew for package management?"); then
+elif is_macos || is_debian; then
   info "Installing Homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -113,11 +116,6 @@ require yadm ||
   sudo -- sh -c "curl -fsSLo /usr/local/bin/yadm 'https://raw.githubusercontent.com/TheLocehiliosan/yadm/${YADM_VERSION}/yadm' && chmod a+x /usr/local/bin/yadm"
 
 require curl
-if is_macos; then
-  # Make sure curl is installed via Homebrew and using the latest version (with OpenSSL)
-  brew reinstall -f curl
-fi
-
 require git
 require zsh
 

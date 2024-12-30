@@ -87,7 +87,7 @@ function is-linux() {
 }
 
 function get-distro() {
-  has-command lsb_release && lsb_release -is
+  has_command lsb_release && lsb_release -is 2>/dev/null
 }
 
 function has-pkg() {
@@ -96,7 +96,7 @@ function has-pkg() {
   if is-macos; then
     { brew list --formula "$pkg" || brew list --cask "$pkg" } >/dev/null 2>&1
   elif has-command dpkg-query; then
-    dpkg-query -W "$pkg" >/dev/null 2>&1
+    { dpkg-query -W "$pkg" || { has-command brew && brew list --formula "$pkg" } } >/dev/null 2>&1
   elif has-command pacman; then
     pacman -Qi "$pkg" >/dev/null 2>&1
   else
@@ -108,10 +108,10 @@ function add-pkg() {
   local pkg=${@}
   msg "Installing $pkg"
 
-  if has-command brew; then
-    brew install $pkg
-  elif has-command apt; then
+  if has-command apt; then
     sudo apt install -y $pkg
+  elif has-command brew; then
+    brew install $pkg
   elif has-command pamac; then
     pamac install --no-confirm $pkg
   elif has-command yay; then

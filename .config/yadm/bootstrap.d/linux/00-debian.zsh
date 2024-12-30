@@ -31,7 +31,10 @@ sudo apt autoclean
 info "Generating locales"
 sudo locale-gen en_US.UTF-8 pt_BR.UTF-8 de_DE.UTF-8
 
-if ! has-command brew && ask "Would you like to use Homebrew for package management?"; then
-  info "Installing Homebrew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+brew install \
+  gcc \
+  git
