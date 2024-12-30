@@ -168,6 +168,9 @@ function run-boot() {
 
 cd "$HOME"
 
+info "Updating yadm submodules"
+yadm submodule update --recursive --init
+
 if [[ ! -d "$BOOTSTRAP_DIR" ]]; then
   fail "bootstrap scripts directory $BOOTSTRAP_DIR not found"
 fi
