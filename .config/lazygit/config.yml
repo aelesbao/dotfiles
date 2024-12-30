@@ -121,7 +121,7 @@ customCommands:
     loadingText: "Creating conventional commit..."
 
   - key: "<c-p>"
-    context: "global"
+    context: "files"
     description: "Create a pull request on GitHub"
     prompts:
       - type: "input"
