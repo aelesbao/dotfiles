@@ -3,9 +3,8 @@
 set -euo pipefail
 
 
-export GITHUB_USER="${GITHUB_USER:-aelesbao}"
+export GITHUB_USER="${GITHUB_USER:=$USER}"
 export BOOTSTRAP_DIR="${0:A}.d"
-export NON_INTERACTIVE=${NON_INTERACTIVE:-true}
 
 
 function _log() {
