@@ -2,8 +2,9 @@
 
 set -euo pipefail
 
-export GITHUB_USER="aelesbao"
+export GITHUB_USER="${GITHUB_USER:=$(whoami)}"
 export DOTFILES_REPO="https://github.com/$GITHUB_USER/dotfiles"
+export DOTFILES_BRANCH="${DOTFILES_BRANCH:=main}"
 export YADM_VERSION="3.3.0"
 
 title() {
@@ -103,11 +104,9 @@ fi
 if has_command brew; then
   info "Updating Homebrew"
   brew update && brew upgrade
-else
-  if is_macos || (is_debian && ask "Would you like to use Homebrew for package management?"); then
-    info "Installing Homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
+elif is_macos || (is_debian && ask "Would you like to use Homebrew for package management?"); then
+  info "Installing Homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 require yadm ||
@@ -124,13 +123,11 @@ require zsh
 
 info "Initializing the yadm repository"
 
-if [[ -d "$HOME/.local/share/yadm/repo.git" ]]; then
-  if ask "The yadm repository already exists. Do you want to overwrite it?"; then
-    yadm clone "$DOTFILES_REPO" -f
-    yadm checkout .
-  fi
-
-  yadm bootstrap
+if [[ -d "$HOME/.local/share/yadm/repo.git" ]] && ask "The yadm repository already exists. Do you want to overwrite it?"; then
+  yadm clone "$DOTFILES_REPO" -b "$DOTFILES_BRANCH" --no-bootstrap -f
+  yadm checkout .
 else
-  yadm clone "$DOTFILES_REPO" --bootstrap
+  yadm clone "$DOTFILES_REPO" -b "$DOTFILES_BRANCH" --no-bootstrap
 fi
+
+exec yadm bootstrap
