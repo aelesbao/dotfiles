@@ -3,14 +3,13 @@
 set -euo pipefail
 
 if ! (( $+commands[brew] )); then
-echo "Homebrew not installed"
-exit 1
+  echo "Homebrew not installed"
+  exit 1
 fi
 
 HOMEBREW_NO_INSTALL_CLEANUP=TRUE brew bundle --global
 brew upgrade
 brew cleanup
 
-yadm encrypt
-yadm add ~/.local/share/yadm/archive
-yadm cis -m 'build: update encrypted files'
+yadm add ~/.Brewfile ~/.Brewfile.lock.json
+yadm commit -m 'build(homebrew): update packages' -S

@@ -57,8 +57,5 @@ Thumbs.db
 .java-version
 .nvmrc
 
-# dotfiles
-.Brewfile*
-
 # Personal sandbox area
 .sandbox
