@@ -121,9 +121,11 @@ require zsh
 
 info "Initializing the yadm repository"
 
-if [[ -d "$HOME/.local/share/yadm/repo.git" ]] && ask "The yadm repository already exists. Do you want to overwrite it?"; then
-  yadm clone "$DOTFILES_REPO" -b "$DOTFILES_BRANCH" --no-bootstrap -f
-  yadm checkout .
+if [[ -d "$HOME/.local/share/yadm/repo.git" ]]; then
+  if ask "The yadm repository already exists. Do you want to overwrite it?"; then
+    yadm checkout .
+    yadm clone "$DOTFILES_REPO" -b "$DOTFILES_BRANCH" --no-bootstrap -f
+  fi
 else
   yadm clone "$DOTFILES_REPO" -b "$DOTFILES_BRANCH" --no-bootstrap
 fi
