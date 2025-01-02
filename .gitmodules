@@ -3,18 +3,6 @@
 	url = https://github.com/aelesbao/prezto
 	branch = custom
 	update = rebase
-[submodule ".config/kitty/kitty-icon"]
-	path = .config/kitty/kitty-icon
-	url = https://github.com/k0nserv/kitty-icon
-[submodule ".config/iterm2/terminal-icons"]
-	path = .config/iterm2/terminal-icons
-	url = https://github.com/dhanishgajjar/terminal-icons
-[submodule ".config/iterm2/iterm2-icons"]
-	path = .config/iterm2/iterm2-icons
-	url = https://github.com/jasonlong/iterm2-icons
-[submodule ".warp/themes/tokyo-night"]
-	path = .warp/themes/tokyo-night
-	url = https://github.com/bart-krakowski/warp-tokyo-night
 [submodule ".config/alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
@@ -32,9 +20,3 @@
 	url = https://github.com/aelesbao/nvim.git
 	branch = main
 	update = rebase
-[submodule ".config/bpytop/catppuccin"]
-	path = .config/bpytop/catppuccin
-	url = https://github.com/catppuccin/btop
-[submodule ".config/fish/catppuccin"]
-	path = .config/fish/catppuccin
-	url = https://github.com/catppuccin/fish
