@@ -74,7 +74,7 @@ has_pkg() {
 # shellcheck disable=SC2086
 add_pkg() {
   pkg=${*}
-  msg "Installing $pkg"
+  info "Installing $pkg"
 
   if has_command apt; then
     sudo apt install -y $pkg
