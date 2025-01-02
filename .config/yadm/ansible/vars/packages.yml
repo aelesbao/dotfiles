@@ -179,6 +179,8 @@ packages:
 
   - name: hadolint
     desc: Smarter Dockerfile linter to validate best practices
+    archlinux:
+      aur: hadolint-bin
 
   - name: harfbuzz
     desc: OpenType text shaping engine

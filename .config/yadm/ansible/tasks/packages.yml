@@ -19,24 +19,25 @@
         - name: Install Arch Linux packages
           when: os_family == 'archlinux'
           block:
-            - name: Update pacman cache
+            - name: Install repository packages
               ansible.builtin.pacman:
+                name: >-
+                  {{ os_packages | select('string') }}
                 update_cache: true
               become: true
 
             - name: Make sure that yay is installed
               kewlfft.aur.aur:
+                use: makepkg
                 name:
                   - yay
-                use: makepkg
                 state: present
 
             - name: Install core and AUR packages
               kewlfft.aur.aur:
                 use: yay
                 name: >-
-                  {{ os_packages }}
-                update_cache: true
+                  {{ os_packages | selectattr('aur', 'defined') | map(attribute='aur') }}
                 state: present
 
         - name: Install Debian-based packages
@@ -58,6 +59,7 @@
       vars:
         snap_packages: >-
           {{ json_packages | community.general.json_query('[?snap && !' + os_family + '][snap][]') }}
+
       block:
         - name: Snaps to install
           ansible.builtin.debug:
@@ -85,6 +87,7 @@
 
 - name: Install Homebrew packages
   when: os_family in ['darwin', 'debian']
+
   block:
     - name: Check if Homebrew is installed
       ansible.builtin.command: brew --version
