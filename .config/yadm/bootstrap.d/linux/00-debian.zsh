@@ -18,20 +18,15 @@ sudo apt update && sudo apt upgrade -y
 info "Installing required packages"
 add-pkg \
   build-essential \
-  ca-certificates \
   curl \
-  flatpak \
-  gnome-software-plugin-flatpak \
   git \
   libssl-dev \
+  python3 \
   python3-jmespath
 
 info "Cleaning up"
 sudo apt autoremove -y
 sudo apt autoclean
-
-info "Adding flatpak remote"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 info "Generating locales"
 sudo locale-gen en_US.UTF-8 pt_BR.UTF-8 de_DE.UTF-8
