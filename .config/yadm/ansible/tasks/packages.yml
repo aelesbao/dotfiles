@@ -19,6 +19,11 @@
         - name: Install Arch Linux packages
           when: os_family == 'archlinux'
           block:
+            - name: Update pacman cache
+              ansible.builtin.pacman:
+                update_cache: true
+              become: true
+
             - name: Make sure that yay is installed
               kewlfft.aur.aur:
                 name:
@@ -31,6 +36,7 @@
                 use: yay
                 name: >-
                   {{ os_packages }}
+                update_cache: true
                 state: present
 
         - name: Install Debian-based packages
@@ -40,15 +46,11 @@
               ansible.builtin.debug:
                 msg: "TODO: Add repositories for packages that aren't available in the default repos"
 
-            - name: Update apt cache
-              ansible.builtin.apt:
-                update_cache: true
-              become: true
-
             - name: Install packages
               ansible.builtin.apt:
                 name: >-
                   {{ os_packages }}
+                update_cache: true
                 state: present
               become: true
 
