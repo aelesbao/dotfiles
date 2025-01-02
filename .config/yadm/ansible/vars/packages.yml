@@ -2,27 +2,587 @@
 # List of packages that should be installed in Linux
 # using the default distro package manager
 packages:
-  # Packages that are available in all package managers with the
-  # same name and can be listed without any overrides
-  - name: coreutils
-  - name: direnv
-  - name: rustup
+  - name: ansible
+    desc: Automate deployment, configuration, and upgrading
 
-  # Packages that use a different name on each distribution
-  # contain a default name and a distro override
-  - name: qemu
-    # The description field is optional
-    description: Generic machine emulator and virtualizer
-    archlinux:
-      name: qemu-full
-    debian:
-      name: qemu-system
+  - name: ansible-lint
+    desc: Checks ansible playbooks for practices and behaviour
+
+  - name: aspell
+    desc: Spell checker with better logic than ispell
+
+  - name: axel
+    desc: Light UNIX download accelerator
+
+  - name: bandwhich
+    desc: Terminal bandwidth utilization tool
+
+  - name: bash
+    desc: Bourne-Again SHell, a UNIX command interpreter
+
+  - name: bash-completion
+    desc: Programmable completion for Bash 3.2
+
+  - name: bat
+    desc: Clone of cat(1) with syntax highlighting and Git integration
+
+  - name: binaryen
+    desc: Compiler infrastructure and toolchain library for WebAssembly
+
+  - name: buf
+    desc: New way of working with Protocol Buffers
+
+  - name: ca-certificates
+    desc: Mozilla CA certificate store
+
+  - name: circumflex
+    desc: Hacker News in your terminal
+
+  - name: cmake
+    desc: Cross-platform make
+
+  - name: colordiff
+    desc: Color-highlighted diff(1) output
+
+  - name: coreutils
+    desc: GNU File, Shell, and Text utilities
+
+  - name: csvq
+    desc: SQL-like query language for csv
+
+  - name: ctags
+    desc: Reimplementation of ctags(1)
+
+  - name: curl
+    desc: Get a file from an HTTP, HTTPS or FTP server
+
+  - name: dasel
+    desc: JSON, YAML, TOML, XML, and CSV query and modification tool
+
+  - name: deno
+    desc: Secure runtime for JavaScript and TypeScript
+
+  - name: diff-so-fancy
+    desc: Good-lookin' diffs with diff-highlight and more
+
+  - name: direnv
+    desc: Load/unload environment variables based on $PWD
+
+  - name: docker
+    desc: Pack, ship and run any application as a lightweight container
+
+  - name: docker-buildx
+    desc: Docker CLI plugin for extended build capabilities with BuildKit
+
+  - name: docker-compose
+    desc: Isolated development environments using Docker
+
+  - name: duf
+    desc: Disk Usage/Free Utility - a better 'df' alternative
+
+  - name: dust
+    desc: More intuitive version of du in rust
+
+  - name: eza
+    desc: Modern, maintained replacement for ls
+
+  - name: fauna-shell
+    desc: Interactive shell for FaunaDB
+
+  - name: fd
+    desc: Simple, fast and user-friendly alternative to find
+
+  - name: ffmpeg
+    desc: Play, record, convert, and stream audio and video
+
+  - name: fswatch
+    desc: Monitor a directory for changes and run a shell command
+
+  - name: fzf
+    desc: Command-line fuzzy finder written in Go
+
+  - name: gcc
+    desc: GNU compiler collection
+
+  - name: gettext
+    desc: GNU internationalization (i18n) and localization (l10n) library
+
+  - name: gh
+    desc: GitHub command-line tool
+
+  - name: ghostscript
+    desc: Interpreter for PostScript and PDF
+
+  - name: git
+    desc: Distributed revision control system
+
+  - name: git-delta
+    desc: Syntax-highlighting pager for git and diff output
+
+  - name: git-extras
+    desc: Small git utilities
+
+  - name: git-filter-repo
+    desc: Quickly rewrite git repository history
+
+  - name: git-lfs
+    desc: Git extension for versioning large files
+
+  # TODO: publish to AUR
+  # - name: git-recursive
+  #   desc: Execute git operations in multiple repositories
+
+  - name: glib
+    desc: Core application library for C
+
+  - name: glow
+    desc: Render markdown on the CLI
+
+  - name: gnuplot
+    desc: Command-driven, interactive function plotting
+
+  - name: gnutls
+    desc: GNU Transport Layer Security (TLS) Library
+
+  - name: go
+    desc: Open source programming language to build simple/reliable/efficient software
+
+  - name: gobject-introspection
+    desc: Generate introspection data for GObject libraries
+
+  - name: goenv
+    desc: Go version management
+
+  - name: golangci-lint
+    desc: Fast linters runner for Go
+
+  - name: gource
+    desc: Version Control Visualization Tool
+
+  - name: gradle
+    desc: Open-source build automation tool based on the Groovy and Kotlin DSL
+
+  - name: grc
+    desc: Colorize logfiles and command output
+
+  - name: grep
+    desc: GNU grep, egrep and fgrep
+
+  - name: grpcurl
+    desc: Like cURL, but for gRPC
+
+  - name: guile
+    desc: GNU Ubiquitous Intelligent Language for Extensions
+
+  - name: gum
+    desc: Tool for glamorous shell scripts
+
+  - name: hadolint
+    desc: Smarter Dockerfile linter to validate best practices
+
+  - name: harfbuzz
+    desc: OpenType text shaping engine
+
+  - name: helm
+    desc: Kubernetes package manager
+
+  - name: homeassistant-cli
+    desc: Command-line utility for Home Assistant
+
+  - name: htop
+    desc: Improved top (interactive process viewer)
+
+  - name: hub
+    desc: Add GitHub support to git on the command-line
+
+  - name: hyperfine
+    desc: Command-line benchmarking tool
+
+  - name: imagemagick
+    desc: Tools and libraries to manipulate images in many formats
+
+  - name: jenv
+    desc: Manage your Java environment
+
+  - name: jp2a
+    desc: Convert JPG images to ASCII
+
+  - name: jq
+    desc: Lightweight and flexible command-line JSON processor
+
+  - name: just
+    desc: Handy way to save and run project-specific commands
+
+  - name: k9s
+    desc: Kubernetes CLI To Manage Your Clusters In Style!
+
+  - name: krew
+    desc: Package manager for kubectl plugins
+
+  - name: kubernetes-cli
+    desc: Kubernetes command-line interface
+
+  - name: lazydocker
+    desc: Lazier way to manage everything docker
+
+  - name: lazygit
+    desc: Simple terminal UI for git commands
+
+  - name: leveldb
+    desc: Key-value storage library with ordered mapping
+
+  - name: lld
+    desc: LLVM Project Linker
+
+  - name: lsd
+    desc: Clone of ls with colorful output, file type icons, and more
+
+  - name: maven
+    desc: Java-based project management
+
+  - name: moreutils
+    desc: Collection of tools that nobody wrote when UNIX was young
+
+  - name: neovide
+    desc: No Nonsense Neovim Client in Rust
+
+  - name: neovim
+    desc: Ambitious Vim-fork focused on extensibility and agility
+
+  - name: node
+    desc: Platform built on V8 to build network applications
 
   - name: nvm
-    debian:
-      # This package isn't available in Debian or Ubuntu via apt
-      ignore: true
+    desc: Manage multiple Node.js versions
 
+  - name: ollama
+    desc: Create, run, and share large language models (LLMs)
+
+  - name: openjdk
+    desc: Development kit for the Java programming language
+    archlinux: jdk-openjdk
+
+  - name: perl
+    desc: Highly capable, feature-rich programming language
+
+  - name: pipx
+    desc: Execute binaries from Python packages in isolated environments
+
+  - name: procs
+    desc: Modern replacement for ps written in Rust
+
+  - name: protobuf
+    desc: Protocol buffers (Google's data interchange format)
+
+  - name: pyenv
+    desc: Python version management
+
+  - name: qemu
+    desc: Generic machine emulator and virtualizer
+    archlinux: qemu-full
+    debian: qemu-system
+
+  - name: rclone
+    desc: Rsync for cloud storage
+
+  - name: ripgrep
+    desc: Search tool like grep and The Silver Searcher
+
+  - name: rsync
+    desc: Utility that provides fast incremental file transfer
+
+  - name: ruby-build
+    desc: Install various Ruby versions and implementations
+
+  - name: rust-analyzer
+    desc: Experimental Rust compiler front-end for IDEs
+
+  - name: rustup
+    desc: Rust toolchain installer
+
+  - name: sbt
+    desc: Build tool for Scala projects
+
+  - name: scala
+    desc: JVM-based programming language
+
+  - name: sccache
+    desc: Used as a compiler wrapper and avoids compilation when possible
+
+  - name: shellcheck
+    desc: Static analysis and lint tool, for (ba)sh scripts
+
+  - name: shfmt
+    desc: Autoformat shell script source code
+
+  - name: sk
+    desc: Fuzzy Finder in rust!
+
+  - name: skhd
+    desc: Simple hotkey-daemon for macOS.
+
+  - name: smug
+    desc: Automate your tmux workflow
+
+  - name: solidity
+    desc: Contract-oriented programming language
+
+  - name: sops
+    desc: Editor of encrypted files
+
+  - name: speedtest-cli
+    desc: Command-line interface for https://speedtest.net bandwidth tests
+
+  - name: starship
+    desc: Cross-shell prompt for astronauts
+
+  - name: sui
+    desc: Next-generation smart contract platform powered by the Move programming language
+
+  - name: terraform
+    desc: Tool to build, change, and version infrastructure
+
+  - name: tesseract
+    desc: OCR (Optical Character Recognition) engine
+
+  - name: tflint
+    desc: Linter for Terraform files
+
+  - name: tfsec
+    desc: Static analysis security scanner for your terraform code
+
+  - name: tig
+    desc: Text interface for Git repositories
+
+  - name: tmux
+    desc: Terminal multiplexer
+
+  - name: toilet
+    desc: Color-based alternative to figlet (uses libcaca)
+
+  - name: tor
+    desc: Anonymizing overlay network for TCP
+
+  - name: trash
+    desc: Command line trashcan (recycle bin) interface
+    archlinux: trash-cli
+
+  - name: tree
+    desc: Display directories as trees (with optional color/HTML output)
+
+  - name: tree-sitter
+    desc: Parser generator tool and incremental parsing library
+
+  - name: truffle
+    desc: Development environment, testing framework and asset pipeline for Ethereum
+
+  - name: unbound
+    desc: Validating, recursive, caching DNS resolver
+
+  - name: uv
+    desc: Extremely fast Python package installer and resolver, written in Rust
+
+  - name: vhs
+    desc: Your CLI home video recorder
+
+  - name: vim
+    desc: Vi 'workalike' with many additional features
+
+  - name: vivid
+    desc: Generator for LS_COLORS with support for multiple color themes
+
+  - name: wabt
+    desc: Web Assembly Binary Toolkit
+
+  - name: wasmer
+    desc: Universal WebAssembly Runtime
+
+  - name: webp
+    desc: Image format providing lossless and lossy compression for web images
+
+  - name: wget
+    desc: Internet file retriever
+
+  - name: wimlib
+    desc: Library to create, extract, and modify Windows Imaging files
+
+  - name: xh
+    desc: Friendly and fast tool for sending HTTP requests
+
+  - name: yadm
+    desc: Yet Another Dotfiles Manager
+
+  - name: yarn
+    desc: JavaScript package manager
+
+  - name: yazi
+    desc: Blazing fast terminal file manager written in Rust, based on async I/O
+
+  - name: yq
+    desc: Process YAML, JSON, XML, CSV and properties documents from the CLI
+
+  - name: zellij
+    desc: Pluggable terminal workspace, with terminal multiplexer as the base feature
+
+  - name: zoxide
+    desc: Shell extension to navigate your filesystem faster
+
+  - name: zsh
+    desc: UNIX shell (command interpreter)
+
+  - name: 1password
+    desc: Password manager that keeps all passwords secure behind one password
+
+  - name: 1password-cli
+    desc: Command-line interface for 1Password
+
+  - name: alacritty
+    desc: GPU-accelerated terminal emulator
+
+  - name: balenaetcher
+    desc: Tool to flash OS images to SD cards & USB drives
+
+  - name: brave-browser
+    desc: Web browser focusing on privacy
+
+  - name: cursor
+    desc: Write, edit, and chat about your code with AI
+
+  - name: deepl
+    desc: Trains AIs to understand and translate texts
+
+  - name: discord
+    desc: Voice and text chat software
+
+  - name: dropbox
+    desc: Client for the Dropbox cloud storage service
+
+  - name: element
+    desc: Matrix collaboration client
+
+  - name: fing
+    desc: Network scanner
+
+  - name: firefox
+    desc: Web browser
+
+  - name: ttf-hack-nerd
+    desc: Patched font Hack from nerd fonts library
+
+  - name: ttf-jetbrains-mono-nerd
+    desc: Patched font JetBrains Mono from nerd fonts library
+
+  - name: gog-galaxy
+    desc: Game client
+
+  - name: google-cloud-sdk
+    desc: Set of tools to manage resources and applications hosted on Google Cloud
+
+  - name: home-assistant
+    desc: Companion app for Home Assistant home automation software
+
+  - name: insomnia
+    desc: HTTP and GraphQL Client
+
+  - name: jetbrains-toolbox
+    desc: JetBrains tools manager
+
+  - name: keybase
+    desc: End-to-end encryption software
+
+  - name: kitty
+    desc: GPU-based terminal emulator
+
+  - name: ledger-live
+    desc: Wallet desktop application to maintain multiple cryptocurrencies
+
+  - name: mimestream
+    desc: Native app email client for Gmail
+
+  - name: ngrok
+    desc: Reverse proxy, secure introspectable tunnels to localhost
+
+  - name: nordvpn
+    desc: VPN client for secure internet access and private browsing
+
+  - name: notion
+    desc: App to write, plan, collaborate, and get organised
+
+  - name: obsidian
+    desc: Knowledge base that works on top of a local folder of plain text Markdown files
+
+  - name: onecast
+    desc: Xbox remote play
+
+  - name: postman
+    desc: Collaboration platform for API development
+
+  - name: proton-mail
+    desc: Client for Proton Mail and Proton Calendar
+    snap: proton-mail
+
+  - name: protonmail-bridge
+    desc: Integrate ProtonMail paid account with any program that supports IMAP and SMTP (Qt desktop application)
+    snap: protonmail-bridge
+
+  - name: qfinder-pro
+    desc: NAS management application
+
+  - name: raspberry-pi-imager
+    desc: Imaging utility to install operating systems to a microSD card
+
+  - name: raycast
+    desc: Control your tools with a few keystrokes
+
+  - name: resilio-sync
+    desc: File sync and share software
+
+  - name: signal
+    desc: Instant messaging application focusing on security
+
+  - name: slack
+    desc: Team communication and collaboration software
+    snap: slack
+
+  - name: spotify
+    desc: Music streaming service
+
+  - name: steam
+    desc: Video game digital distribution service
+
+  - name: telegram
+    desc: Messaging app with a focus on speed and security
+
+  - name: todoist
+    desc: The to-do list to organize work & life
+    snap: todoist
+
+  - name: tradingview
+    desc: Charting and social-networking for investment traders
+
+  - name: vagrant
+    desc: Development environment
+
+  - name: visual-studio-code
+    desc: The Open Source build of Visual Studio Code (vscode) editor
+    archlinux: code
+
+  - name: vlc
+    desc: Multimedia player
+
+  - name: wezterm
+    desc: GPU-accelerated cross-platform terminal emulator and multiplexer
+
+  - name: whatsapp
+    desc: Native desktop client for WhatsApp
+
+  - name: zed
+    desc: Multiplayer code editor
+
+  - name: zoom
+    desc: Video communication and virtual meeting platform
+
+# Extra repositories to add to the system
 repositories:
   debian:
     - name: 1password

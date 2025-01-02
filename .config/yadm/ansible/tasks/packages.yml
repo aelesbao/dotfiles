@@ -2,55 +2,119 @@
 - name: Install Linux packages
   when: (ansible_system | lower) == 'linux'
   vars:
-    # Extracts package names based on the current OS family for overridden packages
-    os_packages_query: >-
-      [?{{ os_family }}.ignore != `true`][{{ os_family }}.name || name][]
-    os_packages: >-
-      {{ packages | to_json | from_json | community.general.json_query(os_packages_query) }}
+    json_packages: >-
+      {{ packages | to_json | from_json }}
 
   block:
-    - name: Packages to install
-      ansible.builtin.debug:
-        var: os_packages
-
-    - name: Install Flatpak in all distributions
-      ansible.builtin.package:
-        name:
-          - flatpak
-        state: present
-      become: true
-
-    - name: Install Arch Linux packages
-      when: os_family == 'archlinux'
+    - name: System packages
+      vars:
+        # Extracts package names based on the current OS family for overridden packages
+        os_packages: >-
+          {{ json_packages | community.general.json_query('[?(!flatpak && !snap) || ' + os_family + '][' + os_family + ' || name][]') }}
       block:
-        - name: Make sure yay is installed
+        - name: Packages to install
+          ansible.builtin.debug:
+            var: os_packages
+
+        - name: Install Arch Linux packages
+          when: os_family == 'archlinux'
+          block:
+            - name: Make sure that yay is installed
+              kewlfft.aur.aur:
+                name:
+                  - yay
+                use: makepkg
+                state: present
+
+            - name: Install core and AUR packages
+              kewlfft.aur.aur:
+                use: yay
+                name: >-
+                  {{ os_packages }}
+                state: present
+
+        - name: Install Debian-based packages
+          when: os_family == 'debian'
+          block:
+            - name: Add apt repositories
+              ansible.builtin.debug:
+                msg: "TODO: Add repositories for packages that aren't available in the default repos"
+
+            - name: Update apt cache
+              ansible.builtin.apt:
+                update_cache: true
+              become: true
+
+            - name: Install packages
+              ansible.builtin.apt:
+                name: >-
+                  {{ os_packages }}
+                state: present
+              become: true
+
+    - name: Snaps
+      vars:
+        snap_packages: >-
+          {{ json_packages | community.general.json_query('[?snap && !' + os_family + '][snap][]') }}
+      block:
+        - name: Snaps to install
+          ansible.builtin.debug:
+            var: snap_packages
+
+        - name: Make sure that snapd is installed in Arch Linux
+          when: os_family == 'archlinux'
           kewlfft.aur.aur:
-            name: yay
+            name:
+              - snapd
             use: makepkg
             state: present
 
-        - name: Install packages
-          kewlfft.aur.aur:
-            use: yay
+        - name: Make sure snapd.service is running
+          ansible.builtin.systemd_service:
+            name: snapd.service
+            state: started
+          become: true
+
+        - name: Install snap packages
+          community.general.snap:
             name: >-
-              {{ os_packages }}
+              {{ snap_packages }}
             state: present
 
-    - name: Install Debian-based packages
-      when: os_family == 'debian'
+    - name: Flatpaks
+      vars:
+        flatpak_packages: >-
+          {{ json_packages | community.general.json_query('[?flatpak && !snap && !' + os_family + '][flatpak][]') }}
       block:
-        - name: Add apt repositories
+        - name: Flatpaks to install
           ansible.builtin.debug:
-            msg: "TODO: Add repositories for packages that aren't available in the default repos"
+            var: flatpak_packages
 
-        - name: Update apt cache
-          ansible.builtin.apt:
-            update_cache: true
+        - name: Install flatpak in all distributions
+          ansible.builtin.package:
+            name:
+              - flatpak
+            state: present
+          become: true
 
-        - name: Install packages
-          ansible.builtin.apt:
+        - name: Add the Gnome flatpak remote to the system installation
+          community.general.flatpak_remote:
+            name: gnome
+            state: present
+            flatpakrepo_url: https://sdk.gnome.org/gnome-apps.flatpakrepo
+          become: true
+
+        - name: Add the flathub flatpak repository remote to the user installation
+          community.general.flatpak_remote:
+            name: flathub
+            state: present
+            flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+          become: true
+
+        - name: Install Flatpak packages
+          community.general.flatpak:
             name: >-
-              {{ os_packages }}
+              {{ snap_packages }}
             state: present
 
 - name: Install Homebrew packages
