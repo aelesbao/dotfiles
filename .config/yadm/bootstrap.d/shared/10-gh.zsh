@@ -8,6 +8,8 @@ set -euo pipefail
 require gh
 
 info "Configuring gh-cli"
+gh auth login
+
 extensions=(
   nektos/gh-act
   dlvhdr/gh-dash

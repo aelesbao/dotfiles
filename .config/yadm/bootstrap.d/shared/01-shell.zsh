@@ -7,8 +7,8 @@ set -euo pipefail
 
 
 declare zsh_path="$(command -v zsh)"
-if is_macos && ! (dscl . -read ~/ UserShell | grep -q "UserShell: $zsh_path") || \
-  is_linux && ! (grep -q "^$USER:.*:$(command -v zsh)\$" /etc/passwd); then
+if { is-macos && ! (dscl . -read ~/ UserShell | grep -q "UserShell: $zsh_path") } || \
+  { is-linux && ! (grep -q "^$USER:.*:$(command -v zsh)\$" /etc/passwd) }; then
   info "Changing $USER's shell to $zsh_path"
 
   if is-macos; then

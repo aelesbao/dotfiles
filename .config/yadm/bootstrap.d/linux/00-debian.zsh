@@ -23,7 +23,8 @@ add-pkg \
   flatpak \
   gnome-software-plugin-flatpak \
   git \
-  libssl-dev
+  libssl-dev \
+  python3-jmespath
 
 info "Cleaning up"
 sudo apt autoremove -y

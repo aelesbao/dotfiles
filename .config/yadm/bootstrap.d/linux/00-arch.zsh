@@ -36,7 +36,7 @@ add-pkg \
   curl \
   flatpak \
   git \
-  zsh
+  python-jmespath
 
 info "Adding flatpak remote"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
