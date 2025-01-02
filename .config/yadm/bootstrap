@@ -171,6 +171,10 @@ cd "$HOME"
 info "Updating yadm submodules"
 yadm submodule update --recursive --init
 
+# TODO: move all bootstrap scripts to Ansible
+#
+# References:
+# - https://github.com/geerlingguy/mac-dev-playbook
 
 if [[ ! -d "$BOOTSTRAP_DIR" ]]; then
   fail "bootstrap scripts directory $BOOTSTRAP_DIR not found"

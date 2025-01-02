@@ -1,0 +1,31 @@
+---
+# List of packages that should be installed in Linux
+# using the default distro package manager
+packages:
+  # Packages that are available in all package managers with the
+  # same name and can be listed without any overrides
+  - name: coreutils
+  - name: direnv
+  - name: rustup
+
+  # Packages that use a different name on each distribution
+  # contain a default name and a distro override
+  - name: qemu
+    # The description field is optional
+    description: Generic machine emulator and virtualizer
+    archlinux:
+      name: qemu-full
+    debian:
+      name: qemu-system
+
+  - name: nvm
+    debian:
+      # This package isn't available in Debian or Ubuntu via apt
+      ignore: true
+
+repositories:
+  debian:
+    - name: 1password
+      url: deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main
+      key: https://downloads.1password.com/linux/keys/1password.asc
+      policy: https://downloads.1password.com/linux/debian/debsig/1password.pol

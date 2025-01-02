@@ -1,0 +1,8 @@
+---
+skip_list:
+  - schema[meta]
+  - role-name
+  - experimental
+  - name[missing]
+  - no-changed-when
+  - risky-file-permissions

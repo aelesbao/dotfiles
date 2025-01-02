@@ -1,0 +1,71 @@
+---
+- name: Install Linux packages
+  when: (ansible_system | lower) == 'linux'
+  vars:
+    # Extracts package names based on the current OS family for overridden packages
+    os_packages_query: >-
+      [?{{ os_family }}.ignore != `true`][{{ os_family }}.name || name][]
+    os_packages: >-
+      {{ packages | to_json | from_json | community.general.json_query(os_packages_query) }}
+
+  block:
+    - name: Packages to install
+      ansible.builtin.debug:
+        var: os_packages
+
+    - name: Install Flatpak in all distributions
+      ansible.builtin.package:
+        name:
+          - flatpak
+        state: present
+      become: true
+
+    - name: Install Arch Linux packages
+      when: os_family == 'archlinux'
+      block:
+        - name: Make sure yay is installed
+          kewlfft.aur.aur:
+            name: yay
+            use: makepkg
+            state: present
+
+        - name: Install packages
+          kewlfft.aur.aur:
+            use: yay
+            name: >-
+              {{ os_packages }}
+            state: present
+
+    - name: Install Debian-based packages
+      when: os_family == 'debian'
+      block:
+        - name: Add apt repositories
+          ansible.builtin.debug:
+            msg: "TODO: Add repositories for packages that aren't available in the default repos"
+
+        - name: Update apt cache
+          ansible.builtin.apt:
+            update_cache: true
+
+        - name: Install packages
+          ansible.builtin.apt:
+            name: >-
+              {{ os_packages }}
+            state: present
+
+- name: Install Homebrew packages
+  when: os_family in ['darwin', 'debian']
+  block:
+    - name: Check if Homebrew is installed
+      ansible.builtin.command: brew --version
+      register: brew_installed
+      ignore_errors: true
+
+    - name: Check for Brewfile
+      ansible.builtin.stat:
+        path: "~/.Brewfile"
+      register: brewfile_exists
+
+    - name: Install from Brewfile
+      ansible.builtin.command: brew bundle --global
+      when: brew_installed.rc == 0 and brewfile_exists.stat.exists

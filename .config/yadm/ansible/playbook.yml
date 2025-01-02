@@ -1,0 +1,21 @@
+---
+- name: Configure dotfiles and install packages
+  hosts: all
+
+  vars_files:
+    - vars/packages.yml
+
+  vars:
+    os_family: "{{ ansible_os_family | lower }}"
+
+  collections:
+    - kewlfft.aur
+
+  pre_tasks:
+    - name: Install plugin requirements
+      delegate_to: localhost
+      ansible.builtin.command: ansible-galaxy install -r requirements.yml
+
+  tasks:
+    - ansible.builtin.import_tasks: tasks/packages.yml
+      tags: ["packages"]
