@@ -49,6 +49,8 @@ packages:
 
   - name: csvq
     desc: SQL-like query language for csv
+    archlinux:
+      aur: csvq-bin
 
   - name: ctags
     desc: Reimplementation of ctags(1)
@@ -86,9 +88,6 @@ packages:
   - name: eza
     desc: Modern, maintained replacement for ls
 
-  - name: fauna-shell
-    desc: Interactive shell for FaunaDB
-
   - name: fd
     desc: Simple, fast and user-friendly alternative to find
 
@@ -109,6 +108,7 @@ packages:
 
   - name: gh
     desc: GitHub command-line tool
+    archlinux: github-cli
 
   - name: ghostscript
     desc: Interpreter for PostScript and PDF
