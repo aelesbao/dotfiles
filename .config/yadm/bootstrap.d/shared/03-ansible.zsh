@@ -18,6 +18,6 @@ msg "Installing Ansible collections and roles"
 ansible-galaxy install -r requirements.yml
 
 msg "Running Ansible playbook"
-ansible-playbook playbook.yml --ask-become-pass
+ansible-playbook playbook.yml --ask-become-pass -vv
 
 popd
