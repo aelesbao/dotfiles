@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Lists installed formulae and casks as JSON
+
+jq '. + input' \
+  <(brew list --installed-on-request | xargs brew info --formula --json=v2 | jq '.formulae | map({ name, desc })') \
+  <(brew list --casks | xargs brew info --casks --json=v2 | jq '.casks | map({ name: .token, desc })')
