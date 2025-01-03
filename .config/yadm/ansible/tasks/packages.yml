@@ -70,7 +70,7 @@
           kewlfft.aur.aur:
             name:
               - snapd
-            use: makepkg
+            use: yay
             state: present
 
         - name: Make sure snapd.service is running
