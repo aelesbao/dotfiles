@@ -58,9 +58,6 @@
 [gpg]
   format = openpgp
 
-[credential]
-  helper = osxkeychain
-
 [alias]
   st      = status
   s       = status -s -b
