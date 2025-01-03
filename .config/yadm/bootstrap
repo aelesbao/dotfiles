@@ -192,4 +192,4 @@ elif is-linux; then
 fi
 
 title "Running shared bootstrap scripts"
-# run-boot "$BOOTSTRAP_DIR/shared" "*(${(j:.zsh|:)@}.zsh)*"
+run-boot "$BOOTSTRAP_DIR/shared" "*(${(j:.zsh|:)@}.zsh)*"
