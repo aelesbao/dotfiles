@@ -104,19 +104,19 @@ function has-pkg() {
 }
 
 function add-pkg() {
-  local pkg=${@}
-  msg "Installing $pkg"
+  local pkg=(${@})
+  msg "Installing ${pkg[*]}"
 
   if has-command apt; then
-    sudo apt install -y $pkg
+    sudo apt install -y ${pkg[*]}
   elif has-command brew; then
-    brew install $pkg
+    brew install ${pkg[*]}
   elif has-command pamac; then
-    pamac install --no-confirm $pkg
+    pamac install --no-confirm ${pkg[*]}
   elif has-command yay; then
-    yay -S --noconfirm $pkg
+    yay -S --noconfirm ${pkg[*]}
   elif has-command pacman; then
-    sudo pacman -S --noconfirm $pkg
+    sudo pacman -S --noconfirm ${pkg[*]}
   else
     fail "Unsupported OS: $(get-distro)"
   fi
@@ -188,8 +188,8 @@ elif is-linux; then
   source /etc/os-release
 
   title "Running $PRETTY_NAME bootstrap scripts"
-  run-boot "$BOOTSTRAP_DIR/linux" "$ID_LIKE"
+  run-boot "$BOOTSTRAP_DIR/linux" "*($ID_LIKE.zsh)*"
 fi
 
 title "Running shared bootstrap scripts"
-run-boot "$BOOTSTRAP_DIR/shared" "*(${(j:.zsh|:)@}.zsh)*"
+# run-boot "$BOOTSTRAP_DIR/shared" "*(${(j:.zsh|:)@}.zsh)*"
