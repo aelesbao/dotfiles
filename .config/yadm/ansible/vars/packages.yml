@@ -317,11 +317,6 @@ packages:
     archlinux:
       aur: smug
 
-  - name: solidity
-    desc: Contract-oriented programming language
-    archlinux:
-      aur: solidity
-
   - name: sops
     desc: Editor of encrypted files
 
@@ -330,11 +325,6 @@ packages:
 
   - name: starship
     desc: Cross-shell prompt for astronauts
-
-  - name: sui
-    desc: Next-generation smart contract platform powered by the Move programming language
-    archlinux:
-      aur: sui
 
   - name: terraform
     desc: Tool to build, change, and version infrastructure
