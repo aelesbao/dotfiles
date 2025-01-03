@@ -379,9 +379,6 @@ packages:
   - name: vhs
     desc: Your CLI home video recorder
 
-  - name: vim
-    desc: Vi 'workalike' with many additional features
-
   - name: vivid
     desc: Generator for LS_COLORS with support for multiple color themes
 

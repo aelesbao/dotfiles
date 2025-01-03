@@ -270,8 +270,6 @@ brew "unbound"
 brew "uv"
 # Your CLI home video recorder
 brew "vhs"
-# Vi 'workalike' with many additional features
-brew "vim"
 # Generator for LS_COLORS with support for multiple color themes
 brew "vivid"
 # The WebAssembly Binary Toolkit
