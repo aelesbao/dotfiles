@@ -449,10 +449,11 @@ packages:
   - name: discord
     desc: Voice and text chat software
 
-  - name: dropbox
-    desc: Client for the Dropbox cloud storage service
-    archlinux:
-      aur: dropbox
+  # TODO: use official installer
+  # - name: dropbox
+  #   desc: Client for the Dropbox cloud storage service
+  #   archlinux:
+  #     aur: dropbox
 
   - name: element
     desc: Matrix collaboration client
