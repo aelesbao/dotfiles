@@ -35,9 +35,6 @@ packages:
   - name: ca-certificates
     desc: Mozilla CA certificate store
 
-  - name: circumflex
-    desc: Hacker News in your terminal
-
   - name: cmake
     desc: Cross-platform make
 
@@ -60,6 +57,8 @@ packages:
 
   - name: dasel
     desc: JSON, YAML, TOML, XML, and CSV query and modification tool
+    archlinux:
+      aur: dasel
 
   - name: deno
     desc: Secure runtime for JavaScript and TypeScript
@@ -94,9 +93,6 @@ packages:
   - name: ffmpeg
     desc: Play, record, convert, and stream audio and video
 
-  - name: fswatch
-    desc: Monitor a directory for changes and run a shell command
-
   - name: fzf
     desc: Command-line fuzzy finder written in Go
 
@@ -121,6 +117,8 @@ packages:
 
   - name: git-extras
     desc: Small git utilities
+    archlinux:
+      aur: git-extras
 
   - name: git-filter-repo
     desc: Quickly rewrite git repository history
@@ -131,9 +129,6 @@ packages:
   # TODO: publish to AUR
   # - name: git-recursive
   #   desc: Execute git operations in multiple repositories
-
-  - name: glib
-    desc: Core application library for C
 
   - name: glow
     desc: Render markdown on the CLI
@@ -150,12 +145,6 @@ packages:
   - name: gobject-introspection
     desc: Generate introspection data for GObject libraries
 
-  - name: goenv
-    desc: Go version management
-
-  - name: golangci-lint
-    desc: Fast linters runner for Go
-
   - name: gource
     desc: Version Control Visualization Tool
 
@@ -168,8 +157,9 @@ packages:
   - name: grep
     desc: GNU grep, egrep and fgrep
 
-  - name: grpcurl
-    desc: Like cURL, but for gRPC
+  # TODO: find another source
+  # - name: grpcurl
+  #   desc: Like cURL, but for gRPC
 
   - name: guile
     desc: GNU Ubiquitous Intelligent Language for Extensions
@@ -187,9 +177,6 @@ packages:
 
   - name: helm
     desc: Kubernetes package manager
-
-  - name: homeassistant-cli
-    desc: Command-line utility for Home Assistant
 
   - name: htop
     desc: Improved top (interactive process viewer)
@@ -223,9 +210,12 @@ packages:
 
   - name: kubernetes-cli
     desc: Kubernetes command-line interface
+    archlinux: kubectl
 
   - name: lazydocker
     desc: Lazier way to manage everything docker
+    archlinux:
+      aur: lazydocker
 
   - name: lazygit
     desc: Simple terminal UI for git commands
@@ -253,6 +243,7 @@ packages:
 
   - name: node
     desc: Platform built on V8 to build network applications
+    archlinux: nodejs
 
   - name: nvm
     desc: Manage multiple Node.js versions
@@ -269,6 +260,7 @@ packages:
 
   - name: pipx
     desc: Execute binaries from Python packages in isolated environments
+    archlinux: python-pipx
 
   - name: procs
     desc: Modern replacement for ps written in Rust
@@ -293,9 +285,6 @@ packages:
   - name: rsync
     desc: Utility that provides fast incremental file transfer
 
-  - name: ruby-build
-    desc: Install various Ruby versions and implementations
-
   - name: rust-analyzer
     desc: Experimental Rust compiler front-end for IDEs
 
@@ -307,6 +296,8 @@ packages:
 
   - name: scala
     desc: JVM-based programming language
+    archlinux:
+      aur: scala
 
   - name: sccache
     desc: Used as a compiler wrapper and avoids compilation when possible
@@ -319,15 +310,17 @@ packages:
 
   - name: sk
     desc: Fuzzy Finder in rust!
-
-  - name: skhd
-    desc: Simple hotkey-daemon for macOS.
+    archlinux: skim
 
   - name: smug
     desc: Automate your tmux workflow
+    archlinux:
+      aur: smug
 
   - name: solidity
     desc: Contract-oriented programming language
+    archlinux:
+      aur: solidity
 
   - name: sops
     desc: Editor of encrypted files
@@ -340,6 +333,8 @@ packages:
 
   - name: sui
     desc: Next-generation smart contract platform powered by the Move programming language
+    archlinux:
+      aur: sui
 
   - name: terraform
     desc: Tool to build, change, and version infrastructure
@@ -350,8 +345,8 @@ packages:
   - name: tflint
     desc: Linter for Terraform files
 
-  - name: tfsec
-    desc: Static analysis security scanner for your terraform code
+  # - name: tfsec
+  #   desc: Static analysis security scanner for your terraform code
 
   - name: tig
     desc: Text interface for Git repositories
@@ -375,9 +370,6 @@ packages:
   - name: tree-sitter
     desc: Parser generator tool and incremental parsing library
 
-  - name: truffle
-    desc: Development environment, testing framework and asset pipeline for Ethereum
-
   - name: unbound
     desc: Validating, recursive, caching DNS resolver
 
@@ -398,9 +390,6 @@ packages:
 
   - name: wasmer
     desc: Universal WebAssembly Runtime
-
-  - name: webp
-    desc: Image format providing lossless and lossy compression for web images
 
   - name: wget
     desc: Internet file retriever
@@ -434,36 +423,50 @@ packages:
 
   - name: 1password
     desc: Password manager that keeps all passwords secure behind one password
+    archlinux:
+      aur: 1password
 
   - name: 1password-cli
     desc: Command-line interface for 1Password
+    archlinux:
+      aur: 1password-cli
 
   - name: alacritty
     desc: GPU-accelerated terminal emulator
 
   - name: balenaetcher
     desc: Tool to flash OS images to SD cards & USB drives
+    archlinux:
+      aur: balena-etcher
+
+  - name: bluemail
+    desc: BlueMail is a free, secure, universal email app, capable of managing an unlimited number of mail accounts
+    snap: bluemail
 
   - name: brave-browser
     desc: Web browser focusing on privacy
 
-  - name: cursor
-    desc: Write, edit, and chat about your code with AI
-
-  - name: deepl
-    desc: Trains AIs to understand and translate texts
+  # - name: deepl
+  #   desc: Trains AIs to understand and translate texts
 
   - name: discord
     desc: Voice and text chat software
 
   - name: dropbox
     desc: Client for the Dropbox cloud storage service
+    archlinux:
+      aur: dropbox
 
   - name: element
     desc: Matrix collaboration client
 
+  - name: ferdium
+    desc: Combine your favorite messaging services into one application
+    snap: ferdium
+
   - name: fing
     desc: Network scanner
+    snap: fing-agent
 
   - name: firefox
     desc: Web browser
@@ -474,50 +477,40 @@ packages:
   - name: ttf-jetbrains-mono-nerd
     desc: Patched font JetBrains Mono from nerd fonts library
 
-  - name: gog-galaxy
-    desc: Game client
-
   - name: google-cloud-sdk
     desc: Set of tools to manage resources and applications hosted on Google Cloud
+    archlinux:
+      aur: google-cloud-cli
 
   - name: home-assistant
     desc: Companion app for Home Assistant home automation software
 
   - name: insomnia
     desc: HTTP and GraphQL Client
+    archlinux:
+      aur: insomnia-bin
 
   - name: jetbrains-toolbox
     desc: JetBrains tools manager
-
-  - name: keybase
-    desc: End-to-end encryption software
+    archlinux:
+      aur: jetbrains-toolbox
 
   - name: kitty
     desc: GPU-based terminal emulator
 
-  - name: ledger-live
-    desc: Wallet desktop application to maintain multiple cryptocurrencies
+  # TODO: use official installer
+  # - name: ledger-live
+  #   desc: Wallet desktop application to maintain multiple cryptocurrencies
 
-  - name: mimestream
-    desc: Native app email client for Gmail
-
-  - name: ngrok
-    desc: Reverse proxy, secure introspectable tunnels to localhost
-
-  - name: nordvpn
-    desc: VPN client for secure internet access and private browsing
+  # TODO: use official installer
+  # - name: nordvpn
+  #   desc: VPN client for secure internet access and private browsing
 
   - name: notion
     desc: App to write, plan, collaborate, and get organised
 
   - name: obsidian
     desc: Knowledge base that works on top of a local folder of plain text Markdown files
-
-  - name: onecast
-    desc: Xbox remote play
-
-  - name: postman
-    desc: Collaboration platform for API development
 
   - name: proton-mail
     desc: Client for Proton Mail and Proton Calendar
@@ -527,20 +520,22 @@ packages:
     desc: Integrate ProtonMail paid account with any program that supports IMAP and SMTP (Qt desktop application)
     snap: protonmail-bridge
 
-  - name: qfinder-pro
-    desc: NAS management application
+  # TODO: use official installer
+  # - name: qfinder-pro
+  #   desc: NAS management application
 
-  - name: raspberry-pi-imager
-    desc: Imaging utility to install operating systems to a microSD card
-
-  - name: raycast
-    desc: Control your tools with a few keystrokes
+  # TODO: use official installer
+  # - name: qsync
+  #   desc: QNap's synchronization client
 
   - name: resilio-sync
     desc: File sync and share software
+    archlinux:
+      aur: rslsync
 
   - name: signal
     desc: Instant messaging application focusing on security
+    archlinux: signal-desktop
 
   - name: slack
     desc: Team communication and collaboration software
@@ -548,19 +543,18 @@ packages:
 
   - name: spotify
     desc: Music streaming service
+    snap: spotify
 
   - name: steam
     desc: Video game digital distribution service
 
   - name: telegram
     desc: Messaging app with a focus on speed and security
+    archlinux: telegram-desktop
 
   - name: todoist
     desc: The to-do list to organize work & life
     snap: todoist
-
-  - name: tradingview
-    desc: Charting and social-networking for investment traders
 
   - name: vagrant
     desc: Development environment
@@ -575,14 +569,8 @@ packages:
   - name: wezterm
     desc: GPU-accelerated cross-platform terminal emulator and multiplexer
 
-  - name: whatsapp
-    desc: Native desktop client for WhatsApp
-
   - name: zed
     desc: Multiplayer code editor
-
-  - name: zoom
-    desc: Video communication and virtual meeting platform
 
 # Extra repositories to add to the system
 repositories:
