@@ -39,7 +39,7 @@
                 name: "{{ item }}"
                 state: present
               loop: >-
-                {{ os_packages | selectattr('aur', 'defined') | map(attribute='aur') }}
+                {{ os_packages | selectattr('aur', 'defined') | map(attribute='aur') | sort }}
 
         - name: Install Debian-based packages
           when: os_family == 'debian'
@@ -85,7 +85,7 @@
             name: "{{ item }}"
             state: present
           loop: >-
-            {{ snap_packages }}
+            {{ snap_packages | sort }}
 
 - name: Install Homebrew packages
   when: os_family in ['darwin', 'debian']
