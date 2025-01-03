@@ -5,7 +5,10 @@
 
 set -euo pipefail
 
-require gh
+if ! has-command gh; then
+  msg "gh not installed"
+  return 1
+fi
 
 info "Configuring gh-cli"
 gh auth login
