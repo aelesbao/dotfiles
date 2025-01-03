@@ -28,10 +28,10 @@
 [url "git@github.com:aelesbao/"]
   pushInsteadOf = "aelesbao:"
 
-[url "https://aur4.archlinux.org/"]
+[url "https://aur.archlinux.org/"]
   insteadOf = "aur:"
 
-[url "aur@aur4.archlinux.org:"]
+[url "aur@aur.archlinux.org:"]
   pushInsteadOf = "aur:"
 
 [url "git@heroku.com:"]
