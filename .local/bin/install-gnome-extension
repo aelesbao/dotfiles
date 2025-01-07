@@ -1,0 +1,50 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+uuid="${1:-}"
+if [[ -z "$uuid" ]]; then
+  echo "Usage: ${0:t:r} UUID" >&2
+  echo >&2
+  echo "Arguments:" >&2
+  echo "  UUID\t\tGNOME extension uuid (ex: extension-name@example.github.com)" >&2
+  exit 1
+fi
+
+echo "Installing extension ${uuid}"
+
+pk=$(
+  curl -Ssf "https://extensions.gnome.org/extension-query/?search=${uuid}&n_per_page=25" | \
+    jq --arg uuid "$uuid" '.extensions[] | select(.uuid == $uuid) | .pk'
+)
+
+if [[ -z "$pk" ]]; then
+  echo "Could not find an extension with the uuid $uuid" >&2
+  exit 1
+fi
+
+gnome_version="$(gnome-shell --version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/')"
+download_url="$(curl -Ssf "https://extensions.gnome.org/extension-info/?pk=${pk}&shell_version=${gnome_version}" | jq -r '.download_url')"
+
+echo "Downloading..."
+wget -q "https://extensions.gnome.org${download_url}" -O /tmp/${uuid}.zip
+
+echo "Installing..."
+gnome-extensions install /tmp/${uuid}.zip --force
+
+if ! gnome-extensions list | grep -q ${uuid}; then
+  echo "Refreshing..."
+  busctl --user call \
+    org.gnome.Shell.Extensions \
+    /org/gnome/Shell/Extensions \
+    org.gnome.Shell.Extensions \
+    InstallRemoteExtension s ${uuid}
+fi
+
+echo "Enabling..."
+gnome-extensions enable ${uuid}
+
+echo "Cleaning up..."
+rm /tmp/${uuid}.zip
+
+echo "Done!"
