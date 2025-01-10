@@ -1,0 +1,30 @@
+# File list.
+[manager]
+
+[[manager.prepend_keymap]]
+on = ["g", "y"]
+run = "shell 'yadm add $@'"
+desc = "Add all files to yadm."
+
+[[prepend_keymap]]
+
+# Task manager.
+[tasks]
+
+# File information spotter.
+[spot]
+
+# Pick component. e.g. "open with" for files.
+[pick]
+
+# Input component. e.g. create, rename, etc.
+[input]
+
+# Confirmation dialog. e.g. remove, overwrite, etc.
+[confirm]
+
+# Completion component. e.g. "cd" path completion.
+[completion]
+
+# Help menu.
+[help]
