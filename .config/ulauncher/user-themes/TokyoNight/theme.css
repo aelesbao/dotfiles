@@ -1,0 +1,137 @@
+/**
+* Color Pallete
+**/
+
+@define-color bg #1a1b26;
+@define-color black #414868;
+@define-color comment #565f89;
+@define-color text #9aa5ce;
+@define-color fg #a9b1d6;
+@define-color white #c0caf5;
+@define-color magenta #bb9af7;
+@define-color blue #7aa2f7;
+@define-color sky #7dcfff;
+@define-color cyan #2ac3de;
+@define-color ice_blue #b4f9f8;
+@define-color sea_green #73daca;
+@define-color green #9ece6a;
+@define-color silver #cfc9c2;
+@define-color yellow #e0af68;
+@define-color orange #ff9e64;
+@define-color red #f7768e;
+
+/**
+ * App Window
+ */
+@define-color window_bg alpha(@bg, 0.9);
+@define-color window_border_color alpha(@magenta, 0.5);
+@define-color prefs_backgroud @black;
+
+/**
+ * Input
+ */
+@define-color selected_bg_color @black;
+@define-color selected_fg_color @white;
+@define-color input_color @white;
+@define-color caret_color darker(@input_color);
+
+/**
+ * Result items
+ */
+@define-color item_name @ice_blue;
+@define-color item_text @comment;
+@define-color item_shortcut_color @blue;
+@define-color item_shortcut_shadow darker(@window_bg);
+
+@define-color item_box_selected alpha(@black, 0.5);
+@define-color item_name_selected @yellow;
+@define-color item_text_selected @white;
+@define-color item_shortcut_color_sel @red;
+@define-color item_shortcut_shadow_sel darker(@item_box_selected);
+
+/**
+* App Window
+**/
+.app {
+  background-image: linear-gradient(
+    to bottom,
+    alpha(darker(@window_bg), 0.95),
+    alpha(@window_bg, 0.6)
+  );
+  border: 1px solid @window_border_color;
+  border-radius: 2px;
+  margin: 0px;
+  padding: 0;
+}
+
+/**
+* Input
+*/
+.input {
+  border-bottom: 1px solid @window_border_color;
+  color: @input_color;
+  margin-left: -20px;
+  margin-right: -58px;
+  margin-top: -12px;
+  padding-left: 12px;
+}
+
+.input *:selected,
+.input *:focus,
+*:selected:focus {
+  background-color: alpha(@selected_bg_color, 0.9);
+  color: @selected_fg_color;
+}
+
+/**
+* Result items
+*/
+.result-box {
+  margin: 0px 12px;
+  padding: 0px;
+}
+
+.item-box {
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.item_name {
+  color: @item_name;
+}
+.item_text {
+  color: @item_text;
+}
+
+.selected.item-box {
+  background-color: @item_box_selected;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.selected.item-box .item_name {
+  color: @item_name_selected;
+}
+.selected.item-box .item_text {
+  color: @item_text_selected;
+}
+
+.item-shortcut {
+  color: @item_shortcut_color;
+  text-shadow: 1px 1px 1px @item_shortcut_shadow;
+}
+.selected.item-box .item-shortcut {
+  color: @item_shortcut_color_sel;
+  text-shadow: 1px 1px 1px @item_shortcut_shadow_sel;
+}
+
+.prefs-btn {
+  opacity: 0.8;
+  margin-bottom: 4px;
+  padding: 0px;
+}
+.prefs-btn:hover {
+  background-color: @prefs-btn-color;
+}
+
+.no-window-shadow {
+  margin: -20px;
+}

@@ -1,0 +1,32 @@
+{
+    "9adaedc1-40f5-4093-a8fc-5d808308e679": {
+        "id": "9adaedc1-40f5-4093-a8fc-5d808308e679",
+        "name": "Google Search",
+        "keyword": "g",
+        "cmd": "https://google.com/search?q=%s",
+        "icon": "/usr/share/ulauncher/media/google-search-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1736354932.0158918
+    },
+    "6c7216b6-a193-4c4c-b3ea-3fd2f9ba7fcc": {
+        "id": "6c7216b6-a193-4c4c-b3ea-3fd2f9ba7fcc",
+        "name": "Wikipedia",
+        "keyword": "wiki",
+        "cmd": "https://en.wikipedia.org/wiki/%s",
+        "icon": "/usr/share/ulauncher/media/wikipedia-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1736354932.0159106
+    },
+    "ba0ac939-ee35-41ea-83fd-756c155382ae": {
+        "id": "ba0ac939-ee35-41ea-83fd-756c155382ae",
+        "name": "YouTube",
+        "keyword": "yt",
+        "cmd": "https://youtube.com/search?q=%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1736355165.1774127
+    }
+}
