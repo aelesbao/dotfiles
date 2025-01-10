@@ -3,20 +3,26 @@
 	url = https://github.com/aelesbao/prezto
 	branch = custom
 	update = rebase
-[submodule ".config/alacritty/themes"]
-	path = .config/alacritty/themes
-	url = https://github.com/alacritty/alacritty-theme
-[submodule ".config/bat/themes/catppuccin"]
-	path = .config/bat/themes/catppuccin
-	url = https://github.com/catppuccin/bat
-[submodule ".config/k9s/skins/catppuccin"]
-	path = .config/k9s/skins/catppuccin
-	url = https://github.com/catppuccin/k9s.git
-[submodule ".config/lazygit/catppuccin"]
-	path = .config/lazygit/catppuccin
-	url = https://github.com/catppuccin/lazygit
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/aelesbao/nvim.git
 	branch = main
 	update = rebase
+[submodule ".config/alacritty/themes"]
+	path = .config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
+[submodule ".local/share/src/tokyonight.nvim"]
+	path = .local/share/src/tokyonight.nvim
+	url = https://github.com/folke/tokyonight.nvim
+[submodule ".local/share/src/catppuccin/lazygit"]
+	path = .local/share/src/catppuccin/lazygit
+	url = https://github.com/catppuccin/lazygit
+[submodule ".local/share/src/catppuccin/k9s"]
+	path = .local/share/src/catppuccin/k9s
+	url = https://github.com/catppuccin/k9s
+[submodule ".local/share/src/catppuccin/bat"]
+	path = .local/share/src/catppuccin/bat
+	url = https://github.com/catppuccin/bat
+[submodule ".local/share/src/catppuccin/kitty"]
+	path = .local/share/src/catppuccin/kitty
+	url = https://github.com/catppuccin/kitty

@@ -29,29 +29,6 @@ gui:
   timeFormat: "2006-01-02 15:04:05"
   shortTimeFormat: "15:04"
 
-  theme:
-    activeBorderColor:
-      - "#b4befe"
-      - bold
-    inactiveBorderColor:
-      - "#a6adc8"
-    optionsTextColor:
-      - "#89b4fa"
-    selectedLineBgColor:
-      - "#313244"
-    selectedRangeBgColor:
-      - "#313244"
-    cherryPickedCommitBgColor:
-      - "#45475a"
-    cherryPickedCommitFgColor:
-      - "#b4befe"
-    unstagedChangesColor:
-      - "#f38ba8"
-    defaultFgColor:
-      - "#cdd6f4"
-    searchingActiveBorderColor:
-      - "#f9e2af"
-
 refresher:
   refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
   fetchInterval: 600 # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.

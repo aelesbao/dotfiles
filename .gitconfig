@@ -8,7 +8,7 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   whitespace = trailing-space,space-before-tab
-  pager = delta || diff-so-fancy | less --tabs=4 -RFX || less --tabs=4 -RFX
+  pager = delta || less --tabs=4 -RFX
 
 [url "https://github.com/"]
   insteadOf = "git://github.com/"
@@ -134,14 +134,17 @@
 [interactive]
   diffFilter = delta --color-only || less --tabs=4 -RFX
 
+[github]
+  user = aelesbao
+
 [delta]
   navigate = true
   line-numbers = true
   side-by-side = true
   hyperlinks = true
 
-[github]
-  user = aelesbao
+[include]
+  path = ~/.config/delta/theme.gitconfig
 
 [include]
   path = ~/.gitconfig.local
