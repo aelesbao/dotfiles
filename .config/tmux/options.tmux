@@ -3,8 +3,11 @@
 # Change tmux prefix key to Ctrl+S because it's easier to hit
 set-option -g prefix C-s
 
+# Avoid that tmux starts a login shell by default
+set-option -g default-command "${SHELL}"
+
 # Enables extended terminal capabilities in tmux
-set-option -s default-terminal 'alacritty'
+set-option -s default-terminal 'kitty'
 
 set-option -s editor 'nvim'
 
