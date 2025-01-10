@@ -65,7 +65,9 @@ bind -T copy-mode-vi 'M-l' select-pane -R
 bind -T copy-mode-vi 'M-;' select-pane -l
 
 # Window navigation
+bind -n 'M-S-[' previous-window
 bind -n 'M-{' previous-window
+bind -n 'M-S-]' next-window
 bind -n 'M-}' next-window
 
 # Switch windows alt+number
