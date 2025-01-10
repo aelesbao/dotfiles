@@ -1,0 +1,31 @@
+{
+  "float": [
+    {
+      "class": "org.gnome.tweaks"
+    },
+    {
+      "class": "1Password"
+    },
+    {
+      "class": "steam"
+    },
+    {
+      "class": "org.gnome.Settings"
+    },
+    {
+      "class": "re.sonny.Retro"
+    },
+    {
+      "class": "Ulauncher"
+    },
+    {
+      "class": "Signal",
+      "title": "Signal Desktop Preferences"
+    },
+    {
+      "class": "evolution-alarm-notify"
+    }
+  ],
+  "skiptaskbarhidden": [],
+  "log_on_focus": false
+}
