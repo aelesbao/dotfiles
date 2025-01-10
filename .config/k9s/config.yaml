@@ -10,7 +10,7 @@ k9s:
     logoless: false
     crumbsless: false
     noIcons: false
-    skin: catppuccin-mocha
+    skin: tokyonight_storm
   skipLatestRevCheck: false
   disablePodCounting: false
   imageScans:
