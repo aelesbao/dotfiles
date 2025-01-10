@@ -17,5 +17,6 @@
       ansible.builtin.command: ansible-galaxy install -r requirements.yml
 
   tasks:
+    # TODO: transform into a role
     - ansible.builtin.import_tasks: tasks/packages.yml
       tags: ["packages"]

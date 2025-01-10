@@ -55,6 +55,12 @@ packages:
   - name: curl
     desc: Get a file from an HTTP, HTTPS or FTP server
 
+  - name: cups-browsed
+    desc: a helper daemon to browse the network for remote CUPS queues and IPP network printers
+
+  - name: cups-pdf
+    desc: PDF printer for cups
+
   - name: dasel
     desc: JSON, YAML, TOML, XML, and CSV query and modification tool
     archlinux:
@@ -181,14 +187,17 @@ packages:
   - name: htop
     desc: Improved top (interactive process viewer)
 
-  - name: hub
-    desc: Add GitHub support to git on the command-line
+  - name: hplip
+    desc: Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet
 
   - name: hyperfine
     desc: Command-line benchmarking tool
 
   - name: imagemagick
     desc: Tools and libraries to manipulate images in many formats
+
+  - name: inkscape
+    desc: Professional vector graphics editor
 
   - name: jenv
     desc: Manage your Java environment
@@ -235,6 +244,9 @@ packages:
   - name: moreutils
     desc: Collection of tools that nobody wrote when UNIX was young
 
+  - name: nautilus-share
+    desc: Nautilus extension to share folder using Samba
+
   - name: neovide
     desc: No Nonsense Neovim Client in Rust
 
@@ -245,9 +257,6 @@ packages:
     desc: Platform built on V8 to build network applications
     archlinux: nodejs
 
-  - name: nvm
-    desc: Manage multiple Node.js versions
-
   - name: ollama
     desc: Create, run, and share large language models (LLMs)
 
@@ -255,12 +264,18 @@ packages:
     desc: Development kit for the Java programming language
     archlinux: jdk-openjdk
 
+  - name: openrgb
+    desc: Open source RGB lighting control that doesn't depend on manufacturer software
+
   - name: perl
     desc: Highly capable, feature-rich programming language
 
   - name: pipx
     desc: Execute binaries from Python packages in isolated environments
     archlinux: python-pipx
+
+  - name: prettier
+    desc: An opinionated code formatter
 
   - name: procs
     desc: Modern replacement for ps written in Rust
@@ -323,8 +338,14 @@ packages:
   - name: speedtest-cli
     desc: Command-line interface for https://speedtest.net bandwidth tests
 
+  - name: sshfs
+    desc: FUSE client based on the SSH File Transfer Protocol
+
   - name: starship
     desc: Cross-shell prompt for astronauts
+
+  - name: system-config-printer
+    desc: A CUPS printer configuration tool and status applet
 
   - name: terraform
     desc: Tool to build, change, and version infrastructure
@@ -337,9 +358,12 @@ packages:
 
   # - name: tfsec
   #   desc: Static analysis security scanner for your terraform code
-
   - name: tig
     desc: Text interface for Git repositories
+
+    # Dependency for pyenv
+  - name: tk
+    desc: A windowing toolkit for use with tcl
 
   - name: tmux
     desc: Terminal multiplexer
@@ -359,6 +383,14 @@ packages:
 
   - name: tree-sitter
     desc: Parser generator tool and incremental parsing library
+
+  - name: tree-sitter-cli
+    desc: CLI tool for developing, testing, and using Tree-sitter parsers
+
+  - name: ulauncher
+    desc: Application launcher for Linux
+    archlinux:
+      aur: ulauncher
 
   - name: unbound
     desc: Validating, recursive, caching DNS resolver
@@ -426,35 +458,30 @@ packages:
     archlinux:
       aur: balena-etcher
 
-  - name: bluemail
-    desc: BlueMail is a free, secure, universal email app, capable of managing an unlimited number of mail accounts
-    snap: bluemail
-
   - name: brave-browser
     desc: Web browser focusing on privacy
+    flatpak: com.brave.Browser
 
+  # TODO: use wine
   # - name: deepl
   #   desc: Trains AIs to understand and translate texts
 
   - name: discord
     desc: Voice and text chat software
 
-  # TODO: use official installer
-  # - name: dropbox
-  #   desc: Client for the Dropbox cloud storage service
-  #   archlinux:
-  #     aur: dropbox
+  - name: dropbox
+    desc: Client for the Dropbox cloud storage service
+    archlinux:
+      aur: dropbox
 
   - name: element
     desc: Matrix collaboration client
 
   - name: ferdium
     desc: Combine your favorite messaging services into one application
-    snap: ferdium
-
-  - name: fing
-    desc: Network scanner
-    snap: fing-agent
+    archlinux:
+      aur: ferdium-bin
+    flatpak: org.ferdium.Ferdium
 
   - name: firefox
     desc: Web browser
@@ -464,6 +491,10 @@ packages:
 
   - name: ttf-jetbrains-mono-nerd
     desc: Patched font JetBrains Mono from nerd fonts library
+
+  - name: ttf-roboto-mono-nerd
+  - name: ttf-ubuntu-nerd
+  - name: ttf-ubuntu-mono-nerd
 
   - name: google-cloud-sdk
     desc: Set of tools to manage resources and applications hosted on Google Cloud
@@ -486,13 +517,17 @@ packages:
   - name: kitty
     desc: GPU-based terminal emulator
 
+  - name: mailspring
+    desc: The best email app for people and teams at work
+    snap: mailspring
+
   # TODO: use official installer
   # - name: ledger-live
   #   desc: Wallet desktop application to maintain multiple cryptocurrencies
 
-  # TODO: use official installer
-  # - name: nordvpn
-  #   desc: VPN client for secure internet access and private browsing
+  - name: nordvpn
+    desc: VPN client for secure internet access and private browsing
+    snap: nordvnpn
 
   - name: notion
     desc: App to write, plan, collaborate, and get organised
@@ -503,10 +538,6 @@ packages:
   - name: proton-mail
     desc: Client for Proton Mail and Proton Calendar
     snap: proton-mail
-
-  - name: protonmail-bridge
-    desc: Integrate ProtonMail paid account with any program that supports IMAP and SMTP (Qt desktop application)
-    snap: protonmail-bridge
 
   # TODO: use official installer
   # - name: qfinder-pro
@@ -559,6 +590,96 @@ packages:
 
   - name: zed
     desc: Multiplayer code editor
+
+  - name: baobab
+    desc: A graphical directory tree analyzer
+    tags: [gnome]
+
+  - name: blueman
+    desc: GTK+ Bluetooth Manager
+    tags: [gnome]
+
+  - name: gvfs-google
+    desc: Virtual filesystem implementation for GIO - Google Drive backend
+    tags: [gnome]
+
+  - name: gvfs-goa
+    desc: Virtual filesystem implementation for GIO - Gnome Online Accounts backend (e.g. OwnCloud)
+    tags: [gnome]
+
+  - name: gnome-boxes
+    desc: Simple GNOME application to access virtual systems
+    tags: [gnome]
+
+  - name: gnome-calendar
+    desc: Simple and beautiful calendar application designed to perfectly fit the GNOME desktop
+    tags: [gnome]
+
+  - name: gnome-contacts
+    desc: Contacts Manager for GNOME
+    tags: [gnome]
+
+  - name: gnome-logs
+    desc: A log viewer for the systemd journal
+    tags: [gnome]
+
+  - name: gnome-shell-extensions
+    desc: Extensions for GNOME shell, including classic mode
+    tags: [gnome]
+
+  - name: gnome-shell-extension-vitals
+    desc: GNOME Shell extension to display computer's temperature, voltage, fan speed, memory usage, processor load, system resources, network speed and storage stats
+    tags: [gnome]
+
+  - name: gnome-shell-extension-dash-to-panel
+    desc: Extension for GNOME Shell to combine the dash and main panel
+    tags: [gnome]
+
+  - name: gnome-shell-extension-arc-menu
+    desc: Application menu extension for GNOME Shell
+    tags: [gnome]
+
+  - name: gnome-shell-extension-pop-shell
+    desc: GNOME Shell extension for advanced tiling window management
+    archlinux:
+      aur: gnome-shell-extension-pop-shell-git
+    tags: [gnome]
+
+  - name: gnome-software
+    desc: GNOME Software Tools
+    tags: [gnome]
+
+  - name: junction
+    desc: Application chooser to open files and links
+    tags: [gnome]
+
+  - name: pika-backup
+    desc: Easy to use backup tool to keep your data safe
+    tags: [gnome]
+
+  - name: deja-dup
+    desc: Simple backup tool, GTK frontend for duplicity
+    tags: [gnome]
+
+  - name: sane-airscan
+    desc: SANE - SANE backend for AirScan (eSCL) and WSD document scanners
+    tags: [gnome]
+
+  - name: seahorse
+    desc: GNOME application for managing PGP keys
+    tags: [gnome]
+
+  - name: seahorse-nautilus
+    desc: PGP encryption and signing for nautilus
+    tags: [gnome]
+
+  - name: simple-scan
+    desc: Simple scanning utility
+    tags: [gnome]
+
+  - name: shortwave
+    desc: Internet radio player
+    tags: [gnome]
 
 # Extra repositories to add to the system
 repositories:
