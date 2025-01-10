@@ -2,7 +2,7 @@ session: dotfiles
 root: ~
 
 windows:
+  - name: "\U000F02DC ~"
   - name: git
     commands:
       - lazygit -g ~/.local/share/yadm/repo.git -w ~
-  - name: "\U000F02DC ~"
