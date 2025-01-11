@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 #
 # Rust setup
-#
 
 set -euo pipefail
 
@@ -76,6 +75,6 @@ fi
 msg "Starting sccache server"
 sccache --start-server
 
-if ask "Install wasm-pack?"; then
+if is-macos && ask "Install wasm-pack?"; then
   curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 fi

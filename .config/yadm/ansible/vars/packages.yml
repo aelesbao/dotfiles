@@ -350,9 +350,6 @@ packages:
   - name: terraform
     desc: Tool to build, change, and version infrastructure
 
-  - name: tesseract
-    desc: OCR (Optical Character Recognition) engine
-
   - name: tflint
     desc: Linter for Terraform files
 
@@ -409,6 +406,9 @@ packages:
 
   - name: wasmer
     desc: Universal WebAssembly Runtime
+
+  - name: wasm-pack
+    desc: Your favorite rust -> wasm workflow tool!
 
   - name: wget
     desc: Internet file retriever
