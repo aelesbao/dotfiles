@@ -284,6 +284,8 @@ brew "xh"
 brew "yadm"
 # JavaScript package manager
 brew "yarn"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Process YAML documents from the CLI
 brew "yq"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
@@ -320,8 +322,6 @@ cask "appcleaner", args: { appdir: "/Applications" }
 # Chromium based browser
 cask "arc", args: { appdir: "/Applications" }
 # Two-way text copying
-cask "alt-c"
-# Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher", args: { appdir: "/Applications" }
 # Menu bar icon organizer
 cask "bartender", args: { appdir: "/Applications" }
