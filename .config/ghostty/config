@@ -1,7 +1,7 @@
 # vim: ft=ghostty
 
 # Terminal
-term = kitty
+# term = xterm-kitty
 
 # Theme
 theme = tokyonight
@@ -32,11 +32,19 @@ window-padding-balance = true
 
 window-decoration = false
 
+quit-after-last-window-closed = true
+
 # Linux
 adw-toolbar-style = flat
 
 # macOS
+macos-titlebar-style = transparent
 macos-option-as-alt = true
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+macos-icon-frame = plastic
+macos-icon = custom-style
+macos-icon-screen-color = #901190
 
 # Shell
 shell-integration = detect
