@@ -238,6 +238,8 @@ brew "speedtest-cli"
 brew "starship"
 # Version control system designed to be a better CVS
 brew "subversion"
+# Next-generation smart contract platform powered by the Move programming language
+brew "sui"
 # User interface to the TELNET protocol
 brew "telnet"
 # Send macOS User Notifications from the command-line
