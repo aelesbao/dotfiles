@@ -450,9 +450,6 @@ packages:
     archlinux:
       aur: 1password-cli
 
-  - name: alacritty
-    desc: GPU-accelerated terminal emulator
-
   - name: balenaetcher
     desc: Tool to flash OS images to SD cards & USB drives
     archlinux:
@@ -584,9 +581,6 @@ packages:
 
   - name: vlc
     desc: Multimedia player
-
-  - name: wezterm
-    desc: GPU-accelerated cross-platform terminal emulator and multiplexer
 
   - name: zed
     desc: Multiplayer code editor

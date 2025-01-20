@@ -442,8 +442,6 @@ cask "visual-studio-code"
 cask "vlc"
 # Create, manage, and run virtual machines
 cask "vmware-fusion"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
 # Desktop client for WhatsApp
 cask "whatsapp", args: { appdir: "/Applications" }
 # Multiplayer code editor

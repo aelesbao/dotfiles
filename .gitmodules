@@ -8,9 +8,6 @@
 	url = https://github.com/aelesbao/nvim.git
 	branch = main
 	update = rebase
-[submodule ".config/alacritty/themes"]
-	path = .config/alacritty/themes
-	url = https://github.com/alacritty/alacritty-theme
 [submodule ".local/share/src/tokyonight.nvim"]
 	path = .local/share/src/tokyonight.nvim
 	url = https://github.com/folke/tokyonight.nvim
