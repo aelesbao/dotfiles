@@ -17,6 +17,7 @@ font-family-bold-italic = Hack Nerd Font Bold Italic
 font-synthetic-style = false
 
 bold-is-bright = false
+font-thicken = true
 
 # Cursor
 cursor-opacity = 0.95
@@ -25,7 +26,8 @@ mouse-hide-while-typing = true
 # Window
 background-opacity = 0.9
 background-blur-radius = 20
-unfocused-split-opacity = 0.7
+unfocused-split-opacity = 0.3
+
 
 window-theme = ghostty
 window-padding-balance = true
@@ -44,7 +46,7 @@ macos-auto-secure-input = true
 macos-secure-input-indication = true
 macos-icon-frame = plastic
 macos-icon = custom-style
-macos-icon-screen-color = #901190
+macos-icon-screen-color = #540D6E
 
 # Shell
 shell-integration = detect
@@ -56,3 +58,39 @@ shell-integration-features = true
 
 # Others
 auto-update = check
+
+# Keybinds
+
+# Valid modifiers:
+# - shift
+# - ctrl (alias: control)
+# - alt (alias: opt, option)
+# - super (alias: cmd, command)
+
+# quit ghostty
+keybind = super+q=quit
+
+# tmux integration with user-keys
+keybind = alt+shift+enter=csi:10;13~
+
+keybind = ctrl+zero=csi:5;48~
+keybind = ctrl+one=csi:5;49~
+keybind = ctrl+two=csi:5;50~
+keybind = ctrl+three=csi:5;51~
+keybind = ctrl+four=csi:5;52~
+keybind = ctrl+five=csi:5;53~
+keybind = ctrl+six=csi:5;54~
+keybind = ctrl+seven=csi:5;55~
+keybind = ctrl+eight=csi:5;56~
+keybind = ctrl+nine=csi:5;57~
+
+keybind = ctrl+alt+zero=csi:7;48~
+keybind = ctrl+alt+one=csi:7;49~
+keybind = ctrl+alt+two=csi:7;50~
+keybind = ctrl+alt+three=csi:7;51~
+keybind = ctrl+alt+four=csi:7;52~
+keybind = ctrl+alt+five=csi:7;53~
+keybind = ctrl+alt+six=csi:7;54~
+keybind = ctrl+alt+seven=csi:7;55~
+keybind = ctrl+alt+eight=csi:7;56~
+keybind = ctrl+alt+nine=csi:7;57~
