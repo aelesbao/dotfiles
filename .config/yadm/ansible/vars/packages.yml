@@ -115,6 +115,13 @@ packages:
   - name: ghostscript
     desc: Interpreter for PostScript and PDF
 
+  - name: ghostty
+    desc: Fast, native, feature-rich terminal emulator pushing modern features
+
+  - name: ghostty-shell-integration
+
+  - name: ghostty-terminfo
+
   - name: git
     desc: Distributed revision control system
 
