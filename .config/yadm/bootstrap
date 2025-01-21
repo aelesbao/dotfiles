@@ -180,16 +180,20 @@ if [[ ! -d "$BOOTSTRAP_DIR" ]]; then
   fail "bootstrap scripts directory $BOOTSTRAP_DIR not found"
 fi
 
-if is-macos; then
-  title "Running Darwin bootstrap scripts"
-  run-boot "$BOOTSTRAP_DIR/macos"
-elif is-linux; then
-  [[ -f /etc/os-release ]] || fail "Missing /etc/os-release file"
-  source /etc/os-release
+declare -a filter=($@)
 
-  title "Running $PRETTY_NAME bootstrap scripts"
-  run-boot "$BOOTSTRAP_DIR/linux" "*($ID_LIKE.zsh)*"
+if [[ ${#filter} == 0 ]]; then
+  if is-macos; then
+    title "Running Darwin bootstrap scripts"
+    run-boot "$BOOTSTRAP_DIR/macos"
+  elif is-linux; then
+    [[ -f /etc/os-release ]] || fail "Missing /etc/os-release file"
+    source /etc/os-release
+
+    title "Running $PRETTY_NAME bootstrap scripts"
+    run-boot "$BOOTSTRAP_DIR/linux" "*($ID_LIKE.zsh)*"
+  fi
 fi
 
 title "Running shared bootstrap scripts"
-run-boot "$BOOTSTRAP_DIR/shared" "*(${(j:.zsh|:)@}.zsh)*"
+run-boot "$BOOTSTRAP_DIR/shared" "*(${(j:.zsh|:)filter}.zsh)*"
