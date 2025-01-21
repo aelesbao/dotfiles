@@ -10,6 +10,7 @@ if ! is-macos; then
   return
 fi
 
+
 require pam-reattach
 
 info "Enable Touch ID for sudo"
