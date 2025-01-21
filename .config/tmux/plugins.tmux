@@ -87,6 +87,7 @@ set -g status-left-length 100
 
 set -g status-left ""
 
+# TODO: check if pmset or upower has been installed
 %if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
    set -g status-left "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]█#[noreverse]  "
    set -gaF status-left "#[fg=#{@thm_fg},bg=#{@thm_surface_0}] ##H "
