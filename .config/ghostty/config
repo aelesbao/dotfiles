@@ -26,7 +26,7 @@ mouse-hide-while-typing = true
 # Window
 background-opacity = 0.9
 background-blur-radius = 20
-unfocused-split-opacity = 0.3
+unfocused-split-opacity = 0.5
 
 
 window-theme = ghostty
@@ -67,30 +67,112 @@ auto-update = check
 # - alt (alias: opt, option)
 # - super (alias: cmd, command)
 
-# quit ghostty
+# config
+keybind = super+comma=open_config
+keybind = super+shift+comma=reload_config
+
+# window control
 keybind = super+q=quit
+keybind = super+n=new_window
+keybind = super+shift+w=close_window
+keybind = super+w=close_surface
+keybind = super+alt+shift+w=close_all_windows
+keybind = super+enter=toggle_fullscreen
+keybind = super+ctrl+f=toggle_fullscreen
+
+# tab control
+keybind = super+t=new_tab
+keybind = super+shift+left_bracket=previous_tab
+keybind = super+shift+right_bracket=next_tab
+keybind = super+physical:one=goto_tab:1
+keybind = super+physical:two=goto_tab:2
+keybind = super+physical:three=goto_tab:3
+keybind = super+physical:four=goto_tab:4
+keybind = super+physical:five=goto_tab:5
+keybind = super+physical:six=goto_tab:6
+keybind = super+physical:seven=goto_tab:7
+keybind = super+physical:eight=goto_tab:8
+keybind = super+physical:nine=last_tab
+
+# split control
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+keybind = super+left_bracket=goto_split:previous
+keybind = super+right_bracket=goto_split:next
+keybind = super+alt+down=goto_split:bottom
+keybind = super+alt+left=goto_split:left
+keybind = super+alt+right=goto_split:right
+keybind = super+alt+up=goto_split:top
+keybind = super+ctrl+down=resize_split:down,10
+keybind = super+ctrl+left=resize_split:left,10
+keybind = super+ctrl+right=resize_split:right,10
+keybind = super+ctrl+up=resize_split:up,10
+keybind = super+ctrl+equal=equalize_splits
+keybind = super+shift+enter=toggle_split_zoom
+
+# copy and paste
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+
+# arrow navigation
+keybind = alt+left=esc:b
+keybind = alt+right=esc:f
+keybind = super+left=text:\x01
+keybind = super+right=text:\x05
+keybind = home=text:\x01
+keybind = end=text:\x05
+
+# scrolling
+keybind = super+home=scroll_to_top
+keybind = super+end=scroll_to_bottom
+keybind = super+page_down=scroll_page_down
+keybind = super+page_up=scroll_page_up
+
+# shell integration
+keybind = super+a=select_all
+keybind = super+down=jump_to_prompt:1
+keybind = super+up=jump_to_prompt:-1
+keybind = super+shift+down=jump_to_prompt:1
+keybind = super+shift+up=jump_to_prompt:-1
+keybind = super+k=clear_screen
+keybind = super+alt+i=inspector:toggle
+
+# font size control
+keybind = super+plus=increase_font_size:2
+keybind = super+equal=increase_font_size:2
+keybind = super+minus=decrease_font_size:2
+keybind = super+zero=reset_font_size
 
 # tmux integration with user-keys
-keybind = alt+shift+enter=csi:10;13~
+keybind = alt+shift+enter=esc:[10;13~
+keybind = ctrl+zero=esc:[5;48~
+keybind = ctrl+one=esc:[5;49~
+keybind = ctrl+two=esc:[5;50~
+keybind = ctrl+three=esc:[5;51~
+keybind = ctrl+four=esc:[5;52~
+keybind = ctrl+five=esc:[5;53~
+keybind = ctrl+six=esc:[5;54~
+keybind = ctrl+seven=esc:[5;55~
+keybind = ctrl+eight=esc:[5;56~
+keybind = ctrl+nine=esc:[5;57~
+keybind = ctrl+alt+zero=esc:[7;48~
+keybind = ctrl+alt+one=esc:[7;49~
+keybind = ctrl+alt+two=esc:[7;50~
+keybind = ctrl+alt+three=esc:[7;51~
+keybind = ctrl+alt+four=esc:[7;52~
+keybind = ctrl+alt+five=esc:[7;53~
+keybind = ctrl+alt+six=esc:[7;54~
+keybind = ctrl+alt+seven=esc:[7;55~
+keybind = ctrl+alt+eight=esc:[7;56~
+keybind = ctrl+alt+nine=esc:[7;57~
 
-keybind = ctrl+zero=csi:5;48~
-keybind = ctrl+one=csi:5;49~
-keybind = ctrl+two=csi:5;50~
-keybind = ctrl+three=csi:5;51~
-keybind = ctrl+four=csi:5;52~
-keybind = ctrl+five=csi:5;53~
-keybind = ctrl+six=csi:5;54~
-keybind = ctrl+seven=csi:5;55~
-keybind = ctrl+eight=csi:5;56~
-keybind = ctrl+nine=csi:5;57~
-
-keybind = ctrl+alt+zero=csi:7;48~
-keybind = ctrl+alt+one=csi:7;49~
-keybind = ctrl+alt+two=csi:7;50~
-keybind = ctrl+alt+three=csi:7;51~
-keybind = ctrl+alt+four=csi:7;52~
-keybind = ctrl+alt+five=csi:7;53~
-keybind = ctrl+alt+six=csi:7;54~
-keybind = ctrl+alt+seven=csi:7;55~
-keybind = ctrl+alt+eight=csi:7;56~
-keybind = ctrl+alt+nine=csi:7;57~
+# remove unused linux keybindings
+keybind = alt+one=unbind
+keybind = alt+two=unbind
+keybind = alt+three=unbind
+keybind = alt+four=unbind
+keybind = alt+five=unbind
+keybind = alt+six=unbind
+keybind = alt+seven=unbind
+keybind = alt+eight=unbind
+keybind = alt+nine=unbind
