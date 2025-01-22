@@ -24,6 +24,9 @@
     },
     {
       "class": "evolution-alarm-notify"
+    },
+    {
+      "class": "blueman-applet"
     }
   ],
   "skiptaskbarhidden": [],
