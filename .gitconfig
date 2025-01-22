@@ -49,6 +49,9 @@
 [branch]
   autoSetupRebase = always
 
+[pull]
+  rebase = true
+
 [push]
   default = upstream
 
