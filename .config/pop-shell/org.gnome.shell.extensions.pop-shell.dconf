@@ -1,0 +1,96 @@
+# vim:ft=ini
+
+# Configuration file for Pop Shell GNOME extension
+# Exported using `dconf dump /org/gnome/shell/extensions/pop-shell/`
+# Import using `dconf load /org/gnome/shell/extensions/pop-shell/ < org.gnome.shell.extensions.pop-shell.dconf`
+
+[/]
+
+# Global hint color and window border
+active-hint=true
+active-hint-border-radius=uint32 12
+hint-color-rgba='rgba(13,2,33,0.95)'
+
+# WIndow gaps
+smart-gaps=false
+gap-inner=uint32 1
+gap-outer=uint32 1
+
+# Grid
+column-size=uint32 64
+row-size=uint32 64
+snap-to-grid=true
+
+# Mouse
+mouse-cursor-focus-location=uint32 0
+mouse-cursor-follows-active-window=true
+stacking-with-mouse=true
+
+# Handle minimized to tray windows
+show-skip-taskbar=true
+# Show title bars on windows with server-side decorations
+show-title=false
+
+# Window navigation
+focus-down=['<Control><Super>j']
+focus-left=['<Control><Super>h']
+focus-right=['<Control><Super>l']
+focus-up=['<Control><Super>k']
+
+# Tile launched windows by default
+tile-by-default=true
+# Enter tiling mode
+tile-enter=['<Super>Return', '<Super>KP_Enter']
+# Accept tiling changes
+tile-accept=['Return', 'KP_Enter']
+# Reject tiling changes
+tile-reject=['Escape']
+
+# Swap selected window in tiling mode
+tile-swap-down=['Down', 'KP_Down', 'j']
+tile-swap-left=['Left', 'KP_Left', 'h']
+tile-swap-right=['Right', 'KP_Right', 'l']
+tile-swap-up=['Up', 'KP_Up', 'k']
+
+# Move window in tiling mode
+tile-move-down=['<Control>Down', '<Control>KP_Down', '<Control>j']
+tile-move-left=['<Control>Left', '<Control>KP_Left', '<Control>h']
+tile-move-right=['<Control>Right', '<Control>KP_Right', '<Control>l']
+tile-move-up=['<Control>Up', '<Control>KP_Up', '<Control>k']
+
+# Resize window in tiling mode
+tile-resize-down=['<Shift>Down', '<Shift>KP_Down', '<Shift>j']
+tile-resize-left=['<Shift>Left', '<Shift>KP_Left', '<Shift>h']
+tile-resize-right=['<Shift>Right', '<Shift>KP_Right', '<Shift>l']
+tile-resize-up=['<Shift>Up', '<Shift>KP_Up', '<Shift>k']
+
+# Change tiling orientation
+management-orientation=['o']
+tile-orientation=@as []
+
+# Toggle window stacking mode
+toggle-stacking=['s']
+toggle-stacking-global=@as []
+
+# Global window movement
+tile-move-down-global=['<Shift><Control><Super>j']
+tile-move-left-global=['<Shift><Control><Super>h']
+tile-move-right-global=['<Shift><Control><Super>l']
+tile-move-up-global=['<Shift><Control><Super>k']
+
+# Toggles
+toggle-floating=['<Super><Shift>t']
+toggle-tiling=@as []
+
+# Monitor and workspace navigation
+pop-monitor-down=@as []
+pop-monitor-left=@as []
+pop-monitor-right=@as []
+pop-monitor-up=@as []
+pop-workspace-down=@as []
+pop-workspace-up=@as []
+
+# Pop Launcher
+activate-launcher=@as []
+# Allow showing launcher above fullscreen windows
+fullscreen-launcher=false
