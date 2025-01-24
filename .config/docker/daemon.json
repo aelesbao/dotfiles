@@ -6,8 +6,5 @@
     }
   },
   "debug": false,
-  "experimental": true,
-  "features": {
-    "buildkit": true
-  }
+  "features": {}
 }
