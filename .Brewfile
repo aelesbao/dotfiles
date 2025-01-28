@@ -3,9 +3,6 @@
 tap "aelesbao/tools"
 tap "bufbuild/buf"
 tap "hashicorp/tap"
-# tap "homebrew/bundle"
-# tap "homebrew/cask"
-# tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 
