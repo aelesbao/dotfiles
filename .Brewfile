@@ -350,8 +350,6 @@ cask "element"
 cask "fing"
 # Web browser
 cask "firefox"
-# Game client
-cask "gog-galaxy"
 # Web browser
 cask "google-chrome"
 # Set of tools to manage resources and applications hosted on Google Cloud
@@ -418,27 +416,16 @@ cask "signal"
 cask "slack"
 # Music streaming service
 cask "spotify", args: { appdir: "/Applications" }
-# Video game digital distribution service
-cask "steam"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Unpacks archive files
 cask "the-unarchiver", args: { appdir: "/Applications" }
 # File synchronization and sharing software
 cask "resilio-sync"
-# Development environment
-cask "vagrant", args: { appdir: "/Applications" }
-cask "vagrant-manager", args: { appdir: "/Applications" }
-# Gives Vagrant VMware plugin access to various VMware functionalities
-cask "vagrant-vmware-utility"
-# Virtualizer for x86 hardware
-cask "virtualbox"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
-# Create, manage, and run virtual machines
-cask "vmware-fusion"
 # Desktop client for WhatsApp
 cask "whatsapp", args: { appdir: "/Applications" }
 # Multiplayer code editor
