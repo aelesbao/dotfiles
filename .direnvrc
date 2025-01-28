@@ -27,33 +27,6 @@ _notice() {
   return 0
 }
 
-# sets tab name and color in iTerm2
-layout_tab() {
-  local title="${1:-$(basename "$(pwd)")}"
-  local color="${2:-default}"
-
-  printf '\e]1;%s\a' "${title}"
-  echo -en "\033]0;${title}\a"
-
-  [[ -z "${color}" ]] && return
-
-  if ! [[ -f "${HOME}/.iterm2/it2setcolor" ]]; then
-    _fail "to use custom tab settings, please install the iTerm2 Shell Integration"
-    return 1
-  fi
-
-  # Mac OS tags
-  [[ "$color" == "yellow" ]] && color=p3:eddd68
-  [[ "$color" == "orange" ]] && color=p3:ecb05b
-  [[ "$color" == "purple" ]] && color=p3:b990d5
-  [[ "$color" == "pink" ]] && color=p3:d189e2
-  [[ "$color" == "green" ]] && color=p3:b6dc60
-  [[ "$color" == "blue" ]] && color=p3:6fa2f1
-  [[ "$color" == "red" ]] && color=p3:ea7468
-
-  ~/.iterm2/it2setcolor tab "${color}"
-}
-
 # use a specific Node.js version
 use_nodejs() {
   set -eo pipefail
@@ -109,9 +82,6 @@ layout_venv() {
 
   local venv="${1:-.venv}"
   [[ -d ${venv} ]] || python -m venv .venv
-
-  # `virtualenv` has been deprecated in favor of `python -m venv`
-  # has virtualenv && virtualenv -p "$(pyenv which python)" "${venv}"
 
   # shellcheck disable=SC1091
   source "${venv}/bin/activate"
