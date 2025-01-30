@@ -98,8 +98,8 @@ if [[ ${#invalid_subkeys} -ne 0 ]]; then
   info "Clean up subkeys without secrets from local keyring"
   for subkey in ${invalid_subkeys}; do
     msg "Deleting subkey ${subkey}"
-    echo "y" | gpg --batch --expert --command-fd 0 \
-      --edit-key ${fpr} "key ${subkey}" delkey save > /dev/null
+    echo "y" | gpg --quiet --batch --expert --command-fd 0 \
+      --edit-key ${fpr} "key ${subkey}" delkey save 2>&1 >/dev/null
   done
 fi
 
@@ -133,7 +133,7 @@ fi
 
 
 if ! gpg --export-ownertrust | grep -q "${fpr}:6:"; then
-  msg "Set trust level to ultimate"
+  info "Set trust level to ultimate"
   gpg --batch --yes --quick-set-ownertrust ${fpr} ultimate
 
   msg "Reload gpg components"
@@ -155,4 +155,4 @@ fi
 
 
 info "Key information"
-gpg --keyid-format long --with-fingerprint -k "${fpr}"
+gpg --keyid-format long --with-fingerprint -K "${fpr}"
