@@ -33,6 +33,7 @@ function keygen() {
 
 info "Creating SSH keys"
 
+mkdir -m 0700 -p ~/.ssh/tmp
 touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 
