@@ -7,7 +7,7 @@ set-option -g prefix C-s
 set-option -g default-command "${SHELL}"
 
 # Enables extended terminal capabilities in tmux
-set-option -s default-terminal 'xterm-kitty'
+# set-option -s default-terminal 'xterm-kitty'
 
 set-option -s editor 'nvim'
 
