@@ -126,14 +126,14 @@ if ! gpg --export-ownertrust | grep -q "${fpr}:6:"; then
 fi
 
 
+declare key_id="$(gpg --keyid-format short -k ${fpr} | awk -F' |/' '$1 == "pub" { print $5 }')"
+if [[ "$(git config get user.signingkey)" != "${key_id}" ]]; then
+  info "Configuring git"
+  git config set --global user.signingkey ${key_id}
+  git config unset -f ~/.gitconfig.local user.signingkey
+  git config unset -f ~/.gitconfig.local gpg.format
+fi
+
+
 info "Key information"
 gpg --keyid-format long --with-fingerprint -k "${fpr}"
-
-
-info "Configuring git"
-git config unset -f ~/.gitconfig.local user.signingkey
-git config unset -f ~/.gitconfig.local gpg.format
-declare key_id="$(gpg --keyid-format short -k ${fpr} | awk -F' |/' '$1 == "pub" { print $5 }')"
-if [[ "$(git config get --global user.signingkey)" != "${key_id}" ]]; then
-  git config set --global user.signingkey ${key_id}
-fi
