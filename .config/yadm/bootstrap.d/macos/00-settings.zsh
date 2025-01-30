@@ -158,7 +158,9 @@ msg "Show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
 msg "Disable animations"
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.dock expose-animation-duration -int 0
 
 
 info "Configuring screen"
@@ -181,3 +183,6 @@ defaults write -g AppleFontSmoothing -int 1
 info "Persisting modified settings in permanent storage"
 
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
+info "Restarting the Dock"
+killall Dock
