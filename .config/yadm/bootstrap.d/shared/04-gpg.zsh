@@ -89,6 +89,21 @@ if ! gpg --with-colons -K ${fpr} 2>/dev/null | \
 fi
 
 
+# Clean up invalid subkeys
+declare -a invalid_subkeys=($(
+  gpg --with-colons -K ${fpr} 2>/dev/null | \
+    awk -F: '$1 == "ssb" && $2 != "r" && $15 == "#" { print $5 }'
+))
+if [[ ${#invalid_subkeys} -ne 0 ]]; then
+  info "Clean up subkeys without secrets from local keyring"
+  for subkey in ${invalid_subkeys}; do
+    msg "Deleting subkey ${subkey}"
+    echo "y" | gpg --batch --expert --command-fd 0 \
+      --edit-key ${fpr} "key ${subkey}" delkey save > /dev/null
+  done
+fi
+
+
 # Remove master key secret and use sub-keys only
 if gpg --with-colons -K ${fpr} 2>/dev/null | \
   awk -F: '$1 == "sec" && $12 == "scESC" && $15 == "+"' | \
