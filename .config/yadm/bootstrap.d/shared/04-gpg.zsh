@@ -130,6 +130,10 @@ declare key_id="$(gpg --keyid-format short -k ${fpr} | awk -F' |/' '$1 == "pub" 
 if [[ "$(git config get user.signingkey)" != "${key_id}" ]]; then
   info "Configuring git"
   git config set --global user.signingkey ${key_id}
+
+  git config -f ~/.gitconfig.local commit.gpgsign true
+  git config -f ~/.gitconfig.local tag.gpgSign true
+
   git config unset -f ~/.gitconfig.local user.signingkey
   git config unset -f ~/.gitconfig.local gpg.format
 fi
