@@ -100,6 +100,8 @@ brew "glib"
 brew "glow"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Fast linters runner for Go
@@ -187,6 +189,8 @@ brew "openjdk"
 brew "pam-reattach"
 # Highly capable, feature-rich programming language
 brew "perl"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Manage compile and link flags for libraries
