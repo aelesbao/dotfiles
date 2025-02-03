@@ -1,17 +1,42 @@
 # vim:ft=ini
 
+# Import using `dconf load / < settings.dconf`
+
+
+# GNOME Shell
+[org/gnome/shell/keybindings]
+focus-active-notification=@as []
+show-screen-recording-ui=@as []
+show-screenshot-ui=['<Shift><Super>4']
+toggle-application-view=['<Control><Super>Down']
+toggle-message-tray=['<Alt><Super>n']
+toggle-overview=['<Control><Super>Up']
+toggle-quick-settings=['<Alt><Super>s']
+
+
+# GNOME Window Manager
+[org/gnome/desktop/wm/keybindings]
+close=['<Super>q']
+move-to-workspace-left=['<Shift><Control><Super>bracketleft']
+move-to-workspace-right=['<Shift><Control><Super>bracketright']
+switch-to-workspace-left=['<Control><Super>bracketleft']
+switch-to-workspace-right=['<Control><Super>bracketright']
+
+[org/gnome/desktop/wm/preferences]
+action-double-click-titlebar='none'
+action-middle-click-titlebar='none'
+button-layout='appmenu:close'
+workspace-names=['Communication', 'Browsing', 'Development']
+
+
 # Configuration file for Pop Shell GNOME extension
-# Exported using `dconf dump /org/gnome/shell/extensions/pop-shell/`
-# Import using `dconf load /org/gnome/shell/extensions/pop-shell/ < org.gnome.shell.extensions.pop-shell.dconf`
-
-[/]
-
+[org/gnome/shell/extensions/pop-shell]
 # Global hint color and window border
-active-hint=true
+active-hint=false
 active-hint-border-radius=uint32 12
 hint-color-rgba='rgba(13,2,33,0.95)'
 
-# WIndow gaps
+# Window gaps
 smart-gaps=false
 gap-inner=uint32 1
 gap-outer=uint32 1
