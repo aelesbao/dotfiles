@@ -8,6 +8,7 @@ format = """
 $os\
 $username\
 $hostname\
+$localip\
 $shlvl\
 $kubernetes\
 $directory\
@@ -18,21 +19,32 @@ $git_status\
 $git_state\
 $docker_context\
 $package\
+$c\
 $cmake\
 $deno\
 $erlang\
+$elixir\
 $golang\
 $helm\
 $java\
+$kotlin\
+$lua\
 $nodejs\
 $python\
 $ruby\
 $rust\
 $scala\
+$solidity\
+$swift\
 $terraform\
 $vagrant\
+$zig\
+$buf\
+$conda\
+$meson\
 $nix_shell\
 $memory_usage\
+$gcloud\
 $env_var\
 $custom\
 $sudo\
@@ -79,60 +91,46 @@ mantle    = "#181825"
 crust     = "#11111b"
 
 [os]
-format = "[$symbol](fg:overlay2)"
-disabled = false
+format = "[$symbol](fg:surface2) "
+disabled = true
 
 [os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰍲 "
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = ""
+Artix = ""
+CentOS = ""
+Debian = ""
+EndeavourOS = ""
+Linux = ""
+Macos = ""
+Manjaro = ""
+Mint = ""
+NixOS = ""
+Pop = ""
+Raspbian = ""
+Redhat = ""
+Ubuntu = ""
+Unknown = ""
+Windows = "󰍲"
 
 [username]
+format = "[⭘ $user]($style) "
 style_user = "bold fg:text"
 style_root = "bold fg:red"
-format = "[$user]($style) "
 disabled = false
 show_always = false
 
 [hostname]
-format = "on [$hostname]($style) "
+format = "󰍹 [$hostname]($style) "
 style = "bold fg:lavender"
+ssh_only = true
+disabled = false
+
+[localip]
+format = "◯ [$localipv4]($style) "
+style = "bold fg:magenta"
 ssh_only = true
 disabled = false
 
@@ -159,6 +157,7 @@ disabled = false
 [character]
 success_symbol = "[›](fg:lavender)"
 error_symbol = "[›](fg:red)"
+vimcmd_symbol = "[■](italic dimmed green)"
 
 [git_branch]
 format = "on [$symbol$branch]($style) "
@@ -183,18 +182,21 @@ format = """([ \
 ([$stashed](fg:sapphire) )\
 ([$ahead_behind](fg:peach) )\
 ]($style)) """
-ahead      = "⇡"
-behind     = "⇣"
-diverged   = "⇣⇡"
-conflicted = ""
+# ahead = "[▴│[${count}](bold white)│](italic green)"
+# behind = "[▿│[${count}](bold white)│](italic red)"
+# diverged = "[◇ ▴┤[${ahead_count}](regular white)│▿┤[${behind_count}](regular white)│](italic bright-magenta)"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇣⇡"
+conflicted = "◪"
 up_to_date = ""
-untracked  = ""
-modified   = ""
-staged     = ""
-renamed    = ""
-deleted    = ""
-stashed    = ""
-style      = "fg:text dimmed"
+untracked = "◌"
+modified = ""
+staged = ""
+renamed = ""
+deleted = ""
+stashed = ""
+style = "fg:text dimmed"
 
 [git_state]
 format = "[ $state( $progress_current/$progress_total)]($style) "
@@ -250,6 +252,9 @@ symbol = "  "
 [buf]
 symbol = " "
 
+[c]
+symbol = " "
+
 [conda]
 symbol = " "
 
@@ -257,15 +262,19 @@ symbol = " "
 symbol = " "
 
 [docker_context]
-only_with_files = false
 symbol = " "
 style = "bold fg:#1d63ed"
+only_with_files = true
 
 [elixir]
 symbol = " "
 
 [elm]
 symbol = " "
+
+[gcloud]
+symbol = "󱇶 "
+disabled = true
 
 [golang]
 format = "[$symbol($version)]($style) "
@@ -283,9 +292,15 @@ symbol = " "
 [julia]
 symbol = " "
 
+[kotlin]
+symbol = " "
+
 [kubernetes]
 symbol = "󱃾 "
 style = "bold fg:#326ce5"
+
+[lua]
+symbol = "󰢱 "
 
 [memory_usage]
 symbol = "󰍛 "
@@ -322,6 +337,9 @@ symbol = " "
 
 [shlvl]
 symbol = " "
+
+[solidity]
+symbol = " "
 
 [swift]
 symbol = " "
