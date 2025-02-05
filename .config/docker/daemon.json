@@ -1,10 +1,16 @@
 {
-  "builder": {
-    "gc": {
-      "defaultKeepStorage": "30GB",
-      "enabled": true
+    "builder": {
+        "gc": {
+            "defaultKeepStorage": "30GB",
+            "enabled": true
+        }
+    },
+    "debug": false,
+    "features": {},
+    "runtimes": {
+        "nvidia": {
+            "args": [],
+            "path": "nvidia-container-runtime"
+        }
     }
-  },
-  "debug": false,
-  "features": {}
 }
