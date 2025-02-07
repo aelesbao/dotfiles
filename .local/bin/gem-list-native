@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby -w
-
-require 'rubygems'
-
-specs_with_extensions = Gem::Specification.each.select { |spec| spec.extensions.any?  }
-specs_with_extensions.each do |spec|
-  puts "#{spec.name} (extensions: #{spec.extensions.inspect})"
-end
