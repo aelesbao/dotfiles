@@ -149,6 +149,28 @@
           loop: >-
             {{ snap_packages | sort }}
 
+        - name: Fix NordVPN permissions
+          block:
+            - name: Add nordvpn group
+              ansible.builtin.group:
+                name: nordvpn
+              become: true
+
+            - name: Add user to nordvpn group
+              ansible.builtin.user:
+                name: "{{ lookup('env', 'USER') }}"
+                groups: nordvpn
+              become: true
+
+            - name: Connect NordVPN snap interfaces
+              community.general.snap: |
+                snap connect nordvpn:network-control
+                snap connect nordvpn:network-observe
+                snap connect nordvpn:firewall-control
+                snap connect nordvpn:login-session-observe
+                snap connect nordvpn:system-observe
+              become: true
+
 
     - name: Make sure bluetooth.service is running
       ansible.builtin.systemd_service:
