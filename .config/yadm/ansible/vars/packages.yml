@@ -480,6 +480,7 @@ packages:
 
   - name: element
     desc: Matrix collaboration client
+    archlinux: element-desktop
 
   - name: ferdium
     desc: Combine your favorite messaging services into one application
@@ -584,7 +585,7 @@ packages:
 
   - name: visual-studio-code
     desc: The Open Source build of Visual Studio Code (vscode) editor
-    archlinux: code
+    archlinux: visual-studio-code-bin
 
   - name: vlc
     desc: Multimedia player
