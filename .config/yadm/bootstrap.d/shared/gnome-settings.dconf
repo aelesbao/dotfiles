@@ -3,17 +3,6 @@
 # Import using `dconf load / < settings.dconf`
 
 
-# GNOME Shell
-[org/gnome/shell/keybindings]
-focus-active-notification=@as []
-show-screen-recording-ui=@as []
-show-screenshot-ui=['<Shift><Super>4']
-toggle-application-view=['<Control><Super>Down']
-toggle-message-tray=['<Alt><Super>n']
-toggle-overview=['<Control><Super>Up']
-toggle-quick-settings=['<Alt><Super>s']
-
-
 # GNOME Window Manager
 [org/gnome/desktop/wm/keybindings]
 close=['<Super>q']
@@ -27,6 +16,26 @@ action-double-click-titlebar='none'
 action-middle-click-titlebar='none'
 button-layout='appmenu:close'
 workspace-names=['Communication', 'Browsing', 'Development']
+
+
+# Automatically saves current GNOME session on logout
+[org/gnome/gnome-session]
+auto-save-session=true
+
+
+[org/gnome/shell]
+remember-mount-password=true
+
+
+# GNOME Shell
+[org/gnome/shell/keybindings]
+focus-active-notification=@as []
+show-screen-recording-ui=@as []
+show-screenshot-ui=['<Shift><Super>4']
+toggle-application-view=['<Control><Super>Down']
+toggle-message-tray=['<Alt><Super>n']
+toggle-overview=['<Control><Super>Up']
+toggle-quick-settings=['<Alt><Super>s']
 
 
 # Configuration file for Pop Shell GNOME extension
