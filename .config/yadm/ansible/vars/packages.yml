@@ -93,6 +93,9 @@ packages:
   - name: eza
     desc: Modern, maintained replacement for ls
 
+  - name: eos-update-notifier
+    desc: Software update notifier and 'news for you' for EndeavourOS users
+
   - name: fd
     desc: Simple, fast and user-friendly alternative to find
 
@@ -601,6 +604,10 @@ packages:
     desc: GTK+ Bluetooth Manager
     tags: [gnome]
 
+  - name: dconf-editor
+    desc: GSettings editor for GNOME
+    tags: [gnome]
+
   - name: gvfs-google
     desc: Virtual filesystem implementation for GIO - Google Drive backend
     tags: [gnome]
@@ -682,6 +689,32 @@ packages:
   - name: shortwave
     desc: Internet radio player
     tags: [gnome]
+
+  - name: yubico-pam
+    desc: Yubico YubiKey PAM module
+
+  - name: pam-u2f
+    desc: Universal 2nd Factor (U2F) PAM authentication module from Yubico
+
+  - name: yubikey-manager
+    desc: Python library and command line tool for configuring a YubiKey
+
+  - name: yubioath-desktop
+    desc: Yubico Authenticator for Desktop
+
+  - name: fwupd
+    desc: Simple daemon to allow session software to update firmware
+
+  - name: wine
+    desc: A compatibility layer for running Windows programs
+
+  - name: crossover
+    desc: Run Windows Programs on Linux
+
+  - name: freeoffice
+    desc: A complete, reliable, lightning-fast and Microsoft Office-compatible office suite with a word processor, spreadsheet, and presentation graphics software.
+    archlinux:
+      aur: freeoffice
 
 # Extra repositories to add to the system
 repositories:
