@@ -35,7 +35,7 @@ unfocused-split-opacity = 0.5
 window-theme = ghostty
 window-padding-balance = true
 
-window-decoration = false
+window-decoration = none
 
 quit-after-last-window-closed = true
 
