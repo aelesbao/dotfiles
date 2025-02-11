@@ -27,6 +27,10 @@ set -sa terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 # Underscore colors
 set -sa terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
 
+# Set the clipboard to on to both make tmux set the clipboard for the outside terminal,
+# and allows applications inside tmux to set tmux's clipboard (adding a paste buffer).
+set -s set-clipboard on
+
 # Enable mouse mode (tmux 2.1 and above)
 set-option -g mouse on
 
