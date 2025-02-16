@@ -6,7 +6,7 @@
 \set PROMPT1 '%[%033[38;5;111m%]%`hostname -s`%[%033[38;5;147m%]:%/%[%033[0m%] > '
 \set PROMPT2 ''
 
-\set HISTFILE ~/.hist/psql_history- :DBNAME
+\set HISTFILE ~/.local/state/psql/history- :DBNAME
 \set HISTCONTROL ignoredups
 
 \set COMP_KEYWORD_CASE lower
