@@ -32,14 +32,14 @@ background-opacity = 0.9
 background-blur-radius = 20
 unfocused-split-opacity = 0.5
 
+window-decoration = false
 window-theme = ghostty
 window-padding-balance = true
-
-window-decoration = none
 
 quit-after-last-window-closed = true
 
 # Linux
+gtk-adwaita = true
 adw-toolbar-style = flat
 
 # macOS
