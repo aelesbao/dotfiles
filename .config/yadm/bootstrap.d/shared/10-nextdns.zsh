@@ -15,14 +15,18 @@ if [[ -z "${profile_id}" ]]; then
 fi
 
 if is-linux; then
+  local sni="$(hostname)-${profile_id}.dns.nextdns.io"
   cat <<EOF | sudo tee /etc/systemd/resolved.conf.d/nextdns.conf
 [Resolve]
-DNS=45.90.28.0#${profile_id}.dns.nextdns.io
-DNS=2a07:a8c0::#${profile_id}.dns.nextdns.io
-DNS=45.90.30.0#${profile_id}.dns.nextdns.io
-DNS=2a07:a8c1::#${profile_id}.dns.nextdns.io
+DNS=45.90.28.0#${sni} 45.90.30.0#${sni} 2a07:a8c0::#${sni} 2a07:a8c1::#${sni}
 DNSOverTLS=yes
 EOF
+
+  if systemctl is-active --quiet systemd-resolved.service; then
+    sudo systemctl restart systemd-resolved.service
+  else
+    sudo systemctl enable --now systemd-resolved.service
+  fi
 fi
 
 if is-macos; then
