@@ -434,8 +434,6 @@ cask "vlc"
 cask "whatsapp", args: { appdir: "/Applications" }
 # Multiplayer code editor
 cask "zed"
-# Video communication and virtual meeting platform
-cask "zoom"
 
 # Fonts
 cask "font-cascadia-code"
