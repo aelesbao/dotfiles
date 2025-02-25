@@ -20,7 +20,7 @@ if ask "Would you like to configure it?"; then
   sudoers_file="/private/etc/sudoers.d/yabai"
 
   msg "Adding to $sudoers_file"
-  sudo grep -qF -- "$sudo_line" "$sudoers_file" || echo "$sudo_line" | sudo tee -a "$sudoers_file"
+  sudo grep -qF -- "$sudo_line" "$sudoers_file" || echo "$sudo_line" | sudo tee "$sudoers_file"
 fi
 
 notice "yabai requires accessibility permissions"
@@ -29,6 +29,9 @@ yabai --start-service
 if ask "Did you have to enable the accessibility permissions and need to restart yabai?"; then
   yabai --restart-service
 fi
+
+notice "Installing and loading scripting-additions"
+sudo yabai --load-sa
 
 info "Configuring skhd"
 

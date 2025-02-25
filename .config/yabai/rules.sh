@@ -61,8 +61,6 @@ add_app_rule "Obsidian" space="personal"
 add_app_rule "^(Calendar|Todoist|Linear)$" space="personal"
 # add_app_rule "^(Calendar|Todoist|Linear)$" space="planning"
 
-add_app_rule "TradingView" space="browsing"
-
 # fix browser pop-ups
 add_app_rule "(Brave Browser|Firefox|Arc)" title="^(Litle Arc - )?(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet|Sui Wallet).*" manage=off
 add_app_rule "Arc" title="^(Profile).*" manage=off

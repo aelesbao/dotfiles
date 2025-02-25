@@ -43,6 +43,9 @@ cmd + ctrl + shift - f : yabai -m space --layout float
 # balance size of windows
 cmd + ctrl + shift - 0x18 : yabai -m space --balance
 
+# show mission control
+cmd + ctrl - up : yabai -m space --toggle mission-control
+
 # -- Windows --
 
 # change window focus within space
