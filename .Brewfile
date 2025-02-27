@@ -178,7 +178,7 @@ brew "neovim"
 # No Nonsense Neovim Client in Rust
 brew "neovide"
 # CLI for NextDNS's DNS-over-HTTPS (DoH)
-# brew "nextdns"
+brew "nextdns"
 # Platform built on V8 to build network applications
 brew "node"
 # Manage multiple Node.js versions

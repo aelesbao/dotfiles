@@ -14,8 +14,26 @@ if [[ -z "${profile_id}" ]]; then
   return 1
 fi
 
-if is-linux; then
-  local sni="$(hostname)-${profile_id}.dns.nextdns.io"
+info "Configuring NextDNS with profile ID: ${profile_id}"
+
+declare device="$(hostname -f)"
+
+if (($+commands[nextdns])); then
+  msg "Installing using nextdns CLI"
+
+  sudo nextdns install \
+    -config "${profile_id}" \
+    -report-client-info \
+    -auto-activate
+
+  sudo nextdns config set \
+    -forwarder local=192.168.0.1 \
+    -forwarder fritz.box=192.168.0.1
+
+elif is-linux; then
+  msg "Installing using systemd-resolved"
+
+  local sni="${device}-${profile_id}.dns.nextdns.io"
   cat <<EOF | sudo tee /etc/systemd/resolved.conf.d/nextdns.conf
 [Resolve]
 DNS=45.90.28.0#${sni} 45.90.30.0#${sni} 2a07:a8c0::#${sni} 2a07:a8c1::#${sni}
@@ -27,10 +45,10 @@ EOF
   else
     sudo systemctl enable --now systemd-resolved.service
   fi
-fi
 
-if is-macos; then
-  declare device="$(scutil --get ComputerName)"
+elif is-macos; then
+  msg "Installing using macOS profile"
+
   curl --output-dir ${TMPDIR:-/tmp} \
     "https://apple.nextdns.io/NextDNS.mobileconfig?profile=${profile_id}&device_name=${device}&device_model=Apple+%7Emacbook-pro&exclude_domains=*.local%2C+*.fritz.box%2C+fritz.box&trust_ca=1&sign=3"
   open ${TMPDIR:-/tmp}/NextDNS.mobileconfig
