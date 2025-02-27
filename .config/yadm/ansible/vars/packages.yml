@@ -69,6 +69,9 @@ packages:
   - name: deno
     desc: Secure runtime for JavaScript and TypeScript
 
+  - name: deskflow
+    desc: Share one mouse and keyboard between multiple computers
+
   - name: diff-so-fancy
     desc: Good-lookin' diffs with diff-highlight and more
 
@@ -190,6 +193,9 @@ packages:
 
   - name: harfbuzz
     desc: OpenType text shaping engine
+
+  - name: helix
+    desc: A post-modern modal text editor
 
   - name: helm
     desc: Kubernetes package manager
@@ -535,6 +541,8 @@ packages:
 
   - name: nordvpn
     desc: VPN client for secure internet access and private browsing
+    archlinux:
+      aur: nordvpn-bin
     snap: nordvnpn
 
   - name: notion
@@ -690,6 +698,14 @@ packages:
     desc: Internet radio player
     tags: [gnome]
 
+  - name: resources
+    desc: Monitor for system resources and processes
+    tags: [gnome]
+
+  - name: mission-center
+    desc: Monitor your CPU, Memory, Disk, Network and GPU usage
+    tags: [gnome]
+
   - name: yubico-pam
     desc: Yubico YubiKey PAM module
 
@@ -707,14 +723,36 @@ packages:
 
   - name: wine
     desc: A compatibility layer for running Windows programs
+    archlinux: wine-staging
+
+  - name: winetricks
+    desc: Script to install various redistributable runtime libraries in Wine
+
+  - name: wine-mono
+    desc: Wine's built-in replacement for Microsoft's .NET Framework
 
   - name: crossover
     desc: Run Windows Programs on Linux
 
-  - name: freeoffice
-    desc: A complete, reliable, lightning-fast and Microsoft Office-compatible office suite with a word processor, spreadsheet, and presentation graphics software.
+  - name: libreoffice-fresh
+    desc: LibreOffice branch which contains new features and program enhancements
+
+  - name: postgresql
+    desc: Sophisticated object-relational DBMS
+
+  - name: dbeaver
+    desc: Free universal SQL Client for developers and database administrators (community edition)
+
+  - name: beekeeper-studio
+    desc: Modern and easy to use SQL client for MySQL, Postgres, SQLite, SQL Server, and more
     archlinux:
-      aur: freeoffice
+      aur: beekeeper-studio-bin
+
+  - name: traceroute
+    desc: Tracks the route taken by packets over an IP network
+
+  - name: mtr
+    desc: Combines the functionality of traceroute and ping into one tool (CLI version)
 
 # Extra repositories to add to the system
 repositories:
