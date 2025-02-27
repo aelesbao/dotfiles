@@ -3,6 +3,8 @@
 **/
 
 @define-color bg #1a1b26;
+@define-color bg_dark #16161e;
+@define-color bg_darker #0c0e14;
 @define-color black #414868;
 @define-color comment #565f89;
 @define-color text #9aa5ce;
@@ -55,11 +57,11 @@
 .app {
   background-image: linear-gradient(
     to bottom,
-    alpha(darker(@window_bg), 0.95),
-    alpha(@window_bg, 0.6)
+    alpha(@bg, 0.9),
+    alpha(@bg_darker, 0.6)
   );
   border: 1px solid @window_border_color;
-  border-radius: 2px;
+  border-radius: 12px;
   margin: 0px;
   padding: 0;
 }
@@ -92,7 +94,7 @@
 }
 
 .item-box {
-  border-radius: 2px;
+  border-radius: 4px;
   opacity: 0.7;
 }
 .item_name {
