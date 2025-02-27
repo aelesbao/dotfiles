@@ -23,6 +23,7 @@ workspace-names=['Communication', 'Browsing', 'Development']
 auto-save-session=true
 
 
+# Whether to remember password for mounting encrypted or remote filesystems
 [org/gnome/shell]
 remember-mount-password=true
 
