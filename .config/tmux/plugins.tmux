@@ -56,6 +56,14 @@ set -g @fzf-url-fzf-options '-w 50% -h 50% --multi -0 --no-preview --no-border'
 set -g @plugin 'yardnsm/tmux-1password'
 set -g @1password-key 'o'
 
+# Plug and play battery percentage and icon indicator for Tmux.
+set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @batt_icon_status_attached ''
+
+# Plug and play cpu percentage and icon indicator.
+set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @cpu_percentage_format "%2.0f%%"
+
 # A Tokyo Night tmux theme directly inspired from Tokyo Night vim theme.
 # set -g @plugin 'fabioluciano/tmux-tokyo-night'
 # Tokyo Night Theme configuration
@@ -87,7 +95,6 @@ set -g status-left-length 100
 
 set -g status-left ""
 
-# TODO: check if pmset or upower has been installed
 %if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
    set -g status-left "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]█#[noreverse]  "
    set -gaF status-left "#[fg=#{@thm_fg},bg=#{@thm_surface_0}] ##H "
@@ -97,21 +104,11 @@ set -g status-right "#{E:@catppuccin_status_application}"
 set -ga status-right "#{E:@catppuccin_status_session}"
 set -gaF status-right "#{E:@catppuccin_status_cpu}"
 
-%if "#{==:0,#{||:#{SSH_CLIENT},#{SSH_TTY}}}"
+if -b "type pmset >/dev/null 2>&1 || type acpi >/dev/null 2>&1 || type upower >/dev/null 2>&1 || type apm >/dev/null 2>&1" {
    set -gaF status-right "#{E:@catppuccin_status_battery}"
-%endif
+}
 
 set -gaF status-right "#{E:@catppuccin_status_date_time}"
-
-# Plug and play battery percentage and icon indicator for Tmux.
-%if "#{==:0,#{||:#{SSH_CLIENT},#{SSH_TTY}}}"
-   set -g @plugin 'tmux-plugins/tmux-battery'
-   set -g @batt_icon_status_attached ''
-%endif
-
-# Plug and play cpu percentage and icon indicator.
-set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @cpu_percentage_format "%2.0f%%"
 
 # Plugin Manager installation {{{
 
