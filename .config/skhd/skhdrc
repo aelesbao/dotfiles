@@ -23,8 +23,8 @@ cmd + ctrl - 0x1E : yabai -m space --focus next
 #cmd + ctrl - 0x1E : skhd -k "cmd + ctrl - right"
 
 # move spaces
-cmd + ctrl + shift - 0x21 : yabai -m space --move prev
-cmd + ctrl + shift - 0x1E : yabai -m space --move next
+cmd + alt + shift - 0x21 : yabai -m space --move prev
+cmd + alt + shift - 0x1E : yabai -m space --move next
 
 # rotate layout clockwise
 cmd + ctrl + shift - r : yabai -m space --rotate 270
@@ -73,16 +73,16 @@ hyper - 0x1E : yabai -m window --display next && \
                yabai -m display --focus next
 
 # send window to space and follow focus
-cmd + alt + shift - 0x21 : yabai -m window --space prev && \
-                           yabai -m space --focus prev
-cmd + alt + shift - 0x1E : yabai -m window --space next && \
-                           yabai -m space --focus next
+cmd + ctrl + shift - 0x21 : yabai -m window --space prev --focus && \
+                            yabai -m space --focus prev
+cmd + ctrl + shift - 0x1E : yabai -m window --space next --focus && \
+                            yabai -m space --focus next
 
 # workaround until yabai's bug on macOS 14.2 is fixed
-#cmd + alt + shift - 0x21 : yabai -m window --space prev && \
-#                           skhd -k "cmd + ctrl - left"
-#cmd + alt + shift - 0x1E : yabai -m window --space next && \
-#                           skhd -k "cmd + ctrl - right"
+#cmd + ctrl + shift - 0x21 : yabai -m window --space prev && \
+#                            skhd -k "cmd + ctrl - left"
+#cmd + ctrl + shift - 0x1E : yabai -m window --space next && \
+#                            skhd -k "cmd + ctrl - right"
 
 # toggle window split type
 cmd + ctrl + shift - e : yabai -m window --toggle split
