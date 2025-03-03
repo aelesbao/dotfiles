@@ -247,6 +247,8 @@ brew "telnet"
 brew "terminal-notifier"
 # Tool to build, change, and version infrastructure
 brew "hashicorp/tap/terraform"
+# Terraform Language Server
+brew "hashicorp/tap/terraform-ls"
 # Linter for Terraform files
 brew "tflint"
 # Static analysis security scanner for your terraform code
