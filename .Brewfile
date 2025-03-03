@@ -464,7 +464,6 @@ mas "HP Smart", id: 1474276998
 mas "Harvest", id: 506189836
 mas "LilyView", id: 529490330
 mas "Microsoft Word", id: 462054704
-mas "NextDNS", id: 1464122853
 mas "Numbers", id: 409203825
 mas "Outbank", id: 1094255754
 mas "Pages", id: 409201541
