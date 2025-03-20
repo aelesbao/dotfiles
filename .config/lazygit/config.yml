@@ -5,7 +5,9 @@ notARepository: "quit"
 
 git:
   commit:
-    signOff: false
+    signOff: true
+
+  overrideGpg: true
 
   merging:
     args: "--no-ff"
