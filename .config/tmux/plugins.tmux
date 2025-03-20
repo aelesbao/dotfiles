@@ -1,5 +1,9 @@
 # vim:fileencoding=utf-8:ft=tmux:foldmethod=marker
 
+if -b "type pmset >/dev/null 2>&1 || type acpi >/dev/null 2>&1 || type upower >/dev/null 2>&1 || type apm >/dev/null 2>&1" {
+   setenv -g TMUX_BATTERY_ENABLED 1
+}
+
 # Tmux Plugin Manager.
 set -g @plugin 'tmux-plugins/tpm'
 
@@ -34,12 +38,6 @@ set -g @plugin 'aelesbao/tmux-ctrlp'
 # Remap to avoid conflict with the prefix
 set -g @ctrlp_session_bind 's'
 
-# # Copy pasting in terminal with vimium/vimperator like hints.
-# set -g @plugin 'Morantron/tmux-fingers'
-# set -g @fingers-jump-key /
-# # Cosmos address matcher
-# set -g @fingers-pattern-0 '([a-z]+)1([qpzry9x8gf2tvdw0s3jn54khce6mua7l]+)'
-
 # Search your tmux scrollback buffer using fuzzy matching
 set -g @plugin 'roosta/tmux-fuzzback'
 set -g @fuzzback-finder 'sk'
@@ -57,26 +55,17 @@ set -g @plugin 'yardnsm/tmux-1password'
 set -g @1password-key 'o'
 
 # Plug and play battery percentage and icon indicator for Tmux.
-set -g @plugin 'tmux-plugins/tmux-battery'
-set -g @batt_icon_status_attached ''
+%if "#{TMUX_BATTERY_ENABLED}"
+   set -g @plugin 'tmux-plugins/tmux-battery'
+   set -g @batt_icon_status_attached ''
+%endif
 
 # Plug and play cpu percentage and icon indicator.
 set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @cpu_percentage_format "%2.0f%%"
 
-# A Tokyo Night tmux theme directly inspired from Tokyo Night vim theme.
-# set -g @plugin 'fabioluciano/tmux-tokyo-night'
-# Tokyo Night Theme configuration
-# set -g @theme_variation 'storm'
-# set -g @theme_left_separator ''
-# set -g @theme_right_separator ''
-# set -g @theme_plugin_datetime_format '%a %F %R'
-
 # Soothing pastel theme for Tmux.
 set -g @plugin 'catppuccin/tmux#v2.1.0'
-
-if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
-   "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 
 # Catppuccin theme settings (use mocha on the host and frappe on ssh)
 %if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
@@ -85,28 +74,36 @@ if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
    set -g @catppuccin_flavor "mocha"
 %endif
 
+set -g @catppuccin_pane_status_enabled "yes" # set to "yes" to enable
+set -g @catppuccin_pane_border_status "yes" # set to "yes" to enable
+
 set -g @catppuccin_window_text " #W"
 set -g @catppuccin_window_current_text " #W"
 
 set -g @catppuccin_status_background "#{@thm_bg}"
+
+if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
+   "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 
 set -g status-right-length 100
 set -g status-left-length 100
 
 set -g status-left ""
 
+# Display hostname when connected via SSH
 %if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
-   set -g status-left "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]█#[noreverse]  "
+   set -ga status-left "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]█#[noreverse]  "
    set -gaF status-left "#[fg=#{@thm_fg},bg=#{@thm_surface_0}] ##H "
+   set -ga status-left "#[fg=#{@thm_fg},bg=#{@thm_bg}] "
 %endif
 
 set -g status-right "#{E:@catppuccin_status_application}"
 set -ga status-right "#{E:@catppuccin_status_session}"
 set -gaF status-right "#{E:@catppuccin_status_cpu}"
 
-if -b "type pmset >/dev/null 2>&1 || type acpi >/dev/null 2>&1 || type upower >/dev/null 2>&1 || type apm >/dev/null 2>&1" {
+%if "#{TMUX_BATTERY_ENABLED}"
    set -gaF status-right "#{E:@catppuccin_status_battery}"
-}
+%endif
 
 set -gaF status-right "#{E:@catppuccin_status_date_time}"
 
