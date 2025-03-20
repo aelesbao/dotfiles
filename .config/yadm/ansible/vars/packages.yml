@@ -387,6 +387,9 @@ packages:
   - name: tor
     desc: Anonymizing overlay network for TCP
 
+  - name: torsock
+    desc: Wrapper to safely torify applications
+
   - name: trash
     desc: Command line trashcan (recycle bin) interface
     archlinux: trash-cli
@@ -737,6 +740,12 @@ packages:
   - name: libreoffice-fresh
     desc: LibreOffice branch which contains new features and program enhancements
 
+  - name: libreoffice-fresh-de
+    desc: Deutsch Language Pack for LibreOffice
+
+  - name: libreoffice-fresh-pt-br
+    desc: Portuguese (Brasil) Language Pack for LibreOffice
+
   - name: postgresql
     desc: Sophisticated object-relational DBMS
 
@@ -753,6 +762,12 @@ packages:
 
   - name: mtr
     desc: Combines the functionality of traceroute and ping into one tool (CLI version)
+
+  - name: nextdns
+    desc: NextDNS CLI client
+
+  - name: committed
+    desc: Nitpicking commit history
 
 # Extra repositories to add to the system
 repositories:
