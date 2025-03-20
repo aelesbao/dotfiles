@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "assistant": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwq"
+    },
+    "version": "2"
+  },
   "ui_font_size": 16,
   "buffer_font_size": 14,
   "buffer_font_family": "Hack Nerd Font",
@@ -16,5 +23,17 @@
     "dark": "Tokyo Night"
   },
   "vim_mode": true,
-  "vim": {}
+  "vim": {},
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+      "available_models": [
+        {
+          "name": "qwq",
+          "display_name": "qwq reasoning model",
+          "max_tokens": 128000
+        }
+      ]
+    }
+  }
 }
