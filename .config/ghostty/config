@@ -111,7 +111,12 @@ keybind = super+ctrl+left=resize_split:left,10
 keybind = super+ctrl+right=resize_split:right,10
 keybind = super+ctrl+up=resize_split:up,10
 keybind = super+ctrl+equal=equalize_splits
+keybind = ctrl+g>equal=equalize_splits
 keybind = super+shift+enter=toggle_split_zoom
+keybind = ctrl+g>z=toggle_split_zoom
+
+# extras
+keybind = ctrl+g>i=inspector:toggle
 
 # copy and paste
 keybind = super+c=copy_to_clipboard
@@ -141,10 +146,14 @@ keybind = super+k=clear_screen
 keybind = super+alt+i=inspector:toggle
 
 # font size control
-keybind = super+plus=increase_font_size:2
-keybind = super+equal=increase_font_size:2
-keybind = super+minus=decrease_font_size:2
+keybind = super+plus=increase_font_size:1
+keybind = super+kp_add=increase_font_size:2
+keybind = super+equal=increase_font_size:1
+keybind = super+kp_equal=increase_font_size:2
+keybind = super+minus=decrease_font_size:1
+keybind = super+kp_subtract=decrease_font_size:2
 keybind = super+zero=reset_font_size
+keybind = super+kp_0=reset_font_size
 
 # tmux integration with user-keys
 keybind = alt+shift+enter=esc:[10;13~
@@ -179,3 +188,4 @@ keybind = alt+six=unbind
 keybind = alt+seven=unbind
 keybind = alt+eight=unbind
 keybind = alt+nine=unbind
+
