@@ -27,6 +27,46 @@
     },
     {
       "class": "blueman-applet"
+    },
+    {
+      "class": "brave-browser",
+      "title": "MetaMask"
+    },
+    {
+      "class": "brave-browser",
+      "title": "Keplr"
+    },
+    {
+      "class": "brave-browser",
+      "title": "Leap Cosmos Wallet"
+    },
+    {
+      "class": "brave-browser",
+      "title": "Station Wallet"
+    },
+    {
+      "class": "brave-browser",
+      "title": "Phantom Wallet"
+    },
+    {
+      "class": "brave-browser",
+      "title": "Sui Wallet"
+    },
+    {
+      "class": "brave-browser",
+      "title": "Meet - .*"
+    },
+    {
+      "class": "de.haeckerfelix.Shortwave"
+    },
+    {
+      "class": "gcm-picker"
+    },
+    {
+      "class": "org.gnome.Calculator"
+    },
+    {
+      "class": "winecfg.exe"
     }
   ],
   "skiptaskbarhidden": [],
