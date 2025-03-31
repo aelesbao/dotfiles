@@ -14,6 +14,7 @@ info "Configuring gh-cli"
 gh auth login
 
 extensions=(
+  github/gh-copilot
   nektos/gh-act
   dlvhdr/gh-dash
   meiji163/gh-notify
