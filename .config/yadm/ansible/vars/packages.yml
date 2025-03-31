@@ -769,6 +769,25 @@ packages:
   - name: committed
     desc: Nitpicking commit history
 
+  - name: wayland-utils
+    desc: Wayland tools to display information about current compositor
+
+  - name: hyprland
+    desc: a highly customizable dynamic tiling Wayland compositor
+    tags: [hyprland]
+
+  - name: hyprlock
+    desc: hyprland’s GPU-accelerated screen locking utility
+    tags: [hyprland]
+
+  - name: libva-nvidia-driver
+    desc: VA-API implementation that uses NVDEC as a backend
+    tags: [nvidia]
+
+  - name: nvidia-container-toolkit
+    desc: NVIDIA container toolkit
+    tags: [nvidia]
+
 # Extra repositories to add to the system
 repositories:
   debian:
