@@ -111,12 +111,12 @@ keybind = super+ctrl+left=resize_split:left,10
 keybind = super+ctrl+right=resize_split:right,10
 keybind = super+ctrl+up=resize_split:up,10
 keybind = super+ctrl+equal=equalize_splits
-keybind = ctrl+g>equal=equalize_splits
+keybind = super+g>equal=equalize_splits
 keybind = super+shift+enter=toggle_split_zoom
-keybind = ctrl+g>z=toggle_split_zoom
+keybind = super+g>z=toggle_split_zoom
 
 # extras
-keybind = ctrl+g>i=inspector:toggle
+keybind = super+g>i=inspector:toggle
 
 # copy and paste
 keybind = super+c=copy_to_clipboard
