@@ -51,9 +51,9 @@ if ! (( $+commands[cargo-binstall] )); then
 fi
 
 if ask "Update installed crates?"; then
-  # binstall sccache # <- installed with Homebrew
   cargo-install bacon
   binstall cargo-audit
+  binstall cargo-dist
   binstall cargo-edit
   binstall cargo-expand
   binstall cargo-generate
@@ -72,8 +72,11 @@ if ask "Update installed crates?"; then
   cargo-install stylua --all-features
 fi
 
-msg "Starting sccache server"
-sccache --start-server
+if (( $+commands[sccache] )); then
+  msg "Rebooting sccache"
+  sccache --stop-server
+  sccache --start-server
+fi
 
 if is-macos && ask "Install wasm-pack?"; then
   curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
