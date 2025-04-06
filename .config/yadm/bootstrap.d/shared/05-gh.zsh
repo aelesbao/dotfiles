@@ -11,7 +11,18 @@ if ! has-command gh; then
 fi
 
 info "Configuring gh-cli"
-gh auth login
+if gh auth status | grep -q "Logged in to github.com account ${GITHUB_USER}"; then
+  msg "gh-cli not authenticated"
+  if [[ -z "${GITHUB_USER:-}" ]]; then
+    fail "GITHUB_USER is not set"
+  fi
+  gh auth login
+else
+  msg "gh-cli already authenticated"
+fi
+
+msg "Configuring git credential helper"
+gh auth setup-git
 
 extensions=(
   github/gh-copilot
