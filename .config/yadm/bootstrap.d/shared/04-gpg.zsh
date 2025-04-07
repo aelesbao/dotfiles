@@ -33,7 +33,7 @@ fi
 # TODO: move to smartcard
 info "Fetching key data from 1Password"
 
-declare op_item="op://Personal/GPG"
+declare op_item="op://Development/GPG"
 declare op_key_password="${op_item}/password"
 declare op_secret_key="${op_item}/aelesbao.secret.key"
 
