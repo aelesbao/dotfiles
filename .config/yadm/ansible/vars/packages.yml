@@ -546,6 +546,7 @@ packages:
   - name: mailspring
     desc: The best email app for people and teams at work
     snap: mailspring
+    flatpak: com.getmailspring.Mailspring
 
   # TODO: use official installer
   # - name: ledger-live
@@ -566,6 +567,7 @@ packages:
   - name: proton-mail
     desc: Client for Proton Mail and Proton Calendar
     snap: proton-mail
+    flatpak: me.proton.Mail
 
   # TODO: use official installer
   # - name: qfinder-pro
@@ -587,10 +589,12 @@ packages:
   - name: slack
     desc: Team communication and collaboration software
     snap: slack
+    flatpak: com.slack.Slack
 
   - name: spotify
     desc: Music streaming service
     snap: spotify
+    flatpak: com.spotify.Client
 
   - name: steam
     desc: Video game digital distribution service
@@ -602,6 +606,7 @@ packages:
   - name: todoist
     desc: The to-do list to organize work & life
     snap: todoist
+    flatpak: com.todoist.Todoist
 
   - name: vagrant
     desc: Development environment
