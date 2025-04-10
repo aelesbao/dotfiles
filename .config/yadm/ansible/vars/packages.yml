@@ -633,6 +633,10 @@ packages:
     desc: GSettings editor for GNOME
     tags: [gnome]
 
+  - name: eyedropper
+    desc: Color picker and formatter
+    tags: [gnome]
+
   - name: gvfs-google
     desc: Virtual filesystem implementation for GIO - Google Drive backend
     tags: [gnome]
@@ -663,10 +667,6 @@ packages:
 
   - name: gnome-shell-extension-vitals
     desc: GNOME Shell extension to display computer's temperature, voltage, fan speed, memory usage, processor load, system resources, network speed and storage stats
-    tags: [gnome]
-
-  - name: gnome-shell-extension-dash-to-panel
-    desc: Extension for GNOME Shell to combine the dash and main panel
     tags: [gnome]
 
   - name: gnome-shell-extension-arc-menu
@@ -792,6 +792,10 @@ packages:
 
   - name: hyprlock
     desc: hyprland’s GPU-accelerated screen locking utility
+    tags: [hyprland]
+
+  - name: xdg-desktop-portal-hyprland
+    desc: XDG Desktop Portal implementation for Hyprland
     tags: [hyprland]
 
   - name: libva-nvidia-driver
