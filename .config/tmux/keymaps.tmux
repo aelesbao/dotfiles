@@ -94,3 +94,6 @@ bind -n C-l send C-l \; clear-history
 
 # Open tmux config in an editor
 bind -n 'M-,' run 'tmux new-window -n tmux -S -c ~/.config/tmux "nvim -O options.tmux keymaps.tmux plugins.tmux"'
+
+# Open htop
+bind -n 'M-T' run 'tmux new-window -n htop -S htop'
