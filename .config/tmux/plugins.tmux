@@ -51,9 +51,6 @@ set -g @fzf-url-history-limit '2000'
 # Open tmux-fzf-url in a popup
 set -g @fzf-url-fzf-options '-w 50% -h 50% --multi -0 --no-preview --no-border'
 
-set -g @plugin 'yardnsm/tmux-1password'
-set -g @1password-key 'o'
-
 # Plug and play battery percentage and icon indicator for Tmux.
 %if "#{TMUX_BATTERY_ENABLED}"
    set -g @plugin 'tmux-plugins/tmux-battery'
