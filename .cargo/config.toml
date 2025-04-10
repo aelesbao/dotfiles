@@ -10,3 +10,6 @@ sparse-registry = true
 
 [target.x86_64-apple-darwin]
 rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+[target.x86_64-unkown-linux-gnu]
+rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]

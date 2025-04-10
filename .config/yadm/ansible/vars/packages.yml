@@ -38,6 +38,9 @@ packages:
   - name: cmake
     desc: Cross-platform make
 
+  - name: clang
+    desc: C language family frontend for LLVM
+
   - name: colordiff
     desc: Color-highlighted diff(1) output
 
@@ -250,6 +253,9 @@ packages:
 
   - name: lld
     desc: LLVM Project Linker
+
+  - name: lldb
+    desc: Next generation, high-performance debugger
 
   - name: lsd
     desc: Clone of ls with colorful output, file type icons, and more
