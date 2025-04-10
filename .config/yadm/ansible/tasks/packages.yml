@@ -171,6 +171,90 @@
                 snap connect nordvpn:system-observe
               become: true
 
+    - name: Gnome Shell Extensions
+      tags: ["packages", "gnome-extensions"]
+      block:
+        - name: Gnome Extensions to install
+          ansible.builtin.debug:
+            var: gnome_extensions
+
+        - name: Parse Gnome Shell version
+          ansible.builtin.shell: |
+            set -o pipefail
+            gnome-shell --version | sed 's/[^0-9.]*\([0-9.]*\).*/\1/'
+          args:
+            executable: /bin/bash
+          register: gnome_shell_version
+          changed_when: no
+
+        - name: Get Gnome Shell extension info
+          debug:
+            # ansible.builtin.uri:
+            #   url: "https://extensions.gnome.org/extension-query/?search={{ item }}&n_per_page=25"
+            #   return_content: yes
+            msg: |
+              uuid: {{ item.uuid}}
+              response: {{ lookup('url', 'https://extensions.gnome.org/extension-query/?search={{ item.uuid }}&n_per_page=25&sort=relevance') | from_json | json_query("extensions[?uuid=='{{ item.uuid }}'] | [0]") }}
+          loop: "{{ gnome_extensions | json_query('[?install]') }}"
+          register: gnome_extension_info
+
+        # - name: Get Gnome Shell extension info
+        #   ansible.builtin.uri:
+        #     url: "https://extensions.gnome.org/extension-info/?pk={{ item }}&shell_version={{ gnome_shell_version.stdout }}"
+        #     return_content: yes
+        #   loop: "{{ gnome_extensions }}"
+        #   register: gnome_extension_info
+
+        # - name: Install extensions
+        #   vars:
+        #     gnome_extension_info: "{{ item.json }}"
+        #   loop: "{{ gnome_extension_search.results }}"
+        #   # FIXME: ERROR! 'loop' is not a valid attribute for a Block
+        #   block:
+        #     - name: "Check if Gnome Shell extension is already installed - {{ gnome_extension_info.name }}"
+        #       stat:
+        #         path: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/{{ gnome_extension_info.uuid }}/metadata.json"
+        #       register: r_gnome_extensions_check_existing
+        #
+        #     - name: Create temporary download directory
+        #       tempfile:
+        #         state: directory
+        #         suffix: ".gnome_extension_download"
+        #       register: r_gnome_extension_download_dir
+        #       changed_when: no
+        #       when: not r_gnome_extensions_check_existing.stat.exists
+        #
+        #     - name: Install Gnome Shell
+        #       block:
+        #         - name: Download Gnome Shell extension - {{ gnome_extension_info.name }}
+        #           get_url:
+        #             url: https://extensions.gnome.org{{ gnome_extension_info.download_url }}
+        #             dest: "{{ r_gnome_extension_download_dir.path }}/{{ gnome_extension_info.uuid }}.zip"
+        #           register: r_gnome_extension_download
+        #
+        #         - name: Create install directory - {{ gnome_extension_info.name }}
+        #           file:
+        #             path: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/{{ gnome_extension_info.uuid }}"
+        #             state: directory
+        #             owner: "{{ ansible_user_uid }}"
+        #             group: "{{ ansible_user_gid }}"
+        #             mode: 0775
+        #
+        #         - name: Install Gnome Shell extension - {{ gnome_extension_info.name }}
+        #           unarchive:
+        #             src: "{{ r_gnome_extension_download.dest }}"
+        #             dest: "{{ ansible_user_dir }}/.local/share/gnome-shell/extensions/{{ gnome_extension_info.uuid }}"
+        #             remote_src: yes
+        #       always:
+        #         - name: Delete temporary download directory
+        #           file:
+        #             path: "{{ r_gnome_extension_download_dir.path }}"
+        #             state: absent
+        #           changed_when: no
+        #       when: not r_gnome_extensions_check_existing.stat.exists
+        #
+        # - name: Enable Gnome Shell extension - {{ gnome_extension_info.name }}
+        #   shell: gnome-extensions enable {{ gnome_extension_info.uuid }}
 
     - name: Make sure bluetooth.service is running
       ansible.builtin.systemd_service:

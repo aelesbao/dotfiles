@@ -4,6 +4,7 @@
 
   vars_files:
     - vars/packages.yml
+    - vars/gnome-extensions.yml
 
   vars:
     os_family: "{{ ansible_os_family | lower }}"
