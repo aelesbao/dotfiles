@@ -51,33 +51,31 @@ if ! (( $+commands[cargo-binstall] )); then
 fi
 
 if ask "Update installed crates?"; then
-  cargo-install bacon
   binstall cargo-audit
   binstall cargo-dist
   binstall cargo-edit
   binstall cargo-expand
   binstall cargo-generate
   binstall cargo-info
+  binstall cargo-llvm-cov
   binstall cargo-make
   binstall cargo-modules
   binstall cargo-nextest
   binstall cargo-outdated
-  cargo-install cargo-release
   binstall cargo-run-script
   binstall cargo-shuttle
   binstall cargo-tarpaulin
   binstall cargo-watch
   binstall evcxr_repl
   binstall grcov
-  cargo-install stylua --all-features
+
+  cargo-install bacon
+  cargo-install cargo-release
+  cargo-install cross --git https://github.com/cross-rs/cross
 fi
 
 if (( $+commands[sccache] )); then
   msg "Rebooting sccache"
   sccache --stop-server
   sccache --start-server
-fi
-
-if is-macos && ask "Install wasm-pack?"; then
-  curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 fi

@@ -366,6 +366,9 @@ packages:
   - name: starship
     desc: Cross-shell prompt for astronauts
 
+  - name: stylua
+    desc: Deterministic code formatter for Lua
+
   - name: system-config-printer
     desc: A CUPS printer configuration tool and status applet
 

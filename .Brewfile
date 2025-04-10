@@ -241,6 +241,8 @@ brew "starship"
 brew "subversion"
 # Next-generation smart contract platform powered by the Move programming language
 brew "sui"
+# Deterministic code formatter for Lua
+brew "stylua"
 # User interface to the TELNET protocol
 brew "telnet"
 # Send macOS User Notifications from the command-line
@@ -281,6 +283,8 @@ brew "vivid"
 brew "wabt"
 # 🚀 The Universal WebAssembly Runtime
 brew "wasmer"
+# Your favorite rust -> wasm workflow tool!
+brew "wasm-pack"
 # Internet file retriever
 brew "wget"
 # Friendly and fast tool for sending HTTP requests
