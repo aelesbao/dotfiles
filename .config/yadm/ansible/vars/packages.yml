@@ -548,10 +548,6 @@ packages:
     snap: mailspring
     flatpak: com.getmailspring.Mailspring
 
-  # TODO: use official installer
-  # - name: ledger-live
-  #   desc: Wallet desktop application to maintain multiple cryptocurrencies
-
   - name: nordvpn
     desc: VPN client for secure internet access and private browsing
     archlinux:
@@ -568,14 +564,6 @@ packages:
     desc: Client for Proton Mail and Proton Calendar
     snap: proton-mail
     flatpak: me.proton.Mail
-
-  # TODO: use official installer
-  # - name: qfinder-pro
-  #   desc: NAS management application
-
-  # TODO: use official installer
-  # - name: qsync
-  #   desc: QNap's synchronization client
 
   - name: resilio-sync
     desc: File sync and share software
@@ -595,6 +583,8 @@ packages:
     desc: Music streaming service
     snap: spotify
     flatpak: com.spotify.Client
+    archlinux:
+      aur: spotify
 
   - name: steam
     desc: Video game digital distribution service
