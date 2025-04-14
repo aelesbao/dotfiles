@@ -266,6 +266,9 @@ packages:
   - name: moreutils
     desc: Collection of tools that nobody wrote when UNIX was young
 
+  - name: musl
+    desc: Lightweight implementation of the C standard library for Linux-based systems
+
   - name: nautilus-share
     desc: Nautilus extension to share folder using Samba
 
