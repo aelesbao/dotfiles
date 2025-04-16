@@ -406,6 +406,8 @@ cask "notion", args: { appdir: "/Applications" }
 cask "obsidian"
 # Xbox streaming client
 cask "onecast"
+# Used to access context-specific actions when text is selected
+cask "popclip"
 # GUI client for PostgreSQL databases
 cask "postico"
 # Collaboration platform for API development
@@ -475,7 +477,6 @@ mas "Outbank", id: 1094255754
 mas "Pages", id: 409201541
 mas "Paste", id: 967805235
 mas "Pixelmator Pro", id: 1289583905
-mas "PopClip", id: 445189367
 mas "ScreenBrush", id: 1233965871
 mas "Todoist", id: 585829637
 mas "Unclutter", id: 577085396
