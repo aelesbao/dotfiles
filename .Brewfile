@@ -175,8 +175,6 @@ brew "maven"
 brew "moreutils"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# No Nonsense Neovim Client in Rust
-brew "neovide"
 # CLI for NextDNS's DNS-over-HTTPS (DoH)
 brew "nextdns"
 # Platform built on V8 to build network applications
@@ -396,6 +394,8 @@ cask "macdown", args: { appdir: "/Applications" }
 cask "messenger"
 # Native app email client for Gmail
 cask "mimestream"
+# No Nonsense Neovim Client in Rust
+cask "neovide"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # VPN client for secure internet access and private browsing
