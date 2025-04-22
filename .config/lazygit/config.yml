@@ -96,6 +96,9 @@ customCommands:
         title: "Scope (without parens)"
         key: "Scope"
         initialValue: ""
+        # TODO: run command for list of components to suggest
+        # suggestions:
+        #   command: ""
       - type: "input"
         title: "Breaking change - Add '!'"
         key: "Breaking"
@@ -119,14 +122,14 @@ customCommands:
         title: "Base branch"
         key: "Base"
         initialValue: "main"
-      - type: "confirm"
-        key: "Template"
-        title: "Template"
-        body: "Would you like to use a pull request template?"
+        suggestions:
+          preset: "branches"
       - type: "input"
-        title: "Template name"
+        title: "Pull Request template name"
         key: "TemplateName"
-        initialValue: "PULL_REQUEST_TEMPLATE.md"
-    command: "gh pr create --base '{{.Form.Base}}' {{if .Form.Template}}--template '{{.Form.TemplateName}}'{{end}} --edit"
+        initialValue: ""
+        suggestions:
+          command: "find .github -type f -name '*.md' -printf '%f'"
+    command: "gh pr create --editor --base '{{.Form.Base}}' {{if .Form.TemplateName}}--template '{{.Form.TemplateName}}'{{end}}"
     subprocess: true
     context: "global"
