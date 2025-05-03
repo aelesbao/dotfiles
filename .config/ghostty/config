@@ -19,6 +19,8 @@ font-synthetic-style = false
 bold-is-bright = false
 font-thicken = true
 
+adjust-cell-height = 20%
+
 # Cursor
 cursor-opacity = 0.95
 mouse-hide-while-typing = true
@@ -32,7 +34,7 @@ background-opacity = 0.9
 background-blur-radius = 20
 unfocused-split-opacity = 0.5
 
-window-decoration = false
+window-decoration = none
 window-theme = ghostty
 window-padding-balance = true
 
@@ -56,7 +58,7 @@ shell-integration = zsh
 shell-integration-features = true
 
 # Shaders
-# custom-shader = ./shaders/animated-gradient-shader.glsl
+# custom-shader = ./shaders/mnoise.glsl
 custom-shader-animation = true
 
 # Others
