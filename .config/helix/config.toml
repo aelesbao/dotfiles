@@ -2,6 +2,14 @@ theme = "tokyonight_storm"
 
 [editor]
 auto-save = true
+bufferline = "always"
+color-modes = true
+cursorline = true
+clipboard-provider = "tmux"
+gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
+popup-border = "all"
+shell = ["zsh", "-c"]
+end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -11,6 +19,7 @@ hidden = false
 
 [editor.lsp]
 display-inlay-hints = true
+display-progress-messages = true
 
 [editor.auto-pairs]
 '(' = ')'
@@ -20,8 +29,15 @@ display-inlay-hints = true
 '`' = '`'
 '<' = '>'
 
+[editor.indent-guides]
+render = true
+character = "┊" # Some characters that work well: "╎", "┆", "┊", "⸽"
+
 [editor.whitespace]
 render = "all"
 
+[editor.inline-diagnostics]
+cursor-line = "warning" # show warnings and errors on the cursorline inline
+
 [keys.normal]
-#";" = ":"
+";" = "command_mode"
