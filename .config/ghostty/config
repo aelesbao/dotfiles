@@ -58,7 +58,7 @@ shell-integration = zsh
 shell-integration-features = true
 
 # Shaders
-# custom-shader = ./shaders/mnoise.glsl
+# custom-shader = ./shaders/galaxy.glsl
 custom-shader-animation = true
 
 # Others
