@@ -67,6 +67,12 @@
     },
     {
       "class": "winecfg.exe"
+    },
+    {
+      "class": "net.lutris.Lutris"
+    },
+    {
+      "class": "larilauncher.exe"
     }
   ],
   "skiptaskbarhidden": [],
