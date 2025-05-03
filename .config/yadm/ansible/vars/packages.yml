@@ -378,11 +378,12 @@ packages:
   - name: terraform
     desc: Tool to build, change, and version infrastructure
 
+  - name: terragrunt
+    desc: Thin wrapper for Terraform and OpenTofu for working with multiple modules
+
   - name: tflint
     desc: Linter for Terraform files
 
-  # - name: tfsec
-  #   desc: Static analysis security scanner for your terraform code
   - name: tig
     desc: Text interface for Git repositories
 
@@ -414,6 +415,9 @@ packages:
 
   - name: tree-sitter-cli
     desc: CLI tool for developing, testing, and using Tree-sitter parsers
+
+  - name: trivy
+    desc: A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
 
   - name: ulauncher
     desc: Application launcher for Linux
