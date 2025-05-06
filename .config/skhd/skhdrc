@@ -18,9 +18,6 @@ cmd + alt + ctrl - 0x1E : yabai -m display --focus next
 cmd + ctrl - 0x29 : yabai -m space --focus recent
 cmd + ctrl - 0x21 : yabai -m space --focus prev
 cmd + ctrl - 0x1E : yabai -m space --focus next
-# workaround until yabai's bug on macOS 14.2 is fixed
-#cmd + ctrl - 0x21 : skhd -k "cmd + ctrl - left"
-#cmd + ctrl - 0x1E : skhd -k "cmd + ctrl - right"
 
 # move spaces
 cmd + alt + shift - 0x21 : yabai -m space --move prev
@@ -73,16 +70,10 @@ hyper - 0x1E : yabai -m window --display next && \
                yabai -m display --focus next
 
 # send window to space and follow focus
-cmd + ctrl + shift - 0x21 : yabai -m window --space prev --focus && \
-                            yabai -m space --focus prev
-cmd + ctrl + shift - 0x1E : yabai -m window --space next --focus && \
-                            yabai -m space --focus next
-
-# workaround until yabai's bug on macOS 14.2 is fixed
-#cmd + ctrl + shift - 0x21 : yabai -m window --space prev && \
-#                            skhd -k "cmd + ctrl - left"
-#cmd + ctrl + shift - 0x1E : yabai -m window --space next && \
-#                            skhd -k "cmd + ctrl - right"
+cmd + ctrl + shift - 0x21 : id="$(yabai -m query --windows --window | jq '.id')" && \
+                            yabai -m window --space prev --focus "${id}"
+cmd + ctrl + shift - 0x1E : id="$(yabai -m query --windows --window | jq '.id')" && \
+                            yabai -m window --space next --focus "${id}"
 
 # toggle window split type
 cmd + ctrl + shift - e : yabai -m window --toggle split
