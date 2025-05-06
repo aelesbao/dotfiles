@@ -18,8 +18,8 @@ fi
 yabai -m space 1 --label email
 yabai -m space 2 --label slack
 yabai -m space 3 --label personal
-yabai -m space 4 --label comms
-yabai -m space 5 --label development
+yabai -m space 4 --label development
+yabai -m space 5 --label comms
 
 # display 2
 if has_external_display; then
