@@ -168,9 +168,6 @@ function run-boot() {
 
 cd "$HOME"
 
-info "Updating yadm submodules"
-yadm submodule update --recursive --init
-
 # TODO: move all bootstrap scripts to Ansible
 #
 # References:
@@ -183,6 +180,9 @@ fi
 declare -a filter=($@)
 
 if [[ ${#filter} == 0 ]]; then
+  info "Updating yadm submodules"
+  yadm submodule update --recursive --init
+
   if is-macos; then
     title "Running Darwin bootstrap scripts"
     run-boot "$BOOTSTRAP_DIR/macos"
