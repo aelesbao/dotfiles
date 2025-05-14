@@ -7,14 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "ollama",
-      "model": "qwq"
+      "model": "mistral-nemo"
     },
     "version": "2"
   },
-  "ui_font_size": 16,
+  "ui_font_size": 18,
   "buffer_font_size": 14,
   "buffer_font_family": "Hack Nerd Font",
   "theme": {
@@ -29,9 +29,40 @@
       "api_url": "http://localhost:11434",
       "available_models": [
         {
+          "name": "gemma3:27b",
+          "display_name": "Gemma 3 27B lightweight family of models built on Gemini technology",
+          "max_tokens": 131072,
+          "supports_tools": false
+        },
+        {
           "name": "qwq",
-          "display_name": "qwq reasoning model",
-          "max_tokens": 128000
+          "display_name": "QwQ reasoning model",
+          "max_tokens": 131072,
+          "supports_tools": false
+        },
+        {
+          "name": "deepseek-coder-v2:16b",
+          "display_name": "DeepSeek Coder v2 16B that achieves performance comparable to GPT4-Turbo in code-specific tasks",
+          "max_tokens": 163840,
+          "supports_tools": false
+        },
+        {
+          "name": "mistral-nemo",
+          "display_name": "Mistral Nemo 12B model with 128k context length, built by Mistral AI in collaboration with NVIDIA",
+          "max_tokens": 1024000,
+          "supports_tools": false
+        },
+        {
+          "name": "deepcoder:14b",
+          "display_name": "DeepCoder 14B code reasoning model",
+          "max_tokens": 131072,
+          "supports_tools": false
+        },
+        {
+          "name": "qwen3:32b",
+          "display_name": "Qwen3 32B dense and mixture-of-experts (MoE) models",
+          "max_tokens": 40960,
+          "supports_tools": false
         }
       ]
     }
