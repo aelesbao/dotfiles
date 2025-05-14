@@ -71,11 +71,9 @@ if ask "Update installed crates?"; then
 
   cargo-install bacon
   cargo-install cargo-release
-  cargo-install cross --git https://github.com/cross-rs/cross
 fi
 
 if (( $+commands[sccache] )); then
   msg "Rebooting sccache"
-  sccache --stop-server
-  sccache --start-server
+  sccache --stop-server && sccache --start-server
 fi
