@@ -50,7 +50,7 @@
     },
     {
       "class": "brave-browser",
-      "title": "Sui Wallet"
+      "title": "Sui Wallet|Slush"
     },
     {
       "class": "brave-browser",
@@ -73,6 +73,9 @@
     },
     {
       "class": "larilauncher.exe"
+    },
+    {
+      "class": "alacarte"
     }
   ],
   "skiptaskbarhidden": [],
