@@ -440,6 +440,8 @@ cask "visual-studio-code"
 cask "vlc"
 # Desktop client for WhatsApp
 cask "whatsapp", args: { appdir: "/Applications" }
+# Agentic IDE powered by AI Flow paradigm
+cask "windsurf"
 # Multiplayer code editor
 cask "zed"
 
