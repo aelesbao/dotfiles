@@ -25,7 +25,7 @@ get_ultrawide_display() {
 
 get_app_window() {
     app_name="$1"
-    yabai -m query --windows | jq --arg app_name="$app_name" '.[] | select(.app == $app_name)'
+    yabai -m query --windows | jq -e --arg app_name "$app_name" '.[] | select(.app == $app_name)'
 }
 
 is_system_protection_disabled() {

@@ -62,11 +62,12 @@ add_app_rule "^(Calendar|Todoist|Linear)$" space="personal"
 # add_app_rule "^(Calendar|Todoist|Linear)$" space="planning"
 
 # fix browser pop-ups
-add_app_rule "(Brave Browser|Firefox|Arc)" title="^(Litle Arc - )?(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet|Sui Wallet).*" manage=off
+add_app_rule "(Brave Browser|Firefox|Arc)" \
+    title="^(Litle Arc - )?(MetaMask|Keplr|Leap Cosmos Wallet|Station Wallet|Phantom Wallet|Sui Wallet|Slush).*" manage=off
 add_app_rule "Arc" title="^(Profile).*" manage=off
 
 # development
-add_app_rule "Alacritty" space="development"
+add_app_rule "Alacritty|Kity|Ghostty" space="development"
 add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ|Visual Studio|Neovide|Zed)" space="development"
 add_app_rule "(RustRover|GoLand|PyCharm|IntelliJ)" \
     title="^.*(Settings|Shortcut|Module|Delete|Signature|Inline|Refactor|Inspect|Build|Plugin|Rename|Member).*" \
@@ -79,7 +80,7 @@ add_app_rule "(Notification Cent.*|Raycast)" sub-layer="above"
 add_app_rule "Calendar" title!="^Calendar$" manage=off sub-layer="above"
 
 # open a few apps in fullscreen by default
-add_app_rule "^(Mimestream|Slack)$" display="macos" native-fullscreen=on
+add_app_rule "^(Mimestream|Slack)$" display="macbook" native-fullscreen=on
 
 # set non-resizable windows as floating
 # shellcheck disable=SC2016
