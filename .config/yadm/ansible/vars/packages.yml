@@ -299,6 +299,9 @@ packages:
     desc: Execute binaries from Python packages in isolated environments
     archlinux: python-pipx
 
+  - name: pnpm
+    desc: Fast, disk space efficient package manager
+
   - name: prettier
     desc: An opinionated code formatter
 
@@ -759,6 +762,9 @@ packages:
 
   - name: postgresql
     desc: Sophisticated object-relational DBMS
+
+  - name: valkey
+    desc: An in-memory database that persists on disk - open-source version of Redis
 
   - name: dbeaver
     desc: Free universal SQL Client for developers and database administrators (community edition)
