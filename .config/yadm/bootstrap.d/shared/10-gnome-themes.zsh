@@ -49,28 +49,6 @@ function install-cursor() {
   echo "done"
 }
 
-function cleanup() {
-  tput cnorm
-}
-
-function spinner() {
-  local msg="${1}"
-
-  local -a marks=( '⠋' '⠙' '⠹' '⠸' '⠼' '⠴' '⠦' '⠧' '⠇' '⠏')
-  local i=1
-
-  tput civis
-
-  while read _; do
-    printf '%s\r' "${marks[i++ % ${#marks[@]} + 1]} ${msg}"
-  done
-
-  echo " ${msg}"
-
-  trap cleanup EXIT
-}
-
-
 function clone-repo() {
   local gh_user="$1"
   local repo="$2"
@@ -79,12 +57,12 @@ function clone-repo() {
   local repo_dir="${src_dir}/${repo}"
 
   if [[ ! -d ${repo_dir} ]]; then
-    spinner "cloning ${gh_user}/${repo}" < <( \
+    gum spin --title="cloning ${gh_user}/${repo}" --spinner points --show-error -- cat <( \
       git clone https://github.com/${gh_user}/${repo}.git ${repo_dir} 2>&1; \
       git -C ${repo_dir} checkout ${branch} 2>&1 \
     )
   else
-    spinner "updating ${gh_user}/${repo}" < <( \
+    gum spin --title="updating ${gh_user}/${repo}" --spinner points --show-error -- cat <( \
       git -C ${repo_dir} pull --rebase 2>&1; \
       git -C ${repo_dir} checkout ${branch} 2>&1 \
     )
@@ -104,13 +82,13 @@ function install-eliverlara-theme() {
   clone-repo EliverLara ${repo} ${branch}
 
   pushd ${repo_dir}/gtk-2.0
-  spinner "rendering gtk-2.0" < <( \
+  gum spin --title="rendering gtk-2.0" --spinner points --show-error -- cat <( \
     ./render-assets.sh 2>/dev/null \
   )
   popd
 
   pushd ${repo_dir}/src
-  spinner "rendering src" < <( \
+  gum spin --title="rendering src" --spinner points --show-error -- cat <( \
     ./render-gtk3-assets.py 2>/dev/null; \
     ./render-gtk3-assets-hidpi.py 2>/dev/null; \
     ./render-wm-assets-hidpi.py 2>/dev/null; \
@@ -118,7 +96,7 @@ function install-eliverlara-theme() {
   )
   popd
 
-  spinner "copying files" < <( \
+  gum spin --title="copying files" --spinner points --show-error -- cat <( \
     mkdir -p ${theme_dir}; \
     cp -a ${repo_dir}/* ${theme_dir} \
   )
@@ -139,7 +117,7 @@ function install-fausto-korpsvart-theme() {
 
   clone-repo Fausto-Korpsvart ${repo} ${branch}
 
-  spinner "linking" < <( \
+  gum spin --title="linking" --spinner points --show-error -- cat <( \
     ${repo_dir}/themes/install.sh \
       -n ${theme} \
       -t ${variant} \
@@ -168,10 +146,10 @@ function install-flat-remix() {
   local color_theme_dir="${base_theme_dir}-${color}-${variant}"
   local variant_theme_dir="${base_theme_dir}-${variant}"
 
-  # spinner "building gtk" < <( \
-  #   make -j build dist \
-  #     COLOR_VARIANTS="${color}" 2>&1 \
-  # )
+  gum spin --title="building gtk" --spinner points --show-error -- cat <( \
+    make -j build dist \
+      COLOR_VARIANTS="${color}" 2>&1 \
+  )
 
   rm -rf ${color_theme_dir} ${variant_theme_dir}{,-hdpi,-xhdpi}
   mkdir -p ${color_theme_dir} ${variant_theme_dir}{,-hdpi,-xhdpi}
@@ -191,7 +169,7 @@ function install-flat-remix() {
 
   local variant_theme_dir="${base_theme_dir}-${variant}"
 
-  spinner "building gnome-shell" < <( \
+  gum spin --title="building gnome-shell" --spinner points --show-error -- cat <( \
     make -j build dist \
       THEME_VARIANTS="Darkest Miami-Dark" \
       BASE_THEME="Flat-Remix-Darkest" 2>&1 \
