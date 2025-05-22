@@ -328,9 +328,6 @@ packages:
   - name: rsync
     desc: Utility that provides fast incremental file transfer
 
-  - name: rust-analyzer
-    desc: Experimental Rust compiler front-end for IDEs
-
   - name: rustup
     desc: Rust toolchain installer
 

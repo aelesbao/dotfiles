@@ -26,11 +26,11 @@ if ask "Update to latest nightly version?"; then
 fi
 
 info "Installing rustup components"
-rustup component add rls
-rustup component add rust-analysis
-rustup component add rust-src
 rustup component add clippy
 rustup component add llvm-tools-preview
+rustup component add rust-analysis
+rustup component add rust-analyzer
+rustup component add rust-src
 
 info "Installing cargo plugins"
 
