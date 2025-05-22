@@ -24,6 +24,16 @@ fi
 msg "Configuring git credential helper"
 gh auth setup-git
 
+if [[ -f ~/.ssh/id_ed25519 ]]; then
+  declare _pubkey="$(ssh-keygen -yf ~/.ssh/id_ed25519 | cut -d ' ' -f 1,2)"
+  declare _comment="$(ssh-keygen -yf ~/.ssh/id_ed25519 | cut -d ' ' -f 3)"
+
+  if ! gh ssh-key list | grep -q "${_pubkey}.*signing"; then
+    msg "Adding SSH signing keys"
+    gh ssh-key add ~/.ssh/id_ed25519.pub --title "${_comment}" --type signing
+  fi
+fi
+
 extensions=(
   github/gh-copilot
   nektos/gh-act
