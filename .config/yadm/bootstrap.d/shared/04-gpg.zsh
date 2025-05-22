@@ -16,17 +16,39 @@ if ! has-command op; then
 fi
 
 
-if [[ ! -d ~/.gnupg ]]; then
-  info "Configuring GPG"
-  mkdir -m 0700 ~/.gnupg
+declare _gpg_home="$(gpgconf --list-dirs homedir)"
+declare _gpg_agent_conf="${_gpg_home}/gpg-agent.conf"
+declare _reload_agent=false
 
-  if has-command pinentry-mac; then
-    msg "Set pinentry-program"
-    echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+info "Configuring GPG"
+[[ ! -d ${_gpg_home} ]] && mkdir -m 0700 ${_gpg_home}
+
+if ! grep -q "^enable-ssh-support" ${_gpg_agent_conf} 2>/dev/null; then
+  msg "Enable SSH support"
+  echo "enable-ssh-support" >> ${_gpg_agent_conf}
+  _reload_agent=true
+fi
+
+if ! grep -q "^pinentry-program" ${_gpg_agent_conf} 2>/dev/null; then
+  local program
+  if has-command pinentry-bemenu; then
+    program="pinentry-bemenu"
+  elif has-command pinentry-curses; then
+    program="pinentry-curses"
+  elif has-command pinentry-mac; then
+    program="pinentry-mac"
   fi
 
-  msg "Reload gpg components"
-  gpgconf -R all
+  if [[ -n "${program:-}" ]]; then
+    msg "Set pinentry-program to ${program}"
+    echo "pinentry-program $(which ${program})" >> ${_gpg_agent_conf} 
+    _reload_agent=true
+  fi
+fi
+
+if ${_reload_agent}; then
+  msg "Reload gpg agent"
+  gpg-connect-agent reloadagent /bye
 fi
 
 
@@ -43,8 +65,7 @@ declare fpr="$(op read --no-newline "${op_item}/info/fingerprint")"
 
 info "Set up key ${user_id} (${fpr})"
 
-if ! gpg --list-options show-only-fpr-mbox -k "${user_id}" 2>/dev/null | \
-    grep -q "${fpr}"; then
+if ! gpg --list-options show-only-fpr-mbox -k "${user_id}" 2>/dev/null | grep -q "${fpr}"; then
   msg "Importing public key"
   gpg --receive-keys ${fpr}
 fi
@@ -61,7 +82,6 @@ if ! gpg --with-colons -K ${fpr} 2>/dev/null | \
       <(op read "${op_secret_key}")
   fi
 fi
-
 
 # Check if there are valid subkeys present
 if ! gpg --with-colons -K ${fpr} 2>/dev/null | \
@@ -110,7 +130,7 @@ if gpg --with-colons -K ${fpr} 2>/dev/null | \
   grep -q .; then
   if ask "Would you like to remove the master key secret?"; then
     info "Removing master key secret"
-    declare secsub_file="$HOME/.gnupg/aelesbao.secsub.gpg"
+    declare secsub_file="${_gpg_home}/aelesbao.secsub.gpg"
 
     msg "Export secret sub-keys"
     gpg --batch \
@@ -142,15 +162,12 @@ fi
 
 
 declare key_id="$(gpg --keyid-format short -k ${fpr} | awk -F' |/' '$1 == "pub" { print $5 }')"
-if [[ "$(git config get user.signingkey)" != "${key_id}" ]]; then
+if [[ "$(git config get user.signingkey)" != "${key_id}" ]] || [[ "$(git config get gpg.format)" != "openpgp" ]]; then
   info "Configuring git"
-  git config set --global user.signingkey ${key_id}
-
-  git config -f ~/.gitconfig.local commit.gpgsign true
-  git config -f ~/.gitconfig.local tag.gpgSign true
-
-  git config unset -f ~/.gitconfig.local user.signingkey
-  git config unset -f ~/.gitconfig.local gpg.format
+  git config set -f ~/.gitconfig.local user.signingkey ${key_id}
+  git config set -f ~/.gitconfig.local gpg.format openpgp
+  git config set -f ~/.gitconfig.local commit.gpgsign true
+  git config set -f ~/.gitconfig.local tag.gpgSign true
 fi
 
 
