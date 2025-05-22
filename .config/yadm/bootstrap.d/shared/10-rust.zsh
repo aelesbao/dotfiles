@@ -51,8 +51,10 @@ if ! (( $+commands[cargo-binstall] )); then
 fi
 
 if ask "Update installed crates?"; then
+  binstall cargo-about
   binstall cargo-audit
   binstall cargo-dist
+  binstall cargo-deny
   binstall cargo-edit
   binstall cargo-expand
   binstall cargo-generate
@@ -75,5 +77,6 @@ fi
 
 if (( $+commands[sccache] )); then
   msg "Rebooting sccache"
-  sccache --stop-server && sccache --start-server
+  sccache --stop-server
+  sccache --start-server
 fi
