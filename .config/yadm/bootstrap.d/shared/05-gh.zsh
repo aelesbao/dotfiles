@@ -18,7 +18,7 @@ else
   if [[ -z "${GITHUB_USER:-}" ]]; then
     fail "GITHUB_USER is not set"
   fi
-  gh auth login
+  gh auth login -s admin:public_key,admin:ssh_signing_key
 fi
 
 msg "Configuring git credential helper"
