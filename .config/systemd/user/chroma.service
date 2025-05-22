@@ -1,0 +1,16 @@
+[Unit]
+Description=Chroma Service
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=forking
+ExecStartPre=-/usr/bin/docker rm -f chromadb
+ExecStart=/usr/bin/docker run --name chromadb -p 127.0.0.1:10008:8000 -e IS_PERSISTENT=True -e ANONYMIZED_TELEMETRY=False -v /data/aelesbao/docker/chroma:/data --gpus all -d --rm chromadb/chroma:0.6.3
+ExecStop=/usr/bin/docker stop chromadb
+TimeoutSec=1m
+RemainAfterExit=true
+Restart=on-abort
+
+[Install]
+WantedBy=default.target
