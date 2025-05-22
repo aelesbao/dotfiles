@@ -75,8 +75,8 @@ fi
 if ! gpg --with-colons -K ${fpr} 2>/dev/null | \
   awk -F: '$1 == "sec" && $15 == "+"' | \
   grep -q .; then
-  if ask "Would you like to import the secret key?"; then
-    msg "Import master secret key"
+  if ask "Would you like to import the master secret key?"; then
+    msg "Importing master secret key"
     gpg --batch --passphrase-file <(op read "${op_key_password}") \
       --import --allow-secret-key-import \
       <(op read "${op_secret_key}")
@@ -85,8 +85,11 @@ fi
 
 # Check if there are valid subkeys present
 if ! gpg --with-colons -K ${fpr} 2>/dev/null | \
-  awk -F: '$1 == "ssb" && $2 != "r" && $12 == "s" && $15 == "+"' | \
+  awk -F: '$1 == "ssb" && $2 ~ /[uw]/ && $12 == "s" && $15 == "+"' | \
   grep -q .; then
+
+  warn "No valid sub-keys found"
+
   if ask "Would you like to add sub-keys?"; then
     info "Adding sub-keys for ${fpr}"
 
