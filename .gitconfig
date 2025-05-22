@@ -85,7 +85,6 @@
   news    = log -p HEAD@{1}..HEAD@{0}
   publish = !git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
   clean   = clean -i
-  clear   = clean -i
   current-branch = !git symbolic-ref -q --short HEAD || git describe --tags --exact-match
   delete-remote-branch = !git push origin :"$(git rev-parse --abbrev-ref HEAD)"
 
