@@ -11,7 +11,8 @@ if ! is-macos; then
 fi
 
 
-declare name="sirius"
+require gum
+declare name="$(gum input --header "Hostname" --header.foreground 253 --placeholder "Enter hostname for this machine")"
 
 info "Set computer name to ${name}"
 sudo scutil --set ComputerName "${name}"
