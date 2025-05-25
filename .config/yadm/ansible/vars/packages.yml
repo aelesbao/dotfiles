@@ -284,6 +284,7 @@ packages:
 
   - name: ollama
     desc: Create, run, and share large language models (LLMs)
+    tags: [ai]
 
   - name: openjdk
     desc: Development kit for the Java programming language
@@ -808,6 +809,10 @@ packages:
 
   - name: claude-code
     desc: An agentic coding tool that lives in your terminal
+    tags: [ai]
+
+  - name: llm-manager
+    desc: LLM task->model configuration utility
     tags: [ai]
 
 # Extra repositories to add to the system
