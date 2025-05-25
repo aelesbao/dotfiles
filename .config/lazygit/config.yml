@@ -1,23 +1,16 @@
 disableStartupPopups: true
-
 # one of: 'prompt' | 'create' | 'skip' | 'quit'
 notARepository: "quit"
-
 git:
   commit:
     signOff: true
-
   overrideGpg: true
-
   merging:
     args: "--no-ff"
-
   parseEmoji: true
-
   paging:
     colorArg: always
     pager: delta --dark --paging=never
-
 gui:
   showRandomTip: false
   # show commit hashes alongside branch names
@@ -26,31 +19,25 @@ gui:
   nerdFontsVersion: "3"
   # for skipping the confirmation before launching the reword editor
   skipRewordInEditorWarning: true
-
   # https://pkg.go.dev/time#Time.Format
   timeFormat: "2006-01-02 15:04:05"
   shortTimeFormat: "15:04"
-
 refresher:
   refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
   fetchInterval: 600 # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
-
 update:
   method: never
-
 customCommands:
   - key: t
     command: tig {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
     context: commitFiles
     description: tig file (history of commits affecting file)
-    subprocess: true
-
+    output: terminal
   - key: t
     command: tig -- {{.SelectedFile.Name}}
     context: files
     description: tig file (history of commits affecting file)
-    subprocess: true
-
+    output: terminal
   - key: "C"
     context: "files"
     description: "Create new conventional commit"
@@ -113,7 +100,6 @@ customCommands:
         body: "Are you sure you want to commit?"
     command: "git commit --message '{{.Form.Type}}{{if .Form.Scope}}({{.Form.Scope}}){{end}}{{.Form.Breaking}}: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
-
   - key: "<c-r>"
     description: "Create a pull request on GitHub"
     loadingText: "Creating pull request on GitHub"
@@ -131,5 +117,5 @@ customCommands:
         suggestions:
           command: "find .github -type f -name '*.md' -printf '%f'"
     command: "gh pr create --editor --base '{{.Form.Base}}' {{if .Form.TemplateName}}--template '{{.Form.TemplateName}}'{{end}}"
-    subprocess: true
     context: "global"
+    output: terminal
