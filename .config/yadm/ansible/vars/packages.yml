@@ -466,6 +466,8 @@ packages:
 
   - name: yq
     desc: Process YAML, JSON, XML, CSV and properties documents from the CLI
+    archlinux:
+      aur: go-yq
 
   - name: zellij
     desc: Pluggable terminal workspace, with terminal multiplexer as the base feature
