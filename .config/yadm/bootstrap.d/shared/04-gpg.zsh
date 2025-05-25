@@ -31,11 +31,7 @@ fi
 
 if ! grep -q "^pinentry-program" ${_gpg_agent_conf} 2>/dev/null; then
   local program
-  if has-command pinentry-bemenu; then
-    program="pinentry-bemenu"
-  elif has-command pinentry-curses; then
-    program="pinentry-curses"
-  elif has-command pinentry-mac; then
+  if is-macos && has-command pinentry-mac; then
     program="pinentry-mac"
   fi
 
@@ -65,10 +61,8 @@ declare fpr="$(op read --no-newline "${op_item}/info/fingerprint")"
 
 info "Set up key ${user_id} (${fpr})"
 
-if ! gpg --list-options show-only-fpr-mbox -k "${user_id}" 2>/dev/null | grep -q "${fpr}"; then
-  msg "Importing public key"
-  gpg --receive-keys ${fpr}
-fi
+msg "Refreshing public key"
+gpg --receive-keys ${fpr}
 
 # Check if the master secret key is present and usable
 # fields desc: https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=blob_plain;f=doc/DETAILS
@@ -111,20 +105,9 @@ if ! gpg --with-colons -K ${fpr} 2>/dev/null | \
   fi
 fi
 
-
-# Clean up invalid subkeys
-declare -a invalid_subkeys=($(
-  gpg --with-colons -K ${fpr} 2>/dev/null | \
-    awk -F: '$1 == "ssb" && $2 != "r" && $15 == "#" { print $5 }'
-))
-if [[ ${#invalid_subkeys} -ne 0 ]]; then
-  info "Clean up subkeys without secrets from local keyring"
-  for subkey in ${invalid_subkeys}; do
-    msg "Deleting subkey ${subkey}"
-    echo "y" | gpg --quiet --batch --expert --command-fd 0 \
-      --edit-key ${fpr} "key ${subkey}" delkey save 2>&1 >/dev/null
-  done
-fi
+info "Removing unusable signatures from key"
+gpg --quiet --batch --expert --command-fd 0 \
+  --edit-key ${fpr} clean save 2>&1 >/dev/null
 
 
 # Remove master key secret and use sub-keys only
