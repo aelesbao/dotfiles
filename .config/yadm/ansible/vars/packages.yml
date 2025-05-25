@@ -521,14 +521,11 @@ packages:
     desc: Web browser
 
   - name: ttf-hack-nerd
-    desc: Patched font Hack from nerd fonts library
-
   - name: ttf-jetbrains-mono-nerd
-    desc: Patched font JetBrains Mono from nerd fonts library
-
   - name: ttf-roboto-mono-nerd
   - name: ttf-ubuntu-nerd
   - name: ttf-ubuntu-mono-nerd
+  - name: ttf-terminus-nerd
 
   - name: google-cloud-sdk
     desc: Set of tools to manage resources and applications hosted on Google Cloud
@@ -799,12 +796,84 @@ packages:
     desc: XDG Desktop Portal implementation for Hyprland
     tags: [hyprland]
 
+  - name: rofi
+    desc: A window switcher, application launcher and dmenu replacement
+    tags: [hyprland]
+
+  - name: egl-wayland
+    desc: EGL platform for Wayland
+    tags: [hyprland]
+
+  - name: uwsm
+    desc: Universal Wayland Session Manager
+    tags: [hyprland]
+
+  - name: sddm
+    desc: QML based X11 and Wayland display manager
+    tags: [hyprland]
+
+  - name: xdg-desktop-portal-wlr
+    desc: xdg-desktop-portal backend for wlroots
+    tags: [hyprland]
+
+  - name: waybar
+    desc: Highly customizable Wayland bar for Sway and Wlroots based compositors
+    tags: [hyprland]
+
+  - name: cava
+    desc: Console-based Audio Visualizer with support for multiple backends
+    tags: [hyprland]
+
+  - name: hypridle
+    desc: hyprland’s idle daemon
+    tags: [hyprland]
+
+  - name: hyprpaper
+    desc: a blazing fast wayland wallpaper utility with IPC controls
+    tags: [hyprland]
+
+  - name: hyprsunset
+    desc: An application to enable a blue-light filter on Hyprland
+    tags: [hyprland]
+
+  - name: xdg-desktop-portal-hyprland
+    desc: xdg-desktop-portal backend for hyprland
+    tags: [hyprland]
+
+  - name: nwg-panel
+    desc: GTK3-based panel for sway and Hyprland Wayland compositors
+    tags: [hyprland]
+
+  - name: nwg-dock-hyprland
+    desc: GTK3-based dock for Hyprland Wayland compositor
+    tags: [hyprland]
+
+  - name: nvidia-open-dkms
+    desc: NVIDIA proprietary driver with Open Source kernel module
+    tags: [nvidia]
+
+  - name: nvidia-settings
+    desc: Tool for configuring the NVIDIA graphics driver
+    tags: [nvidia]
+
+  - name: nvidia-utils
+    desc: NVIDIA driver utilities
+    tags: [nvidia]
+
   - name: libva-nvidia-driver
     desc: VA-API implementation that uses NVDEC as a backend
     tags: [nvidia]
 
   - name: nvidia-container-toolkit
     desc: NVIDIA container toolkit
+    tags: [nvidia]
+
+  - name: nvtop
+    desc: GPUs process monitoring for AMD, Intel and NVIDIA
+    tags: [nvidia]
+
+  - name: cuda
+    desc: NVIDIA's GPU programming toolkit
     tags: [nvidia]
 
   - name: claude-code
@@ -814,6 +883,15 @@ packages:
   - name: llm-manager
     desc: LLM task->model configuration utility
     tags: [ai]
+
+  - name: newsboat
+    desc: RSS/Atom feed reader for text terminals
+
+  - name: rssguard
+    desc: Simple (yet powerful) Qt feed reader
+
+  - name: wallust
+    desc: Generate colors from an image
 
 # Extra repositories to add to the system
 repositories:
