@@ -108,6 +108,9 @@ packages:
   - name: ffmpeg
     desc: Play, record, convert, and stream audio and video
 
+  - name: fish
+    desc: Smart and user friendly shell intended mostly for interactive use
+
   - name: fzf
     desc: Command-line fuzzy finder written in Go
 
@@ -658,6 +661,10 @@ packages:
     desc: A log viewer for the systemd journal
     tags: [gnome]
 
+  - name: gnome-firmware
+    desc: Manage firmware on devices supported by fwupd
+    tags: [gnome]
+
   - name: gnome-shell-extensions
     desc: Extensions for GNOME shell, including classic mode
     tags: [gnome]
@@ -794,12 +801,16 @@ packages:
     desc: hyprland’s GPU-accelerated screen locking utility
     tags: [hyprland]
 
+  - name: hyprland-protocols
+    desc: Wayland protocol extensions for Hyprland
+    tags: [hyprland]
+
   - name: xdg-desktop-portal-hyprland
     desc: XDG Desktop Portal implementation for Hyprland
     tags: [hyprland]
 
   - name: rofi
-    desc: A window switcher, application launcher and dmenu replacement
+    desc: A window switcher, run dialog and dmenu replacement - fork with wayland support
     tags: [hyprland]
 
   - name: egl-wayland
@@ -826,6 +837,10 @@ packages:
     desc: Console-based Audio Visualizer with support for multiple backends
     tags: [hyprland]
 
+  - name: dunst
+    desc: Customizable and lightweight notification-daemon
+    tags: [hyprland]
+
   - name: hypridle
     desc: hyprland’s idle daemon
     tags: [hyprland]
@@ -838,6 +853,14 @@ packages:
     desc: An application to enable a blue-light filter on Hyprland
     tags: [hyprland]
 
+  - name: hyprpolkitagent
+    desc: Simple polkit authentication agent for Hyprland, written in QT/QML
+    tags: [hyprland]
+
+  - name: hyprpicker
+    desc: A wlroots-compatible Wayland color picker that does not suck.
+    tags: [hyprland]
+
   - name: xdg-desktop-portal-hyprland
     desc: xdg-desktop-portal backend for hyprland
     tags: [hyprland]
@@ -848,6 +871,26 @@ packages:
 
   - name: nwg-dock-hyprland
     desc: GTK3-based dock for Hyprland Wayland compositor
+    tags: [hyprland]
+
+  - name: nwg-clipman
+    desc: nwg-shell clipboard manager, a GTK3-based GUI for cliphist
+    tags: [hyprland]
+
+  - name: cliphist
+    desc: wayland clipboard manager
+    tags: [hyprland]
+
+  - name: wireplumber
+    desc: Session / policy manager implementation for PipeWire
+    tags: [hyprland]
+
+  - name: qt5-wayland
+    desc: Provides APIs for Wayland
+    tags: [hyprland]
+
+  - name: qt6-wayland
+    desc: Provides APIs for Wayland
     tags: [hyprland]
 
   - name: nvidia-open-dkms
@@ -894,6 +937,12 @@ packages:
 
   - name: wallust
     desc: Generate colors from an image
+
+  - name: candy-icons-git
+    desc: Sweet gradient icons
+
+  - name: kora-icon-theme
+    desc: SVG icon theme suitable for every desktop environment (dark and light versions, HiDPI support)
 
 # Extra repositories to add to the system
 repositories:
