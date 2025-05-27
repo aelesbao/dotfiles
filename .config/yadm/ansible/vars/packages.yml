@@ -881,6 +881,9 @@ packages:
     desc: wayland clipboard manager
     tags: [hyprland]
 
+  - name: clipse
+    desc: A configurable TUI clipboard manager for Unix.
+
   - name: wireplumber
     desc: Session / policy manager implementation for PipeWire
     tags: [hyprland]
