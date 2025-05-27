@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Check https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile
+
+export XCURSOR_SIZE=24
+export HYPRCURSOR_SIZE=24
+
+export LIBVA_DRIVER_NAME=nvidia
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# Hardware video acceleration on Nvidia (depends on nvidia-vaapi-driver)
+export NVD_BACKEND=direct
+# In case Electron apps are flickering, try running them in native Wayland instead
+export ELECTRON_OZONE_PLATFORM_HINT=auto
