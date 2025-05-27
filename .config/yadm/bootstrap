@@ -168,11 +168,6 @@ function run-boot() {
 
 cd "$HOME"
 
-# TODO: move all bootstrap scripts to Ansible
-#
-# References:
-# - https://github.com/geerlingguy/mac-dev-playbook
-
 if [[ ! -d "$BOOTSTRAP_DIR" ]]; then
   fail "bootstrap scripts directory $BOOTSTRAP_DIR not found"
 fi
@@ -180,7 +175,7 @@ fi
 declare -a filter=($@)
 
 if [[ ${#filter} == 0 ]]; then
-  info "Updating yadm submodules"
+  title "Updating yadm submodules"
   yadm submodule update --recursive --init
 
   if is-macos; then
@@ -192,6 +187,16 @@ if [[ ${#filter} == 0 ]]; then
 
     title "Running $PRETTY_NAME bootstrap scripts"
     run-boot "$BOOTSTRAP_DIR/linux" "*($ID_LIKE.zsh)*"
+  fi
+else
+  title "Running bootstrap scripts with filter: ${filter[*]}"
+
+  if is-macos; then
+    run-boot "$BOOTSTRAP_DIR/macos" "*(${(j:.zsh|:)filter}.zsh)*"
+  elif is-linux; then
+    run-boot "$BOOTSTRAP_DIR/linux" "*(${(j:.zsh|:)filter}.zsh)*"
+  else
+    fail "Unsupported OS: $(get-distro)"
   fi
 fi
 
