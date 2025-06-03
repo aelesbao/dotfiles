@@ -3,6 +3,9 @@
 # Terminal
 # term = xterm-kitty
 
+# Start with a login shell
+initial-command = zsh --login
+
 # Theme
 theme = tokyonight
 
@@ -54,7 +57,7 @@ macos-icon = custom-style
 macos-icon-screen-color = #540D6E
 
 # Shell
-shell-integration = zsh
+shell-integration = detect
 shell-integration-features = true
 
 # Shaders
