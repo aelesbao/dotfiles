@@ -1,7 +1,7 @@
 # File list.
-[manager]
+[mgr]
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["g", "y"]
 run = "shell 'yadm add $@'"
 desc = "Add all files to yadm."
