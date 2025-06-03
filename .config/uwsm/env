@@ -11,3 +11,5 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export NVD_BACKEND=direct
 # In case Electron apps are flickering, try running them in native Wayland instead
 export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+export DBUS_SESSION_BUS_ADDRESS="$DBUS_SESSION_BUS_ADDRESS"
