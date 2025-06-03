@@ -36,20 +36,20 @@ threshold = 11
 check_contrast = true
 
 [templates]
-cava.template = 'cava'
-cava.target = '~/.config/cava/config'
+cava.template = "cava"
+cava.target = "~/.config/cava/config"
 
-# dunst.template = "dunstrc.monitor"
-# dunst.target = "~/.config/dunst/dunstrc"
+dunst.template = "dunstrc"
+dunst.target = "~/.config/dunst/dunstrc"
 
-hypr.template = 'hyprland.conf'
-hypr.target = '~/.config/hypr/vars/colors.conf'
+hypr.template = "hyprland.conf"
+hypr.target = "~/.config/hypr/vars/colors.conf"
 
-rofi.template = 'rofi.rasi'
-rofi.target = '~/.config/rofi/colors.rasi'
+rofi.template = "rofi.rasi"
+rofi.target = "~/.config/rofi/colors.rasi"
 
-waybar.template = 'waybar.css'
-waybar.target = '~/.config/waybar/colors.css'
+waybar.template = "waybar.css"
+waybar.target = "~/.config/waybar/colors.css"
 
-zathura.template = 'zathurarc'
-zathura.target = '~/.config/zathura/zathurarc'
+zathura.template = "zathurarc"
+zathura.target = "~/.config/zathura/zathurarc"

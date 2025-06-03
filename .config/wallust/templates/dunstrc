@@ -114,7 +114,7 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#BB9AF7"
+    frame_color = "{{color5}}"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -492,28 +492,28 @@
 
 [urgency_low]
     timeout = 6
-    background = "#1A1B26"
-    foreground = "#C0CAF5"
-    frame_color = "#BB9AF7"
-    highlight = "#7AA2F7"
+    background = "{{background}}"
+    foreground = "{{foreground}}"
+    frame_color = "{{color5}}"
+    highlight = "{{color4}}"
     default_icon = dialog-information
 
 [urgency_normal]
     # script = ~/.config/dunst/scripts/playNotificationSound.sh
     timeout = 6
-    background = "#31323C"
-    foreground = "#C0CAF5"
-    frame_color = "#BB9AF7"
-    highlight = "#7AA2F7"
+    background = "{{background | lighten(0.1)}}"
+    foreground = "{{foreground}}"
+    frame_color = "{{color5}}"
+    highlight = "{{color4}}"
     default_icon = dialog-information
 
 [urgency_critical]
     # script = ~/.config/dunst/scripts/playNotificationSound.sh
     timeout = 6
-    background = "#31323C"
-    foreground = "#C0CAF5"
-    frame_color = "#7C3B47"
-    highlight = "#F7768E"
+    background = "{{background | lighten(0.1)}}"
+    foreground = "{{foreground}}"
+    frame_color = "{{color1 | darken(0.5)}}"
+    highlight = "{{color1}}"
     default_icon = dialog-warning
 
 [volume]
