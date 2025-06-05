@@ -23,3 +23,6 @@
 [submodule ".local/share/src/catppuccin/kitty"]
 	path = .local/share/src/catppuccin/kitty
 	url = https://github.com/catppuccin/kitty
+[submodule ".local/src/rofi"]
+	path = .local/src/rofi
+	url = https://github.com/adi1090x/rofi.git

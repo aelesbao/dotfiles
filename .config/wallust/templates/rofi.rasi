@@ -1,19 +1,19 @@
 * {
-  active-background: {{color12}};
+  active-background: {{color0}};
   active-foreground: {{foreground}};
   normal-background: {{background}};
   normal-foreground: {{foreground}};
-  urgent-background: {{color13}};
+  urgent-background: {{color1 | darken(0.8)}};
   urgent-foreground: {{foreground}};
 
-  alternate-active-background: {{color11}};
+  alternate-active-background: {{background | lighten(0.1)}};
   alternate-active-foreground: {{foreground}};
   alternate-normal-background: {{background}};
   alternate-normal-foreground: {{foreground}};
   alternate-urgent-background: {{background}};
   alternate-urgent-foreground: {{foreground}};
 
-  selected-active-background: {{color13}};
+  selected-active-background: {{color0}};
   selected-active-foreground: {{foreground}};
   selected-normal-background: {{color13}};
   selected-normal-foreground: {{foreground}};
@@ -21,9 +21,9 @@
   selected-urgent-foreground: {{foreground}};
 
   background-color: {{background}};
-  background: rgba(0,0,0,0.7);
+  background: rgba({{background | rgb}}, 0.75);
   foreground: {{foreground}};
-  border-color: {{color12}};
+  border-color: rgba({{color13 | rgb}}, 0.75);
 
   color0: {{color0}};
   color1: {{color1}};
