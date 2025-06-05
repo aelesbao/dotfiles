@@ -23,13 +23,13 @@
 
     # The width of the window, excluding the frame.
     # dynamic width from 0 to 300
-    width = (0, 400)
+    width = (200, 500)
     # constant width of 300
     # width = 300
 
     # The height of a single notification, excluding the frame.
     # dynamic height from 0 to 300
-    height = (0, 300)
+    height = (0, 400)
     # constant height of 300
     # height = 300
     # NOTE: Dunst from version 1.11 and older don't support dynamic height
@@ -41,7 +41,7 @@
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
     # offset = 10x50
-    offset = (10, 50)
+    offset = (20, 20)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -55,18 +55,23 @@
     # for example dunstify -h int:value:12
     progress_bar = true
 
+    # Horizontal alignment of the progress bar. The progress bar will always
+    # keep a distance of horizontal_padding from the edge of the notification.
+    # values: [left/center/right], default: center
+    progress_bar_horizontal_alignment = center
+
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 10
+    progress_bar_height = 15
 
     # Set the frame width of the progress bar
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 0
 
     # Set the minimum width for the progress bar
-    progress_bar_min_width = 150
+    progress_bar_min_width = 100
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 360
+    progress_bar_max_width = 500
 
     # Corner radius for the progress bar. 0 disables rounded corners.
     progress_bar_corner_radius = 2
@@ -87,7 +92,7 @@
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = no
+    shrink = yes
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -98,16 +103,24 @@
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 0
+    separator_height = 1
+
+    # Define a color for the separator.
+    # possible values are:
+    #  * auto: dunst tries to find a color fitting to the background;
+    #  * foreground: use the same color as the foreground;
+    #  * frame: use the same color as the frame;
+    #  * anything else will be interpreted as a X color.
+    separator_color = "#414868"
 
     # Padding between text and separator.
     padding = 20
 
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 20
 
     # Padding between text and icon.
-    text_icon_padding = 10
+    text_icon_padding = 20
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -120,15 +133,7 @@
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 5
-
-    # Define a color for the separator.
-    # possible values are:
-    #  * auto: dunst tries to find a color fitting to the background;
-    #  * foreground: use the same color as the foreground;
-    #  * frame: use the same color as the frame;
-    #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    gap_size = 0
 
     # Sort type.
     # possible values are:
@@ -187,7 +192,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%a</b>\n%s\n%b"
+    format = "<b><small>%a</small></b>\n<b>%s</b>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -220,7 +225,7 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
 
@@ -230,7 +235,7 @@
 
     # Set icon theme (only used for recursive icon lookup)
     # You can also set multiple icon themes, with the leftmost one being used first.
-    icon_theme = "kora,Adwaita"
+    icon_theme = "candy-icons,kora"
 
     # Align icons left/right/top/off
     icon_position = left
@@ -238,10 +243,10 @@
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 16
+    min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 64
 
     ### History ###
 
@@ -255,7 +260,8 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/rofi -p dunst:
+    # dmenu = /usr/bin/rofi -config notification -dmenu -p dunst
+    dmenu = /usr/bin/rofi -dmenu -p dunst
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
@@ -287,7 +293,7 @@
     # Useful to enforce the timeout set by dunst configuration. Without this
     # parameter, an application may close the notification sent before the
     # user defined timeout.
-    ignore_dbusclose = false
+    ignore_dbusclose = true
 
     ### Wayland ###
     # These settings are Wayland-specific. They have no effect when using X11
@@ -326,8 +332,8 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
+    mouse_left_click = do_action, open_url, close_current
+    mouse_middle_click = close_current
     mouse_right_click = context
 
 # Experimental features that may or may not work correctly. Do not expect them
@@ -430,11 +436,12 @@
 #        If the notification is already drawn, it won't get undrawn.
 # pushback: same as delay, but when switching into fullscreen, the notification will get
 #           withdrawn from screen again and will get delayed like a new notification
-#[fullscreen_delay_everything]
-#    fullscreen = delay
-#[fullscreen_show_critical]
-#    msg_urgency = critical
-#    fullscreen = show
+[fullscreen_delay_everything]
+   fullscreen = delay
+
+[fullscreen_show_critical]
+   msg_urgency = critical
+   fullscreen = show
 
 #[espeak]
 #    summary = "*"
@@ -492,40 +499,51 @@
 
 [urgency_low]
     timeout = 6
+    background = "#171822"
+    foreground = "#C0CAF5"
+    frame_color = "#BB9AF7"
+    highlight = "#7AA2F7"
+
+[urgency_normal]
+    # script = ~/.config/dunst/scripts/play-notification-sound.sh
+    timeout = 6
     background = "#1A1B26"
     foreground = "#C0CAF5"
     frame_color = "#BB9AF7"
     highlight = "#7AA2F7"
     default_icon = dialog-information
 
-[urgency_normal]
-    # script = ~/.config/dunst/scripts/playNotificationSound.sh
-    timeout = 6
-    background = "#31323C"
-    foreground = "#C0CAF5"
-    frame_color = "#BB9AF7"
-    highlight = "#7AA2F7"
-    default_icon = dialog-information
-
 [urgency_critical]
-    # script = ~/.config/dunst/scripts/playNotificationSound.sh
-    timeout = 6
-    background = "#31323C"
+    # script = ~/.config/dunst/scripts/play-notification-sound.sh
+    timeout = 0
+    background = "#1A1B26"
     foreground = "#C0CAF5"
-    frame_color = "#7C3B47"
+    frame_color = "#C65E72"
     highlight = "#F7768E"
     default_icon = dialog-warning
 
+[notify-send]
+    appname = "notify-send"
+    format = "<b>%s</b>\n%b"
+
+[slack]
+    desktop_entry = "Slack"
+    new_icon = slack
+
 [volume]
-    summary = "Volume"
-    set_stack_tag = "volume"
+    appname = "set-volume"
+    format = "<b>%s</b> %b"
+    history_ignore = true
+    max_icon_size = 32
 
 [volume-muted]
-    summary = "Volume Muted"
-    highlight = "#ee6a70"
+    appname = "set-volume"
+    body = "muted"
+    highlight = "#E0AF68"
 
 [volume-unmuted]
-    summary = "Volume Unmuted"
-    highlight = "#ee6a70"
+    appname = "set-volume"
+    body = "unmuted"
+    highlight = "#9ECE6A"
 
 # vim: ft=cfg
