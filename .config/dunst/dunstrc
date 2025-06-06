@@ -166,7 +166,7 @@
     #        <u>underline</u>
     #
     #        For a complete reference see
-    #        <https://developer.gnome.org/pango/stable/pango-Markup.html>.
+    #        <https://docs.gtk.org/Pango/pango_markup.html>.
     #
     # strip: This setting is provided for compatibility with some broken
     #        clients that send markup even though it's not enabled on the
@@ -260,8 +260,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    # dmenu = /usr/bin/rofi -config notification -dmenu -p dunst
-    dmenu = /usr/bin/rofi -dmenu -p dunst
+    dmenu = $XDG_CONFIG_HOME/dunst/scripts/rofi-dmenu.sh
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
@@ -532,7 +531,7 @@
 
 [volume]
     appname = "set-volume"
-    format = "<b>%s</b> %b"
+    format = "<b>%s</b> %b %p"
     history_ignore = true
     max_icon_size = 32
 
