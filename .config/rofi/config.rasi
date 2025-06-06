@@ -4,49 +4,37 @@
 # | |_) / _ \| |_| | 
 # |  _ < (_) |  _| | 
 # |_| \_\___/|_| |_| 
-#                    
+#
 # ----------------------------------------------------- 
 */
 
 /* ---- Configuration ---- */
 configuration {
-    show:                       "combi";
-    modi:                       [ drun, run ];
-    modes:                      [ combi, window, drun, run, ssh, keys ];
-    combi-modes:                [ drun, window, ssh ];
+  modes:           [ drun, run, window, ssh, keys, calc, emoji, nerdy ];
 
-    font:                       "Hack Nerd Font 11";
+  font:            "Hack Nerd Font 11";
 
-    show-icons:                 true;
-    icon-theme:                 "candy-icons";
+  hover-select:    false;
+  scroll-method:   1;
 
-    display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
-    display-ssh:                " ssh:";
+  terminal:        "ghostty";
 
-    drun-display-format:        "{name}";
-    window-format:              "{w} {t}";
+  // ---- SSH ----
+  parse-known-hosts: true;
+  display-ssh:       "  ";
 
-    hover-select:               false;
-    scroll-method:              1;
+  me-select-entry: "";
+  me-accept-entry: "MousePrimary";
 
-    me-select-entry:            "";
-    me-accept-entry:            "MousePrimary";
+  timeout {
+    action: "kb-cancel";
+    delay:  0;
+  }
 
-    run-command:                "uwsm app -- {cmd}";
-
-    timeout {
-        action: "kb-cancel";
-        delay:  0;
-    }
-
-    filebrowser {
-        directories-first: true;
-        sorting-method:    "name";
-    }
+  filebrowser {
+    directories-first: true;
+    sorting-method:    "name";
+  }
 }
 
-@import "colors.rasi"
 @import "theme.rasi"

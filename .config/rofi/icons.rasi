@@ -1,0 +1,24 @@
+@import "theme.rasi"
+
+configuration {
+  modes:         [ combi ];
+  combi-modes:   [ nerdy, emoji ];
+
+  show-icons:    false;
+
+  display-emoji: "";
+  display-nerdy: "";
+}
+
+// window {
+//   width: 1200px;
+// }
+
+listview {
+  // columns: 3;
+  cycle:   true;
+}
+
+element-box {
+  children: [element-text];
+}

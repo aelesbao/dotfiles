@@ -1,0 +1,18 @@
+@import "theme.rasi"
+
+configuration {
+  modes:               [ combi ];
+  combi-modes:         [ drun, run, window ];
+
+  show-icons:          true;
+  icon-theme:          "candy-icons";
+
+  display-drun:        "";
+  display-run:         "  ";
+  display-window:      "  ";
+
+  drun-display-format: "{name}";
+  window-format:       "{w} {t}";
+
+  run-command:         "uwsm app -- {cmd}";
+}
