@@ -200,25 +200,25 @@ element-text {
 message {
   background-color:            transparent;
   border:                      0px;
-  margin:                      20px 0px 0px 0px;
+  margin:                      0px;
   padding:                     0px;
   spacing:                     0px;
   border-radius:               0px;
 }
 
 textbox {
-  padding:                     15px;
+  padding:                     0px 15px;
   margin:                      0px;
   border-radius:               0px;
-  background-color:            @background;
+  background-color:            transparent;
   text-color:                  @foreground;
   vertical-align:              0.5;
   horizontal-align:            0.0;
 }
 
 error-message {
-  padding:                     15px;
+  padding:                     0px 15px;
   border-radius:               20px;
-  background-color:            @background;
+  background-color:            transparent;
   text-color:                  @color1;
 }

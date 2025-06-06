@@ -24,30 +24,3 @@ listview {
   cycle:    true;
   dynamic:  true;
 }
-
-/*****----- Message -----*****/
-message {
-  background-color:            transparent;
-  border:                      0px;
-  margin:                      20px 0px 0px 0px;
-  padding:                     0px;
-  spacing:                     0px;
-  border-radius:               0px;
-}
-
-textbox {
-  padding:                     15px;
-  margin:                      0px;
-  border-radius:               0px;
-  background-color:            @background;
-  text-color:                  @foreground;
-  vertical-align:              0.5;
-  horizontal-align:            0.0;
-}
-
-error-message {
-  padding:                     15px;
-  border-radius:               20px;
-  background-color:            @background;
-  text-color:                  @color1;
-}
