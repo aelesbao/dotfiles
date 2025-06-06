@@ -1,0 +1,11 @@
+[Unit]
+Description=Updates qalc exchange rates runs daily, and optionally after each boot, or if missed
+
+[Timer]
+OnCalendar=daily
+OnStartupSec=5min
+Persistent=true
+RandomizedDelaySec=10min
+ 
+[Install]
+WantedBy=timers.target

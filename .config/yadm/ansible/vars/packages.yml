@@ -975,6 +975,9 @@ packages:
   - name: zathura-pdf-mupdf
     desc: PDF support for Zathura (MuPDF backend) (Supports PDF, ePub, and OpenXPS)
 
+  - name: libqalculate
+    desc: Multi-purpose desktop calculator
+
 # Extra repositories to add to the system
 repositories:
   debian:

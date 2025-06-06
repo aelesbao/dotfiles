@@ -1,0 +1,9 @@
+[Unit]
+Description=Update exchange rates for qalc
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/qalc --exrates
+
+[Install]
+WantedBy=qalc-update-exchange-rates.timer
