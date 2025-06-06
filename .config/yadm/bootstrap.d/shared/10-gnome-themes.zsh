@@ -10,11 +10,11 @@ fi
 
 
 # Setup directories
-declare src_dir=~/.local/share/src
+declare src_dir=~/.local/src
 declare themes_dir=~/.local/share/themes
 declare icons_dir=~/.local/share/icons
 
-mkdir -p ~/.local/share/{icons,src,themes}
+mkdir -p ${src_dir} ${themes_dir} ${icons_dir}
 
 
 function install-cursor() {

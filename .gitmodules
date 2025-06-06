@@ -8,21 +8,12 @@
 	url = https://github.com/aelesbao/nvim.git
 	branch = main
 	update = rebase
-[submodule ".local/share/src/tokyonight.nvim"]
-	path = .local/share/src/tokyonight.nvim
-	url = https://github.com/folke/tokyonight.nvim
-[submodule ".local/share/src/catppuccin/lazygit"]
-	path = .local/share/src/catppuccin/lazygit
-	url = https://github.com/catppuccin/lazygit
 [submodule ".local/share/src/catppuccin/k9s"]
-	path = .local/share/src/catppuccin/k9s
+	path = .local/src/catppuccin/k9s
 	url = https://github.com/catppuccin/k9s
-[submodule ".local/share/src/catppuccin/bat"]
-	path = .local/share/src/catppuccin/bat
-	url = https://github.com/catppuccin/bat
-[submodule ".local/share/src/catppuccin/kitty"]
-	path = .local/share/src/catppuccin/kitty
-	url = https://github.com/catppuccin/kitty
 [submodule ".local/src/rofi"]
 	path = .local/src/rofi
 	url = https://github.com/adi1090x/rofi.git
+[submodule "folke/tokyonight.nvim"]
+	path = .local/src/tokyonight.nvim
+	url = https://github.com/folke/tokyonight.nvim
