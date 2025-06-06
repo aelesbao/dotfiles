@@ -111,6 +111,12 @@ packages:
   - name: fish
     desc: Smart and user friendly shell intended mostly for interactive use
 
+  - name: firewalld
+    desc: Firewall daemon with D-Bus interface
+
+  - name: flatpak
+    desc: Linux application sandboxing and distribution framework (formerly xdg-app)
+
   - name: fzf
     desc: Command-line fuzzy finder written in Go
 
@@ -821,6 +827,20 @@ packages:
     desc: A window switcher, run dialog and dmenu replacement - fork with wayland support
     tags: [hyprland]
 
+  - name: rofi-calc
+    desc: Do calculations in rofi
+    tags: [hyprland]
+
+  - name: rofi-emoji
+    desc: A Rofi plugin for selecting emojis
+    tags: [hyprland]
+
+  - name: rofi-nerdy
+    desc: Nerd font icon selector plugin for rofi
+    archlinux:
+      aur: rofi-nerdy
+    tags: [hyprland]
+
   - name: egl-wayland
     desc: EGL platform for Wayland
     tags: [hyprland]
@@ -881,6 +901,10 @@ packages:
     desc: xdg-desktop-portal backend for hyprland
     tags: [hyprland]
 
+  - name: xdg-desktop-portal-wlr
+    desc: xdg-desktop-portal backend for wlroots
+    tags: [hyprland]
+
   - name: nwg-dock-hyprland
     desc: GTK3-based dock for Hyprland Wayland compositor
     tags: [hyprland]
@@ -897,13 +921,6 @@ packages:
     desc: wayland clipboard manager
     tags: [hyprland]
 
-  - name: clipse
-    desc: A configurable TUI clipboard manager for Unix.
-
-  - name: wireplumber
-    desc: Session / policy manager implementation for PipeWire
-    tags: [hyprland]
-
   - name: qt5-wayland
     desc: Provides APIs for Wayland
     tags: [hyprland, kde]
@@ -911,6 +928,16 @@ packages:
   - name: qt6-wayland
     desc: Provides APIs for Wayland
     tags: [hyprland, kde]
+
+  - name: eww
+    desc: Standalone widget system made in Rust
+    tags: [hyprland]
+
+  - name: eww-systemd
+    desc: Integration of eww with systemd services manager
+    tags: [hyprland]
+    archlinux:
+      aur: eww-systemd
 
   - name: nvidia-open-dkms
     desc: NVIDIA proprietary driver with Open Source kernel module
@@ -957,11 +984,11 @@ packages:
   - name: wallust
     desc: Generate colors from an image
 
-  - name: candy-icons-git
-    desc: Sweet gradient icons
-
   - name: kora-icon-theme
     desc: SVG icon theme suitable for every desktop environment (dark and light versions, HiDPI support)
+
+  - name: candy-icons-git
+    desc: Sweet gradient icons
 
   - name: typos
     desc: Source code spell checker
@@ -974,6 +1001,54 @@ packages:
 
   - name: zathura-pdf-mupdf
     desc: PDF support for Zathura (MuPDF backend) (Supports PDF, ePub, and OpenXPS)
+
+  - name: dialog
+    desc: A tool to display dialog boxes from shell scripts
+
+  - name: network-manager-applet
+    desc: Applet for managing network connections
+
+  - name: acpi
+    desc: Client for battery, power, and thermal readings
+
+  - name: acpid
+    desc: A daemon for delivering ACPI power management events with netlink support
+
+  - name: acpi_call
+    desc: A linux kernel module that enables calls to ACPI methods through /proc/acpi/call
+
+  - name: ipset
+    desc: Administration tool for IP sets
+
+  - name: os-prober
+    desc: Utility to detect other OSes on a set of drives
+
+  - name: terminus-font
+    desc: Monospace bitmap font (for X11 and console)
+
+  - name: openbsd-netcat
+    desc: TCP/IP swiss army knife. OpenBSD variant.
+
+  - name: pamixer
+    desc: Pulseaudio command-line mixer like amixer
+
+  - name: clipse
+    desc: A configurable TUI clipboard manager for Unix.
+
+  - name: wireplumber
+    desc: Session / policy manager implementation for PipeWire
+
+  - name: fastfetch
+    desc: A feature-rich and performance oriented neofetch like system information tool
+
+  - name: openssh
+    desc: SSH protocol implementation for remote login, command execution and file transfer
+
+  - name: ntfs-3g
+    desc: NTFS filesystem driver and utilities
+
+  - name: wiremix
+    desc: A simple TUI audio mixer for PipeWire
 
   - name: libqalculate
     desc: Multi-purpose desktop calculator
