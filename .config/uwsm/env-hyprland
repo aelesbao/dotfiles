@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Check https://github.com/Vladimir-csp/uwsm?tab=readme-ov-file#4-environments-and-shell-profile
+
+export HYPRCURSOR_SIZE,24
