@@ -23,7 +23,7 @@ yabai -m space 3 --label personal --display "macbook"
 if has_external_display; then
     echo "Configuring spaces with external monitor"
 
-    yabai -m space 4 --label comms
+    yabai -m space 4 --label comms --display "macbook"
     yabai -m space 5 --label development
 
     yabai -m config --space personal layout stack
