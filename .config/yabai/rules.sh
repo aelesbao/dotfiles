@@ -80,7 +80,8 @@ add_app_rule "(Notification Cent.*|Raycast)" sub-layer="above"
 add_app_rule "Calendar" title!="^Calendar$" manage=off sub-layer="above"
 
 # open a few apps in fullscreen by default
-add_app_rule "^(Mimestream|Slack)$" display="macbook" native-fullscreen=on
+add_app_rule "^(Mimestream)$" display="macbook" native-fullscreen=on
+add_app_rule "^(Slack)$" title="^Huddle:.*$" display="macbook" native-fullscreen=off
 
 # set non-resizable windows as floating
 # shellcheck disable=SC2016
