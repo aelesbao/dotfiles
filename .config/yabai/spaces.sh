@@ -4,20 +4,30 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 . "$SCRIPT_DIR/util.sh"
 
-move_to_space() {
+fullscreen_space() {
     local app_name="$1"
-    local space_number="$2"
+    local target_space="$2"
 
-    idx_space="$(get_app_window "$app_name" | jq -er '.space')"
-    if [ -n "$idx_space" ] && [ "$idx_space" != "$space_number" ]; then
-        yabai -m window "$(get_app_window "$app_name" | jq -r '.id')" \
-            --space "$space_number" \
-            --toggle native-fullscreen
+    echo "Configuring $app_name on fullscreen space $target_space"
+
+    window_space="$(get_app_window "$app_name" | jq -er '.space')"
+    if [ -n "$window_space" ] && [ "$window_space" != "$target_space" ]; then
+        window_id="$(get_app_window "$app_name" | jq -r '.id')"
+
+        if ! get_app_window "$app_name" | jq -er '."is-native-fullscreen"' 1>/dev/null; then
+            yabai -m window "$window_id" --toggle native-fullscreen
+        fi
+
+        sleep 1
+
+        new_window_space="$(get_app_window "$app_name" | jq -er '.space')"
+        echo "Current space for $app_name: $new_window_space, moving to space $target_space"
+        yabai -m space "$new_window_space" --move "$target_space"
     fi
 }
 
-move_to_space "Mimestream" 1
-move_to_space "Slack" 1
+fullscreen_space "Mimestream" 1
+fullscreen_space "Slack" 2
 
 # display 1
 yabai -m space 1 --label email --display "macbook"
@@ -29,7 +39,7 @@ if has_external_display; then
     echo "Configuring spaces with external monitor"
 
     yabai -m space 4 --label comms --display "macbook"
-    yabai -m space 5 --label development
+    yabai -m space 5 --label development --display "external"
 
     yabai -m config --space personal layout stack
     yabai -m config --space comms layout stack

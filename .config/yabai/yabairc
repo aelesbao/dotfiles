@@ -79,6 +79,7 @@ fi
 
 yabai -m display 1 --label macbook
 
+has_external_display && yabai -m display 2 --label external
 has_ultrawide_display && yabai -m display "$(get_ultrawide_display)" --label ultrawide
 
 . "$SCRIPT_DIR/spaces.sh"

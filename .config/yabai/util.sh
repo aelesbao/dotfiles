@@ -1,6 +1,6 @@
 query_displays() {
     display_query="$1"
-    yabai -m query --displays | jq -re "$display_query"
+    yabai -m query --displays | jq -re "$display_query" 1> /dev/null
 }
 
 has_external_display() {
