@@ -2,7 +2,7 @@
 
 configuration {
   modes:               [ combi ];
-  combi-modes:         [ drun, run, window ];
+  combi-modes:         [ drun ];
 
   show-icons:          true;
   icon-theme:          "candy-icons";
@@ -13,6 +13,4 @@ configuration {
 
   drun-display-format: "{name}";
   window-format:       "{w} {t}";
-
-  run-command:         "uwsm app -- {cmd}";
 }

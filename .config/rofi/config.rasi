@@ -26,6 +26,8 @@ configuration {
   me-select-entry: "";
   me-accept-entry: "MousePrimary";
 
+  run-command:     "uwsm app -- {cmd}";
+
   timeout {
     action: "kb-cancel";
     delay:  0;
