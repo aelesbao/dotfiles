@@ -8,12 +8,12 @@
 	url = https://github.com/aelesbao/nvim.git
 	branch = main
 	update = rebase
-[submodule ".local/share/src/catppuccin/k9s"]
-	path = .local/src/catppuccin/k9s
-	url = https://github.com/catppuccin/k9s
-[submodule ".local/src/rofi"]
-	path = .local/src/rofi
-	url = https://github.com/adi1090x/rofi.git
 [submodule "folke/tokyonight.nvim"]
 	path = .local/src/tokyonight.nvim
 	url = https://github.com/folke/tokyonight.nvim
+[submodule "catppuccin/k9s"]
+	path = .local/src/catppuccin/k9s
+	url = https://github.com/catppuccin/k9s
+[submodule "adi1090x/rofi"]
+	path = .local/src/adi1090x/rofi
+	url = https://github.com/adi1090x/rofi
