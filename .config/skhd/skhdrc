@@ -108,6 +108,10 @@ hyper - n : yabai -m space --create && \
             yabai -m window --space "${index}" && \
             yabai -m space --focus "${index}"
 
+# -- Apps --
+cmd + ctrl - s : id="$(yabai -m query --windows | jq -er '.[] | select(.app == "Spotify") | .id')" && \
+                 yabai -m window --focus "${id}"
+
 # -- Yabai Service Control --
 hyper - s : yabai --start-service && osascript -e 'display notification "Service started" with title "Yabai"'
 hyper - r : yabai --restart-service && osascript -e 'display notification "Service restarted" with title "Yabai"'
