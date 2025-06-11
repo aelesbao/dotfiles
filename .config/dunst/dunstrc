@@ -111,7 +111,10 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "#414868"
+    separator_color = "#24283B"
+
+    # Define a color for the highlight (used in the progressbar).
+    highlight = "#7AA2F7"
 
     # Padding between text and separator.
     padding = 20
@@ -498,27 +501,28 @@
 
 [urgency_low]
     timeout = 6
-    background = "#171822"
-    foreground = "#C0CAF5"
-    frame_color = "#BB9AF7"
+    background = "#1A1B26ee"
+    foreground = "#A9B1D6"
+    frame_color = "#92B2F7"
     highlight = "#7AA2F7"
+    default_icon = dialog-information
 
 [urgency_normal]
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 6
-    background = "#1A1B26"
-    foreground = "#C0CAF5"
-    frame_color = "#BB9AF7"
-    highlight = "#7AA2F7"
-    default_icon = dialog-information
+    background = "#1A1B2680"
+    foreground = "#A9B1D6"
+    frame_color = "#C7A9FF"
+    highlight = "#2AC3DE"
+    default_icon = notification
 
 [urgency_critical]
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 0
-    background = "#1A1B26"
-    foreground = "#C0CAF5"
-    frame_color = "#C65E72"
-    highlight = "#F7768E"
+    background = "#1A1B26ee"
+    foreground = "#A9B1D6"
+    frame_color = "#F7768E"
+    highlight = "#FF9E64"
     default_icon = dialog-warning
 
 [notify-send]
@@ -538,11 +542,11 @@
 [volume-muted]
     appname = "set-volume"
     body = "muted"
-    highlight = "#E0AF68"
+    highlight = "#FF9E64"
 
 [volume-unmuted]
     appname = "set-volume"
     body = "unmuted"
-    highlight = "#9ECE6A"
+    highlight = "#73DACA"
 
 # vim: ft=cfg

@@ -113,6 +113,9 @@
     #  * anything else will be interpreted as a X color.
     separator_color = "{{color0}}"
 
+    # Define a color for the highlight (used in the progressbar).
+    highlight = "{{color4}}"
+
     # Padding between text and separator.
     padding = 20
 
@@ -498,27 +501,28 @@
 
 [urgency_low]
     timeout = 6
-    background = "{{background | darken(0.1)}}"
+    background = "{{background}}ee"
     foreground = "{{foreground}}"
-    frame_color = "{{color5}}"
+    frame_color = "{{color12}}"
     highlight = "{{color4}}"
+    default_icon = dialog-information
 
 [urgency_normal]
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 6
-    background = "{{background}}"
+    background = "{{background}}80"
     foreground = "{{foreground}}"
-    frame_color = "{{color5}}"
-    highlight = "{{color4}}"
-    default_icon = dialog-information
+    frame_color = "{{color13}}"
+    highlight = "{{color6}}"
+    default_icon = notification
 
 [urgency_critical]
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 0
-    background = "{{background}}"
+    background = "{{background}}ee"
     foreground = "{{foreground}}"
-    frame_color = "{{color1 | darken(0.2)}}"
-    highlight = "{{color1}}"
+    frame_color = "{{color1}}"
+    highlight = "{{color9}}"
     default_icon = dialog-warning
 
 [notify-send]
@@ -538,7 +542,7 @@
 [volume-muted]
     appname = "set-volume"
     body = "muted"
-    highlight = "{{color3}}"
+    highlight = "{{color9}}"
 
 [volume-unmuted]
     appname = "set-volume"
