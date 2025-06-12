@@ -1,0 +1,32 @@
+#!/bin/zsh
+
+set -euo pipefail
+
+# NOTE: this scripts works in single monitors only,
+# or when you set the same wallpaper for all monitors.
+
+# Get a list of all wallpapers
+#
+# List all the pre-loaded wallpapers:
+wallpapers=( $(hyprctl hyprpaper listloaded | sort) )
+#
+# To use a folder as the source:
+# wallpapers_dir="${XDG_DATA_HOME:-$HOME/.local/share}/wallpapers"
+# wallpapers=( $(fd --type f . "$wallpapers_dir") )
+
+# Gets the active wallpaper
+current="$(hyprctl hyprpaper listactive | grep -oP '(?<= = ).*' | uniq)"
+
+# Gets the wallpaper index, increment it, and check for array overflow
+(( current_idx = ${wallpapers[(ie)$current]}, next_idx = current_idx + 1 ))
+[[ $next_idx -gt ${#wallpapers[@]} ]] && (( next_idx = 1 ))
+
+# Apply the the next wallpaper in the list
+wallpaper="${wallpapers[$next_idx]}"
+
+# Use this instead in case you're loading directly from a folder:
+# hyprctl hyprpaper reload ,"$wallpaper"
+
+# Updates ~/.config/hypr/hyprpaper.conf with currently active wallpaper
+hyprctl hyprpaper wallpaper ,"$wallpaper"
+sed -i "s:wallpaper = .*:wallpaper = , ${wallpaper}:g" ~/.config/hypr/hyprpaper.conf

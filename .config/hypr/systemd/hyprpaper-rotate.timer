@@ -1,0 +1,11 @@
+[Unit]
+Description=Rotates hyprpaper wallpaper every hour
+
+[Timer]
+OnCalendar=hourly
+OnStartupSec=5min
+Persistent=true
+RandomizedDelaySec=10min
+ 
+[Install]
+WantedBy=timers.target
