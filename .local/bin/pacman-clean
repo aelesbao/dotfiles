@@ -8,8 +8,8 @@
 
 # Enter groups and packages here which you know you wish to keep. They will
 # not be included in the list of unrequired packages later.
-ignoregrp="base base-devel"
+ignoregrp=""
 ignorepkg=""
 
 #comm -23 <(pacman -Qqt | sort) <(echo $ignorepkg | tr ' ' '\n' | cat <(pacman -Sqg $ignoregrp) - | sort -u)
-expac -HM "%-20n\t%10d" $( comm -23 <(pacman -Qqt|sort) <(pacman -Qqg base base-devel|sort)  )
+expac -HM "%-20n\t%10d" $(comm -23 <(pacman -Qqt | sort) <(pacman -Qqg $ignoregrp | sort))
