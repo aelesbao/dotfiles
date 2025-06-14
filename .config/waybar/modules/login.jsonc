@@ -1,0 +1,43 @@
+// Login Menu
+{
+    "group/login-menu": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "not-first",
+            "transition-duration": 100,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "user",
+            "custom/lock",
+            "custom/logout"
+        ]
+    },
+    "user": {
+        "format": "",
+        "height": 16,
+        "width": 16,
+        "icon": false
+    },
+    "custom/logout": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Logout Menu",
+        "on-click": "wlogout -b 3"
+    },
+    "custom/lock": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Lock Screen",
+        "on-click": "hyprlock"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": true,
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰛊"
+        },
+        "on-click-right": "loginctl lock-session"
+    }
+}

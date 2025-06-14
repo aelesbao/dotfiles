@@ -1,0 +1,48 @@
+// Hyprland modules
+// https://github.com/Alexays/Waybar/wiki/Module:-Hyprland
+{
+    "hyprland/workspaces": {
+        "format": "{icon} {name}",
+        "show-special": true,
+        "all-outputs": false,
+        "disable-scroll": true,
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
+        "format-icons": {
+            "planning": "󰻧",
+            "browsing": "",
+            "work": "",
+            "development": "",
+            "comms": "󰭹",
+            "media": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "icon": true,
+        "icon-size": 16,
+        "max-length": 100,
+        "separate-outputs": true
+    },
+    "hyprland/submap": {
+        "format": " {}",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch submap reset"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 16,
+        "tooltip-format": "{name} - {title}",
+        "markup": true,
+        "on-click": "activate",
+        // "on-click-middle": "close",
+        "app_ids-mapping": {},
+        "rewrite": {
+            "Brave Browser": "Brave"
+        }
+    }
+}

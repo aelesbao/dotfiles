@@ -1,0 +1,81 @@
+{
+    "cava": {
+        "cava_config": "$XDG_CONFIG_HOME/cava/config",
+        "actions": {
+            "on-click-right": "mode"
+        }
+    },
+    "mpris": {
+        "interval": 1,
+        "title-len": 25,
+        // "dynamic-len": 30,
+        "format": "{player_icon} {status_icon} {dynamic}",
+        "format-paused": "{player_icon} {status_icon} <i>{dynamic}</i>",
+        "format-stopped": "{player_icon} {status_icon} <i>Stopped</i>",
+        "dynamic-order": [
+            "artist",
+            "title",
+            "position",
+            "length"
+        ],
+        "dynamic-importance-order": [
+            "title",
+            "artist",
+            "position",
+            "length"
+        ],
+        "status-icons": {
+            "paused": "",
+            "playing": "",
+            "stopped": ""
+        },
+        "player-icons": {
+            "default": "",
+            "brave": "",
+            "spotify": "",
+            "vlc": ""
+        },
+        "tooltip-format": "{player}: {dynamic} ({status})",
+        "tooltip-format-disconnected": "MPRIS disconnected"
+    },
+    "group/audio": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 100,
+            "children-class": "not-first",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                " ",
+                " "
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    }
+}

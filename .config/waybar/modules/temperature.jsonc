@@ -1,0 +1,68 @@
+{
+    "group/temperature": {
+        "orientation": "inherit",
+        "drawer": {
+            "children-class": "not-first",
+            "transition-duration": 100,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "temperature#cpu",
+            "temperature#gpu",
+            "temperature#nvme",
+            "temperature#motherboard"
+        ]
+    },
+    // CPU temperature
+    "temperature#cpu": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-critical": "󱩅 {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "CPU {temperatureC}°C"
+    },
+    // Motherboard temperature
+    "temperature#motherboard": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp3_input",
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C",
+        "format-critical": " 󱩅 {temperatureC}°C 󱩅",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "Motherboard {temperatureC}°C"
+    },
+    // NVMe temperature
+    "temperature#nvme": {
+        "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+        "critical-threshold": 80,
+        "format": "󰋊 {temperatureC}°C",
+        "format-critical": "󰋊 󱩅 {temperatureC}°C 󱩅",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "NVMe {temperatureC}°C"
+    },
+    // GPU temperature
+    "temperature#gpu": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "󰍹 {temperatureC}°C",
+        "format-critical": "󰋊 󱩅 {temperatureC}°C 󱩅",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "GPU {temperatureC}°C"
+    }
+}

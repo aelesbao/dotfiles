@@ -1,0 +1,34 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 32, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+    "include": [
+        "$XDG_CONFIG_HOME/waybar/modules/*.jsonc"
+    ],
+    // Choose the order of the modules
+    "modules-left": [
+        "group/quicklinks",
+        "hyprland/workspaces",
+        "wlr/taskbar",
+        "hyprland/submap"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "privacy",
+        "group/tray",
+        "mpris",
+        "cpu",
+        "memory",
+        "disk",
+        "group/temperature",
+        "network",
+        "bluetooth",
+        "group/audio",
+        "clock",
+        "idle_inhibitor",
+        "group/login-menu"
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "group/quicklinks": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 100,
+            "children-class": "not-first"
+        },
+        "modules": [
+            "custom/appmenu",
+            "custom/filemanager",
+            "custom/terminal"
+        ]
+    },
+    "custom/distro": {
+        "format": "{icon} {name}",
+        "format-icons": [
+            "", // Arch Linux
+            "", // Ubuntu
+            "" // EndeavourOS
+        ],
+        "tooltip": true,
+        "tooltip-format": "{name} {version}"
+    },
+    "custom/appmenu": {
+        "format": " apps",
+        "tooltip-format": "Left: Open the application launcher",
+        "on-click": "rofi -show combi -theme launcher -replace",
+        "tooltip": false
+    },
+    "custom/filemanager": {
+        "format": " ",
+        "tooltip-format": "Open File Manager",
+        "on-click": "uwsm app -- nautilus"
+    },
+    "custom/terminal": {
+        "format": " ",
+        "tooltip-format": "Open Terminal",
+        "on-click": "uwsm app -- ghostty"
+    }
+}

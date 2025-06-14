@@ -1,0 +1,24 @@
+{
+    "group/tray": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 100,
+            "children-class": "not-first",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tray-icon",
+            "tray"
+        ]
+    },
+    "custom/tray-icon": {
+        "format": "󰅁",
+        "tooltip": true,
+        "tooltip-format": "System Tray"
+    },
+    "tray": {
+        "spacing": 4,
+        "icon-size": 16,
+        "show-passive-items": true
+    }
+}

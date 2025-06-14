@@ -1,0 +1,185 @@
+/* Check https://github.com/Alexays/Waybar/wiki/Styling */
+
+@import "colors.css";
+
+* {
+  transition: none;
+  box-shadow: none;
+}
+
+#waybar {
+  background: alpha(@background, 0.9);
+  color: @foreground;
+  font-family: "Hack Nerd Font";
+  font-size: 1em;
+  font-weight: 300;
+  padding: 0 8px;
+}
+
+#waybar * {
+  border-radius: 10px;
+}
+
+tooltip {
+  background: alpha(@background, 0.9);
+  border: 1px solid alpha(@color5, 0.7);
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @foreground;
+  font-family: "Hack Nerd Font";
+  font-size: 1em;
+  font-weight: 300;
+  padding: 8px;
+}
+
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  margin: 4px;
+  padding: 0 8px;
+}
+
+#workspaces button.visible {
+  color: @color8;
+}
+
+#workspaces button.active {
+  background-color: @color0;
+  color: @color15;
+}
+
+#workspaces button.urgent {
+  color: @color1;
+}
+
+#window {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+#tray {
+  background-color: @color0;
+  margin: 4px;
+}
+
+#tray * {
+  padding: 0 4px;
+  min-width: 20px;
+}
+
+#mode,
+#battery,
+#bluetooth,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#backlight,
+#clock,
+#temperature,
+#language,
+#login-menu {
+  background-color: @color0;
+  margin: 4px;
+  padding: 0 8px;
+  min-width: 20px;
+}
+
+#pulseaudio.muted {
+  color: @color3;
+}
+
+#pulseaudio.bluetooth {
+  color: @color10;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 10px;
+    background-color: @color0;
+}
+
+#pulseaudio-slider highlight {
+    min-width: 0px;
+    border-radius: 10px;
+    background-color: @color4;
+}
+
+#clock {
+  margin-left: 0px;
+  margin-right: 4px;
+  background-color: transparent;
+}
+
+#temperature.critical {
+  color: @color1;
+}
+
+#login-menu {
+  margin-right: 8px;
+}
+
+#login-menu label {
+  padding: 0 4px;
+  min-width: 20px;
+}
+
+#login-menu .not-first label {
+  margin: 0 4px;
+}
+
+#login-menu #custom-lock {
+  color: @color2;
+}
+
+#login-menu #custom-logout {
+  color: @color1;
+}
+
+#submap {
+  background-color: @color3;
+  padding: 0 8px;
+}
+
+#submap.resize {
+  color: @color0;
+}
+
+/* wlr/taskbar */
+/* #taskbar */
+/* #taskbar button */
+/* #taskbar button.active */
+/* #taskbar button.minimized */
+/* #taskbar button.maximized */
+/* #taskbar button.fullscreen */
+/* #taskbar.empty */
+
+/* privacy */
+/* #privacy */
+/* #privacy-item */
+/* #privacy-item.screenshare */
+/* #privacy-item.audio-in */
+/* #privacy-item.audio-out */
+
+/* network */
+/* #network */
+/* #network.disabled */
+/* #network.disconnected */
+/* #network.linked */
+/* #network.ethernet */
+/* #network.wifi */

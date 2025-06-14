@@ -1,0 +1,92 @@
+// Hardware
+{
+    "group/sensors": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 100,
+            "children-class": "not-first",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/system",
+            "cpu",
+            "memory",
+            "disk"
+        ]
+    },
+    // System
+    "custom/system": {
+        "format": "󰓅",
+        "tooltip": false,
+        "on-click": "missioncenter"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}% <small>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}</small>",
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ],
+        "tooltip": true,
+        "on-click": "missioncenter"
+    },
+    "memory": {
+        "interval": 1,
+        "format": " {percentage}%",
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f}GiB used of {total:0.1f}GiB ({percentage}%)",
+        "states": {
+            "warning": 50,
+            "critical": 85
+        },
+        "on-click": "missioncenter"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}% ",
+        "path": "/",
+        "on-click": "baobab",
+        "tooltip": true
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "battery": {
+        "states": {
+            "good": 90,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "🗲 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    }
+}

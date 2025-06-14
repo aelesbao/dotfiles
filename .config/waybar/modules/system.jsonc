@@ -1,0 +1,70 @@
+{
+    "systemd-failed-units": {
+        "format": " {nr_failed} failed ( {nr_failed_system} /  {nr_failed_user})",
+        "format-ok": "",
+        "hide-on-ok": true,
+        "system": true,
+        "user": true
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": false,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "clock": {
+        "format": " {:%a, %B %d, %Y  %R}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>\n\n{tz_list}",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "timezones": [
+            "Etc/UTC",
+            "Europe/Athenas",
+            "America/New_York",
+            "America/Sao_Paulo",
+            "America/Los_Angeles",
+            "Asia/Tokyo"
+        ],
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "network": {
+        "format": "󰛳  {ifname}",
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "  󰜷 {bandwidthUpBits} 󰜮 {bandwidthDownBits}",
+        "format-disconnected": "󰲜 Offline",
+        "tooltip-format": "󰛳  {ifname} ({ipaddr}/{cidr}) via {gwaddri} {bandwidthUpBits}B / {bandwidthDownBits}B",
+        "tooltip-format-wifi": "  ({ipaddr}/{cidr}) {bandwidthUpBits}B / {bandwidthDownBits}B",
+        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+        "tooltip-format-disconnected": "󰲜  Disconnected",
+        "max-length": 50,
+        "on-click": "nm-applet"
+    },
+    "bluetooth": {
+        "format-on": "󰂯 {status}",
+        "format-off": "󰂲 {status}",
+        "format-disabled": "",
+        "format-no-controller": "",
+        "interval": 30,
+        "on-click": "blueman-manager"
+    }
+}
