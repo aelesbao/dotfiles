@@ -3,7 +3,7 @@ Description=Rotates hyprpaper wallpaper
 
 [Service]
 Type=oneshot
-ExecStart=h/.config/hypr/scripts/hyprpaper-rotate
+ExecStart=%h/.config/hypr/scripts/hyprpaper-rotate
 
 [Install]
 WantedBy=hyprpaper-rotate.timer
