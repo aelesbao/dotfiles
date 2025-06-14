@@ -11,8 +11,8 @@ fi
 
 # Setup directories
 declare src_dir=~/.local/src
-declare themes_dir=~/.local/share/themes
-declare icons_dir=~/.local/share/icons
+declare themes_dir=${XDG_DATA_HOME:-~/.local/share}/themes
+declare icons_dir=${XDG_DATA_HOME:-~/.local/share}/icons
 
 mkdir -p ${src_dir} ${themes_dir} ${icons_dir}
 
@@ -121,9 +121,10 @@ function install-fausto-korpsvart-theme() {
     ${repo_dir}/themes/install.sh \
       -n ${theme} \
       -t ${variant} \
+      -d ${themes_dir} \
       -c dark \
       --tweaks black outline \
-      -d ${themes_dir}
+      --libadwaita
   )
 
   echo "  done"
@@ -190,8 +191,6 @@ echo "Installing themes"
 install-eliverlara-theme Andromeda-gtk main Andromeda
 install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight
 install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight purple
-install-fausto-korpsvart-theme Catppuccin-GTK-Theme main Catppuccin
-install-fausto-korpsvart-theme Catppuccin-GTK-Theme main Catppuccin purple
 install-flat-remix
 
 
@@ -200,10 +199,10 @@ echo "Installing cursors"
 declare -a variants
 
 # Catppuccin
-variants=( mocha-dark )
-for variant in ${variants[@]}; do
-  install-cursor catppuccin/cursors "catppuccin-${variant}-cursors" zip
-done
+# variants=( mocha-dark )
+# for variant in ${variants[@]}; do
+#   install-cursor catppuccin/cursors "catppuccin-${variant}-cursors" zip
+# done
 
 # Bibata
 variants=(
