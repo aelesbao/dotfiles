@@ -530,12 +530,17 @@ packages:
   - name: firefox
     desc: Web browser
 
+  - name: ttf-font-awesome
   - name: ttf-hack-nerd
   - name: ttf-jetbrains-mono-nerd
+  - name: ttf-nerd-fonts-symbols
   - name: ttf-roboto-mono-nerd
-  - name: ttf-ubuntu-nerd
-  - name: ttf-ubuntu-mono-nerd
+  - name: ttf-rubik
+    archlinux:
+      aur: ttf-rubik-vf
   - name: ttf-terminus-nerd
+  - name: ttf-ubuntu-mono-nerd
+  - name: ttf-ubuntu-nerd
 
   - name: google-cloud-sdk
     desc: Set of tools to manage resources and applications hosted on Google Cloud
@@ -636,7 +641,7 @@ packages:
     desc: Multiplayer code editor
 
   - name: baobab
-    desc: A graphical directory tree analyzer
+    desc: A graphical directory tree analyzer (Disk Usage Analyzer)
     tags: [gnome]
 
   - name: blueman
@@ -681,10 +686,6 @@ packages:
 
   - name: gnome-shell-extensions
     desc: Extensions for GNOME shell, including classic mode
-    tags: [gnome]
-
-  - name: gnome-shell-extension-vitals
-    desc: GNOME Shell extension to display computer's temperature, voltage, fan speed, memory usage, processor load, system resources, network speed and storage stats
     tags: [gnome]
 
   - name: gnome-shell-extension-arc-menu
