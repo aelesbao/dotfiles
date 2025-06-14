@@ -23,7 +23,7 @@
 
     # The width of the window, excluding the frame.
     # dynamic width from 0 to 300
-    width = (200, 500)
+    width = (300, 500)
     # constant width of 300
     # width = 300
 
@@ -111,10 +111,10 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "{{color0}}"
+    separator_color = "{{ color0 }}"
 
     # Define a color for the highlight (used in the progressbar).
-    highlight = "{{color4}}"
+    highlight = "{{ color4 }}"
 
     # Padding between text and separator.
     padding = 20
@@ -130,7 +130,7 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "{{color5}}"
+    frame_color = "{{ color5 }}"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -501,28 +501,28 @@
 
 [urgency_low]
     timeout = 6
-    background = "{{background}}ee"
-    foreground = "{{foreground}}"
-    frame_color = "{{color12}}"
-    highlight = "{{color4}}"
+    background = "{{ background}}{{90 | alpha_hexa }}"
+    foreground = "{{ foreground }}"
+    frame_color = "{{ color12 }}"
+    highlight = "{{ color4 }}"
     default_icon = dialog-information
 
 [urgency_normal]
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 6
-    background = "{{background}}80"
-    foreground = "{{foreground}}"
-    frame_color = "{{color13}}"
-    highlight = "{{color6}}"
+    background = "{{ background }}{{90 | alpha_hexa }}"
+    foreground = "{{ foreground }}"
+    frame_color = "{{ color13 }}"
+    highlight = "{{ color6 }}"
     default_icon = notification
 
 [urgency_critical]
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 0
-    background = "{{background}}ee"
-    foreground = "{{foreground}}"
-    frame_color = "{{color1}}"
-    highlight = "{{color9}}"
+    background = "{{ background }}{{90 | alpha_hexa }}"
+    foreground = "{{ foreground }}"
+    frame_color = "{{ color1 }}"
+    highlight = "{{ color9 }}"
     default_icon = dialog-warning
 
 [notify-send]
@@ -542,11 +542,11 @@
 [volume-muted]
     appname = "set-volume"
     body = "muted"
-    highlight = "{{color9}}"
+    highlight = "{{ color9 }}"
 
 [volume-unmuted]
     appname = "set-volume"
     body = "unmuted"
-    highlight = "{{color2}}"
+    highlight = "{{ color2 }}"
 
 # vim: ft=cfg

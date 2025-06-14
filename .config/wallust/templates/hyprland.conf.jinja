@@ -1,4 +1,6 @@
-{%- for c in colors -%}
+$cursor = rgb({{ cursor | rgb }})
+
+{% for c in colors %}
 {%- set c_rgb = c | rgb | strip -%}
 {%- set name = "color" + (loop.index0 | string) -%}
 {% if loop.index == loop.length -1 %}
@@ -6,8 +8,10 @@
 {%- elif loop.index == loop.length %}
 {%- set name = "foreground" -%}
 {%- endif -%}
+# {{ name }}: {{ c }}
 ${{ name }} = rgb({{ c_rgb }})
 {%- for alpha in range(1, 10) %}
-${{name}}_alpha{{ alpha }} = rgba({{ c_rgb }}, {{ alpha / 10 }})
+${{ name }}_alpha{{ alpha }} = rgba({{ c_rgb }}, {{ alpha / 10 }})
 {%- endfor %}
+
 {% endfor %}

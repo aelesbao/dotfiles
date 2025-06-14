@@ -1,0 +1,10 @@
+{% for c in colors %}
+{%- set name = "color" + (loop.index0 | string) -%}
+{% if loop.index == loop.length -1 %}
+{%- set name = "background" -%}
+{%- elif loop.index == loop.length %}
+{%- set name = "foreground" -%}
+{%- endif -%}
+@define-color {{ name }} {{ c }};
+{% endfor -%}
+@define-color cursor {{ cursor }};
