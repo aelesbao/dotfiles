@@ -100,9 +100,10 @@ customCommands:
         body: "Are you sure you want to commit?"
     command: "git commit --message '{{.Form.Type}}{{if .Form.Scope}}({{.Form.Scope}}){{end}}{{.Form.Breaking}}: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
+    output: terminal
   - key: "<c-r>"
+    context: "global"
     description: "Create a pull request on GitHub"
-    loadingText: "Creating pull request on GitHub"
     prompts:
       - type: "input"
         title: "Base branch"
@@ -117,5 +118,5 @@ customCommands:
         suggestions:
           command: "find .github -type f -name '*.md' -printf '%f'"
     command: "gh pr create --editor --base '{{.Form.Base}}' {{if .Form.TemplateName}}--template '{{.Form.TemplateName}}'{{end}}"
-    context: "global"
+    loadingText: "Creating pull request on GitHub"
     output: terminal
