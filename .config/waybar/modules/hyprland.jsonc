@@ -37,7 +37,7 @@
         "markup": true,
         "icon-size": 16,
         "format": "{icon}",
-        "tooltip-format": "{name} - {title}",
+        "tooltip-format": "{title}",
         "on-click": "activate",
         // "on-click-middle": "close",
         "app_ids-mapping": {},

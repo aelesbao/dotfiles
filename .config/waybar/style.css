@@ -8,7 +8,7 @@
 }
 
 #waybar {
-  background: alpha(@background, 0.9);
+  background: alpha(@background, 0.7);
   color: @foreground;
   font-family: "Hack Nerd Font";
   font-size: 1em;
@@ -34,44 +34,7 @@ tooltip label {
   padding: 8px;
 }
 
-#workspaces {
-  margin: 0 4px;
-}
-
-#workspaces button {
-  margin: 4px;
-  padding: 0 8px;
-}
-
-#workspaces button.visible {
-  color: @color8;
-}
-
-#workspaces button.active {
-  background-color: @color0;
-  color: @color15;
-}
-
-#workspaces button.urgent {
-  color: @color1;
-}
-
-#window {
-  font-size: 0.9em;
-  font-weight: 400;
-}
-
-#tray {
-  background-color: @color0;
-  margin: 4px;
-}
-
-#tray * {
-  padding: 0 4px;
-  min-width: 20px;
-}
-
-#custom-apps,
+#quicklinks,
 #mode,
 #battery,
 #bluetooth,
@@ -93,34 +56,85 @@ tooltip label {
   padding: 0 8px;
 }
 
-#pulseaudio.muted {
+#quicklinks label {
+  padding: 0 4px;
+  min-width: 20px;
+}
+
+#quicklinks .not-first label {
+  margin: 0 4px;
+}
+
+#quicklinks #custom-distro {
+  color: @color5;
+  margin-right: 4px;
+}
+
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  margin: 0 4px;
+  padding: 0 8px;
+}
+
+#workspaces button.visible {
+  color: @color8;
+}
+
+#workspaces button.active {
+  background-color: @color0;
+  color: @color15;
+}
+
+#workspaces button.urgent {
   color: @color3;
+}
+
+#window {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+#tray {
+  background-color: @color0;
+  margin: 4px;
+}
+
+#tray * {
+  padding: 0 4px;
+  min-width: 20px;
 }
 
 #pulseaudio.bluetooth {
   color: @color12;
 }
 
+#pulseaudio.muted {
+  color: @color3;
+}
+
 #pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 
 #pulseaudio-slider trough {
-    min-height: 10px;
-    min-width: 80px;
-    border-radius: 10px;
-    background-color: @color0;
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 10px;
+  background-color: @color0;
 }
 
 #pulseaudio-slider highlight {
-    min-width: 0px;
-    border-radius: 10px;
-    background-color: @color4;
+  min-width: 0px;
+  border-radius: 10px;
+  background-color: @color5;
 }
 
 #clock {
@@ -147,11 +161,11 @@ tooltip label {
 }
 
 #login-menu #user {
-  color: @color6;
+  color: @color5;
 }
 
 #login-menu #custom-lock {
-  color: @color13;
+  color: @color6;
 }
 
 #login-menu #custom-logout {
@@ -159,7 +173,7 @@ tooltip label {
 }
 
 #submap {
-  background-color: @color3;
+  background-color: alpha(@color3, 0.8);
   color: @color0;
   padding: 0 8px;
 }
@@ -183,7 +197,7 @@ tooltip label {
 
 /* privacy */
 #privacy {
-  background-color: @color3;
+  background-color: alpha(@color3, 0.8);
   color: @color0;
 }
 #privacy-item {
@@ -202,9 +216,13 @@ tooltip label {
 /* #network.wifi */
 
 /* bluetooth */
-/* #bluetooth */
+#bluetooth {
+  min-width: 20px;
+}
 /* #bluetooth.disabled */
-/* #bluetooth.off */
+#bluetooth.off {
+  background-color: alpha(@color3, 0.8);
+}
 /* #bluetooth.on */
 /* #bluetooth.connected */
 /* #bluetooth.discoverable */

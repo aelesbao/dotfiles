@@ -6,20 +6,23 @@
             "children-class": "not-first"
         },
         "modules": [
-            "custom/apps",
+            "custom/distro",
+            // "custom/apps",
             "custom/filemanager",
             "custom/terminal"
         ]
     },
     "custom/distro": {
-        "format": "{icon} {name}",
-        "format-icons": [
-            "", // Arch Linux
-            "", // Ubuntu
-            "" // EndeavourOS
-        ],
+        "format": "",
+        // "format": "{icon}",
+        "format-icons": {
+            "archlinux": "", // Arch Linux
+            "endeavouros": "", // EndeavourOS
+            "ubuntu": "" // Ubuntu
+        },
         "tooltip": true,
-        "tooltip-format": "{name} {version}"
+        "tooltip-format": "{name} {version}",
+        "on-click": "rofi -show combi -theme launcher -replace"
     },
     "custom/apps": {
         "format": " apps",

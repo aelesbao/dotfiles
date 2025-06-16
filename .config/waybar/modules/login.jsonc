@@ -9,8 +9,8 @@
         },
         "modules": [
             "user",
-            "custom/lock",
-            "custom/logout"
+            "custom/logout",
+            "custom/lock"
         ]
     },
     "user": {

@@ -44,7 +44,7 @@
         "exec-if": "which $HOME/.cargo/bin/gpu-usage-waybar",
         "return-type": "json",
         "restart-interval": 5,
-        "on-click": "ghostty -e nvtop"
+        "on-click": "uwsm app -T -- nvtop"
     },
     "memory": {
         "interval": 1,
