@@ -125,8 +125,14 @@
   ;renames = copies
   colorMoved = default
 
+[difftool]
+  prompt = false
+
 [difftool "vscode"]
   cmd = code -n --wait --diff $LOCAL $REMOTE
+
+[difftool "meld"]
+  cmd = meld "$LOCAL" "$REMOTE"
 
 [merge]
   tool = nvimdiff2
@@ -137,19 +143,21 @@
 
 [mergetool "vscode"]
   cmd = code -n --wait -m $REMOTE $LOCAL $BASE $MERGED
-  keepBackup = false
+
+[mergetool "meld"]
+  cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 
 [interactive]
   diffFilter = delta --color-only || less --tabs=4 -RFX
-
-[github]
-  user = aelesbao
 
 [delta]
   navigate = true
   line-numbers = true
   side-by-side = true
   hyperlinks = true
+
+[github]
+  user = aelesbao
 
 [include]
   path = ~/.config/delta/theme.gitconfig
