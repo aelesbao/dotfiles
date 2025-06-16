@@ -71,11 +71,14 @@ tooltip label {
   min-width: 20px;
 }
 
+#custom-apps,
 #mode,
 #battery,
 #bluetooth,
 #cpu,
+#custom-gpu,
 #memory,
+#disk,
 #network,
 #pulseaudio,
 #idle_inhibitor,
@@ -83,11 +86,11 @@ tooltip label {
 #clock,
 #temperature,
 #language,
+#privacy,
 #login-menu {
   background-color: @color0;
   margin: 4px;
   padding: 0 8px;
-  min-width: 20px;
 }
 
 #pulseaudio.muted {
@@ -95,7 +98,7 @@ tooltip label {
 }
 
 #pulseaudio.bluetooth {
-  color: @color10;
+  color: @color12;
 }
 
 #pulseaudio-slider slider {
@@ -143,8 +146,12 @@ tooltip label {
   margin: 0 4px;
 }
 
+#login-menu #user {
+  color: @color6;
+}
+
 #login-menu #custom-lock {
-  color: @color2;
+  color: @color13;
 }
 
 #login-menu #custom-logout {
@@ -153,11 +160,16 @@ tooltip label {
 
 #submap {
   background-color: @color3;
+  color: @color0;
   padding: 0 8px;
 }
 
 #submap.resize {
   color: @color0;
+}
+
+#idle_inhibitor {
+  min-width: 20px;
 }
 
 /* wlr/taskbar */
@@ -170,8 +182,13 @@ tooltip label {
 /* #taskbar.empty */
 
 /* privacy */
-/* #privacy */
-/* #privacy-item */
+#privacy {
+  background-color: @color3;
+  color: @color0;
+}
+#privacy-item {
+  padding: 0 4px;
+}
 /* #privacy-item.screenshare */
 /* #privacy-item.audio-in */
 /* #privacy-item.audio-out */
@@ -183,3 +200,14 @@ tooltip label {
 /* #network.linked */
 /* #network.ethernet */
 /* #network.wifi */
+
+/* bluetooth */
+/* #bluetooth */
+/* #bluetooth.disabled */
+/* #bluetooth.off */
+/* #bluetooth.on */
+/* #bluetooth.connected */
+/* #bluetooth.discoverable */
+/* #bluetooth.discovering */
+/* #bluetooth.pairable */
+/* #bluetooth.no-controller */

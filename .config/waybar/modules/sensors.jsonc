@@ -1,6 +1,6 @@
 // Hardware
 {
-    "group/sensors": {
+    "group/cpu": {
         "orientation": "inherit",
         "drawer": {
             "transition-duration": 100,
@@ -8,21 +8,13 @@
             "transition-left-to-right": false
         },
         "modules": [
-            "custom/system",
             "cpu",
-            "memory",
-            "disk"
+            "load"
         ]
-    },
-    // System
-    "custom/system": {
-        "format": "󰓅",
-        "tooltip": false,
-        "on-click": "missioncenter"
     },
     "cpu": {
         "interval": 1,
-        "format": " {usage}% <small>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}</small>",
+        "format": " {usage}% <small>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}</small>",
         "format-icons": [
             "▁",
             "▂",
@@ -34,7 +26,25 @@
             "█"
         ],
         "tooltip": true,
+        "states": {
+            "warning": 50,
+            "critical": 85
+        },
         "on-click": "missioncenter"
+    },
+    "load": {
+        "interval": 1,
+        "format": "󰓅 {load1} {load5} {load15}",
+        "on-click": "missioncenter"
+    },
+    "custom/gpu": {
+        "format": "{icon} {text}",
+        "format-icons": "󰾲",
+        "exec": "$HOME/.cargo/bin/gpu-usage-waybar",
+        "exec-if": "which $HOME/.cargo/bin/gpu-usage-waybar",
+        "return-type": "json",
+        "restart-interval": 5,
+        "on-click": "ghostty -e nvtop"
     },
     "memory": {
         "interval": 1,
@@ -47,6 +57,7 @@
         },
         "on-click": "missioncenter"
     },
+    // TODO: Break down into multiple views (current speed, usage / mount points)
     "disk": {
         "interval": 30,
         "format": "󰋊 {percentage_used}% ",

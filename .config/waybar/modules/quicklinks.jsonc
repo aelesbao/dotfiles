@@ -6,7 +6,7 @@
             "children-class": "not-first"
         },
         "modules": [
-            "custom/appmenu",
+            "custom/apps",
             "custom/filemanager",
             "custom/terminal"
         ]
@@ -21,7 +21,7 @@
         "tooltip": true,
         "tooltip-format": "{name} {version}"
     },
-    "custom/appmenu": {
+    "custom/apps": {
         "format": " apps",
         "tooltip-format": "Left: Open the application launcher",
         "on-click": "rofi -show combi -theme launcher -replace",

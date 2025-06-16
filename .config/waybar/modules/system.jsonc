@@ -15,55 +15,32 @@
             "unlocked": ""
         }
     },
-    "clock": {
-        "format": " {:%a, %B %d, %Y  %R}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>\n\n{tz_list}",
-        "calendar": {
-            "mode": "year",
-            "mode-mon-col": 3,
-            "weeks-pos": "right",
-            "on-scroll": 1,
-            "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "days": "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        },
-        "timezones": [
-            "Etc/UTC",
-            "Europe/Athenas",
-            "America/New_York",
-            "America/Sao_Paulo",
-            "America/Los_Angeles",
-            "Asia/Tokyo"
-        ],
-        "actions": {
-            "on-click-right": "mode",
-            "on-click-forward": "tz_up",
-            "on-click-backward": "tz_down",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        }
-    },
     "network": {
+        "interval": 5,
         "format": "󰛳  {ifname}",
         "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": "  󰜷 {bandwidthUpBits} 󰜮 {bandwidthDownBits}",
-        "format-disconnected": "󰲜 Offline",
-        "tooltip-format": "󰛳  {ifname} ({ipaddr}/{cidr}) via {gwaddri} {bandwidthUpBits}B / {bandwidthDownBits}B",
-        "tooltip-format-wifi": "  ({ipaddr}/{cidr}) {bandwidthUpBits}B / {bandwidthDownBits}B",
-        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
-        "tooltip-format-disconnected": "󰲜  Disconnected",
+        "format-ethernet": "  Connected",
+        "format-linked": "  {ifname}",
+        "format-disconnected": "󰲜 Disconnected",
+        "tooltip-format": "󰛳  {ifname} ({ipaddr}/{cidr}) via {gwaddri}\n󰜷 {bandwidthUpBits}B 󰜮 {bandwidthDownBits}B",
+        "tooltip-format-wifi": "  ({ipaddr}/{cidr}) via {gwaddri}\n󰜷 {bandwidthUpBits}B 󰜮 {bandwidthDownBits}B",
+        "tooltip-format-ethernet": "  {ifname} {ifname} ({ipaddr}/{cidr}) via {gwaddri}\n󰜷 {bandwidthUpBits}B 󰜮 {bandwidthDownBits}B",
+        "tooltip-format-disconnected": "",
         "max-length": 50,
-        "on-click": "nm-applet"
+        "on-click": "nm-connection-editor"
     },
     "bluetooth": {
         "format-on": "󰂯 {status}",
         "format-off": "󰂲 {status}",
         "format-disabled": "",
         "format-no-controller": "",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
         "interval": 30,
         "on-click": "blueman-manager"
     }
