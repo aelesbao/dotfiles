@@ -11,7 +11,7 @@ $cursor = rgb({{ cursor | rgb }})
 # {{ name }}: {{ c }}
 ${{ name }} = rgb({{ c_rgb }})
 {%- for alpha in range(1, 10) %}
-${{ name }}_alpha{{ alpha }} = rgba({{ c_rgb }}, {{ alpha / 10 }})
+${{ name }}_alpha{{ alpha }} = rgba({{ c | strip }}{{ (alpha * 10) | alpha_hexa }})
 {%- endfor %}
 
 {% endfor %}
