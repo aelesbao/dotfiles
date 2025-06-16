@@ -1,6 +1,6 @@
 {
   "clock": {
-    "format": " {:%a, %B %d, %Y  %R}",
+    "format": " {:%a, %B %d, %Y  %H:%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>\n\n{tz_list}",
     "calendar": {
       "mode": "year",
@@ -16,10 +16,10 @@
       }
     },
     "timezones": [
+      "Europe/Berlin",
       "Etc/UTC",
-      "Europe/Athenas",
-      "America/New_York",
       "America/Sao_Paulo",
+      "America/New_York",
       "America/Los_Angeles",
       "Asia/Tokyo"
     ],
