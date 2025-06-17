@@ -1,18 +1,21 @@
 #!/bin/bash
 
-gone_branches=$(git branch -vv | grep gone | awk '{print $1}')
+gone_branches=$(git branch -vv | grep gone | sed 's/^..//g' | awk '{print $1}')
 
 if [ -z "$gone_branches" ]; then
   echo "Nothing to delete"
   exit
 fi
 
-echo "You are about to delete the following branches:"
-echo "$gone_branches" | awk '{print "* ", $1}'
-echo ""
+branches="$(
+  echo "$gone_branches" |
+    gum choose --no-limit --selected='*' --header='Select the branches you want to delete:'
+)"
 
-read -p "Confirm? (y/N) " -n 1 -r
+gum style --foreground 212 --bold "Deleting branches:"
+echo "$branches"
 echo
-if [[ ${REPLY} =~ ^[Yy]$ ]]; then
-  git branch -D $gone_branches
+
+if gum confirm --no-show-help; then
+  git branch -D $branches
 fi
