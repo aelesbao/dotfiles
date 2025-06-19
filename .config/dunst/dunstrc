@@ -502,7 +502,7 @@
 [urgency_low]
     timeout = 6
     background = "#1A1B26E6"
-    foreground = "#A9B1D6"
+    foreground = "#C0CAF5"
     frame_color = "#92B2F7"
     highlight = "#7AA2F7"
     default_icon = dialog-information
@@ -511,7 +511,7 @@
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 6
     background = "#1A1B26E6"
-    foreground = "#A9B1D6"
+    foreground = "#C0CAF5"
     frame_color = "#C7A9FF"
     highlight = "#2AC3DE"
     default_icon = notification
@@ -520,7 +520,7 @@
     # script = ~/.config/dunst/scripts/play-notification-sound.sh
     timeout = 0
     background = "#1A1B26E6"
-    foreground = "#A9B1D6"
+    foreground = "#C0CAF5"
     frame_color = "#F7768E"
     highlight = "#FF9E64"
     default_icon = dialog-warning

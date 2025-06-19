@@ -1,6 +1,6 @@
 {
   "special": {
-    "foreground": "#a9b1d6",
+    "foreground": "#c0caf5",
     "background": "#1a1b26",
     "cursor": "#cfc9c2"
   },
@@ -15,11 +15,11 @@
     "color7": "#9aa5ce",
     "color8": "#414868",
     "color9": "#ff9e64",
-    "color10": "#b4f9f8",
+    "color10": "#9ece6a",
     "color11": "#faba4a",
     "color12": "#92b2f7",
     "color13": "#c7a9ff",
     "color14": "#7dcfff",
-    "color15": "#c0caf5"
+    "color15": "#a9b1d6"
   }
 }

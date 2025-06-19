@@ -36,20 +36,20 @@ threshold = 11
 check_contrast = true
 
 [templates]
-cava.template = "cava.jinja"
+cava.template = "cava"
 cava.target = "~/.config/cava/config"
 
-dunst.template = "dunstrc.jinja"
+dunst.template = "dunstrc"
 dunst.target = "~/.config/dunst/dunstrc"
 
-hypr.template = "hyprland.conf.jinja"
+hypr.template = "hyprland.conf"
 hypr.target = "~/.config/hypr/vars/colors.conf"
 
-rofi.template = "rofi.rasi.jinja"
+rofi.template = "rofi.rasi"
 rofi.target = "~/.config/rofi/colors.rasi"
 
-waybar.template = "gtk.css.jinja"
+waybar.template = "gtk.css"
 waybar.target = "~/.config/waybar/colors.css"
 
-zathura.template = "zathurarc.jinja"
-zathura.target = "~/.config/zathura/zathurarc"
+zathura.template = "zathurarc"
+zathura.target = "~/.config/zathura/colors.zathurarc"

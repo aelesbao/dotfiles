@@ -4,8 +4,7 @@
 
 ### Tokyo Night and Tokyo Night Storm
 
-Extracted from the official [Tokyo Night VS Code Color
-Palette](https://github.com/tokyo-night/tokyo-night-vscode-theme).
+Extracted from the official [Tokyo Night VS Code Color Palette](https://github.com/tokyo-night/tokyo-night-vscode-theme).
 
 | Color                                                               | Use                                                                                                                     |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
