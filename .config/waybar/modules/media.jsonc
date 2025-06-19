@@ -54,34 +54,82 @@
         "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
         "format-muted": "{icon} {format_source}",
-        "format-bluetooth": "{icon} {desc}   {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {desc} {format_source}",
         "format-bluetooth-muted": "{icon} {desc} {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": " ",
         "format-icons": {
-            "headphone": "󰋋",
-            "headphone-muted": "󰟎",
-            "hands-free": "󰋎",
-            "hands-free-muted": "󰋐",
-            "headset": "󰋎",
-            "headset-muted": "󰋐",
-            "hdmi": "󰍹",
-            "hdmi-muted": "󰶐",
-            "speaker": "󰓃",
-            "speaker-muted": "󰓄",
-            "phone": "",
-            "phone-muted": "",
-            "portable": "󰄜",
-            "portable-muted": "󰥐",
+            "headphone": [
+                "󰋋 ",
+                "󰋋 ",
+                "󰋋 ",
+                "󰋋 ",
+                "󰋋 "
+            ],
+            "headphone-muted": "󰟎  ",
+            "hands-free": [
+                "󰋎 ",
+                "󰋎 ",
+                "󰋎 ",
+                "󰋎 ",
+                "󰋎 "
+            ],
+            "hands-free-muted": "󰋐  ",
+            "headset": [
+                "󰋎 ",
+                "󰋎 ",
+                "󰋎 ",
+                "󰋎 ",
+                "󰋎 "
+            ],
+            "headset-muted": "󰋐  ",
+            "hdmi": [
+                "󰍹 ",
+                "󰍹 ",
+                "󰍹 ",
+                "󰍹 ",
+                "󰍹 "
+            ],
+            "hdmi-muted": "󰶐  ",
+            "speaker": [
+                "󰓃 ",
+                "󰓃 ",
+                "󰓃 ",
+                "󰓃 ",
+                "󰓃 "
+            ],
+            "speaker-muted": "󰓄  ",
+            "phone": [
+                " ",
+                " ",
+                " ",
+                " ",
+                " "
+            ],
+            "phone-muted": "  ",
+            "portable": [
+                "󰄜 ",
+                "󰄜 ",
+                "󰄜 ",
+                "󰄜 ",
+                "󰄜 "
+            ],
+            "portable-muted": "󰥐  ",
             "default": [
                 "",
-                " ",
-                " "
+                "",
+                "",
+                "",
+                ""
             ],
-            "default-muted": ""
+            "default-muted": ""
         },
         "tooltip": true,
-        "tooltip-format": "{desc} {volume}% {format_source}",
+        "tooltip-format": "{icon} {desc} {volume}% {format_source}",
+        "states": {
+            "warning": 50,
+            "critical": 75
+        },
         "on-click": "pavucontrol"
     },
     "pulseaudio/slider": {

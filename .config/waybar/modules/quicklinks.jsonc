@@ -21,7 +21,7 @@
             "ubuntu": "" // Ubuntu
         },
         "tooltip": true,
-        "tooltip-format": "{name} {version}",
+        // "tooltip-format": "{name} {version}",
         "on-click": "rofi -show combi -theme launcher -replace"
     },
     "custom/apps": {
