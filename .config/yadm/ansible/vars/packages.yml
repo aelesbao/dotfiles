@@ -742,6 +742,10 @@ packages:
     desc: Monitor your CPU, Memory, Disk, Network and GPU usage
     tags: [gnome]
 
+  - name: gnome-online-accounts-gtk
+    desc: A GTK Frontend for GNOME Online Accounts
+    tags: [gnome]
+
   - name: yubico-pam
     desc: Yubico YubiKey PAM module
 
