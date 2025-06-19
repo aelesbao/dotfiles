@@ -18,6 +18,7 @@
     ],
     "modules-right": [
         "mpris",
+        "cava",
         "privacy",
         "group/tray",
         "group/cpu",

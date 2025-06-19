@@ -865,6 +865,9 @@ packages:
   - name: waybar
     desc: Highly customizable Wayland bar for Sway and Wlroots based compositors
     tags: [hyprland]
+    archlinux:
+      # with module cava (Cross-platform Audio Visualizer)
+      aur: waybar-cava
 
   - name: cava
     desc: Console-based Audio Visualizer with support for multiple backends
