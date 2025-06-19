@@ -1,17 +1,35 @@
-# zathurarc config sample
+# Zathura configuration file
 
-# colors
-set default-bg     "#1A1B26"
+# Check all options available with `man 5 zathurarc`
 
-# complementary foreground, but keep it light
-set default-fg     "#EBE7D4"
+# Sets the default font used for displaying text.
+set font "Hack Nerd Font 11"
 
-# make it a bit lighter than background
-set statusbar-bg   "#5F5F67"
+# Shows or hides GUI elements.  If it contains 'c', the command line is displayed.
+# If it contains 's', the statusbar is displayed.  If it contains 'h', the horizontal
+# scrollbar is displayed.  If it contains 'v', the vertical scrollbar is displayed.
+set guioptions "sh"
 
-# make it darken by blending to a darken color
-set statusbar-fg   "#CCD0E2"
+# Defines which auto adjustment mode should be used if a document is loaded.
+# Possible options are "best-fit" and "width".
+set adjust-open "width"
 
-# use it's complementary
-set inputbar-bg    "#26251A"
+# Defines  the database backend to use for bookmarks and input history.
+# Possible values are "plain", "sqlite" and "null". If "null" is used,
+# bookmarks and input history will not be stored.
+set database "sqlite"
 
+# Display a short version of the file path, which replaces $HOME with ~, in the statusbar.
+set statusbar-home-tilde true
+
+# Display (current page / total pages) as a percent in the statusbar.
+set statusbar-page-percent true
+
+# Display a short version of the file path, which replaces $HOME with ~, in the window title.
+set window-title-home-tilde true
+
+# Defines the amount of percent that is zoomed in or out on each command.
+set zoom-step 20
+
+# Sets the default theme.
+include "./colors.zathurarc"
