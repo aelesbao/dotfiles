@@ -5,8 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 . "$SCRIPT_DIR/util.sh"
 
 fullscreen_space() {
-    local app_name="$1"
-    local target_space="$2"
+    app_name="$1"
+    target_space="$2"
 
     echo "Configuring $app_name on fullscreen space $target_space"
 

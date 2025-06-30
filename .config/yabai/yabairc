@@ -47,12 +47,14 @@ yabai -m config \
 yabai -m config window_origin_display focused
 
 # padding between windows
+outer_gaps=4
+inner_gaps=2
 yabai -m config \
-    top_padding 5 \
-    bottom_padding 5 \
-    left_padding 5 \
-    right_padding 5 \
-    window_gap 5
+    top_padding "$outer_gaps" \
+    bottom_padding "$outer_gaps" \
+    left_padding "$outer_gaps" \
+    right_padding "$outer_gaps" \
+    window_gap "$inner_gaps"
 
 # add 20 padding to the top and 0 padding to the bottom of every space located on the main display
 # yabai -m config external_bar main:20:0
@@ -69,7 +71,7 @@ yabai -m config \
 # extra settings that require System Integrity Protection to be partialy disabled
 if [ $enable_script_addition = true ] && is_system_protection_disabled; then
     yabai -m config \
-        window_shadow on \
+        window_shadow off \
         window_animation_duration 0.0 \
         window_opacity off \
         window_opacity_duration 0.0 \
