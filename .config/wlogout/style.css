@@ -1,0 +1,96 @@
+@import "colors.css";
+
+* {
+  font-family: "Hack Nerd Font";
+  background-image: none;
+  box-shadow: none;
+  transition: 20ms;
+}
+
+window {
+  background-color: alpha(@background, 0.5);
+}
+
+button {
+  color: @foreground;
+
+  background-color: alpha(@background, 0.9);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10%;
+
+  border: 1px solid @color5;
+  border-radius: 50px;
+  outline-style: none;
+
+  text-decoration-color: @foreground;
+  text-shadow: none;
+
+  font-size: 20px;
+
+  animation: gradient_f 20s ease-in infinite;
+}
+
+button:active {
+  background-color: alpha(@color0, 0.9);
+  border-color: @color6;
+  color: @color5;
+}
+
+button:focus {
+  background-color: alpha(@color0, 0.9);
+  border-color: @color6;
+  background-size: 15%;
+  color: @color5;
+}
+
+button:hover {
+  background-color: alpha(@color0, 0.9);
+  background-size: 15%;
+  color: @color5;
+
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682);
+}
+
+#lock {
+  background-image: image(
+    url("/usr/share/wlogout/icons/lock.png"),
+    url("/usr/local/share/wlogout/icons/lock.png")
+  );
+}
+
+#logout {
+  background-image: image(
+    url("/usr/share/wlogout/icons/logout.png"),
+    url("/usr/local/share/wlogout/icons/logout.png")
+  );
+}
+
+#suspend {
+  background-image: image(
+    url("/usr/share/wlogout/icons/suspend.png"),
+    url("/usr/local/share/wlogout/icons/suspend.png")
+  );
+}
+
+#hibernate {
+  background-image: image(
+    url("/usr/share/wlogout/icons/hibernate.png"),
+    url("/usr/local/share/wlogout/icons/hibernate.png")
+  );
+}
+
+#shutdown {
+  background-image: image(
+    url("/usr/share/wlogout/icons/shutdown.png"),
+    url("/usr/local/share/wlogout/icons/shutdown.png")
+  );
+}
+
+#reboot {
+  background-image: image(
+    url("/usr/share/wlogout/icons/reboot.png"),
+    url("/usr/local/share/wlogout/icons/reboot.png")
+  );
+}

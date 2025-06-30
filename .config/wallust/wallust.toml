@@ -51,5 +51,8 @@ rofi.target = "~/.config/rofi/colors.rasi"
 waybar.template = "gtk.css"
 waybar.target = "~/.config/waybar/colors.css"
 
+wlogout.template = "gtk.css"
+wlogout.target = "~/.config/wlogout/colors.css"
+
 zathura.template = "zathurarc"
 zathura.target = "~/.config/zathura/colors.zathurarc"
