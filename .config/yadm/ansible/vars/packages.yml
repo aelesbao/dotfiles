@@ -941,12 +941,6 @@ packages:
     desc: Standalone widget system made in Rust
     tags: [hyprland]
 
-  - name: eww-systemd
-    desc: Integration of eww with systemd services manager
-    tags: [hyprland]
-    archlinux:
-      aur: eww-systemd
-
   - name: nvidia-open-dkms
     desc: NVIDIA proprietary driver with Open Source kernel module
     tags: [nvidia]
@@ -1060,6 +1054,12 @@ packages:
 
   - name: libqalculate
     desc: Multi-purpose desktop calculator
+
+  - name: sequoia-sq
+    desc: Command-line frontends for Sequoia PGP - a complete implementation of OpenPGP
+
+  - name: sequoia-chameleon-gnupg
+    desc: A re-implementation and drop-in replacement of gpg and gpgv
 
 # Extra repositories to add to the system
 repositories:
