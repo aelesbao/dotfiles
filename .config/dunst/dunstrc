@@ -144,14 +144,14 @@
     #  * urgency_ascending: sort by urgency (low then normal then critical)
     #  * urgency_descending: sort by urgency (critical then normal then low)
     #  * update: sort by update (most recent always at the top)
-    sort = yes
+    sort = update
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
-    # idle_threshold = 120
+    idle_threshold = 60
 
     ### Text ###
 
@@ -532,6 +532,20 @@
 [slack]
     desktop_entry = "Slack"
     new_icon = slack
+    set_category = "im"
+
+[ferdium]
+    desktop_entry = "Ferdium"
+    set_category = "im"
+
+[telegram]
+    desktop_entry = "Telegram"
+    set_category = "im"
+
+[brave]
+    desktop_entry = "Brave"
+    msg_urgency = critical
+    urgency = normal
 
 [volume]
     appname = "set-volume"
