@@ -21,7 +21,7 @@ set index-active-bg         "#414868"
 set index-active-fg         "#C0CAF5"
 set inputbar-bg             "#24283B"
 set inputbar-fg             "#73DACA"
-set statusbar-bg            "#5F5F67"
+set statusbar-bg            "#24283B"
 set statusbar-fg            "#C0CAF5"
 set highlight-active-color  rgba(158,206,106, 0.4)
 set highlight-color         rgba(224,175,104, 0.4)
