@@ -3,7 +3,7 @@
         "orientation": "inherit",
         "drawer": {
             "children-class": "not-first",
-            "transition-duration": 100,
+            "transition-duration": 200,
             "transition-left-to-right": false
         },
         "modules": [

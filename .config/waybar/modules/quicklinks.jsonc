@@ -2,14 +2,14 @@
     "group/quicklinks": {
         "orientation": "inherit",
         "drawer": {
-            "transition-duration": 100,
+            "transition-duration": 200,
             "children-class": "not-first"
         },
         "modules": [
             "custom/distro",
-            // "custom/apps",
             "custom/filemanager",
-            "custom/terminal"
+            "custom/terminal",
+            "custom/slack"
         ]
     },
     "custom/distro": {
@@ -24,12 +24,6 @@
         // "tooltip-format": "{name} {version}",
         "on-click": "rofi -show combi -theme launcher -replace"
     },
-    "custom/apps": {
-        "format": " apps",
-        "tooltip-format": "Left: Open the application launcher",
-        "on-click": "rofi -show combi -theme launcher -replace",
-        "tooltip": false
-    },
     "custom/filemanager": {
         "format": " ",
         "tooltip-format": "Open File Manager",
@@ -39,5 +33,10 @@
         "format": " ",
         "tooltip-format": "Open Terminal",
         "on-click": "uwsm app -- ghostty"
+    },
+    "custom/slack": {
+        "format": " ",
+        "tooltip-format": "Open Slack",
+        "on-click": "uwsm app -- slack.desktop"
     }
 }

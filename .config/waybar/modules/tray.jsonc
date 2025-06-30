@@ -1,8 +1,8 @@
 {
-    "group/tray": {
+    "group/bartender": {
         "orientation": "inherit",
         "drawer": {
-            "transition-duration": 100,
+            "transition-duration": 200,
             "children-class": "not-first",
             "transition-left-to-right": false
         },

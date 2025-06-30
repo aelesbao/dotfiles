@@ -4,7 +4,7 @@
         "orientation": "inherit",
         "drawer": {
             "children-class": "not-first",
-            "transition-duration": 100,
+            "transition-duration": 200,
             "transition-left-to-right": false
         },
         "modules": [
@@ -23,7 +23,7 @@
         "format": "",
         "tooltip": true,
         "tooltip-format": "Logout Menu",
-        "on-click": "wlogout -b 3"
+        "on-click": "wlogout -b 3 -s -r 100 -c 100 -L 1000 -R 1000"
     },
     "custom/lock": {
         "format": "",

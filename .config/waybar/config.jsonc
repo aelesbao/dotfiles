@@ -11,17 +11,17 @@
         "group/quicklinks",
         "hyprland/workspaces",
         "wlr/taskbar",
+        "mpris",
+        "cava",
         "hyprland/submap"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "mpris",
-        "cava",
         "privacy",
-        "group/tray",
-        "group/cpu",
+        "group/bartender",
+        "cpu",
         "custom/gpu",
         "memory",
         "disk",

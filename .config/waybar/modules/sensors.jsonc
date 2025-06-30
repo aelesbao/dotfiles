@@ -3,7 +3,7 @@
     "group/cpu": {
         "orientation": "inherit",
         "drawer": {
-            "transition-duration": 100,
+            "transition-duration": 200,
             "children-class": "not-first",
             "transition-left-to-right": false
         },
@@ -16,14 +16,14 @@
         "interval": 1,
         "format": " {usage}% <small>{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}{icon12}{icon13}{icon14}{icon15}</small>",
         "format-icons": [
-            "▁",
-            "▂",
-            "▃",
-            "▄",
-            "▅",
-            "▆",
-            "▇",
-            "█"
+            "<span color='#414868'>▁</span>",
+            "<span color='#BB9AF7'>▂</span>",
+            "<span color='#BB9AF7'>▃</span>",
+            "<span color='#C7A9FF'>▄</span>",
+            "<span color='#7AA2F7'>▅</span>",
+            "<span color='#7AA2F7'>▆</span>",
+            "<span color='#7DCFFF'>▇</span>",
+            "<span color='#73DACA'>█</span>"
         ],
         "tooltip": true,
         "states": {

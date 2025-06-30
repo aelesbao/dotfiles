@@ -34,6 +34,7 @@ tooltip label {
   padding: 8px;
 }
 
+#bartender,
 #quicklinks,
 #mode,
 #battery,
@@ -51,8 +52,6 @@ tooltip label {
 #language,
 #privacy,
 #login-menu {
-  background-color: @color0;
-  margin: 4px;
   padding: 0 8px;
 }
 
@@ -61,8 +60,16 @@ tooltip label {
   min-width: 20px;
 }
 
+#quicklinks .drawer box {
+  padding-left: 4px;
+}
+
 #quicklinks .not-first label {
   margin: 0 4px;
+}
+
+#quicklinks .not-first label:hover {
+  color: @color14;
 }
 
 #quicklinks #custom-distro {
@@ -85,11 +92,25 @@ tooltip label {
 
 #workspaces button.active {
   background-color: @color0;
-  color: @color15;
+  color: @color6;
 }
 
 #workspaces button.urgent {
-  color: @color3;
+  color: @color2;
+}
+
+#taskbar {
+  margin: 0 8px;
+}
+#taskbar .flat {
+  padding: 0 8px;
+}
+#taskbar .active {
+  background-color: alpha(@color0, 0.8);
+}
+
+button:hover {
+  color: @color14;
 }
 
 #window {
@@ -97,12 +118,16 @@ tooltip label {
   font-weight: 400;
 }
 
-#tray {
-  background-color: @color0;
-  margin: 4px;
+#bartender {
+  padding: 0 4px;
 }
 
-#tray * {
+#bartender .drawer {
+  padding-left: 4px;
+}
+
+#custom-tray-icon,
+#tray image {
   padding: 0 4px;
   min-width: 20px;
 }
@@ -119,9 +144,10 @@ tooltip label {
   min-height: 0px;
   min-width: 0px;
   opacity: 0;
-  background-image: none;
   border: none;
   box-shadow: none;
+  background-image: none;
+  background-color: @background;
 }
 
 #pulseaudio-slider trough {
@@ -134,7 +160,7 @@ tooltip label {
 #pulseaudio-slider highlight {
   min-width: 0px;
   border-radius: 10px;
-  background-color: @color5;
+  background-image: image(@color5);
 }
 
 #clock {
@@ -229,3 +255,10 @@ tooltip label {
 /* #bluetooth.discovering */
 /* #bluetooth.pairable */
 /* #bluetooth.no-controller */
+
+#mpris.paused {
+  color: @color8;
+}
+#mpris.playing {
+  color: @color2;
+}
