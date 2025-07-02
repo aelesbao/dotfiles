@@ -20,6 +20,7 @@
     ],
     "modules-right": [
         "privacy",
+        "systemd-failed-units",
         "group/bartender",
         "cpu",
         "custom/gpu",

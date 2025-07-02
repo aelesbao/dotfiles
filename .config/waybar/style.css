@@ -34,6 +34,10 @@ tooltip label {
   padding: 8px;
 }
 
+button:hover {
+  color: @color14;
+}
+
 #bartender,
 #quicklinks,
 #mode,
@@ -59,19 +63,15 @@ tooltip label {
   padding: 0 4px;
   min-width: 20px;
 }
-
 #quicklinks .drawer box {
   padding-left: 4px;
 }
-
 #quicklinks .not-first label {
   margin: 0 4px;
 }
-
 #quicklinks .not-first label:hover {
   color: @color14;
 }
-
 #quicklinks #custom-distro {
   color: @color5;
   margin-right: 4px;
@@ -80,21 +80,17 @@ tooltip label {
 #workspaces {
   margin: 0 4px;
 }
-
 #workspaces button {
   margin: 0 4px;
   padding: 0 8px;
 }
-
 #workspaces button.visible {
   color: @color8;
 }
-
 #workspaces button.active {
   background-color: @color0;
   color: @color6;
 }
-
 #workspaces button.urgent {
   color: @color2;
 }
@@ -102,16 +98,16 @@ tooltip label {
 #taskbar {
   margin: 0 8px;
 }
-#taskbar .flat {
+#taskbar button {
   padding: 0 8px;
 }
-#taskbar .active {
+#taskbar button.active {
   background-color: alpha(@color0, 0.8);
 }
-
-button:hover {
-  color: @color14;
-}
+/* #taskbar button.minimized */
+/* #taskbar button.maximized */
+/* #taskbar button.fullscreen */
+/* #taskbar.empty */
 
 #window {
   font-size: 0.9em;
@@ -135,11 +131,9 @@ button:hover {
 #pulseaudio.bluetooth {
   color: @color12;
 }
-
 #pulseaudio.muted {
   color: @color3;
 }
-
 #pulseaudio-slider slider {
   min-height: 0px;
   min-width: 0px;
@@ -149,14 +143,12 @@ button:hover {
   background-image: none;
   background-color: @background;
 }
-
 #pulseaudio-slider trough {
   min-height: 10px;
   min-width: 80px;
   border-radius: 10px;
   background-color: @color0;
 }
-
 #pulseaudio-slider highlight {
   min-width: 0px;
   border-radius: 10px;
@@ -176,24 +168,19 @@ button:hover {
 #login-menu {
   margin-right: 8px;
 }
-
 #login-menu label {
   padding: 0 4px;
   min-width: 20px;
 }
-
 #login-menu .not-first label {
   margin: 0 4px;
 }
-
 #login-menu #user {
   color: @color5;
 }
-
 #login-menu #custom-lock {
   color: @color6;
 }
-
 #login-menu #custom-logout {
   color: @color1;
 }
@@ -203,7 +190,6 @@ button:hover {
   color: @color0;
   padding: 0 8px;
 }
-
 #submap.resize {
   color: @color0;
 }
@@ -212,16 +198,6 @@ button:hover {
   min-width: 20px;
 }
 
-/* wlr/taskbar */
-/* #taskbar */
-/* #taskbar button */
-/* #taskbar button.active */
-/* #taskbar button.minimized */
-/* #taskbar button.maximized */
-/* #taskbar button.fullscreen */
-/* #taskbar.empty */
-
-/* privacy */
 #privacy {
   background-color: alpha(@color3, 0.8);
   color: @color0;
@@ -233,7 +209,6 @@ button:hover {
 /* #privacy-item.audio-in */
 /* #privacy-item.audio-out */
 
-/* network */
 /* #network */
 /* #network.disabled */
 /* #network.disconnected */
@@ -241,11 +216,9 @@ button:hover {
 /* #network.ethernet */
 /* #network.wifi */
 
-/* bluetooth */
 #bluetooth {
   min-width: 20px;
 }
-/* #bluetooth.disabled */
 #bluetooth.off {
   background-color: alpha(@color3, 0.8);
 }
@@ -261,4 +234,19 @@ button:hover {
 }
 #mpris.playing {
   color: @color2;
+}
+
+#cava {
+  color: @color8;
+  font-size: 90%;
+}
+
+#systemd-failed-units {
+  padding: 0 8px;
+}
+#systemd-failed-units.ok {
+  color: @color2;
+}
+#systemd-failed-units.degraded {
+  color: @color1;
 }

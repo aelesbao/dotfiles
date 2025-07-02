@@ -1,6 +1,6 @@
 {
     "systemd-failed-units": {
-        "format": " {nr_failed} failed ( {nr_failed_system} /  {nr_failed_user})",
+        "format": " {nr_failed} failed units ( {nr_failed_system} /  {nr_failed_user})",
         "format-ok": "",
         "hide-on-ok": true,
         "system": true,
