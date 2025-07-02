@@ -1,0 +1,9 @@
+[Unit]
+Description=Restarts service unit %I on config file changes
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/hypr/scripts/restart-service %i
+
+[Install]
+WantedBy=service-watcher@%i.path

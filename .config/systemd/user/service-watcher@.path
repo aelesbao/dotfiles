@@ -1,0 +1,7 @@
+[Path]
+PathChanged=%h/.config/%i
+
+[Install]
+WantedBy=graphical-session.target
+Requires=%i.service
+After=%i.service
