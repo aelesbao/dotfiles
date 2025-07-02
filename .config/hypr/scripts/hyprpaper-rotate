@@ -2,17 +2,11 @@
 
 set -euo pipefail
 
-# NOTE: this scripts works in single monitors only,
-# or when you set the same wallpaper for all monitors.
+# NOTE: this scripts will set the same wallpaper on all monitors.
 
 # Get a list of all wallpapers
-#
-# List all the pre-loaded wallpapers:
-wallpapers=( $(hyprctl hyprpaper listloaded | sort) )
-#
-# To use a folder as the source:
-# wallpapers_dir="${XDG_DATA_HOME:-$HOME/.local/share}/wallpapers"
-# wallpapers=( $(fd --type f . "$wallpapers_dir") )
+wallpapers_dir="${WALLPAPERS_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/wallpapers}"
+wallpapers=( $(fd --type f . "$wallpapers_dir") )
 
 # Gets the active wallpaper
 current="$(hyprctl hyprpaper listactive | grep -oP '(?<= = ).*' | uniq)"
@@ -23,10 +17,10 @@ current="$(hyprctl hyprpaper listactive | grep -oP '(?<= = ).*' | uniq)"
 
 # Apply the the next wallpaper in the list
 wallpaper="${wallpapers[$next_idx]}"
-
-# Use this instead in case you're loading directly from a folder:
-# hyprctl hyprpaper reload ,"$wallpaper"
+hyprctl hyprpaper reload ,"$wallpaper"
 
 # Updates ~/.config/hypr/hyprpaper.conf with currently active wallpaper
-hyprctl hyprpaper wallpaper ,"$wallpaper"
-sed -i "s:wallpaper = .*:wallpaper = , ${wallpaper}:g" ~/.config/hypr/hyprpaper.conf
+cat <<EOL >! ~/.config/hypr/hyprpaper.conf
+preload = ${wallpaper}
+wallpaper = , ${wallpaper}
+EOL

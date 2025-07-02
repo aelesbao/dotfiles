@@ -9,3 +9,5 @@ RandomizedDelaySec=10min
  
 [Install]
 WantedBy=timers.target
+Requires=hyprpaper.service
+After=hyprpaper.service
