@@ -2,7 +2,7 @@
 
 " Common settings
 set nu
-set relativenumber
+"set relativenumber
 
 " Perform put via IDE
 set clipboard+=ideaput
