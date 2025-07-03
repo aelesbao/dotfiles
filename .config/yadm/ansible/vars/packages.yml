@@ -260,6 +260,9 @@ packages:
   - name: leveldb
     desc: Key-value storage library with ordered mapping
 
+  - name: libc++
+    desc: LLVM C++ standard library
+
   - name: lld
     desc: LLVM Project Linker
 
