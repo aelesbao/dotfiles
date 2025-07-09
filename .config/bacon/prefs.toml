@@ -71,6 +71,16 @@ path = "bacon-report.json"
 auto = false
 path = "bacon-analysis.json"
 
+[jobs.bacon-ls]
+command = [ "cargo", "clippy", "--message-format", "json-diagnostic-rendered-ansi" ]
+analyzer = "cargo_json"
+need_stdout = true
+
+[exports.cargo-json-spans]
+auto = true
+exporter = "analyzer"
+line_format = "{diagnostic.level}:{span.file_name}:{span.line_start}:{span.line_end}:{diagnostic.message}"
+
 # Uncomment and change the key-bindings you want to define
 # (some of those ones are the defaults and are just here for illustration)
 [keybindings]
@@ -91,8 +101,8 @@ alt-b = "toggle-backtrace"
 
 # a = "job:check-all"
 # i = "job:initial"
-# c = "job:clippy"
+c = "job:clippy"
 # c = "job:clippy-all"
 # d = "job:doc-open"
-# t = "job:test"
+t = "job:test"
 # r = "job:run"
