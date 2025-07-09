@@ -17,38 +17,6 @@ declare icons_dir=${XDG_DATA_HOME:-~/.local/share}/icons
 mkdir -p ${src_dir} ${themes_dir} ${icons_dir}
 
 
-function install-cursor() {
-  local repo="$1"
-  local cursor="$2"
-  local ext="${3:-tar.xz}"
-  local file="${cursor}.${ext}"
-
-  local cursor_dir="${icons_dir}/${cursor}"
-
-  printf "- %s: " "$cursor"
-
-  if [[ -d ${cursor_dir} ]]; then
-    echo "already installed"
-    return
-  fi
-
-  curl -LOSsf --create-dirs --output-dir ${icons_dir} \
-    "https://github.com/${repo}/releases/latest/download/${file}"
-
-  if [[ "${ext}" == "tar.xz" ]]; then
-    tar -C ${icons_dir} -xf "${file}"
-  else
-    unzip -qq -o -d ${icons_dir} "${icons_dir}/${file}"
-  fi
-
-  rm -f "${icons_dir}/${file}"
-
-  gtk4-update-icon-cache ${cursor_dir} >/dev/null 2>&1 || true
-  gtk-update-icon-cache ${cursor_dir} >/dev/null 2>&1 || true
-
-  echo "done"
-}
-
 function clone-repo() {
   local gh_user="$1"
   local repo="$2"
@@ -184,25 +152,62 @@ function install-flat-remix() {
   echo
 }
 
+function install-cursor() {
+  local repo="$1"
+  local cursor="$2"
+  local ext="${3:-tar.xz}"
+  local file="${cursor}.${ext}"
+
+  local cursor_dir="${icons_dir}/${cursor}"
+
+  printf "- %s: " "$cursor"
+
+  if [[ -d ${cursor_dir} ]]; then
+    echo "already installed"
+    return
+  fi
+
+  local url="https://github.com/${repo}/releases/latest/download/${file}"
+  curl -LOSsf --create-dirs --output-dir ${TMPDIR} "${url}"
+
+  local download="${TMPDIR}/${file}"
+  if [[ ! -f "${download}" ]]; then
+    echo "failed to download ${file}"
+    return 1
+  fi
+
+  if [[ "${download:e}" == "xz" ]]; then
+    tar -C ${icons_dir} -xf "${download}"
+  elif [[ "${download:e}" == "gz" ]]; then
+    tar -C ${icons_dir} -zxf "${download}"
+  elif [[ "${download:e}" == "zip" ]]; then
+    unzip -qq -o -d ${icons_dir} "${download}"
+  else
+    echo "unsupported file type: ${download:e}"
+    return 1
+  fi
+
+  rm -f "${download}"
+
+  gtk4-update-icon-cache ${cursor_dir} >/dev/null 2>&1 || true
+  gtk-update-icon-cache ${cursor_dir} >/dev/null 2>&1 || true
+
+  echo "done"
+}
+
 
 echo
 echo "Installing themes"
 
-install-eliverlara-theme Andromeda-gtk main Andromeda
-install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight
-install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight purple
-install-flat-remix
+# install-eliverlara-theme Andromeda-gtk main Andromeda
+# install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight
+# install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight purple
+# install-flat-remix
 
 
 echo "Installing cursors"
 
 declare -a variants
-
-# Catppuccin
-# variants=( mocha-dark )
-# for variant in ${variants[@]}; do
-#   install-cursor catppuccin/cursors "catppuccin-${variant}-cursors" zip
-# done
 
 # Bibata
 variants=(
@@ -213,3 +218,12 @@ for variant in ${variants[@]}; do
   install-cursor ful1e5/Bibata_Cursor "${variant}"
 done
 
+
+# Nordzy
+variants=(
+  Nordzy-cursors
+  Nordzy-hyprcursors
+)
+for variant in ${variants[@]}; do
+  install-cursor guillaumeboehm/Nordzy-cursors "${variant}" "tar.gz"
+done
