@@ -15,7 +15,27 @@ switch-to-workspace-right=['<Control><Super>bracketright']
 action-double-click-titlebar='none'
 action-middle-click-titlebar='none'
 button-layout='appmenu:close'
+theme='Tokyonight-Purple-Dark'
 workspace-names=['Communication', 'Browsing', 'Development']
+
+
+# GNOME Interface
+[/org/gnome/desktop/interface/]
+accent-color='slate'
+clock-show-weekday=true
+color-scheme='prefer-dark'
+cursor-size=24
+cursor-theme='Nordzy-cursors'
+enable-animations=true
+enable-hot-corners=true
+font-antialiasing='grayscale'
+gtk-theme='Tokyonight-Purple-Dark'
+icon-theme='candy-icons'
+monospace-font-name='Hack Nerd Font Mono 10'
+
+# GNOME default apps
+[/org/gnome/desktop/applications/terminal/]
+exec='/usr/bin/ghostty'
 
 
 # Automatically saves current GNOME session on logout
