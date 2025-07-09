@@ -944,6 +944,26 @@ packages:
     desc: Standalone widget system made in Rust
     tags: [hyprland]
 
+  - name: swayosd
+    desc: A GTK based on screen display for keyboard shortcuts like caps-lock and volume
+    tags: [hyprland]
+
+  - name: swaync
+    desc: A simple GTK based notification daemon for Sway
+    tags: [hyprland]
+
+  - name: hyprshell
+    desc: A modern GTK4-based window switcher and application launcher for Hyprland
+    tags: [hyprland]
+    archlinux:
+      aur: hyprshell
+
+  - name: hyprnome
+    desc: GNOME-like workspace switching in Hyprland.
+    tags: [hyprland]
+    archlinux:
+      aur: hyprnome
+
   - name: nvidia-open-dkms
     desc: NVIDIA proprietary driver with Open Source kernel module
     tags: [nvidia]
@@ -1063,6 +1083,13 @@ packages:
 
   - name: sequoia-chameleon-gnupg
     desc: A re-implementation and drop-in replacement of gpg and gpgv
+
+  - name: ccid
+    desc: A generic USB Chip/Smart Card Interface Devices driver
+
+  - name: thunar
+    desc: Modern, fast and easy-to-use file manager for Xfce
+    tags: [xfce]
 
 # Extra repositories to add to the system
 repositories:
