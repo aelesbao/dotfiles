@@ -9,7 +9,11 @@ wallpapers_dir="${WALLPAPERS_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/wallpape
 wallpapers=( $(fd --type f . "$wallpapers_dir") )
 
 # Gets the active wallpaper
-current="$(hyprctl hyprpaper listactive | grep -oP '(?<= = ).*' | uniq)"
+current="$(hyprctl hyprpaper listactive | grep -oP '(?<= = ).*' | uniq || echo '')"
+if [[ -z "$current" ]]; then
+  echo "No active wallpaper found. Exiting."
+  exit
+fi
 
 # Gets the wallpaper index, increment it, and check for array overflow
 (( current_idx = ${wallpapers[(ie)$current]}, next_idx = current_idx + 1 ))
