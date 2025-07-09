@@ -17,13 +17,13 @@
 }
 
 #waybar * {
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 tooltip {
   background: alpha(@background, 0.9);
   border: 1px solid alpha(@color5, 0.7);
-  border-radius: 10px;
+  border-radius: 6px;
 }
 
 tooltip label {
@@ -146,12 +146,12 @@ button:hover {
 #pulseaudio-slider trough {
   min-height: 10px;
   min-width: 80px;
-  border-radius: 10px;
+  border-radius: 6px;
   background-color: @color0;
 }
 #pulseaudio-slider highlight {
   min-width: 0px;
-  border-radius: 10px;
+  border-radius: 6px;
   background-image: image(@color5);
 }
 
