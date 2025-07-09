@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+declare -a cmd
+
+if [[ "${TERM}" == "tmux-256color" ]] && [[ -n "${TMUX}" ]]; then
+  cmd=( tmux load-buffer -w - )
+elif (( ${+cmds[pbcopy]} )); then
+  cmd=( pbcopy )
+elif (( ${+cmds[wl-copy]} )); then
+  cmd=( wl-copy )
+elif (( ${+cmds[xclip]} )); then
+  cmd=( xclip -selection clipboard )
+fi
+
+if [[ -z "${cmd}" ]]; then
+  echo "No clipboard command found." >&2
+  exit 1
+fi
+
+exec ${cmd[@]} $@
