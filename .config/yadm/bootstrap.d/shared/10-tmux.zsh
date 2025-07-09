@@ -17,4 +17,4 @@ msg "Downloading terminfo"
 curl -sfLO https://invisible-island.net/datafiles/current/terminfo.src.gz && gunzip terminfo.src.gz
 
 msg "Compiling terminfo database"
-/usr/bin/tic -xe tmux-256color terminfo.src && rm terminfo.src
+tic -xe tmux-256color terminfo.src && rm terminfo.src

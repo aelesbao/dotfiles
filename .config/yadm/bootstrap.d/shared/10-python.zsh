@@ -27,22 +27,22 @@ pyenv shell "$python_version"
 
 python3 -m pip install --upgrade pip virtualenv
 
-if ! (( $+commands[pipx] )); then
-  info "Installing pipx"
-  if is-macos; then
-    brew install pipx
-    pipx ensurepath
-  else
-    python3 -m pip install --user pipx
-    python3 -m pipx ensurepath
-  fi
-fi
-
-info "Installing pipx packages"
-pipx install poetry
-pipx install --include-deps ansible
-pipx inject ansible --include-apps ansible-creator
-pipx inject ansible --include-apps ansible-lint
-pipx inject ansible --include-apps ansible-navigator
-pipx inject ansible --include-apps argcomplete
-pipx inject ansible paramiko
+# if ! (( $+commands[pipx] )); then
+#   info "Installing pipx"
+#   if is-macos; then
+#     brew install pipx
+#     pipx ensurepath
+#   else
+#     python3 -m pip install --user pipx
+#     python3 -m pipx ensurepath
+#   fi
+# fi
+#
+# info "Installing pipx packages"
+# pipx install poetry
+# pipx install --include-deps ansible
+# pipx inject ansible --include-apps ansible-creator
+# pipx inject ansible --include-apps ansible-lint
+# pipx inject ansible --include-apps ansible-navigator
+# pipx inject ansible --include-apps argcomplete
+# pipx inject ansible paramiko
