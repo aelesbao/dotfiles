@@ -23,7 +23,7 @@
         "format": "",
         "tooltip": true,
         "tooltip-format": "Logout Menu",
-        "on-click": "wlogout -b 3 -s -r 100 -c 100 -L 1000 -R 1000"
+        "on-click": "wlogout -b 6 -s"
     },
     "custom/lock": {
         "format": "",

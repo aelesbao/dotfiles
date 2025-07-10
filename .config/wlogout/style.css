@@ -1,27 +1,30 @@
 @import "colors.css";
 
 * {
-  font-family: "Hack Nerd Font";
-  background-image: none;
   box-shadow: none;
   transition: 20ms;
 }
 
 window {
-  background-color: alpha(@background, 0.5);
+  background-color: alpha(@background, 0.9);
+  background-image: none;
+  color: @foreground;
+  font-family: "Hack Nerd Font";
+  font-size: 14pt;
 }
 
 button {
   color: @foreground;
 
-  background-color: alpha(@background, 0.9);
+  background-color: alpha(@background, 0.2);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 10%;
+  background-size: 25%;
 
-  border: 1px solid @color5;
-  border-radius: 50px;
+  border: none;
   outline-style: none;
+
+  margin: 5px;
 
   text-decoration-color: @foreground;
   text-shadow: none;
@@ -29,28 +32,24 @@ button {
   font-size: 20px;
 
   animation: gradient_f 20s ease-in infinite;
+  transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 button:active {
-  background-color: alpha(@color0, 0.9);
-  border-color: @color6;
+  background-color: alpha(@color0, 0.5);
   color: @color5;
 }
 
 button:focus {
-  background-color: alpha(@color0, 0.9);
-  border-color: @color6;
-  background-size: 15%;
+  background-color: alpha(@color0, 0.5);
+  background-size: 30%;
   color: @color5;
 }
 
 button:hover {
-  background-color: alpha(@color0, 0.9);
-  background-size: 15%;
+  /* background-color: alpha(@color0, 0.5); */
+  background-size: 30%;
   color: @color5;
-
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682);
 }
 
 #lock {
