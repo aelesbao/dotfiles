@@ -37,7 +37,6 @@
         "format-icons": {
             "activated": "󰅶",
             "deactivated": "󰛊"
-        },
-        "on-click-right": "loginctl lock-session"
+        }
     }
 }
