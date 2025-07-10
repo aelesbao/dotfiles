@@ -33,6 +33,7 @@
         "group/audio",
         "clock",
         "idle_inhibitor",
+        "custom/notifications",
         "group/login-menu"
     ]
 }

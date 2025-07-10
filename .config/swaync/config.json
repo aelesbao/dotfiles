@@ -1,0 +1,178 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "control-center-height": 915,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-left": 0,
+  "control-center-margin-right": 1,
+  "control-center-margin-top": 22,
+  "control-center-width": 400,
+  "cssPriority": "user",
+  "fit-to-screen": false,
+  "hide-on-action": true,
+  "hide-on-clear": false,
+  "image-visibility": "when-available",
+  "keyboard-shortcuts": true,
+  "notification-2fa-action": true,
+  "notification-body-image-height": 128,
+  "notification-body-image-width": 200,
+  "notification-icon-size": 64,
+  "notification-window-width": 375,
+  "relative-timestamps": true,
+  "script-fail-notify": true,
+  "text-empty": "No Notifications",
+  "timeout": 6,
+  "timeout-critical": 0,
+  "timeout-low": 3,
+  "transition-time": 200,
+  "widgets": [
+    "title",
+    "dnd",
+    "inhibitors",
+    "menubar#desktop",
+    "volume",
+    "mpris",
+    "notifications",
+    "buttons-grid"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Control Center",
+      "clear-all-button": true,
+      "button-text": ""
+    },
+    "dnd": {
+      "text": " Do Not Disturb"
+    },
+    "inhibitors": {
+      "text": "Inhibitors",
+      "clear-all-button": true,
+      "button-text": ""
+    },
+    "menubar#desktop": {
+      "menu#screenshot": {
+        "label": "󰄀   Screenshot",
+        "position": "left",
+        "actions": [
+          {
+            "label": "Whole screen",
+            "command": "sh -c 'swaync-client -cp; sleep1; hyprshot -m active -o ~/Pictures/Screenshots'"
+          },
+          {
+            "label": "Select region",
+            "command": "sh -c 'swaync-client -cp; hyprshot -m region -o ~/Pictures/Screenshots'"
+          }
+        ]
+      },
+      "menu#power": {
+        "label": "   Power Menu",
+        "position": "left",
+        "actions": [
+          {
+            "label": "   Lock",
+            "command": "loginctl lock-session"
+          },
+          {
+            "label": "   Logout",
+            "command": "hyprctl dispatch exit 0"
+          },
+          {
+            "label": "󰤄   Suspend",
+            "command": "systemctl suspend"
+          },
+          {
+            "label": "   Hibernate",
+            "command": "systemctl hibernate"
+          },
+          {
+            "label": "   Reboot",
+            "command": "systemctl reboot"
+          },
+          {
+            "label": "   Shut down",
+            "command": "systemctl poweroff"
+          }
+        ]
+      }
+    },
+    "volume": {
+      "label": "",
+      "expand-button-label": "",
+      "collapse-button-label": "",
+      "show-per-app": true,
+      "show-per-app-icon": true,
+      "show-per-app-label": true
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 6
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰝟",
+          "type": "toggle",
+          "command": "swayosd-client --output-volume mute-toggle",
+          "update-command": "sh -c 'pamixer --get-mute | grep -q true && echo true || echo false'"
+        },
+        {
+          "label": "󰍭",
+          "type": "toggle",
+          "command": "swayosd-client --input-volume mute-toggle",
+          "update-command": "sh -c 'pamixer --get-mute --default-source | grep true && echo true || echo false'"
+        },
+        {
+          "label": "",
+          "type": "toggle",
+          "command": "blueman-manager",
+          "update-command": "sh -c 'bluetoothctl show | grep -q \\\"Powered: yes\\\" && echo true || echo false'"
+        },
+        {
+          "label": "󰤨",
+          "type": "toggle",
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+        },
+        {
+          "label": "",
+          "command": "gnome-network-displays"
+        },
+        {
+          "label": "",
+          "command": "hyprlock"
+        },
+        {
+          "label": "󰤄",
+          "type": "toggle",
+          "command": "sh -c '${pkgs.procps}/bin/pgrep -x hyprsunset >/dev/null && ${pkgs.procps}/bin/pkill hyprsunset || nohup ${pkgs.hyprsunset}/bin/hyprsunset --temperature 3500 > /tmp/hyprsunset_output.log 2>&1 &'",
+          "update-command": "sh -c 'pgrep -x hyprsunset >/dev/null && echo true || echo false'"
+        },
+        {
+          "label": "󰅶",
+          "command": "systemctl --user is-active --quiet hypridle.service && systemctl --user stop hypridle.service || systemctl --user start hypridle.service",
+          "type": "toggle",
+          "update-command": "pgrep -x hypridle > /dev/null && echo false || echo true"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+  "notification-visibility": {
+    "spotify": {
+      "state": "enabled",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    },
+    "youtube-music": {
+      "state": "enabled",
+      "urgency": "Low",
+      "app-name": "com.github.th_ch.youtube_music"
+    }
+  }
+}

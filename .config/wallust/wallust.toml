@@ -48,6 +48,9 @@ hypr.target = "~/.config/hypr/vars/colors.conf"
 rofi.template = "rofi.rasi"
 rofi.target = "~/.config/rofi/colors.rasi"
 
+swaync.template = "gtk.css"
+swaync.target = "~/.config/swaync/colors.css"
+
 waybar.template = "gtk.css"
 waybar.target = "~/.config/waybar/colors.css"
 
