@@ -39,9 +39,6 @@ check_contrast = true
 cava.template = "cava"
 cava.target = "~/.config/cava/config"
 
-dunst.template = "dunstrc"
-dunst.target = "~/.config/dunst/dunstrc"
-
 hypr.template = "hyprland.conf"
 hypr.target = "~/.config/hypr/vars/colors.conf"
 

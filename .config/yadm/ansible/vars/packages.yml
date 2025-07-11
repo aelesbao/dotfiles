@@ -880,10 +880,6 @@ packages:
     desc: Console-based Audio Visualizer with support for multiple backends
     tags: [hyprland]
 
-  - name: dunst
-    desc: Customizable and lightweight notification-daemon
-    tags: [hyprland]
-
   - name: hypridle
     desc: hyprland’s idle daemon
     tags: [hyprland]
