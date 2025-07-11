@@ -71,10 +71,14 @@ label {
 }
 
 .notification-content {
-  min-height: 64px;
+  min-height: 65px;
   margin: 10px;
   padding: 0px;
   border-radius: 0px;
+}
+
+.notification-content image {
+  margin-right: 20px;
 }
 
 .close-button {
@@ -186,6 +190,10 @@ label {
   border: none;
   border-radius: 6px;
   box-shadow: none;
+}
+
+.notification-group-icon {
+  padding-right: 10px;
 }
 
 .notification-row {
