@@ -14,11 +14,11 @@ filter_by = []
 hide_filtered = false
 
 [windows.overview.launcher]
-default_terminal = "kitty"
+default_terminal = "ghostty"
 launch_modifier = "ctrl"
 width = 650
 max_items = 5
-show_when_empty = true
+show_when_empty = false
 animate_launch_ms = 250
 
 [windows.overview.launcher.plugins.applications]

@@ -45,6 +45,9 @@ dunst.target = "~/.config/dunst/dunstrc"
 hypr.template = "hyprland.conf"
 hypr.target = "~/.config/hypr/vars/colors.conf"
 
+hyprshell.template = "gtk.css"
+hyprshell.target = "~/.config/hyprshell/colors.css"
+
 rofi.template = "rofi.rasi"
 rofi.target = "~/.config/rofi/colors.rasi"
 
