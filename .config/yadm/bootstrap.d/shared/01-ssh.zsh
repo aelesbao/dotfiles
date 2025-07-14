@@ -53,3 +53,28 @@ done
 
 # reset IFS
 unset IFS
+
+
+if is-linux; then
+  info "Configuring SSH server"
+
+  if [[ ! -d /etc/ssh/sshd_config.d ]]; then
+    warn "SSH server configuration directory not found"
+    return
+  fi
+
+  if ! sshd -G | grep -iq "^PasswordAuthentication no"; then
+    msg "Disabling password authentication"
+    echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config.d/30-password-authentication.conf > /dev/null
+  fi
+
+  if ! sshd -G | grep -iq "^PubkeyAuthentication yes"; then
+    msg "Enabling public key authentication"
+    echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config.d/30-pubkey-authentication.conf > /dev/null
+  fi
+
+  if ! sshd -G | grep -iq "AllowAgentForwarding yes"; then
+    msg "Enabling agent forwarding"
+    echo "AllowAgentForwarding yes" | sudo tee -a /etc/ssh/sshd_config.d/30-agent-forwarding.conf > /dev/null
+  fi
+fi
