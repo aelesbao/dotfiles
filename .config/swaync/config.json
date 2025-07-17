@@ -106,9 +106,11 @@
     },
     "mpris": {
       "image-size": 96,
-      "image-radius": 6
+      "image-radius": 6,
+      "autohide": true
     },
     "buttons-grid": {
+      "buttons-per-row": 4,
       "actions": [
         {
           "label": "󰝟",
