@@ -12,7 +12,6 @@
   color: @foreground;
   font-family: "Hack Nerd Font";
   font-size: 1em;
-  font-weight: 300;
   padding: 0 8px;
 }
 
