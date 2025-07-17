@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Bash(cargo add:*)",
+      "Bash(cargo run:*)",
+      "Bash(cargo test:*)",
+      "Bash(cargo check:*)",
+      "Bash(cargo clippy:*)",
+      "Bash(cargo nextest:*)",
+      "Bash(just:*)",
+      "Bash(docker:*)",
+      "Bash(sui move:*)"
+    ],
+    "deny": [
+      "Bash(sh:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(pacman:*)",
+      "Bash(yay:*)"
+    ]
+  },
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
+  }
+}
