@@ -1087,6 +1087,14 @@ packages:
     desc: Modern, fast and easy-to-use file manager for Xfce
     tags: [xfce]
 
+  - name: udiskie
+    desc: Removable disk automounter using udisks
+
+  - name: overskride
+    desc: A simple yet powerful bluetooth client
+    archlinux:
+      aur: overskride
+
 # Extra repositories to add to the system
 repositories:
   debian:
