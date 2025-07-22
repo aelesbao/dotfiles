@@ -17,7 +17,6 @@
   "notification-2fa-action": true,
   "notification-body-image-height": 128,
   "notification-body-image-width": 200,
-  "notification-icon-size": 64,
   "notification-window-width": 375,
   "relative-timestamps": true,
   "script-fail-notify": true,
@@ -105,8 +104,6 @@
       "show-per-app-label": true
     },
     "mpris": {
-      "image-size": 96,
-      "image-radius": 6,
       "autohide": true
     },
     "buttons-grid": {
@@ -170,11 +167,6 @@
       "state": "enabled",
       "urgency": "Low",
       "app-name": "Spotify"
-    },
-    "youtube-music": {
-      "state": "enabled",
-      "urgency": "Low",
-      "app-name": "com.github.th_ch.youtube_music"
     }
   }
 }
