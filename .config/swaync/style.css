@@ -177,8 +177,6 @@ label {
 }
 
 .notification-group {
-  /* unset the annoying focus thingie */
-  opacity: 0;
   box-shadow: none;
 }
 
