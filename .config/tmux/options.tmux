@@ -44,9 +44,10 @@ set-option -g renumber-windows on
 
 # Allow programs in the pane to change the window name using a terminal escape sequence
 # set-option allow-rename on
-# Rename windows using the git root directory (wip)
 set-option -g automatic-rename off
+# Rename windows using the git root directory (wip)
 # set-option -g automatic-rename-format '#{b:pane_current_path}#{?pane_in_mode,[#{pane_current_command}],}'
+# set-option -g automatic-rename-format "Window"
 
 # Move the status bar to the top
 set-option -g status-position bottom
@@ -71,3 +72,7 @@ set-option -g scroll-on-clear off
 # Improved copy mode
 # set vi-mode
 set-window-option -g mode-keys vi
+
+if -b "~/.config/tmux/scripts/test-battery.sh" {
+   setenv -g TMUX_BATTERY_ENABLED 1
+}

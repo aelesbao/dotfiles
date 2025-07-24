@@ -1,9 +1,5 @@
 # vim:fileencoding=utf-8:ft=tmux:foldmethod=marker
 
-if -b "type pmset >/dev/null 2>&1 || type acpi >/dev/null 2>&1 || type upower >/dev/null 2>&1 || type apm >/dev/null 2>&1" {
-   setenv -g TMUX_BATTERY_ENABLED 1
-}
-
 # Tmux Plugin Manager.
 set -g @plugin 'tmux-plugins/tpm'
 
