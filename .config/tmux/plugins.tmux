@@ -58,7 +58,7 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @cpu_percentage_format "%2.0f%%"
 
 # Soothing pastel theme for Tmux.
-set -g @plugin 'catppuccin/tmux#v2.1.0'
+set -g @plugin 'catppuccin/tmux#v2.1.3'
 
 # Catppuccin theme settings (use mocha on the host and frappe on ssh)
 %if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
@@ -75,30 +75,7 @@ set -g @catppuccin_window_current_text " #W"
 
 set -g @catppuccin_status_background "#{@thm_bg}"
 
-if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
-   "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
-
-set -g status-right-length 100
-set -g status-left-length 100
-
-set -g status-left ""
-
-# Display hostname when connected via SSH
-%if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
-   set -ga status-left "#[bg=#{@thm_peach},fg=#{@thm_crust}]#[reverse]█#[noreverse]  "
-   set -gaF status-left "#[fg=#{@thm_fg},bg=#{@thm_surface_0}] ##H "
-   set -ga status-left "#[fg=#{@thm_fg},bg=#{@thm_bg}] "
-%endif
-
-set -g status-right "#{E:@catppuccin_status_application}"
-set -ga status-right "#{E:@catppuccin_status_session}"
-set -gaF status-right "#{E:@catppuccin_status_cpu}"
-
-%if "#{TMUX_BATTERY_ENABLED}"
-   set -gaF status-right "#{E:@catppuccin_status_battery}"
-%endif
-
-set -gaF status-right "#{E:@catppuccin_status_date_time}"
+source ~/.config/tmux/theme.tmux
 
 # Plugin Manager installation {{{
 
