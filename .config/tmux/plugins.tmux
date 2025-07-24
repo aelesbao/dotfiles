@@ -60,21 +60,6 @@ set -g @cpu_percentage_format "%2.0f%%"
 # Soothing pastel theme for Tmux.
 set -g @plugin 'catppuccin/tmux#v2.1.3'
 
-# Catppuccin theme settings (use mocha on the host and frappe on ssh)
-%if "#{||:#{SSH_CLIENT},#{SSH_TTY}}"
-   set -g @catppuccin_flavor "frappe"
-%else
-   set -g @catppuccin_flavor "mocha"
-%endif
-
-set -g @catppuccin_pane_status_enabled "yes" # set to "yes" to enable
-set -g @catppuccin_pane_border_status "yes" # set to "yes" to enable
-
-set -g @catppuccin_window_text " #W"
-set -g @catppuccin_window_current_text " #W"
-
-set -g @catppuccin_status_background "#{@thm_bg}"
-
 source ~/.config/tmux/theme.tmux
 
 # Plugin Manager installation {{{
