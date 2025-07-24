@@ -1,0 +1,6 @@
+[global]
+# disable stdin (redirected to /dev/null) during the .envrc evaluation
+disable_stdin = true
+
+# loads .envrc with `set -euo pipefail`
+strict_env = true
