@@ -49,8 +49,8 @@ set -g @fzf-url-fzf-options '-w 50% -h 50% --multi -0 --no-preview --no-border'
 
 # Plug and play battery percentage and icon indicator for Tmux.
 %if "#{TMUX_BATTERY_ENABLED}"
-   set -g @plugin 'tmux-plugins/tmux-battery'
-   set -g @batt_icon_status_attached ''
+set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @batt_icon_status_attached ''
 %endif
 
 # Plug and play cpu percentage and icon indicator.

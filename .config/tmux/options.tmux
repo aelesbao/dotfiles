@@ -39,6 +39,9 @@ set-option -g base-index 1
 set-option -g pane-base-index 1
 set-window-option -g pane-base-index 1
 
+# Remove space between window names
+set-window-option -g window-status-separator ""
+
 # When we add/remove windows, renumber them in sequential order.
 set-option -g renumber-windows on
 
@@ -51,6 +54,7 @@ set-option -g automatic-rename off
 
 # Move the status bar to the top
 set-option -g status-position bottom
+set-option -g status-justify left
 
 # Enable visual alerts for windows. Hide bells/silence.
 set-window-option -g monitor-activity off # highlight active windows?

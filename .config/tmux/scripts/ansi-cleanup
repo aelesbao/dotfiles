@@ -1,0 +1,12 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+while (<>) {
+    s/\e\[[0-?]*[ -\/]*[@-~]//g;
+    s/\e\][^\a]*(?:\a|\e\\)//g;
+    s/\e[PX^_].*?\e\\//sg;
+    print;
+}
+

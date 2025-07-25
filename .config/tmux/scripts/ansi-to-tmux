@@ -1,0 +1,83 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+# Convert ANSI escape sequences to tmux formatting strings.
+# Usage: some_command | convert-tmux.sh
+
+my $ANSI_RE = qr/\e\[([0-9;]*)m/;
+
+sub ansi_to_tmux {
+    my ($seq) = @_;
+    my @params = split /;/, $seq;
+    my (@style, @attr);
+    my $extended;
+
+    while (@params) {
+        my $code = shift @params;
+        $code = 0 if $code eq '';
+
+        # Reset / none
+        return '#[none]' if $code == 0;
+
+        # Text attributes
+        push @attr, 'bold'          and next if $code == 1;
+        push @attr, 'dim'           if $code == 2;
+        push @attr, 'italic'        if $code == 3;
+        push @attr, 'underscore'    if $code == 4;
+        push @attr, 'blink'         if $code == 5;
+        push @attr, 'reverse'       if $code == 7;
+        push @attr, 'hidden'        if $code == 8;
+        push @attr, 'strikethrough' if $code == 9;
+
+        # 8‑color foreground/background
+        if ($code >= 30 && $code <= 37) {
+            push @style, 'fg=' . (qw(black red green yellow blue magenta cyan white)[$code-30]);
+            next;
+        }
+        if ($code >= 40 && $code <= 47) {
+            push @style, 'bg=' . (qw(black red green yellow blue magenta cyan white)[$code-40]);
+            next;
+        }
+
+        # Bright 8‑color set
+        if ($code >= 90 && $code <= 97) {
+            push @style, 'fg=' . (qw(brightblack brightred brightgreen brightyellow brightblue brightmagenta brightcyan brightwhite)[$code-90]);
+            next;
+        }
+        if ($code >= 100 && $code <= 107) {
+            push @style, 'bg=' . (qw(brightblack brightred brightgreen brightyellow brightblue brightmagenta brightcyan brightwhite)[$code-100]);
+            next;
+        }
+
+        # 256‑color or truecolor
+        if ($code == 38 || $code == 48) {
+            my $is_fg = $code == 38;
+            my $mode  = shift @params // 0;
+            if ($mode == 5) {               # 256‑color
+                my $idx = shift @params // 0;
+                push @style, ($is_fg ? 'fg=' : 'bg=') . "colour$idx";
+                $extended = 1;
+            }
+            elsif ($mode == 2) {            # Truecolor RGB
+                my ($r,$g,$b) = splice @params, 0, 3;
+                my $hex = sprintf '#%02x%02x%02x', $r,$g,$b;
+                push @style, ($is_fg ? 'fg=' : 'bg=') . $hex;
+                $extended = 1;
+            }
+            next;
+        }
+    }
+
+    # In extended color modes bold often looks ugly; skip it unless explicitly requested
+    @attr = grep { $_ ne 'bold' } @attr if $extended;
+
+    my $out = '#[' . join(' ', @style, @attr) . ']';
+    return $out eq '#[]' ? '' : $out;
+}
+
+while (<>) {
+    s/$ANSI_RE/ansi_to_tmux($1)/ge;
+    print;
+}
