@@ -58,6 +58,8 @@ unset IFS
 if is-linux; then
   info "Configuring SSH server"
 
+  local reload=false
+
   if [[ ! -d /etc/ssh/sshd_config.d ]]; then
     warn "SSH server configuration directory not found"
     return
@@ -65,16 +67,43 @@ if is-linux; then
 
   if ! sshd -G | grep -iq "^PasswordAuthentication no"; then
     msg "Disabling password authentication"
-    echo "PasswordAuthentication no" | sudo tee -a /etc/ssh/sshd_config.d/30-password-authentication.conf > /dev/null
+    echo "PasswordAuthentication no" | sudo tee /etc/ssh/sshd_config.d/99-password-authentication.conf > /dev/null
+    reload=true
   fi
 
   if ! sshd -G | grep -iq "^PubkeyAuthentication yes"; then
     msg "Enabling public key authentication"
-    echo "PubkeyAuthentication yes" | sudo tee -a /etc/ssh/sshd_config.d/30-pubkey-authentication.conf > /dev/null
+    echo "PubkeyAuthentication yes" | sudo tee /etc/ssh/sshd_config.d/99-pubkey-authentication.conf > /dev/null
+    reload=true
   fi
 
   if ! sshd -G | grep -iq "AllowAgentForwarding yes"; then
     msg "Enabling agent forwarding"
-    echo "AllowAgentForwarding yes" | sudo tee -a /etc/ssh/sshd_config.d/30-agent-forwarding.conf > /dev/null
+    echo "AllowAgentForwarding yes" | sudo tee /etc/ssh/sshd_config.d/99-agent-forwarding.conf > /dev/null
+    reload=true
+  fi
+
+  if ! sshd -G | grep -iq "^ClientAliveInterval 600"; then
+    msg "Enabling client alive messages"
+    echo "ClientAliveInterval 600" | sudo tee /etc/ssh/sshd_config.d/99-client-alive.conf > /dev/null
+    echo "ClientAliveCountMax 3" | sudo tee -a /etc/ssh/sshd_config.d/99-client-alive.conf > /dev/null
+    reload=true
+  fi
+
+  if $reload; then
+    # Ensure config changes are correct
+    sudo sshd -t || fail "sshd configuration test failed, please check the configuration files"
+
+    # Restart SSH server to apply changes
+    if command -v systemctl &> /dev/null; then
+      msg "Reloading SSH server configuration with systemctl"
+      sudo systemctl reload sshd
+    elif command -v service &> /dev/null; then
+      msg "Reloading SSH server configuration with service"
+      sudo service sshd restart
+    else
+      msg "Reloading SSH server configuration with SIGHUP"
+      sudo kill -SIGHUP $(pgrep -f "sshd -D")
+    fi
   fi
 fi
