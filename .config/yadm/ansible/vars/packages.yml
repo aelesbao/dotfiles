@@ -26,6 +26,9 @@ packages:
   - name: bat
     desc: Clone of cat(1) with syntax highlighting and Git integration
 
+  - name: bc
+    desc: An arbitrary precision calculator language
+
   - name: binaryen
     desc: Compiler infrastructure and toolchain library for WebAssembly
 
@@ -68,6 +71,9 @@ packages:
     desc: JSON, YAML, TOML, XML, and CSV query and modification tool
     archlinux:
       aur: dasel
+
+  - name: debuginfod
+    desc: Handle ELF object files and DWARF debugging information (debuginfod)
 
   - name: deno
     desc: Secure runtime for JavaScript and TypeScript
@@ -122,6 +128,9 @@ packages:
 
   - name: gcc
     desc: GNU compiler collection
+
+  - name: gdb
+    desc: The GNU Debugger
 
   - name: gettext
     desc: GNU internationalization (i18n) and localization (l10n) library
@@ -439,6 +448,9 @@ packages:
 
   - name: unbound
     desc: Validating, recursive, caching DNS resolver
+
+  - name: uptimed
+    desc: A system uptime record daemon
 
   - name: uv
     desc: Extremely fast Python package installer and resolver, written in Rust
@@ -991,6 +1003,12 @@ packages:
   - name: claude-code
     desc: An agentic coding tool that lives in your terminal
     tags: [ai]
+    archlinux:
+      aur: claude-code
+
+  - name: gemini-cli
+    desc: An open-source AI agent that brings the power of Gemini directly into your terminal.
+    tags: [ai]
 
   - name: llm-manager
     desc: LLM task->model configuration utility
@@ -1044,8 +1062,8 @@ packages:
   - name: os-prober
     desc: Utility to detect other OSes on a set of drives
 
-  - name: terminus-font
-    desc: Monospace bitmap font (for X11 and console)
+  - name: sysstat
+    desc: a collection of performance monitoring tools (iostat,isag,mpstat,pidstat,sadf,sar)
 
   - name: openbsd-netcat
     desc: TCP/IP swiss army knife. OpenBSD variant.
@@ -1094,6 +1112,28 @@ packages:
     desc: A simple yet powerful bluetooth client
     archlinux:
       aur: overskride
+
+  - name: podman
+    desc: Tool and library for running OCI-based containers in pods
+
+  - name: podman-compose
+    desc: A script to run docker-compose.yml using podman
+
+  - name: podman-desktop
+    desc: Manage Podman and other container engines from a single UI and tray.
+
+  - name: k3s
+    desc: Lightweight Kubernetes
+    archlinux:
+      aur: k3s-bin
+
+  - name: minikube
+    desc: A tool that makes it easy to run Kubernetes locally
+
+  - name: resvg
+    desc: SVG rendering library and CLI
+    archlinux:
+      aur: resvg
 
 # Extra repositories to add to the system
 repositories:
