@@ -199,8 +199,8 @@ button:hover {
 }
 
 #privacy {
-  background-color: alpha(@color3, 0.8);
-  color: @color0;
+  /* background-color: alpha(@color3, 0.8); */
+  color: @color7;
 }
 #privacy-item {
   padding: 0 4px;
