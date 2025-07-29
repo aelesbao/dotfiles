@@ -3,6 +3,9 @@ root: ~
 
 windows:
   - name: "\U000F02DC ~"
+  - name: top
+    commands: [htop]
+    panes:
+      - commands: [command nvtop || exit 0]
   - name: git
-    commands:
-      - lazygit -g ~/.local/share/yadm/repo.git -w ~
+    commands: [lazygit -g ~/.local/share/yadm/repo.git -w ~]
