@@ -54,8 +54,9 @@ set -g @batt_icon_status_attached ''
 %endif
 
 # Plug and play cpu percentage and icon indicator.
-set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @cpu_percentage_format "%2.0f%%"
+set -g @plugin 'aelesbao/tmux-cpu'
+set -g @cpu_temp_medium_thresh "70"
+set -g @cpu_temp_high_thresh   "85"
 
 # Soothing pastel theme for Tmux.
 set -g @plugin 'catppuccin/tmux#v2.1.3'
