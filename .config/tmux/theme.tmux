@@ -60,6 +60,6 @@ set -ga status-right "#{E:@catppuccin_status_starship_directory}"
 set -ga status-right "#{?#{E:@git_branch},#{E:@catppuccin_status_starship_git},}"
 set -gaF status-right "#{E:@catppuccin_status_sensors}"
 %if "#{TMUX_BATTERY_ENABLED}"
-set -ga status-right "#{E:@catppuccin_status_battery}"
+set -gaF status-right "#{E:@catppuccin_status_battery}"
 %endif
 set -ga status-right "#{E:@catppuccin_status_date_time}"
