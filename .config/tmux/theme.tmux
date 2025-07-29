@@ -36,9 +36,13 @@ set -g @catppuccin_host_color "#{?#{||:#{SSH_CLIENT},#{SSH_TTY}},#{@thm_peach},#
 set -g @catppuccin_application_icon  " "
 set -g @catppuccin_application_color "#{@thm_rosewater}"
 
+set -g @catppuccin_date_time_icon  " "
+set -g @catppuccin_date_time_color "#{@thm_overlay_0}"
+
 if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
    "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 
+source -F ~/.config/tmux/status/sensors.tmux
 source -F ~/.config/tmux/status/starship_directory.tmux
 source -F ~/.config/tmux/status/starship_git.tmux
 
@@ -54,7 +58,7 @@ set -g status-right ""
 set -ga status-right "#{E:@catppuccin_status_application}"
 set -ga status-right "#{E:@catppuccin_status_starship_directory}"
 set -ga status-right "#{?#{E:@git_branch},#{E:@catppuccin_status_starship_git},}"
-set -gaF status-right "#{E:@catppuccin_status_cpu}"
+set -gaF status-right "#{E:@catppuccin_status_sensors}"
 %if "#{TMUX_BATTERY_ENABLED}"
 set -ga status-right "#{E:@catppuccin_status_battery}"
 %endif
