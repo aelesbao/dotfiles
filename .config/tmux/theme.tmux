@@ -39,6 +39,10 @@ set -g @catppuccin_application_color "#{@thm_rosewater}"
 set -g @catppuccin_date_time_icon  " "
 set -g @catppuccin_date_time_color "#{@thm_overlay_0}"
 
+set -g @sensors_cpu_icon_color "#{@thm_green}"
+set -g @sensors_ram_icon_color "#{@thm_teal}"
+set -g @sensors_gpu_icon_color "#{@thm_sky}"
+
 if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
    "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 

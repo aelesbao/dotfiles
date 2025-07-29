@@ -57,6 +57,9 @@ set -g @batt_icon_status_attached ''
 set -g @plugin 'aelesbao/tmux-cpu'
 set -g @cpu_temp_medium_thresh "70"
 set -g @cpu_temp_high_thresh   "85"
+set -g @ram_medium_thresh      "50"
+set -g @ram_high_thresh        "80"
+
 
 # Soothing pastel theme for Tmux.
 set -g @plugin 'catppuccin/tmux#v2.1.3'

@@ -143,17 +143,17 @@ set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@sensors_cpu_icon_color}]#{@
 set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{cpu_fg_color}}]#{l:#{cpu_icon}}#{l:#{cpu_percentage}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
 set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{cpu_temp_fg_color}}]#{l:#{cpu_temp_icon}}#{l:#{cpu_temp}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
 
-set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@catppuccin_status_${MODULE_NAME}_icon_bg}]#{@sensors_separator}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
+set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@catppuccin_status_${MODULE_NAME}_icon_bg} dim]#{@sensors_separator}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg} nodim]"
 set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@sensors_ram_icon_color}]#{@sensors_ram_icon}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
-set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{ram_fg_color}}]#{l:#{ram_icon}}#{l:#{ram_used}}/#{l:#{ram_total}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
+set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{ram_fg_color}}]#{l:#{ram_icon}}#{l:#{ram_used}}#[dim]/#[nodim]#{l:#{ram_total}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
 
 if-shell "command -v nvidia-smi >/dev/null 2>&1 || command -v cuda-smi >/dev/null 2>&1" {
-   set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@catppuccin_status_${MODULE_NAME}_icon_bg}]#{@sensors_separator}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
+   set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@catppuccin_status_${MODULE_NAME}_icon_bg} dim]#{@sensors_separator}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg} nodim]"
    set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@sensors_gpu_icon_color}]#{@sensors_gpu_icon}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
    set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{gpu_fg_color}}]#{l:#{gpu_icon}}#{l:#{gpu_percentage}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
    set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{gpu_temp_fg_color}}]#{l:#{gpu_temp_icon}}#{l:#{gpu_temp}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
    set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{@sensors_gram_icon_color}]#{@sensors_gram_icon}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
-   set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{gram_fg_color}}]#{l:#{gram_icon}}#{l:#{gram_used}}/#{l:#{gram_total}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
+   set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{gram_fg_color}}]#{l:#{gram_icon}}#{l:#{gram_used}}#[dim]/#[nodim]#{l:#{gram_total}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
 }
 
 source -F "#{d:current_file}/../plugins/tmux/utils/status_module.conf"
