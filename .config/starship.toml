@@ -150,7 +150,7 @@ repo_root_format = "[ $repo_root]($repo_root_style)[$path]($style) "
 format = "[$indicator]($style)"
 style = "lavender dimmed"
 bash_indicator = " "
-fish_indicator = "󰈺 "
+fish_indicator = " "
 zsh_indicator = ""
 disabled = false
 
@@ -181,7 +181,7 @@ format = """([ \
 ([$untracked](fg:sky dimmed) )\
 ([$stashed](fg:sapphire) )\
 ([$ahead_behind](fg:peach) )\
-]($style)) """
+]($style))"""
 # ahead = "[▴│[${count}](bold white)│](italic green)"
 # behind = "[▿│[${count}](bold white)│](italic red)"
 # diverged = "[◇ ▴┤[${ahead_count}](regular white)│▿┤[${behind_count}](regular white)│](italic bright-magenta)"
