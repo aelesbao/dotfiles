@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+tmpfile="$(mktemp "${TMPDIR}"/hypr-dbgwin.XXXXXX.txt)"
+hyprctl activewindow >"$tmpfile"
+xdg-open "$tmpfile" || {
+  notify-send "Failed to open $tmpfile with xdg-open"
+  exit 1
+}
