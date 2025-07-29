@@ -32,6 +32,7 @@ test_*_files/
 .tags1
 tags
 ctags
+.bacon-locations
 
 Logs
 *.log
