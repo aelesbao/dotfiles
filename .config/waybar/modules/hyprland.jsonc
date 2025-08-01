@@ -35,10 +35,11 @@
         "on-click": "hyprctl dispatch submap reset"
     },
     "wlr/taskbar": {
+        "active-first": true,
         "markup": true,
         "icon-size": 16,
         "format": "{icon}",
-        "tooltip-format": "{title}",
+        "tooltip-format": "{title} - {name} (#{app_id})",
         "on-click": "activate",
         // "on-click-middle": "close",
         "app_ids-mapping": {},

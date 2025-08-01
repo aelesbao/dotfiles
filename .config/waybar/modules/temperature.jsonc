@@ -7,18 +7,17 @@
             "transition-left-to-right": false
         },
         "modules": [
-            "temperature#cpu",
-            "temperature#gpu",
+            "temperature#cpu_package",
             "temperature#nvme",
-            "temperature#motherboard"
+            "temperature#cpu"
         ]
     },
     // CPU temperature
     "temperature#cpu": {
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-critical": "󱩅 {temperatureC}°C",
+        "format": " {temperatureC}°C",
+        "format-critical": " 󱩅 {temperatureC}°C",
         "format-icons": [
             "",
             "",
@@ -26,25 +25,25 @@
         ],
         "tooltip-format": "CPU {temperatureC}°C"
     },
-    // Motherboard temperature
-    "temperature#motherboard": {
-        "hwmon-path": "/sys/class/hwmon/hwmon3/temp3_input",
+    // CPU Package temperature
+    "temperature#cpu_package": {
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
         "critical-threshold": 80,
-        "format": " {temperatureC}°C",
-        "format-critical": " 󱩅 {temperatureC}°C 󱩅",
+        "format": " {icon} {temperatureC}°C",
+        "format-critical": " 󱩅 {temperatureC}°C",
         "format-icons": [
             "",
             "",
             ""
         ],
-        "tooltip-format": "Motherboard {temperatureC}°C"
+        "tooltip-format": "CPU Package {temperatureC}°C"
     },
     // NVMe temperature
     "temperature#nvme": {
         "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
         "critical-threshold": 80,
         "format": "󰋊 {temperatureC}°C",
-        "format-critical": "󰋊 󱩅 {temperatureC}°C 󱩅",
+        "format-critical": "󰋊 󱩅 {temperatureC}°C",
         "format-icons": [
             "",
             "",
@@ -56,8 +55,8 @@
     "temperature#gpu": {
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 80,
-        "format": "󰍹 {temperatureC}°C",
-        "format-critical": "󰋊 󱩅 {temperatureC}°C 󱩅",
+        "format": "󰾲 {icon} {temperatureC}°C",
+        "format-critical": "󰾲 󱩅 {temperatureC}°C",
         "format-icons": [
             "",
             "",

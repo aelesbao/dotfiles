@@ -23,14 +23,14 @@
         "systemd-failed-units",
         "group/bartender",
         "cpu",
-        "custom/gpu",
-        "memory",
-        "disk",
         "group/temperature",
+        "memory",
+        "custom/gpu",
+        "disk",
         "network",
         "bluetooth",
         // "upower",
-        "group/audio",
+        "pulseaudio",
         "custom/notifications",
         "clock"
     ]

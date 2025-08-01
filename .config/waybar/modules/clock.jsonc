@@ -1,6 +1,6 @@
 {
   "clock": {
-    "format": " {:%a, %B %d, %Y  %H:%M}",
+    "format": " {:%a, %B %d  %H:%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>\n\n{tz_list}",
     "calendar": {
       "mode": "year",
@@ -24,7 +24,7 @@
       "Asia/Tokyo"
     ],
     "actions": {
-      "on-click": "gnome-calendar",
+      "on-click": "uwsm app -- org.gnome.Calendar.desktop",
       "on-click-right": "mode",
       "on-click-forward": "tz_up",
       "on-click-backward": "tz_down",
