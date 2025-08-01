@@ -46,6 +46,9 @@ set -g @sensors_gpu_icon_color "#{@thm_sky}"
 if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
    "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 
+set -g window-style 'bg=#{E:@thm_crust}'
+set -g window-active-style 'bg=#{E:@thm_mantle}'
+
 source -F ~/.config/tmux/status/sensors.tmux
 source -F ~/.config/tmux/status/starship_directory.tmux
 source -F ~/.config/tmux/status/starship_git.tmux
