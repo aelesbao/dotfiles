@@ -1,9 +1,9 @@
-# Local config
+### Local config
 .gitconfig.local
 .z*.local
 .tmux.conf
 
-# Editors
+### Editors
 *.swp
 .ensime
 .session.vim
@@ -21,7 +21,7 @@
 rebel.xml
 *.code-workspace
 
-# Caches
+### Caches
 .cache
 .classpath
 .cap_tasks~
@@ -37,26 +37,52 @@ ctags
 Logs
 *.log
 
-# direnv
+### direnv
 .envrc
 .direnv
 
-# Project local smug config
-.smug.yml
-
-# OS specific
-.DS_Store
-.DS_Store?
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Versions
+### Versions
 .ruby-version
 .python-version
 .java-version
 .nvmrc
 
-# Personal sandbox area
+### Project local smug config
+.smug.yml
+
+### OS specific
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+### Personal sandbox area
 .sandbox
+
+### macOS
+# General
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
