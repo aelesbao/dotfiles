@@ -134,7 +134,7 @@ set -ogq @gram_medium_bg_color "#{E:@catppuccin_status_module_text_bg}"
 set -ogq @gram_high_bg_color   "#{E:@catppuccin_status_module_text_bg}"
 
 # Module settings
-set -ogq "@catppuccin_${MODULE_NAME}_icon"  " "
+set -ogq "@catppuccin_${MODULE_NAME}_icon"  "󰓅 "
 set -ogq "@catppuccin_${MODULE_NAME}_color" "#{E:@sensors_main_color}"
 
 set -gq  "@catppuccin_${MODULE_NAME}_text"  ""
