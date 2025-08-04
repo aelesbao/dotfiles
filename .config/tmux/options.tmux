@@ -77,6 +77,6 @@ set-option -g scroll-on-clear off
 # set vi-mode
 set-window-option -g mode-keys vi
 
-if -b "~/.config/tmux/scripts/test-battery.sh" {
+if -b "~/.config/tmux/scripts/test-battery" {
    setenv -g TMUX_BATTERY_ENABLED 1
 }
