@@ -16,8 +16,8 @@
     "temperature#cpu": {
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 80,
-        "format": " {temperatureC}°C",
-        "format-critical": " 󱩅 {temperatureC}°C",
+        "format": "{icon}  {temperatureC}°C",
+        "format-critical": "󱩅  {temperatureC}°C",
         "format-icons": [
             "",
             "",
@@ -29,8 +29,8 @@
     "temperature#cpu_package": {
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp2_input",
         "critical-threshold": 80,
-        "format": " {icon} {temperatureC}°C",
-        "format-critical": " 󱩅 {temperatureC}°C",
+        "format": "{icon}  {temperatureC}°C",
+        "format-critical": "󱩅  {temperatureC}°C",
         "format-icons": [
             "",
             "",
@@ -42,8 +42,8 @@
     "temperature#nvme": {
         "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
         "critical-threshold": 80,
-        "format": "󰋊 {temperatureC}°C",
-        "format-critical": "󰋊 󱩅 {temperatureC}°C",
+        "format": "{icon} 󰋊 {temperatureC}°C",
+        "format-critical": "󱩅 󰋊 {temperatureC}°C",
         "format-icons": [
             "",
             "",
@@ -55,8 +55,8 @@
     "temperature#gpu": {
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 80,
-        "format": "󰾲 {icon} {temperatureC}°C",
-        "format-critical": "󰾲 󱩅 {temperatureC}°C",
+        "format": "{icon} 󰾲 {icon} {temperatureC}°C",
+        "format-critical": "󱩅 󰾲 {temperatureC}°C",
         "format-icons": [
             "",
             "",
