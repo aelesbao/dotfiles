@@ -23,5 +23,35 @@
     "bindings": {
       ";": "command_palette::Toggle"
     }
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "ctrl-y": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "(Editor && edit_prediction_conflict)",
+    "bindings": {
+      "ctrl-y": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "GitCommit > Editor",
+    "bindings": {
+      "ctrl-y": "git::GenerateCommitMessage"
+    }
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "bindings": {
+      "ctrl-y": "git::GenerateCommitMessage"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      ";": "vim::VisualCommand"
+    }
   }
 ]
