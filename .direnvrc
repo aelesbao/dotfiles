@@ -51,15 +51,34 @@ use_nodejs() {
   nvm use "${version}"
 }
 
-# use a certain Python version
 use_python() {
+  _warn "use_python is deprecated, use use_pyenv or use_uv instead"
+}
+
+use_uv() {
+  set -eo pipefail
+
+  has uv || return 1
+
+  local pyversion="${1:-${UV_PYTHON:-}}"
+  [[ -f .python-version ]] && pyversion="$(head .python-version)"
+
+  if [[ -z "${pyversion}" ]]; then
+    _fail "you should specify a Python version or run \`uv python pin VERSION\` in the project root"
+    return 1
+  fi
+
+  uv python install "${pyversion}"
+}
+
+use_pyenv() {
   set -eo pipefail
 
   has pyenv || return 1
 
   eval "$(pyenv init --path)"
 
-  local pyversion="${1:-${PYENV_VERSION}}"
+  local pyversion="${1:-${PYENV_VERSION:-}}"
   [[ -f .python-version ]] && pyversion="$(head .python-version)"
 
   if [[ -z "${pyversion}" ]]; then
@@ -81,7 +100,14 @@ layout_venv() {
   set -eo pipefail
 
   local venv="${1:-.venv}"
-  [[ -d ${venv} ]] || python -m venv .venv
+  if ! [[ -d ${venv} ]]; then
+    if has uv; then
+      uv venv --managed-python --seed "${venv}"
+    else
+      python -m venv .venv
+      _info "Created virtual environment at ${venv}"
+    fi
+  fi
 
   # shellcheck disable=SC1091
   source "${venv}/bin/activate"
