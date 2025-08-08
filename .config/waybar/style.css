@@ -187,12 +187,11 @@ button:hover {
 }
 
 #submap {
-  background-color: alpha(@color3, 0.8);
-  color: @color0;
-  padding: 0 8px;
-}
-#submap.resize {
-  color: @color0;
+  border-left: 1px solid alpha(@color3, 0.8);
+  border-right: 1px solid alpha(@color3, 0.8);
+  color: @color3;
+  padding: 2px 8px;
+  margin: 0px 8px;
 }
 
 #idle_inhibitor {

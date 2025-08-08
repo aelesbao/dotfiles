@@ -12,11 +12,11 @@
         "hyprland/workspaces",
         "wlr/taskbar",
         "mpris",
-        "cava",
-        "hyprland/submap"
+        "cava"
     ],
     "modules-center": [
-        "hyprland/window"
+        "hyprland/window",
+        "hyprland/submap"
     ],
     "modules-right": [
         "privacy",
