@@ -9,7 +9,7 @@
   "control-center-margin-top": 22,
   "control-center-width": 400,
   "cssPriority": "user",
-  "fit-to-screen": false,
+  "fit-to-screen": true,
   "hide-on-action": true,
   "hide-on-clear": false,
   "image-visibility": "when-available",
