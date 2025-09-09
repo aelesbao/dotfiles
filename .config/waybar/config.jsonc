@@ -1,16 +1,27 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "height": 32, // Waybar height (to be removed for auto height)
+    "height": 32, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
     "include": [
-        "$XDG_CONFIG_HOME/waybar/modules/*.jsonc"
+        // "${XDG_CONFIG_HOME}/waybar/modules/*.jsonc"
+        "modules/clock.jsonc",
+        "modules/hyprland.jsonc",
+        "modules/login.jsonc",
+        "modules/media.jsonc",
+        "modules/notifications.jsonc",
+        "modules/privacy.jsonc",
+        "modules/quicklinks.jsonc",
+        "modules/sensors.jsonc",
+        "modules/system.jsonc",
+        "modules/temperature.jsonc",
+        "modules/tray.jsonc"
     ],
     // Choose the order of the modules
     "modules-left": [
-        "group/quicklinks",
+        // "group/quicklinks",
         "hyprland/workspaces",
-        "wlr/taskbar",
+        // "wlr/taskbar",
         "mpris",
         "cava"
     ],
@@ -28,6 +39,7 @@
         "custom/gpu",
         "disk",
         "network",
+        "group/vpn",
         "bluetooth",
         // "upower",
         "pulseaudio",
