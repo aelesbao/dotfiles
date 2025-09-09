@@ -20,6 +20,7 @@ cat <<EOF >! ~/.config/electron-flags.conf
 EOF
 
 declare -a apps=(
+  1password
   brave
   chrome
   code
