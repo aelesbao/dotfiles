@@ -32,8 +32,11 @@ use_nodejs() {
   set -eo pipefail
 
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"
+  [ -s "$HOME/.nvm/nvm.sh" ] && source "$HOME/.nvm/nvm.sh"
 
-  has nvm || return 1
+  if ! has nvm; then
+    _fail "could not find nvm"
+  fi
 
   export PATH="${PATH}:./node_modules/.bin"
 
@@ -45,7 +48,6 @@ use_nodejs() {
   local version="${1:-${NVM_VERSION}}"
   if [[ -z "${version}" ]]; then
     _fail "you should specify a Node.js version or add a .nvmrc file to the project root"
-    return 1
   fi
 
   nvm use "${version}"
@@ -102,7 +104,7 @@ layout_venv() {
   local venv="${1:-.venv}"
   if ! [[ -d ${venv} ]]; then
     if has uv; then
-      uv venv --managed-python --seed "${venv}"
+      uv venv --seed "${venv}"
     else
       python -m venv .venv
       _info "Created virtual environment at ${venv}"
