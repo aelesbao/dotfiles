@@ -58,6 +58,11 @@ declare op_secret_key="${op_item}/aelesbao.secret.key"
 declare user_id="$(op read --no-newline "${op_item}/username")"
 declare fpr="$(op read --no-newline "${op_item}/info/fingerprint")"
 
+if [[ -z "$user_id" ]] || [[ -z "$fpr" ]]; then
+  error "No GPG user ID or fingerprint found in 1Password"
+  return 1
+fi
+
 
 info "Set up key ${user_id} (${fpr})"
 
