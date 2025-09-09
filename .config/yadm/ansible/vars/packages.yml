@@ -299,6 +299,9 @@ packages:
   - name: neovim
     desc: Ambitious Vim-fork focused on extensibility and agility
 
+  - name: nix
+    desc: A purely functional package manager
+
   - name: node
     desc: Platform built on V8 to build network applications
     archlinux: nodejs
@@ -1103,6 +1106,26 @@ packages:
 
   - name: thunar
     desc: Modern, fast and easy-to-use file manager for Xfce
+    tags: [xfce]
+
+  - name: thunar-volman
+    desc: Automatic management of removable drives and media for Thunar
+    tags: [xfce]
+
+  - name: thunar-shares-plugin
+    desc: Thunar plugin to quickly share a folder using Samba without requiring root access
+    tags: [xfce]
+
+  - name: thunar-archive-plugin
+    desc: Adds archive operations to the Thunar file context menus
+    tags: [xfce]
+
+  - name: thunar-media-tags-plugin
+    desc: Adds special features for media files to the Thunar File Manager
+    tags: [xfce]
+
+  - name: gtkhash-thunar
+    desc: A GTK+ utility for computing message digests or checksums (Gtkhash with Thunar filemanager plugin)
     tags: [xfce]
 
   - name: udiskie
