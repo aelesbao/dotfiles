@@ -4,11 +4,20 @@ set -euo pipefail
 
 declare service="$1"
 if [[ -z "$service" ]]; then
-  echo "Usage: $0 <service-name>"
+  echo "Usage: $0 <service-name> [action]"
+  echo ""
+  echo "  action: restart | reload (default: restart)"
+  exit 1
+fi
+
+declare action="${2:-restart}"
+if [[ "$action" != "restart" && "$action" != "reload" ]]; then
+  echo "Invalid action: $action"
+  echo "Valid actions are: restart, reload"
   exit 1
 fi
 
 if systemctl --user is-active --quiet "${service}.service"; then
-  systemctl --user restart "${service}.service"
-  notify-send -e -u low "systemd" "${service} service restarted"
+  systemctl --user $action "${service}.service"
+  notify-send -e -u low "systemd" "${service} service ${action}ed"
 fi
