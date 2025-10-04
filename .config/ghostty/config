@@ -7,7 +7,7 @@
 initial-command = zsh --login
 
 # Theme
-theme = tokyonight
+theme = TokyoNight Night
 
 # Font
 font-size = 10
@@ -37,15 +37,22 @@ background-opacity = 0.95
 background-blur-radius = 20
 unfocused-split-opacity = 0.5
 
-window-decoration = none
+window-decoration = auto
 window-theme = ghostty
 window-padding-balance = true
+window-subtitle = working-directory
 
 quit-after-last-window-closed = true
 
+# Quick terminal
+quick-terminal-autohide = true
+quick-terminal-position = top
+quick-terminal-size = 50%,95%
+
 # Linux
-gtk-adwaita = true
-adw-toolbar-style = flat
+gtk-titlebar-hide-when-maximized = true
+gtk-titlebar-style = native
+gtk-toolbar-style = flat
 
 # macOS
 macos-titlebar-style = transparent
@@ -122,6 +129,8 @@ keybind = super+g>z=toggle_split_zoom
 
 # extras
 keybind = super+g>i=inspector:toggle
+keybind = super+shift+p=toggle_command_palette
+keybind = global:super+f12=toggle_quick_terminal
 
 # copy and paste
 keybind = super+c=copy_to_clipboard
@@ -193,4 +202,5 @@ keybind = alt+six=unbind
 keybind = alt+seven=unbind
 keybind = alt+eight=unbind
 keybind = alt+nine=unbind
+keybind = ctrl+shift+p=unbind
 
