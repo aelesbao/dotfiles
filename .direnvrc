@@ -119,6 +119,24 @@ layout_virtualenv() {
   layout_venv "${@}"
 }
 
+# Exports DOCKER_HOST from the currently selected Docker context
+layout_docker_context() {
+  set -euo pipefail
+
+  if ! has docker; then
+    _fail "docker is not installed"
+    return 1
+  fi
+
+  context="$(docker context show)"
+
+  if [[ "${context}" != "default" ]]; then
+    _info "Using ${context} Docker context"
+    DOCKER_HOST="$(docker context inspect "${context}" -f '{{ with (index .Endpoints "docker") }}{{ .Host }}{{ end }}')"
+    export DOCKER_HOST
+  fi
+}
+
 # use a certain Java version
 use_java() {
   set -eo pipefail
