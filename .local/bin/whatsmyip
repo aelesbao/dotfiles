@@ -1,3 +1,28 @@
-#!/bin/sh
-curl --connect-timeout 3 -fLSs 'https://wtfismyip.com/text'
-curl --connect-timeout 3 -fLSs 'https://ipv4.wtfismyip.com/text'
+#!/bin/bash
+
+set -euo pipefail
+
+get_address() {
+  curl --connect-timeout 5 -fLSs "https://${1:-}wtfismyip.com/json" |
+    jq -r '
+      "Address: " + .YourFuckingIPAddress + "\n" +
+      "Location: " + .YourFuckingLocation + "\n" +
+      "Hostname: " + .YourFuckingHostname + "\n" +
+      "ISP: " + .YourFuckingISP
+    '
+}
+
+export -f get_address
+
+gum style --bold --border rounded --foreground 212 "IPv6"
+gum spin \
+  --title "Detecting public address" \
+  --spinner points \
+  --show-output -- bash -c 'get_address'
+
+echo
+gum style --bold --border rounded --foreground 212 "IPv4"
+gum spin \
+  --title "Detecting public address" \
+  --spinner points \
+  --show-output -- bash -c 'get_address "ipv4."'
