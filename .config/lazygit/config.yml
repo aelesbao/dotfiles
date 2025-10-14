@@ -116,7 +116,7 @@ customCommands:
         key: "TemplateName"
         initialValue: ""
         suggestions:
-          command: "find .github -type f -name '*.md' -printf '%f'"
+          command: "find .github -type f -name '*.md' -printf '%f\n'"
     command: "gh pr create --editor --base '{{.Form.Base}}' {{if .Form.TemplateName}}--template '{{.Form.TemplateName}}'{{end}}"
     loadingText: "Creating pull request on GitHub"
     output: terminal
