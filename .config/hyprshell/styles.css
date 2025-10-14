@@ -30,32 +30,32 @@
 
 .workspace {
     background: var(--bg-color);
-    box-shadow: inset 0 0 10px alpha(@background, 0.5);
+    box-shadow: inset 0 0 10px alpha(@background, 0.7);
     font-size: 14px;
 }
 
 .workspace:hover {
-    box-shadow: inset 0 0 10px alpha(@background, 0.5);
+    box-shadow: inset 0 0 10px alpha(@background, 0.7);
 }
 
 .workspace.active {
-    box-shadow: inset 0 0 10px alpha(@background, 0.5);
+    box-shadow: inset 0 0 10px alpha(@background, 0.7);
 }
 
 .client {
     background: unset;
-    box-shadow: inset 0 0 10px alpha(@background, 0.5);
+    box-shadow: inset 0 0 10px alpha(@background, 0.7);
     font-size: 13px;
 }
 
 .client.active {
     background: var(--bg-color-hover);
-    box-shadow: inset 0 0 10px alpha(@background, 0.5);
+    box-shadow: inset 0 0 10px alpha(@background, 0.7);
 }
 
 .client:hover {
     background: var(--bg-color-hover);
-    box-shadow: inset 0 0 10px alpha(@background, 0.5);
+    box-shadow: inset 0 0 10px alpha(@background, 0.7);
 }
 
 .client-image {
