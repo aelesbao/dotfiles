@@ -6,7 +6,7 @@
         "disable-scroll": false,
         "show-special": true,
         "special-visible-only": true,
-        "format": "{icon} {name}{windows}",
+        "format": "{icon} {windows}",
         "format-icons": {
             "planning": "󰻧",
             "browsing": "",
@@ -15,11 +15,11 @@
             "comms": "󰭹",
             "media": "",
             "gaming": "󰢚",
+            "studies": "󱉟",
             "urgent": "",
             "focused": "",
             "default": ""
         },
-        // "window-rewrite-default": "",
         "workspace-taskbar": {
             // Enable the workspace taskbar. Default: false
             "enable": true,

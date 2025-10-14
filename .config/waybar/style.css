@@ -8,12 +8,15 @@
 }
 
 #waybar {
-  background: alpha(@background, 0.7);
+  background: alpha(@background, 0.5);
   color: @foreground;
   font-family: "Hack Nerd Font";
   font-size: 1em;
   padding: 0px 8px;
+  margin: 4px 8px;
   outline: none;
+  border: none;
+  border-radius: 6px;
 }
 
 #waybar * {
@@ -252,15 +255,19 @@ button:hover {
 #bluetooth {
   min-width: 20px;
 }
-#bluetooth.off {
-  background-color: alpha(@color3, 0.8);
+#bluetooth.disabled, #bluetooth.off {
+  color: @color1;
+  background-color: alpha(@color8, 0.5);
 }
-/* #bluetooth.on */
-/* #bluetooth.connected */
+#bluetooth.connected {
+  color: @color12;
+}
+#bluetooth.no-controller {
+  color: @color7;
+}
 /* #bluetooth.discoverable */
 /* #bluetooth.discovering */
 /* #bluetooth.pairable */
-/* #bluetooth.no-controller */
 
 #mpris.paused {
   color: @color8;
