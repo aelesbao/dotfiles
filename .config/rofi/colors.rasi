@@ -21,7 +21,7 @@
   selected-urgent-foreground: #C0CAF5;
 
   background-color: #1A1B26;
-  background: rgba(26,27,38, 0.75);
+  background: rgba(26,27,38, 0.9);
   foreground: #C0CAF5;
   border-color: rgba(199,169,255, 0.75);
 

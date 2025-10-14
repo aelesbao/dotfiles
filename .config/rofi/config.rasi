@@ -30,7 +30,7 @@ configuration {
 
   timeout {
     action: "kb-cancel";
-    delay:  0;
+    delay:  10;
   }
 
   filebrowser {

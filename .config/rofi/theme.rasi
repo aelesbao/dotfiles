@@ -15,7 +15,7 @@ window {
 
   background-color:             transparent;
   border:                       @border-width;
-  border-radius:                10px;
+  border-radius:                8px;
 
   spacing:                      0px;
   padding:                      0px;
@@ -59,7 +59,7 @@ dummy {
 /* ---- Inputbar ---- */
 inputbar {
   enabled:                      true;
-  background-color:             @background;
+  background-color:             transparent;
   border-radius:                0px;
   border-color:                 @foreground;
   text-color:                   @foreground;
@@ -95,7 +95,7 @@ mode-switcher{
 }
 
 button {
-  background-color:             @background;
+  background-color:             transparent;
   border:                       0px;
   border-radius:                10px;
   padding:                      10px;
@@ -123,7 +123,7 @@ listview {
   spacing:                      0px;
   padding:                      10px;
   margin:                       0px;
-  background-color:             @background;
+  background-color:             transparent;
   border:                       0px;
 }
 
@@ -133,7 +133,7 @@ element {
   padding:                      10px;
   margin:                       5px;
   cursor:                       pointer;
-  background-color:             @background;
+  background-color:             transparent;
   border-radius:                10px;
   border:                       0px;
 }
