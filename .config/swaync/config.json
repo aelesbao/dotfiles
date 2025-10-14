@@ -74,7 +74,7 @@
           },
           {
             "label": "   Logout",
-            "command": "hyprctl dispatch exit 0"
+            "command": "uwsm stop"
           },
           {
             "label": "󰤄   Suspend",
