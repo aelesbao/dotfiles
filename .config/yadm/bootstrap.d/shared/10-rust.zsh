@@ -70,6 +70,7 @@ if ask "Update installed crates?"; then
   binstall cargo-watch
   binstall evcxr_repl
   binstall grcov
+  binstall mcp-discovery
 
   cargo-install bacon
   cargo-install cargo-release
