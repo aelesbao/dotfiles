@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
+  },
   "permissions": {
     "allow": [
       "Bash(npm run lint)",
@@ -11,7 +14,8 @@
       "Bash(cargo nextest:*)",
       "Bash(just:*)",
       "Bash(docker:*)",
-      "Bash(sui move:*)"
+      "Bash(sui move:*)",
+      "Bash(gh:*)"
     ],
     "deny": [
       "Bash(sh:*)",
@@ -21,7 +25,5 @@
       "Bash(yay:*)"
     ]
   },
-  "env": {
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
-  }
+  "model": "haiku"
 }
