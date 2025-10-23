@@ -6,6 +6,6 @@ windows:
   - name: top
     commands: [htop]
     panes:
-      - commands: [command nvtop || exit 0]
+      - commands: [command zenith || exit 0]
   - name: git
     commands: [lazygit -g ~/.local/share/yadm/repo.git -w ~]
