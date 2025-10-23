@@ -201,7 +201,7 @@ echo "Installing themes"
 
 # install-eliverlara-theme Andromeda-gtk main Andromeda
 # install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight
-# install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight purple
+install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight purple
 # install-flat-remix
 
 
