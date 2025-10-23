@@ -28,7 +28,7 @@ _notice() {
 }
 
 # use a specific Node.js version
-use_nodejs() {
+use_nvm() {
   set -eo pipefail
 
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"
@@ -38,14 +38,14 @@ use_nodejs() {
     _fail "could not find nvm"
   fi
 
-  export PATH="${PATH}:./node_modules/.bin"
+  [ -d "./node_modules/.bin" ] && export PATH="${PATH}:./node_modules/.bin"
 
   if [[ -f .nvmrc ]]; then
     nvm use
     return $?
   fi
 
-  local version="${1:-${NVM_VERSION}}"
+  local version="${1:-${NVM_VERSION:-default}}"
   if [[ -z "${version}" ]]; then
     _fail "you should specify a Node.js version or add a .nvmrc file to the project root"
   fi
