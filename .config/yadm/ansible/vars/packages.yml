@@ -299,6 +299,9 @@ packages:
   - name: neovim
     desc: Ambitious Vim-fork focused on extensibility and agility
 
+  - name: netscanner
+    desc: Network scanner
+
   - name: nix
     desc: A purely functional package manager
 
@@ -344,6 +347,9 @@ packages:
     archlinux: qemu-full
     debian: qemu-system
 
+  - name: virt-manager
+    desc: Desktop user interface for managing virtual machines
+
   - name: rclone
     desc: Rsync for cloud storage
 
@@ -367,8 +373,9 @@ packages:
   - name: sccache
     desc: Used as a compiler wrapper and avoids compilation when possible
 
-  - name: shellcheck
-    desc: Static analysis and lint tool, for (ba)sh scripts
+  # NOTE: disabled due to the extensive dependency tree on Haskell - it's better to use Mason in neovim
+  # - name: shellcheck
+  #   desc: Static analysis and lint tool, for (ba)sh scripts
 
   - name: shfmt
     desc: Autoformat shell script source code
@@ -484,6 +491,9 @@ packages:
 
   - name: yadm
     desc: Yet Another Dotfiles Manager
+
+  - name: yaml-language-server
+    desc: YAML Language Server
 
   - name: yarn
     desc: JavaScript package manager
@@ -653,7 +663,16 @@ packages:
     archlinux: visual-studio-code-bin
 
   - name: vlc
-    desc: Multimedia player
+    desc: Free and open source cross-platform multimedia player and framework
+
+  - name: vlc-plugins-all
+    desc: Free and open source cross-platform multimedia player and framework - all plugins
+
+  - name: vlc-gui-skins2
+    desc: Free and open source cross-platform multimedia player and framework - Skins2 GUI
+
+  - name: vlc-gui-ncurses
+    desc: Free and open source cross-platform multimedia player and framework - Ncurses TUI
 
   - name: zed
     desc: Multiplayer code editor
@@ -732,9 +751,11 @@ packages:
     desc: Simple backup tool, GTK frontend for duplicity
     tags: [gnome]
 
+  - name: scantailor-advanced
+    desc: An interactive post-processing tool for scanned pages.
+
   - name: sane-airscan
     desc: SANE - SANE backend for AirScan (eSCL) and WSD document scanners
-    tags: [gnome]
 
   - name: seahorse
     desc: GNOME application for managing PGP keys
@@ -762,6 +783,14 @@ packages:
 
   - name: gnome-online-accounts-gtk
     desc: A GTK Frontend for GNOME Online Accounts
+    tags: [gnome]
+
+  - name: forge-sparks
+    desc: Simple notifier app with support for Github, GitLab, Gitea and Forgejo
+    tags: [gnome]
+
+  - name: bustle
+    desc: Draw sequence diagrams of D-Bus traffic
     tags: [gnome]
 
   - name: yubico-pam
@@ -1157,6 +1186,11 @@ packages:
     desc: SVG rendering library and CLI
     archlinux:
       aur: resvg
+
+  - name: nvchecker
+    desc: New version checker for software releases
+
+  - name: greetd-regreet
 
 # Extra repositories to add to the system
 repositories:
