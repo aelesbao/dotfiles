@@ -10,7 +10,7 @@ function add-service() {
   local description="$3"
   local -au ports=(${argv:4})
 
-  if ! firewall-cmd --permanent --get-services | grep -q "${service}"; then
+  if ! sudo firewall-cmd --permanent --get-services | grep -q "${service}"; then
     msg "Adding ${service} service"
     sudo firewall-cmd --permanent --new-service="${service}"
     sudo firewall-cmd --permanent --service="${service}" --set-short="${short}"
@@ -36,8 +36,14 @@ if (( $+commands[firewall-cmd] )); then
     24800/udp \
     24801/udp
 
+  add-service "ausweisapp2" \
+    "AusweisApp2" \
+    "Service for reading German ID cards" \
+    24727/tcp
+
   msg "Enabling services on home zone"
   sudo firewall-cmd --permanent --zone="home" \
+    --add-service="ausweisapp2" \
     --add-service="deskflow" \
     --add-service="dhcpv6-client" \
     --add-service="docker-swarm" \
