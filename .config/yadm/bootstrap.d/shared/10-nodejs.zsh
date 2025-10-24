@@ -31,3 +31,6 @@ nvm use default
 npm install -g @anthropic-ai/claude-code
 npm install -g @zed-industries/claude-code-acp
 npm install -g mcp-hub
+
+msg "Installing Claude Code native build"
+claude install
