@@ -407,6 +407,9 @@ packages:
   - name: stylua
     desc: Deterministic code formatter for Lua
 
+  - name: superfile
+    desc: Pretty fancy and modern terminal file manager
+
   - name: system-config-printer
     desc: A CUPS printer configuration tool and status applet
 
@@ -453,11 +456,6 @@ packages:
 
   - name: trivy
     desc: A Simple and Comprehensive Vulnerability Scanner for Containers, Suitable for CI
-
-  - name: ulauncher
-    desc: Application launcher for Linux
-    archlinux:
-      aur: ulauncher
 
   - name: unbound
     desc: Validating, recursive, caching DNS resolver
