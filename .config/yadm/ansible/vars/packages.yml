@@ -123,6 +123,9 @@ packages:
   - name: flatpak
     desc: Linux application sandboxing and distribution framework (formerly xdg-app)
 
+  - name: flatpak-xdg-utils
+    desc: Utilities for containerized apps to launch programs outside the container
+
   - name: fzf
     desc: Command-line fuzzy finder written in Go
 
@@ -506,6 +509,9 @@ packages:
     archlinux:
       aur: go-yq
 
+  - name: yt-dlp
+    desc: A youtube-dl fork with additional features and fixes
+
   - name: zellij
     desc: Pluggable terminal workspace, with terminal multiplexer as the base feature
 
@@ -737,6 +743,10 @@ packages:
 
   - name: gnome-software
     desc: GNOME Software Tools
+    tags: [gnome]
+
+  - name: gnome-packagekit
+    desc: Collection of graphical tools for PackageKit to be used in the GNOME desktop
     tags: [gnome]
 
   - name: junction
