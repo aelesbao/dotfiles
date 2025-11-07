@@ -871,16 +871,24 @@ packages:
     desc: a highly customizable dynamic tiling Wayland compositor
     tags: [hyprland]
 
-  - name: hyprlock
-    desc: hyprland’s GPU-accelerated screen locking utility
-    tags: [hyprland]
-
   - name: hyprland-protocols
     desc: Wayland protocol extensions for Hyprland
     tags: [hyprland]
 
   - name: xdg-desktop-portal-hyprland
     desc: XDG Desktop Portal implementation for Hyprland
+    tags: [hyprland]
+
+  - name: hyprlock
+    desc: hyprland’s GPU-accelerated screen locking utility
+    tags: [hyprland]
+
+  - name: hyprlauncher
+    desc: A multipurpose and versatile launcher / picker for Hyprland
+    tags: [hyprland]
+
+  - name: hyprpwcenter
+    desc: A GUI Pipewire control center
     tags: [hyprland]
 
   - name: rofi
