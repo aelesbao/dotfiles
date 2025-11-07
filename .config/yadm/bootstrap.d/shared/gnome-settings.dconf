@@ -16,11 +16,10 @@ action-double-click-titlebar='none'
 action-middle-click-titlebar='none'
 button-layout='appmenu:close'
 theme='Tokyonight-Purple-Dark'
-workspace-names=['Communication', 'Browsing', 'Development']
 
 
-# GNOME Interface
-[/org/gnome/desktop/interface/]
+# GNOME interface
+[org/gnome/desktop/interface]
 accent-color='slate'
 clock-show-weekday=true
 color-scheme='prefer-dark'
@@ -29,12 +28,20 @@ cursor-theme='Nordzy-cursors'
 enable-animations=true
 enable-hot-corners=true
 font-antialiasing='grayscale'
+font-name='Rubik Light 10'
 gtk-theme='Tokyonight-Purple-Dark'
 icon-theme='candy-icons'
 monospace-font-name='Hack Nerd Font Mono 10'
 
+# GNOME input
+[org/gnome/desktop/input-sources]
+mru-sources=[('xkb', 'us+mac')]
+show-all-sources=true
+sources=[('xkb', 'us+mac')]
+xkb-options=['caps:escape_shifted_capslock', 'lv3:ralt_switch', 'compose:rctrl', 'altwin:menu']
+
 # GNOME default apps
-[/org/gnome/desktop/applications/terminal/]
+[org/gnome/desktop/applications/terminal]
 exec='/usr/bin/ghostty'
 
 
@@ -47,8 +54,7 @@ auto-save-session=true
 [org/gnome/shell]
 remember-mount-password=true
 
-
-# GNOME Shell
+# GNOME shell keybindings
 [org/gnome/shell/keybindings]
 focus-active-notification=@as []
 show-screen-recording-ui=@as []
@@ -58,6 +64,9 @@ toggle-message-tray=['<Alt><Super>n']
 toggle-overview=['<Control><Super>Up']
 toggle-quick-settings=['<Alt><Super>s']
 
+# GNOME User Theme
+[org/gnome/shell/extensions/user-theme]
+name='Tokyonight-Purple-Dark'
 
 # Configuration file for Pop Shell GNOME extension
 [org/gnome/shell/extensions/pop-shell]
