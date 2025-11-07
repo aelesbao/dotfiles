@@ -7,9 +7,9 @@ set -g @catppuccin_flavor "frappe"
 set -g @catppuccin_flavor "mocha"
 %endif
 
-set -g @catppuccin_pane_status_enabled "yes"
-set -g @catppuccin_pane_border_status  "yes"
-set -g @catppuccin_pane_border_style        "fg=#{@thm_surface_1} bg=#22222b"
+set -g @catppuccin_pane_status_enabled      "yes"
+set -g @catppuccin_pane_border_status       "yes"
+set -g @catppuccin_pane_border_style        "fg=#{@thm_surface_1} bg=terminal"
 set -g @catppuccin_pane_active_border_style "##{?pane_in_mode,fg=#{@thm_lavander},##{?pane_synchronized,fg=#{@thm_mauve},fg=#{@thm_blue}}} bg=terminal"
 
 set -g @catppuccin_window_text         " #W"
@@ -48,7 +48,7 @@ set -g @sensors_gpu_icon_color "#{@thm_sky}"
 if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
    "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 
-set -g window-style 'bg=#22222b'
+set -g window-style 'bg=terminal'
 set -g window-active-style 'bg=terminal'
 
 source -F ~/.config/tmux/status/netspeed.tmux

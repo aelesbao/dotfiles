@@ -16,10 +16,12 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @resurrect-save 'F5'
 set -g @resurrect-restore 'F6'
 # Restore additional programs
-set -g @resurrect-processes 'bacon'
+set -g @resurrect-processes ''
+set -ga @resurrect-processes ' bacon'
 set -ga @resurrect-processes ' "gh dash"'
 set -ga @resurrect-processes ' lazygit'
 set -ga @resurrect-processes ' nvtop'
+set -ga @resurrect-processes ' yazi'
 set -ga @resurrect-processes ' zenith'
 # Restore pane contents. Check the `default-command` tmux option;
 # it shouldn't contain `&&` or `||` operators.

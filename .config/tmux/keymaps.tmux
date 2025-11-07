@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:ft=tmux:foldmethod=marker
 
 # Assigns custom user keys
-run -b '~/.config/tmux/user-keys.sh'
+run -b ~/.config/tmux/user-keys.sh
 
 # too lazy to hold shift
 bind ';' command-prompt
@@ -50,13 +50,13 @@ bind '"' split-window -v -c "#{pane_current_path}"
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' | \
    grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf|lazygit)(diff)?$'"
 
-bind -n 'M-h' if-shell "$is_vim" 'send-keys M-h' 'select-pane -L'
-bind -n 'M-j' if-shell "$is_vim" 'send-keys M-j' 'select-pane -D'
-bind -n 'M-k' if-shell "$is_vim" 'send-keys M-k' 'select-pane -U'
-bind -n 'M-l' if-shell "$is_vim" 'send-keys M-l' 'select-pane -R'
+bind -n M-h if-shell "$is_vim" 'send-keys M-h' 'select-pane -L'
+bind -n M-j if-shell "$is_vim" 'send-keys M-j' 'select-pane -D'
+bind -n M-k if-shell "$is_vim" 'send-keys M-k' 'select-pane -U'
+bind -n M-l if-shell "$is_vim" 'send-keys M-l' 'select-pane -R'
 
 # Select the last pane keeping the zoom status
-bind -n 'M-;' select-pane -Z -t :.+
+bind -n 'M-`' select-pane -Z -t :.+
 
 bind -T copy-mode-vi 'M-h' select-pane -L
 bind -T copy-mode-vi 'M-j' select-pane -D
@@ -95,5 +95,5 @@ bind -n C-l send C-l \; clear-history
 # Open tmux config in an editor
 bind -n 'M-,' run 'tmux new-window -n tmux -S -c ~/.config/tmux "nvim -O options.tmux keymaps.tmux plugins.tmux"'
 
-# Open htop
-bind -n 'M-T' run 'tmux new-window -n htop -S htop'
+# Opens a popup with keymaps
+bind '/' display-popup -E 'tmux list-keys | fzf'
