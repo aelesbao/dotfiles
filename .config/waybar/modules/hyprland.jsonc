@@ -8,17 +8,17 @@
         "special-visible-only": true,
         "format": "{icon} {windows}",
         "format-icons": {
-            "planning": "󰻧",
-            "browsing": "",
-            "development": "",
-            "work": "",
-            "comms": "󰭹",
-            "media": "",
-            "gaming": "󰢚",
-            "studies": "󱉟",
+            "default": "",
             "urgent": "",
             "focused": "",
-            "default": ""
+            "browsing": "",
+            "comms": "󰭹",
+            "development": "",
+            "gaming": "󰢚",
+            "media": "",
+            "planning": "󰻧",
+            "studies": "󱉟",
+            "work": ""
         },
         "workspace-taskbar": {
             // Enable the workspace taskbar. Default: false
