@@ -1,6 +1,14 @@
 #!/bin/zsh
 
-set -euo pipefail
+set -euo pipefail -x
+
+direction="${1:-next}"
+
+if [[ "$direction" != "next" && "$direction" != "prev" ]]; then
+  echo "Invalid direction: $direction."
+  echo "Usage: $0 [next|prev]"
+  exit 1
+fi
 
 # NOTE: this scripts will set the same wallpaper on all monitors.
 
@@ -16,11 +24,16 @@ if [[ -z "$current" ]]; then
 fi
 
 # Gets the wallpaper index, increment it, and check for array overflow
-(( current_idx = ${wallpapers[(ie)$current]}, next_idx = current_idx + 1 ))
-[[ $next_idx -gt ${#wallpapers[@]} ]] && (( next_idx = 1 ))
+[[ "$direction" == "next" ]] && dir=1 || dir=-1
+next_idx=$((
+  current = ${wallpapers[(ie)$current]},
+  next = current + dir,
+  next < 1 ? ${#wallpapers[@]} : (next > ${#wallpapers[@]} ? 1 : next)
+))
 
 # Apply the the next wallpaper in the list
 wallpaper="${wallpapers[$next_idx]}"
+notify-send -e -t 2000 -u low -i cs-desktop -a "hyprpaper" "Hyprpaper" "Wallpaper set to ${wallpaper:t}"
 hyprctl hyprpaper reload ,"$wallpaper"
 
 # Updates ~/.config/hypr/hyprpaper.conf with currently active wallpaper
