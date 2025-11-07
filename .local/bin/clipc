@@ -4,11 +4,11 @@ declare -a cmd
 
 if [[ "${TERM}" == "tmux-256color" ]] && [[ -n "${TMUX}" ]]; then
   cmd=( tmux load-buffer -w - )
-elif (( ${+cmds[pbcopy]} )); then
+elif (( ${+commands[pbcopy]} )); then
   cmd=( pbcopy )
-elif (( ${+cmds[wl-copy]} )); then
+elif (( ${+commands[wl-copy]} )); then
   cmd=( wl-copy )
-elif (( ${+cmds[xclip]} )); then
+elif (( ${+commands[xclip]} )); then
   cmd=( xclip -selection clipboard )
 fi
 
