@@ -8,9 +8,9 @@ git:
   merging:
     args: "--no-ff"
   parseEmoji: true
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
 gui:
   showRandomTip: false
   # show commit hashes alongside branch names
