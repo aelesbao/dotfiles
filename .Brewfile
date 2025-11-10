@@ -296,6 +296,8 @@ brew "yazi"
 brew "yq"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# In terminal graphical metrics for your *nix system
+brew "zenith"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
