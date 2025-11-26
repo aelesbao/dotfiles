@@ -28,6 +28,7 @@ nvm install stable --default --reinstall-packages-from=stable
 
 info "Installing global packages"
 nvm use default
+npm install -g @openai/codex
 npm install -g @anthropic-ai/claude-code
 npm install -g @zed-industries/claude-code-acp
 npm install -g mcp-hub
