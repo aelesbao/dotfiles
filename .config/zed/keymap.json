@@ -7,21 +7,50 @@
 // from the command palette.
 [
   {
+    "bindings": {
+      "alt-[": "pane::ActivatePreviousItem",
+      "alt-]": "pane::ActivateNextItem"
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "space space": "file_finder::Toggle",
+      "super-s": "workspace::Save",
+      "super-w": "pane::CloseActiveItem"
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "super-v": "editor::Paste"
     }
   },
   {
     "context": "vim_mode == normal",
     "bindings": {
       ";": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      ";": "vim::VisualCommand",
+      "shift-s": "vim::PushAddSurrounds"
+    }
+  },
+  {
+    "context": "vim_mode == replace || vim_mode == insert",
+    "bindings": {
+      "alt-l": "workspace::ActivatePaneRight",
+      "alt-h": "workspace::ActivatePaneLeft"
+    }
+  },
+  {
+    "context": "((VimControl && !menu) || (!Editor && !Terminal))",
+    "bindings": {
+      "alt-l": "workspace::ActivatePaneRight",
+      "alt-h": "workspace::ActivatePaneLeft"
     }
   },
   {
@@ -49,9 +78,17 @@
     }
   },
   {
-    "context": "vim_mode == visual",
+    "context": "Terminal",
     "bindings": {
-      ";": "vim::VisualCommand"
+      "super-c": "terminal::Copy",
+      "super-v": "terminal::Paste"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "super-c": "project_panel::CollapseAllEntries",
+      "super-v": "project_panel::Paste"
     }
   }
 ]

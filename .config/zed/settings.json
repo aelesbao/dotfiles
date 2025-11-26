@@ -7,8 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_whitespaces": "selection",
+  "preferred_line_length": 120,
+  "autosave": "on_focus_change",
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false
+  },
   "base_keymap": "JetBrains",
   "agent": {
+    "use_modifier_to_send": true,
     "default_model": {
       "provider": "ollama",
       "model": "mistral-nemo"
@@ -20,57 +29,147 @@
     "play_sound_when_agent_done": true
   },
   "ui_font_size": 18,
-  "buffer_font_size": 14,
+  "buffer_font_size": 14.0,
   "buffer_font_family": "Hack Nerd Font",
-
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Tokyo Night"
-  },
+  "theme": "Tokyo Night",
   "vim_mode": true,
-  "vim": {},
+  "vim": {
+    "use_smartcase_find": true,
+    "use_system_clipboard": "never"
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
   "language_models": {
     "ollama": {
       "api_url": "http://localhost:11434",
       "available_models": [
         {
+          "name": "gpt-oss",
+          "display_name": "OpenAI’s open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases.",
+          "max_tokens": 131072,
+          "supports_tools": true,
+          "supports_thinking": true
+        },
+        {
           "name": "gemma3:27b",
           "display_name": "Gemma 3 27B lightweight family of models built on Gemini technology",
           "max_tokens": 131072,
-          "supports_tools": false
+          "supports_images": true
         },
         {
-          "name": "qwq",
-          "display_name": "QwQ reasoning model",
+          "name": "deepseek-r1:14b",
+          "display_name": "DeepSeek-R1 is a family of open reasoning models with performance approaching that of leading models, such as O3 and Gemini 2.5 Pro",
           "max_tokens": 131072,
-          "supports_tools": false
-        },
-        {
-          "name": "deepseek-coder-v2:16b",
-          "display_name": "DeepSeek Coder v2 16B that achieves performance comparable to GPT4-Turbo in code-specific tasks",
-          "max_tokens": 163840,
-          "supports_tools": false
-        },
-        {
-          "name": "mistral-nemo",
-          "display_name": "Mistral Nemo 12B model with 128k context length, built by Mistral AI in collaboration with NVIDIA",
-          "max_tokens": 1024000,
-          "supports_tools": false
-        },
-        {
-          "name": "deepcoder:14b",
-          "display_name": "DeepCoder 14B code reasoning model",
-          "max_tokens": 131072,
-          "supports_tools": false
+          "supports_tools": true,
+          "supports_thinking": true
         },
         {
           "name": "qwen3:32b",
           "display_name": "Qwen3 32B dense and mixture-of-experts (MoE) models",
           "max_tokens": 40960,
-          "supports_tools": false
+          "supports_tools": true,
+          "supports_thinking": true
+        },
+        {
+          "name": "qwen3-coder:latest",
+          "display_name": "Alibaba's performant long context models for agentic and coding tasks",
+          "max_tokens": 262144,
+          "supports_tools": true
+        },
+        {
+          "name": "qwen3-vl:30b",
+          "display_name": "The most powerful vision-language model in the Qwen model family to date",
+          "max_tokens": 262144,
+          "supports_tools": true,
+          "supports_images": true
         }
       ]
+    }
+  },
+  "calls": {
+    "mute_on_join": true
+  },
+  "terminal": {
+    "option_as_meta": true,
+    "copy_on_select": true
+  },
+  "git_panel": {
+    "sort_by_path": true
+  },
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.7
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_branch_icon": true
+  },
+  "search": {
+    "regex": true,
+    "include_ignored": true
+  },
+  "use_smartcase_search": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        // options to send to rust-analyzer
+        // See: https://rust-analyzer.github.io/manual.html#configuration
+        "cargo": {
+          "features": "all"
+        },
+        "check": {
+          "features": "all",
+          "command": "clippy",
+          // run clippy only on the given crate, without linting the dependencies
+          "extraArgs": ["--no-deps"]
+        },
+        "checkOnSave": true,
+        "imports": {
+          "preferPrelude": true
+        },
+        "inlayHints": {
+          "bindingModeHints": {
+            "enable": false
+          },
+          "closureCaptureHints": {
+            "enable": false
+          }
+        },
+        "procMacro": {
+          "enable": true,
+          "ignored": {
+            "async-trait": ["async_trait"],
+            "napi-derive": ["napi"],
+            "async-recursion": ["async_recursion"]
+          }
+        },
+        "rustfmt": {
+          "extraArgs": ["+nightly"]
+        },
+        "workspace": {
+          "symbol": {
+            "search": {
+              "scope": "workspace_and_dependencies",
+              "limit": 512
+            }
+          }
+        }
+      }
     }
   }
 }
