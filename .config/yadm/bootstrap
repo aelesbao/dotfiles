@@ -47,7 +47,7 @@ function fail() {
 }
 
 function ask() {
-  printf "\n\033[0;36m⁖ ${@:$#}\033[0m [y/n] ‣ "
+  printf "\n\033[0;36m⁖ ${@:$#}\033[0m [y/N] ‣ "
   if read -q "choice?"; then
     echo
     return 0
