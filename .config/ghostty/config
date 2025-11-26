@@ -68,7 +68,11 @@ shell-integration = detect
 shell-integration-features = true
 
 # Shaders
-# custom-shader = ./shaders/galaxy.glsl
+# custom-shader = ./shaders/cursor_glow.glsl
+# custom-shader = ./shaders/cursor_ripple.glsl
+# custom-shader = ./shaders/cursor_slash.glsl
+# custom-shader = ./shaders/cursor_smear.glsl
+custom-shader = ./shaders/cursor_trail.glsl
 custom-shader-animation = true
 
 # Others
