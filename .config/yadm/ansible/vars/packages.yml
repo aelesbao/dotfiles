@@ -96,6 +96,11 @@ packages:
   - name: docker-compose
     desc: Isolated development environments using Docker
 
+  - name: docker-model
+    desc: Docker CLI plugin for running AI models (prebuilt binary)
+    archlinux:
+      aur: docker-model-bin
+
   - name: duf
     desc: Disk Usage/Free Utility - a better 'df' alternative
 
@@ -559,20 +564,38 @@ packages:
       aur: ferdium-bin
     flatpak: org.ferdium.Ferdium
 
-  - name: firefox
-    desc: Web browser
-
-  - name: ttf-font-awesome
-  - name: ttf-hack-nerd
-  - name: ttf-jetbrains-mono-nerd
-  - name: ttf-nerd-fonts-symbols
-  - name: ttf-roboto-mono-nerd
   - name: ttf-rubik
     archlinux:
       aur: ttf-rubik-vf
+  - name: ttf-font-awesome
+
+  # Nerd fonts
+  - name: ttf-nerd-fonts-symbols
+  - name: otf-commit-mono-nerd
+  - name: otf-geist-mono-nerd
+  - name: ttf-0xproto-nerd
+  - name: ttf-anonymouspro-nerd
+  - name: ttf-bigblueterminal-nerd
+  - name: ttf-dejavu-nerd
+  - name: ttf-firacode-nerd
+  - name: ttf-go-nerd
+  - name: ttf-hack-nerd
+  - name: ttf-heavydata-nerd
+  - name: ttf-iosevkaterm-nerd
+  - name: ttf-iosevkatermslab-nerd
+  - name: ttf-jetbrains-mono-nerd
+  - name: ttf-liberation-mono-nerd
+  - name: ttf-martian-mono-nerd
+  - name: ttf-meslo-nerd
+  - name: ttf-nerd-fonts-symbols
+  - name: ttf-nerd-fonts-symbols-mono
+  - name: ttf-roboto-mono-nerd
+  - name: ttf-sourcecodepro-nerd
+  - name: ttf-space-mono-nerd
   - name: ttf-terminus-nerd
   - name: ttf-ubuntu-mono-nerd
   - name: ttf-ubuntu-nerd
+  - name: ttf-zed-mono-nerd
 
   - name: google-cloud-sdk
     desc: Set of tools to manage resources and applications hosted on Google Cloud
@@ -1048,14 +1071,8 @@ packages:
     desc: NVIDIA's GPU programming toolkit
     tags: [nvidia]
 
-  - name: claude-code
-    desc: An agentic coding tool that lives in your terminal
-    tags: [ai]
-    archlinux:
-      aur: claude-code
-
-  - name: gemini-cli
-    desc: An open-source AI agent that brings the power of Gemini directly into your terminal.
+  - name: opencode-bin
+    desc: The AI coding agent built for the terminal.
     tags: [ai]
 
   - name: llm-manager
@@ -1082,12 +1099,6 @@ packages:
 
   - name: typos-lsp
     desc: Language server for the typos source code spell checker
-
-  - name: zathura
-    desc: Minimalistic document viewer
-
-  - name: zathura-pdf-mupdf
-    desc: PDF support for Zathura (MuPDF backend) (Supports PDF, ePub, and OpenXPS)
 
   - name: dialog
     desc: A tool to display dialog boxes from shell scripts
@@ -1207,6 +1218,21 @@ packages:
     desc: New version checker for software releases
 
   - name: greetd-regreet
+
+  - name: btrfs-assistant
+    desc: An application for managing BTRFS subvolumes and Snapper snapshots
+
+  - name: btrfsmaintenance
+    desc: Btrfs maintenance scripts
+
+  - name: snapper
+    desc: A tool for managing BTRFS and LVM snapshots
+
+  - name: lmstudio
+    desc: Discover, download, and run local LLMs
+    tags: [ai]
+    archlinux:
+      aur: lmstudio
 
 # Extra repositories to add to the system
 repositories:
