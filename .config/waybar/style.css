@@ -290,3 +290,17 @@ button:hover {
 #systemd-failed-units.degraded {
   color: @color1;
 }
+
+#custom-notifications.notification {
+  color: @color5;
+}
+
+#custom-notifications.dnd-notification,
+#custom-notifications.dnd-inhibited-notification {
+  color: @color2;
+}
+
+#custom-notifications.dnd-none,
+#custom-notifications.dnd-inhibited-none {
+  color: @color9;
+}
