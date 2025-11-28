@@ -1071,10 +1071,6 @@ packages:
     desc: NVIDIA's GPU programming toolkit
     tags: [nvidia]
 
-  - name: opencode-bin
-    desc: The AI coding agent built for the terminal.
-    tags: [ai]
-
   - name: llm-manager
     desc: LLM task->model configuration utility
     tags: [ai]
@@ -1233,6 +1229,15 @@ packages:
     tags: [ai]
     archlinux:
       aur: lmstudio
+
+  - name: opencode
+    desc: The AI coding agent built for the terminal.
+    tags: [ai]
+    archlinux:
+      aur: opencode-bin
+
+  - name: ifuse
+    desc: A fuse filesystem to access the contents of an iPhone or iPod Touch
 
 # Extra repositories to add to the system
 repositories:
