@@ -74,7 +74,6 @@ brew "fish"
 brew "ffmpeg"
 # Monitor a directory for changes and run a shell command
 brew "fswatch"
-
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU internationalization (i18n) and localization (l10n) library
@@ -319,16 +318,12 @@ cask "1password", args: { appdir: "/Applications" }
 cask "1password-cli", args: { appdir: "/Applications" }
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader", args: { appdir: "/Applications" }
-# A cross-platform, OpenGL terminal emulator
-cask "alacritty"
 ## Command-line tools for building and debugging Android apps
 #cask "android-commandlinetools"
 ## Android SDK component
 #cask "android-platform-tools"
 # Application uninstaller
 cask "appcleaner", args: { appdir: "/Applications" }
-# Chromium based browser
-cask "arc", args: { appdir: "/Applications" }
 # Two-way text copying
 cask "balenaetcher", args: { appdir: "/Applications" }
 # Menu bar icon organizer
@@ -367,14 +362,10 @@ cask "google-cloud-sdk", args: { appdir: "/Applications" }
 cask "gpg-suite", args: { appdir: "/Applications" }
 # GraalVM from Oracle
 cask "graalvm-jdk"
-# Grammarly for desktop
-cask "grammarly-desktop", args: { appdir: "/Applications" }
 # Companion app for Home Assistant home automation software
 cask "home-assistant"
 # HTTP and GraphQL Client
 cask "insomnia", args: { appdir: "/Applications" }
-# Menu bar application for the IPFS peer-to-peer network
-cask "ipfs"
 # System monitoring app
 cask "istat-menus", args: { appdir: "/Applications" }
 # JetBrains tools manager
@@ -389,8 +380,6 @@ cask "kitty"
 cask "ledger-live"
 # Free cross-platform office suite, fresh version
 cask "libreoffice", args: { appdir: "/Applications" }
-# Open-source Markdown editor
-cask "macdown", args: { appdir: "/Applications" }
 # Native desktop app for Messenger (formerly Facebook Messenger)
 cask "messenger"
 # Native app email client for Gmail
@@ -405,8 +394,6 @@ cask "nordvpn", args: { appdir: "/Applications" }
 cask "notion", args: { appdir: "/Applications" }
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Xbox streaming client
-cask "onecast"
 # Used to access context-specific actions when text is selected
 cask "popclip"
 # GUI client for PostgreSQL databases
@@ -441,8 +428,6 @@ cask "visual-studio-code"
 cask "vlc"
 # Desktop client for WhatsApp
 cask "whatsapp", args: { appdir: "/Applications" }
-# Agentic IDE powered by AI Flow paradigm
-cask "windsurf"
 # Multiplayer code editor
 cask "zed"
 
