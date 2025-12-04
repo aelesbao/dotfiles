@@ -53,6 +53,7 @@ fi
 if ask "Update installed crates?"; then
   binstall cargo-about
   binstall cargo-audit
+  binstall cargo-bundle
   binstall cargo-dist
   binstall cargo-deny
   binstall cargo-edit
@@ -72,7 +73,6 @@ if ask "Update installed crates?"; then
   binstall grcov
   binstall mcp-discovery
 
-  cargo-install bacon
   cargo-install cargo-release
 fi
 
