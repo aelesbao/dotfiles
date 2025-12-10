@@ -3,7 +3,7 @@
   "theme": "tokyonight",
   "autoupdate": false,
   "share": "disabled",
-  "model": "ollama/gpt-oss",
+  "model": "lmstudio/openai/gpt-oss-20b",
   "permission": {
     "edit": "ask",
     "bash": "ask",
@@ -53,6 +53,15 @@
       "models": {
         "openai/gpt-oss-20b": {
           "name": "GPT OSS 20B",
+        },
+        "qwen/qwen3-30b-a3b-2507": {
+          "name": "Qwen3 30B",
+        },
+        "qwen/qwen3-coder-30b": {
+          "name": "Qwen3 Coder 30B",
+        },
+        "deepseek/deepseek-r1-0528-qwen3-8b": {
+          "name": "Distilled DeepSeek R1 0528 (Qwen3 8B post-training)",
         },
       }
     }
