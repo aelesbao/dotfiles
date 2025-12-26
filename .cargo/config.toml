@@ -5,11 +5,23 @@ email = "aelesbao@users.noreply.github.com"
 gen = "generate"
 nt = "nextest run"
 
-[unstable]
-sparse-registry = true
+[registries.crates-io]
+protocol = "sparse"
 
 [target.x86_64-apple-darwin]
 rustflags = ["-C", "link-arg=-fuse-ld=lld"]
 
-[target.x86_64-unkown-linux-gnu]
-rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]
+[target.'cfg(target_os = "linux")']
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+# rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+
+[term]
+quiet = false                    # whether cargo output is quiet
+verbose = false                  # whether cargo provides verbose output
+color = "auto"                   # whether cargo colorizes output
+hyperlinks = true                # whether cargo inserts links into output
+unicode = true                   # whether cargo can render output using non-ASCII unicode characters
+progress.when = "auto"           # whether cargo shows progress bar
+progress.width = 80              # width of progress bar
+progress.term-integration = true # whether cargo reports progress to terminal emulator
