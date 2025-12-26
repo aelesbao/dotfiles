@@ -44,7 +44,8 @@ set -g @ctrlp_session_bind 's'
 
 # Search your tmux scrollback buffer using fuzzy matching
 set -g @plugin 'roosta/tmux-fuzzback'
-set -g @fuzzback-finder 'sk'
+set -g @fuzzback-finder 'fzf'
+set -g @fuzzback-bind '/'
 set -g @fuzzback-popup 1
 set -g @fuzzback-popup-size '90%'
 
@@ -53,7 +54,9 @@ set -g @plugin 'wfxr/tmux-fzf-url'
 # Captures urls from the scrollback history
 set -g @fzf-url-history-limit '2000'
 # Open tmux-fzf-url in a popup
-set -g @fzf-url-fzf-options '-w 50% -h 50% --multi -0 --no-preview --no-border'
+set -g @fzf-url-fzf-options '--tmux center,50%,50% --multi --exit-0 --no-preview --no-border'
+# Open using kairo
+# set -g @fzf-url-open 'tmux display-popup -E kairo open'
 
 # Plug and play battery percentage and icon indicator for Tmux.
 %if "#{TMUX_BATTERY_ENABLED}"

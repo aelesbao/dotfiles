@@ -96,7 +96,7 @@ bind -n C-l send C-l \; clear-history
 bind -n 'M-,' run 'tmux new-window -n tmux -S -c ~/.config/tmux "nvim -O options.tmux keymaps.tmux plugins.tmux"'
 
 # Opens a popup with keymaps
-bind '/' display-popup -E 'tmux list-keys | fzf'
+bind '?' display-popup -E 'tmux list-keys | fzf'
 
 # Opens a popup with keymaps
 bind g display-popup -EE -w 80% -h 80% -B -d "#{pane_current_path}" -T "lazygit" "lazygit"
