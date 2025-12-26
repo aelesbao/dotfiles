@@ -19,14 +19,13 @@
     ],
     // Choose the order of the modules
     "modules-left": [
-        // "group/quicklinks",
         "hyprland/workspaces",
-        // "wlr/taskbar",
+        "hyprland/window",
         "mpris",
         "cava"
     ],
     "modules-center": [
-        "hyprland/window",
+        "clock",
         "hyprland/submap"
     ],
     "modules-right": [
@@ -43,7 +42,6 @@
         "bluetooth",
         // "upower",
         "pulseaudio",
-        "custom/notifications",
-        "clock"
+        "custom/notifications"
     ]
 }

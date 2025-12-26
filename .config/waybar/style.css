@@ -41,43 +41,24 @@ button:hover {
   color: @color14;
 }
 
-#quicklinks,
-#mode,
+#backlight,
 #battery,
 #bluetooth,
+#clock,
 #cpu,
 #custom-gpu,
-#memory,
-#disk,
-#network,
-#pulseaudio,
 #custom-notifications,
+#disk,
 #idle_inhibitor,
-#backlight,
-#clock,
-#temperature,
 #language,
+#login-menu,
+#memory,
+#mode,
+#network,
 #privacy,
-#login-menu {
+#pulseaudio,
+#temperature {
   padding: 2px 4px;
-}
-
-#quicklinks label {
-  padding: 0 4px;
-  min-width: 20px;
-}
-#quicklinks .drawer box {
-  padding-left: 4px;
-}
-#quicklinks .not-first label {
-  margin: 0 4px;
-}
-#quicklinks .not-first label:hover {
-  color: @color14;
-}
-#quicklinks #custom-distro {
-  color: @color5;
-  margin-right: 4px;
 }
 
 #workspaces {
@@ -138,6 +119,7 @@ button:hover {
 #window {
   font-size: 0.9em;
   font-weight: 400;
+  margin-right: 16px;
 }
 
 #bartender {
@@ -291,15 +273,17 @@ button:hover {
   color: @color1;
 }
 
+#custom-notifications {
+  margin: 0;
+  margin-right: 8px;
+}
 #custom-notifications.notification {
   color: @color5;
 }
-
 #custom-notifications.dnd-notification,
 #custom-notifications.dnd-inhibited-notification {
   color: @color2;
 }
-
 #custom-notifications.dnd-none,
 #custom-notifications.dnd-inhibited-none {
   color: @color9;
