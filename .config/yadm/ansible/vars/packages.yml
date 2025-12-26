@@ -292,6 +292,9 @@ packages:
   - name: maven
     desc: Java-based project management
 
+  - name: mold
+    desc: A Modern Linker
+
   - name: moreutils
     desc: Collection of tools that nobody wrote when UNIX was young
 
@@ -663,6 +666,10 @@ packages:
 
   - name: steam
     desc: Video game digital distribution service
+    tags: [gaming]
+
+  - name: steamcmd
+    desc: Steam Command Line Tools
     tags: [gaming]
 
   - name: gamescope
