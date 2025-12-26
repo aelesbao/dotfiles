@@ -39,11 +39,11 @@ function cargo-install() {
   local extra=${@:2}
 
   msg "$name"
-  RUSTC_WRAPPER= cargo install --locked "$name" ${extra[@]}
+  RUSTC_WRAPPER= CARGO_PROFILE_RELEASE_LTO=true RUSTFLAGS=-Ctarget-cpu=native cargo install --locked "$name" ${extra[@]}
 }
 
 function binstall() {
-  RUSTC_WRAPPER= cargo binstall --no-confirm ${@:$#}
+  RUSTC_WRAPPER= CARGO_PROFILE_RELEASE_LTO=true RUSTFLAGS=-Ctarget-cpu=native cargo binstall --no-confirm ${@:$#}
 }
 
 if ! (( $+commands[cargo-binstall] )); then
@@ -54,8 +54,8 @@ if ask "Update installed crates?"; then
   binstall cargo-about
   binstall cargo-audit
   binstall cargo-bundle
-  binstall cargo-dist
   binstall cargo-deny
+  binstall cargo-dist
   binstall cargo-edit
   binstall cargo-expand
   binstall cargo-generate
@@ -70,6 +70,7 @@ if ask "Update installed crates?"; then
   binstall cargo-tarpaulin
   binstall cargo-watch
   binstall evcxr_repl
+  binstall git-cliff
   binstall grcov
   binstall mcp-discovery
 
