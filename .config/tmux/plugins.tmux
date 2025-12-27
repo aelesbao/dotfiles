@@ -56,7 +56,7 @@ set -g @fzf-url-history-limit '2000'
 # Open tmux-fzf-url in a popup
 set -g @fzf-url-fzf-options '--tmux center,50%,50% --multi --exit-0 --no-preview --no-border'
 # Open using kairo
-# set -g @fzf-url-open 'tmux display-popup -E kairo open'
+set -g @fzf-url-open 'tmux display-popup -E kairo open'
 
 # Plug and play battery percentage and icon indicator for Tmux.
 %if "#{TMUX_BATTERY_ENABLED}"
