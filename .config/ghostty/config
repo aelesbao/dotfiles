@@ -19,7 +19,6 @@ font-family-bold-italic = Hack Nerd Font Bold Italic
 
 font-synthetic-style = false
 
-bold-is-bright = false
 font-thicken = true
 
 adjust-cell-height = 20%
@@ -34,7 +33,7 @@ clipboard-paste-protection = true
 
 # Window
 background-opacity = 0.90
-background-blur-radius = 10
+background-blur = 10
 unfocused-split-opacity = 0.5
 
 window-decoration = auto
@@ -42,12 +41,18 @@ window-theme = ghostty
 window-padding-balance = true
 window-subtitle = working-directory
 
-quit-after-last-window-closed = true
+# start in the background on login, so that future requests
+# to create new windows are extremely fast:
+# systemctl enable --user app-com.mitchellh.ghostty.service
+
+# keep Ghostty running all the time so that
+# new window creation will always be fast
+quit-after-last-window-closed = false
 
 # Quick terminal
 quick-terminal-autohide = true
 quick-terminal-position = top
-quick-terminal-size = 50%,95%
+quick-terminal-size = 50%,50%
 
 # Linux
 gtk-titlebar-hide-when-maximized = true
