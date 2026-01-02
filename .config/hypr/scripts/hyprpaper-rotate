@@ -10,14 +10,33 @@ if [[ "$direction" != "next" && "$direction" != "prev" ]]; then
   exit 1
 fi
 
+conf_file="${XDG_CONFIG_HOME:-$HOME/.config}/hypr/hyprpaper.conf"
+
 # NOTE: this scripts will set the same wallpaper on all monitors.
+
+function get-current-wallpaper() {
+  # Try to get the current wallpaper from hyprpaper.conf
+  if [[ -f "$conf_file" ]]; then
+    local path_line="$(grep -E '^\s*path\s*=' "$conf_file" || true)"
+    if [[ -n "$path_line" ]]; then
+      local path=$(echo "$path_line" | sed -E 's/^\s*path\s*=\s*(.*)\s*$/\1/')
+      if [[ -f "$path" ]]; then
+        echo "$path"
+        return
+      fi
+    fi
+  fi
+
+  # If all else fails, return empty
+  echo ""
+}
 
 # Get a list of all wallpapers
 wallpapers_dir="${WALLPAPERS_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/wallpapers}"
 wallpapers=( $(fd --type f . "$wallpapers_dir") )
 
 # Gets the active wallpaper
-current="$(hyprctl hyprpaper listactive | grep -oP '(?<= = ).*' | uniq || echo '')"
+current="$(get-current-wallpaper)"
 if [[ -z "$current" ]]; then
   echo "No active wallpaper found. Exiting."
   exit
@@ -34,10 +53,12 @@ next_idx=$((
 # Apply the the next wallpaper in the list
 wallpaper="${wallpapers[$next_idx]}"
 notify-send -e -t 2000 -u low -i cs-desktop -a "hyprpaper" "Hyprpaper" "Wallpaper set to ${wallpaper:t}"
-hyprctl hyprpaper reload ,"$wallpaper"
+hyprctl hyprpaper wallpaper ,"$wallpaper"
 
 # Updates ~/.config/hypr/hyprpaper.conf with currently active wallpaper
-cat <<EOL >! ~/.config/hypr/hyprpaper.conf
-preload = ${wallpaper}
-wallpaper = , ${wallpaper}
+cat <<EOL >! ${conf_file}
+wallpaper {
+    monitor =
+    path = ${wallpaper}
+}
 EOL
