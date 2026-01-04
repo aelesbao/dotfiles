@@ -10,6 +10,7 @@
         "modules/login.jsonc",
         "modules/media.jsonc",
         "modules/notifications.jsonc",
+        "modules/pomodoro.jsonc",
         "modules/privacy.jsonc",
         "modules/quicklinks.jsonc",
         "modules/sensors.jsonc",
@@ -42,6 +43,7 @@
         "bluetooth",
         // "upower",
         "pulseaudio",
+        "custom/pomodoro",
         "custom/notifications"
     ]
 }

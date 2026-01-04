@@ -1,0 +1,5 @@
+[Unit]
+Description=Starts uair pomodoro time tracker
+
+[Service]
+ExecStart=/usr/bin/uair

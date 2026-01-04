@@ -48,6 +48,7 @@ button:hover {
 #cpu,
 #custom-gpu,
 #custom-notifications,
+#custom-pomodoro,
 #disk,
 #idle_inhibitor,
 #language,
@@ -287,4 +288,11 @@ button:hover {
 #custom-notifications.dnd-none,
 #custom-notifications.dnd-inhibited-none {
   color: @color9;
+}
+
+#custom-pomodoro.paused {
+  color: @color7;
+}
+#custom-pomodoro.resumed {
+  color: @color10;
 }

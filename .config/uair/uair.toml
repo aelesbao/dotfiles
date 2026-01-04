@@ -1,0 +1,25 @@
+[defaults]
+format = "{time}\n"
+paused_state_text = "paused"
+resumed_state_text = "resumed"
+
+[[sessions]]
+id = "quick"
+name = "Quick"
+duration = "15m"
+time_format = "%M:%S"
+command = "notify-send -e -t 2000 -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Quick Done!'"
+
+[[sessions]]
+id = "work"
+name = "Work"
+duration = "52m"
+time_format = "%M:%S"
+command = "notify-send -e -t 2000 -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Work Done!'"
+
+[[sessions]]
+id = "rest"
+name = "Rest"
+duration = "17m"
+time_format = "%M:%S"
+command = "notify-send -e -t 2000 -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Rest Done!'"
