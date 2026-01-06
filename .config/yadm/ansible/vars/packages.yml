@@ -777,10 +777,6 @@ packages:
     desc: Collection of graphical tools for PackageKit to be used in the GNOME desktop
     tags: [gnome]
 
-  - name: junction
-    desc: Application chooser to open files and links
-    tags: [gnome]
-
   - name: pika-backup
     desc: Easy to use backup tool to keep your data safe
     tags: [gnome]
@@ -1245,6 +1241,16 @@ packages:
 
   - name: ifuse
     desc: A fuse filesystem to access the contents of an iPhone or iPod Touch
+
+  - name: uair
+    desc: An extensible pomodoro timer
+    archlinux:
+      aur: uair
+
+  - name: kairo
+    desc: CLI and Desktop application for smart URL routing
+    archlinux:
+      aur: kairo-bin
 
 # Extra repositories to add to the system
 repositories:
