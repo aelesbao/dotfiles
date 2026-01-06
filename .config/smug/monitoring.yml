@@ -1,0 +1,13 @@
+session: monitoring
+root: ~
+
+windows:
+  - name: system
+    selected: true
+    commands: [command zenith || exit 0]
+
+  - name: gpu
+    commands: [command nvtop || exit 0]
+
+  - name: network
+    commands: [sudo command rustnet || exit 0]
