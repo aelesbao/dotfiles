@@ -87,7 +87,7 @@ button:hover {
 }
 
 #workspaces button {
-  border-left: 1px solid transparent;
+  border-left:  1px solid transparent;
   border-right: 1px solid transparent;
   margin: 0 4px;
   padding: 0;
@@ -176,9 +176,12 @@ button:hover {
 }
 
 #clock {
-  margin-left: 0px;
-  margin-right: 4px;
-  background-color: transparent;
+  border-left:  1px solid alpha(@color6, 0.8);
+  border-right: 1px solid alpha(@color6, 0.8);
+  color: @color6;
+  padding: 2px 8px;
+  margin: 0px 8px;
+  background-color: alpha(@color0, 0.5);
 }
 
 #temperature.critical {
@@ -206,7 +209,7 @@ button:hover {
 }
 
 #submap {
-  border-left: 1px solid alpha(@color3, 0.8);
+  border-left:  1px solid alpha(@color3, 0.8);
   border-right: 1px solid alpha(@color3, 0.8);
   color: @color3;
   padding: 2px 8px;
@@ -275,19 +278,24 @@ button:hover {
 }
 
 #custom-notifications {
+  border-left:  1px solid transparent;
+  border-right: 1px solid transparent;
   margin: 0;
   margin-right: 8px;
+  min-width: 24px;
+  padding-right: 8px;
 }
-#custom-notifications.notification {
-  color: @color5;
-}
+#custom-notifications.notification,
 #custom-notifications.dnd-notification,
 #custom-notifications.dnd-inhibited-notification {
-  color: @color2;
+  border-color: alpha(@color10, 0.8);
+  color: @color10;
 }
 #custom-notifications.dnd-none,
-#custom-notifications.dnd-inhibited-none {
-  color: @color9;
+#custom-notifications.dnd-notification,
+#custom-notifications.dnd-inhibited-none,
+#custom-notifications.dnd-inhibited-notification {
+  background-color: alpha(@color9, 0.2);
 }
 
 #custom-pomodoro.paused {
