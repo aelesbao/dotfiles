@@ -14,7 +14,7 @@
     },
     // CPU temperature
     "temperature#cpu": {
-        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
         "critical-threshold": 80,
         "format": "{icon}  {temperatureC}°C",
         "format-critical": "󱩅  {temperatureC}°C",
@@ -23,11 +23,12 @@
             "",
             ""
         ],
-        "tooltip-format": "CPU {temperatureC}°C"
+        "tooltip-format": "CPU {temperatureC}°C",
+        "on-click": "psensor"
     },
     // CPU Package temperature
     "temperature#cpu_package": {
-        "hwmon-path": "/sys/class/hwmon/hwmon4/temp2_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon6/temp2_input",
         "critical-threshold": 80,
         "format": "{icon}  {temperatureC}°C",
         "format-critical": "󱩅  {temperatureC}°C",
@@ -36,7 +37,8 @@
             "",
             ""
         ],
-        "tooltip-format": "CPU Package {temperatureC}°C"
+        "tooltip-format": "CPU Package {temperatureC}°C",
+        "on-click": "psensor"
     },
     // NVMe temperature
     "temperature#nvme": {
@@ -49,6 +51,7 @@
             "",
             ""
         ],
-        "tooltip-format": "NVMe {temperatureC}°C"
+        "tooltip-format": "NVMe {temperatureC}°C",
+        "on-click": "psensor"
     }
 }
