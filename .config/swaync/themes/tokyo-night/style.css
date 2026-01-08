@@ -13,6 +13,8 @@ label {
 .notification {
   background: inherit;
   box-shadow: none;
+  border-radius: 6px;
+  border: 0px solid @color13;
 }
 
 .notification button {
