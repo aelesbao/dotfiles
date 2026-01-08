@@ -4,22 +4,22 @@ paused_state_text = "paused"
 resumed_state_text = "resumed"
 
 [[sessions]]
-id = "quick"
-name = "Quick"
+id = "focus"
+name = "Focus"
+duration = "25m"
+time_format = "%M:%S"
+command = "notify-send -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Focus session finished'"
+
+[[sessions]]
+id = "short-break"
+name = "Short Break"
+duration = "5m"
+time_format = "%M:%S"
+command = "notify-send -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Break session finished'"
+
+[[sessions]]
+id = "long-break"
+name = "Long Break"
 duration = "15m"
 time_format = "%M:%S"
-command = "notify-send -e -t 5000 -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Quick Done!'"
-
-[[sessions]]
-id = "work"
-name = "Work"
-duration = "52m"
-time_format = "%M:%S"
-command = "notify-send -e -t 5000 -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Work Done!'"
-
-[[sessions]]
-id = "rest"
-name = "Rest"
-duration = "17m"
-time_format = "%M:%S"
-command = "notify-send -e -t 5000 -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Rest Done!'"
+command = "notify-send -u low -i cs-date-time -a 'uair' 'Pomodoro' 'Break session finished'"
