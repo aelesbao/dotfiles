@@ -735,10 +735,6 @@ packages:
     desc: Virtual filesystem implementation for GIO - Gnome Online Accounts backend (e.g. OwnCloud)
     tags: [gnome]
 
-  - name: gnome-boxes
-    desc: Simple GNOME application to access virtual systems
-    tags: [gnome]
-
   - name: gnome-calendar
     desc: Simple and beautiful calendar application designed to perfectly fit the GNOME desktop
     tags: [gnome]
@@ -1251,6 +1247,9 @@ packages:
     desc: CLI and Desktop application for smart URL routing
     archlinux:
       aur: kairo-bin
+
+  - name: psensor
+    desc: Graphical hardware temperature monitoring application
 
 # Extra repositories to add to the system
 repositories:
