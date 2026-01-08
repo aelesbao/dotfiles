@@ -1,0 +1,17 @@
+@define-color text            @foreground;
+@define-color background-alt  @color5;
+@define-color selected        @color5;
+@define-color hover           alpha(@selected, .4);
+@define-color urgent          @color1;
+
+* {
+  color: @text;
+
+  all: unset;
+  font-size: 14px;
+  font-family: "Rubik Light", "Symbols Nerd Font", sans-serif;
+  transition: 200ms;
+}
+
+@import 'themes/nova-dark/notifications.css';
+@import 'themes/nova-dark/central_control.css';
