@@ -14,11 +14,18 @@ if [[ -z "${profile_id}" ]]; then
   return 1
 fi
 
+
 info "Configuring NextDNS with profile ID: ${profile_id}"
 
 declare device="$(hostname -f)"
+declare tmpdir="${TMPDIR:-/tmp}/nextdns"
 
-if (($+commands[nextdns])); then
+mkdir -p "${tmpdir}"
+
+if ps -ux | grep -q nextdns; then
+  msg "NextDNS is already running, skipping setup"
+
+elif (($+commands[nextdns])); then
   msg "Installing using nextdns CLI"
 
   sudo nextdns install \
@@ -49,7 +56,29 @@ EOF
 elif is-macos; then
   msg "Installing using macOS profile"
 
-  curl --output-dir ${TMPDIR:-/tmp} \
+  curl -fLSs --output-dir ${tmpdir} \
     "https://apple.nextdns.io/NextDNS.mobileconfig?profile=${profile_id}&device_name=${device}&device_model=Apple+%7Emacbook-pro&exclude_domains=*.local%2C+*.fritz.box%2C+fritz.box&trust_ca=1&sign=3"
-  open ${TMPDIR:-/tmp}/NextDNS.mobileconfig
+  open "${tmpdir}/NextDNS.mobileconfig"
+fi
+
+
+info "Installing NextDNS root CA"
+
+curl -fLSs https://nextdns.io/ca >! ${tmpdir}/nextdns.crt
+
+if is-macos; then
+  sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "${tmpdir}/nextdns.crt"
+
+elif is-linux; then
+  if (($+commands[trust])); then
+    sudo trust anchor --store "${tmpdir}/nextdns.crt"
+  elif [[ -d /usr/local/share/ca-certificates/ ]]; then
+    sudo cp "${tmpdir}/nextdns.crt" /usr/local/share/ca-certificates/nextdns.crt
+    sudo update-ca-certificates
+  elif [[ -d /etc/pki/ca-trust/source/anchors/ ]]; then
+    sudo cp "${tmpdir}/nextdns.crt" /etc/pki/ca-trust/source/anchors/nextdns.crt
+    sudo update-ca-trust
+  else
+    warn "Could not install NextDNS root CA: no known certificate store found"
+  fi
 fi
