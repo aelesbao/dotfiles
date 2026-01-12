@@ -4,10 +4,12 @@ root: ~
 windows:
   - name: system
     selected: true
-    commands: [command zenith || exit 0]
+    commands: [command zenith || exit]
+    panes:
+      - commands: [htop]
 
   - name: gpu
-    commands: [command nvtop || exit 0]
+    commands: [command nvtop || exit]
 
   - name: network
-    commands: [sudo command rustnet || exit 0]
+    commands: [sudo rustnet || exit]
