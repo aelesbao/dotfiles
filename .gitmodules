@@ -14,6 +14,6 @@
 [submodule "catppuccin/k9s"]
 	path = .local/src/catppuccin/k9s
 	url = https://github.com/catppuccin/k9s
-[submodule "adi1090x/rofi"]
-	path = .local/src/adi1090x/rofi
-	url = https://github.com/adi1090x/rofi
+[submodule "alacritty/themes"]
+	path = .config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme
