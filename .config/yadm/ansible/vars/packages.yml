@@ -1155,30 +1155,6 @@ packages:
   - name: ccid
     desc: A generic USB Chip/Smart Card Interface Devices driver
 
-  - name: thunar
-    desc: Modern, fast and easy-to-use file manager for Xfce
-    tags: [xfce]
-
-  - name: thunar-volman
-    desc: Automatic management of removable drives and media for Thunar
-    tags: [xfce]
-
-  - name: thunar-shares-plugin
-    desc: Thunar plugin to quickly share a folder using Samba without requiring root access
-    tags: [xfce]
-
-  - name: thunar-archive-plugin
-    desc: Adds archive operations to the Thunar file context menus
-    tags: [xfce]
-
-  - name: thunar-media-tags-plugin
-    desc: Adds special features for media files to the Thunar File Manager
-    tags: [xfce]
-
-  - name: gtkhash-thunar
-    desc: A GTK+ utility for computing message digests or checksums (Gtkhash with Thunar filemanager plugin)
-    tags: [xfce]
-
   - name: udiskie
     desc: Removable disk automounter using udisks
 
@@ -1250,6 +1226,22 @@ packages:
 
   - name: psensor
     desc: Graphical hardware temperature monitoring application
+
+  - name: w3m
+    desc: Text-based Web browser as well as pager
+
+  - name: pup
+    desc: Command line tool for processing HTML
+    archlinux:
+      aur: pup
+
+  - name: lnav
+    desc: A curses-based tool for viewing and analyzing log files
+
+  - name: paru
+    desc: Feature packed AUR helper
+    archlinux:
+      aur: paru-bin
 
 # Extra repositories to add to the system
 repositories:
