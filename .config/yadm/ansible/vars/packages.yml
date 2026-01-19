@@ -1243,6 +1243,21 @@ packages:
     archlinux:
       aur: paru-bin
 
+  - name: libqalculate
+    desc: Multi-purpose desktop calculator
+
+  - name: qalculate-gtk
+    desc: GTK frontend for libqalculate
+
+  - name: ydotool
+    desc: Generic command-line automation tool (no X!)
+
+  - name: voxtype
+    desc: Push-to-talk voice-to-text for Linux (pre-built binaries)
+    tags: [ai]
+    archlinux:
+      aur: voxtype-bin
+
 # Extra repositories to add to the system
 repositories:
   debian:
