@@ -8,15 +8,15 @@
 }
 
 #waybar {
-  background: alpha(@background, 0.5);
+  background: transparent;
   color: @foreground;
   font-family: "Hack Nerd Font";
   font-size: 1em;
   padding: 0px 8px;
   margin: 4px 8px;
+  margin-top: 8px;
   outline: none;
   border: none;
-  border-radius: 6px;
 }
 
 #waybar * {
@@ -41,7 +41,9 @@ button:hover {
   color: @color14;
 }
 
+#audio,
 #backlight,
+#bartender,
 #battery,
 #bluetooth,
 #clock,
@@ -49,16 +51,20 @@ button:hover {
 #custom-gpu,
 #custom-notifications,
 #custom-pomodoro,
+#custom-voxtype,
 #disk,
 #idle_inhibitor,
 #language,
 #login-menu,
 #memory,
 #mode,
+#mpris,
 #network,
 #privacy,
 #pulseaudio,
+#vpn,
 #temperature {
+  background: alpha(@background, 0.5);
   padding: 2px 4px;
 }
 
@@ -126,7 +132,6 @@ button:hover {
 #bartender {
   padding: 0 4px;
 }
-
 #bartender .drawer {
   padding-left: 4px;
 }
@@ -181,7 +186,7 @@ button:hover {
   color: @color6;
   padding: 2px 8px;
   margin: 0px 8px;
-  background-color: alpha(@color0, 0.5);
+  background-color: alpha(@background, 0.5);
 }
 
 #temperature.critical {
@@ -304,3 +309,26 @@ button:hover {
 #custom-pomodoro.resumed {
   color: @color10;
 }
+
+#custom-voxtype {
+  min-width: 20px;
+  padding: 0 8px;
+}
+#custom-voxtype.recording {
+  color: @color1;
+  animation: pulse 1s ease-in-out infinite;
+}
+#custom-voxtype.transcribing {
+  color: @color11;
+}
+#custom-voxtype.idle {
+  color: @color15;
+}
+#custom-voxtype.stopped {
+  color: @color10;
+}
+
+/* @keyframes pulse { */
+/*   0%, 100% { opacity: 1; } */
+/*   50% { opacity: 0.5; } */
+/* } */

@@ -21,7 +21,6 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window",
         "mpris",
         "cava"
     ],
@@ -31,6 +30,7 @@
     ],
     "modules-right": [
         "privacy",
+        "custom/voxtype",
         "systemd-failed-units",
         "group/bartender",
         "cpu",

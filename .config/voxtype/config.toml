@@ -113,8 +113,8 @@ auto_submit = false
 # Pre/post output hooks (optional)
 # Commands to run before and after typing output. Useful for compositor integration.
 # Example: Block modifier keys during typing with Hyprland submap:
-pre_output_command = "hyprctl dispatch submap voxtype"
-post_output_command = "hyprctl dispatch submap reset"
+# pre_output_command = "hyprctl dispatch submap voxtype_suppress"
+# post_output_command = "hyprctl dispatch submap reset"
 # See troubleshooting docs for the required Hyprland submap configuration.
 
 # Post-processing command (optional)
@@ -165,8 +165,9 @@ on_transcription = true
 icon_theme = "nerd-font"
 
 # Per-state icon overrides (optional, takes precedence over theme)
-# [status.icons]
-# idle = "🎙️"
+[status.icons]
+idle = ""
 # recording = "🎤"
 # transcribing = "⏳"
 # stopped = ""
+
