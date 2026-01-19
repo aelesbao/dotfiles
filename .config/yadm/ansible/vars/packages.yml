@@ -1002,14 +1002,6 @@ packages:
     desc: Logout menu for wayland
     tags: [hyprland]
 
-  - name: nwg-clipman
-    desc: nwg-shell clipboard manager, a GTK3-based GUI for cliphist
-    tags: [hyprland]
-
-  - name: cliphist
-    desc: wayland clipboard manager
-    tags: [hyprland]
-
   - name: qt5-wayland
     desc: Provides APIs for Wayland
     tags: [hyprland, kde]
@@ -1029,12 +1021,6 @@ packages:
   - name: swaync
     desc: A simple GTK based notification daemon for Sway
     tags: [hyprland]
-
-  - name: hyprshell
-    desc: A modern GTK4-based window switcher and application launcher for Hyprland
-    tags: [hyprland]
-    archlinux:
-      aur: hyprshell
 
   - name: hyprnome
     desc: GNOME-like workspace switching in Hyprland.
@@ -1124,9 +1110,6 @@ packages:
 
   - name: pamixer
     desc: Pulseaudio command-line mixer like amixer
-
-  - name: clipse
-    desc: A configurable TUI clipboard manager for Unix.
 
   - name: wireplumber
     desc: Session / policy manager implementation for PipeWire
@@ -1341,12 +1324,6 @@ packages:
     tags: [hyprland]
     archlinux:
       aur: elephant-symbols-bin
-
-  - name: elephant-todo
-    desc: todo provider for elephant
-    tags: [hyprland]
-    archlinux:
-      aur: elephant-todo-bin
 
   - name: elephant-unicode
     desc: unicode provider for elephant
