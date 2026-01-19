@@ -29,11 +29,14 @@ function clone-repo() {
       git clone https://github.com/${gh_user}/${repo}.git ${repo_dir} 2>&1; \
       git -C ${repo_dir} checkout ${branch} 2>&1 \
     )
+    echo "  cloned repo"
   else
     gum spin --title="updating ${gh_user}/${repo}" --spinner points --show-error -- cat <( \
+      git -C ${repo_dir} stash --untracked 2>&1; \
       git -C ${repo_dir} pull --rebase 2>&1; \
       git -C ${repo_dir} checkout ${branch} 2>&1 \
     )
+    echo "  updated repo"
   fi
 }
 
@@ -53,6 +56,7 @@ function install-eliverlara-theme() {
   gum spin --title="rendering gtk-2.0" --spinner points --show-error -- cat <( \
     ./render-assets.sh 2>/dev/null \
   )
+  echo "  rendered gtk-2.0"
   popd
 
   pushd ${repo_dir}/src
@@ -62,12 +66,14 @@ function install-eliverlara-theme() {
     ./render-wm-assets-hidpi.py 2>/dev/null; \
     ./render-wm-assets.py 2>/dev/null \
   )
+  echo "  rendered src"
   popd
 
   gum spin --title="copying files" --spinner points --show-error -- cat <( \
     mkdir -p ${theme_dir}; \
     cp -a ${repo_dir}/* ${theme_dir} \
   )
+  echo "  copied files"
 
   echo "  done"
   echo
@@ -199,8 +205,8 @@ function install-cursor() {
 echo
 echo "Installing themes"
 
-# install-eliverlara-theme Andromeda-gtk main Andromeda
-# install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight
+install-eliverlara-theme Andromeda-gtk main Andromeda
+install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight
 install-fausto-korpsvart-theme Tokyonight-GTK-Theme master Tokyonight purple
 # install-flat-remix
 
