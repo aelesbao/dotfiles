@@ -1258,6 +1258,114 @@ packages:
     archlinux:
       aur: voxtype-bin
 
+  - name: walker
+    desc: wayland application runner
+    tags: [hyprland]
+    archlinux:
+      aur: walker-bin
+
+  - name: elephant-1password
+    desc: 1password provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-1password-bin
+
+  - name: elephant
+    desc: general purpose datasource and executor
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-bin
+
+  - name: elephant-archlinuxpkgs
+    desc: archlinuxpkgs provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-archlinuxpkgs-bin
+
+  - name: elephant-bluetooth
+    desc: bluetooth provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-bluetooth-bin
+
+  - name: elephant-bookmarks
+    desc: bookmarks provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-bookmarks-bin
+
+  - name: elephant-calc
+    desc: calc provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-calc-bin
+
+  - name: elephant-clipboard
+    desc: clipboard provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-clipboard-bin
+
+  - name: elephant-desktopapplications
+    desc: desktopapplications provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-desktopapplications-bin
+
+  - name: elephant-files
+    desc: files provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-files-bin
+
+  - name: elephant-menus
+    desc: menus provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-menus-bin
+
+  - name: elephant-providerlist
+    desc: providerlist provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-providerlist-bin
+
+  - name: elephant-runner
+    desc: runner provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-runner-bin
+
+  - name: elephant-symbols
+    desc: symbols provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-symbols-bin
+
+  - name: elephant-todo
+    desc: todo provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-todo-bin
+
+  - name: elephant-unicode
+    desc: unicode provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-unicode-bin
+
+  - name: elephant-websearch
+    desc: websearch provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-websearch-bin
+
+  - name: elephant-windows
+    desc: windows provider for elephant
+    tags: [hyprland]
+    archlinux:
+      aur: elephant-windows-bin
+
 # Extra repositories to add to the system
 repositories:
   debian:
