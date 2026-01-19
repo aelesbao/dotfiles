@@ -8,9 +8,6 @@
 
 @define-color primary @color5;
 @define-color on_primary darker(@color6);
-@define-color surface @background;
-@define-color surface_dim darker(@surface);
-@define-color on_surface @foreground;
 
 * {
   all: unset;
@@ -50,7 +47,7 @@ scrollbar {
 }
 
 .search-container {
-  background: radial-gradient(circle at 50% 250%, alpha(darker(@surface),0.9), alpha(@surface_dim,0.9)) padding-box,
+  background: radial-gradient(circle at 50% 250%, alpha(darker(@background),0.9), alpha(@background,0.9)) padding-box,
       linear-gradient(135deg, @primary, @on_primary) border-box;
   border: 1px solid transparent;	  
   border-radius: 10px;
@@ -63,7 +60,7 @@ scrollbar {
 .input {
   background: transparent;
   padding: 10px;
-  color: @on_surface;
+  color: @foreground;
 }
 
 .input:focus,
@@ -89,7 +86,7 @@ child {
 .item-box {
   border-radius: 10px;
   padding: 10px;
-  color:@on_surface;
+  color:@foreground;
 }
 
 .item-quick-activation {
@@ -167,7 +164,7 @@ child:selected .item-box {
   border-top: 0px solid lighter(@primary);
   font-size: 12px;
   opacity: 0.5;
-  color: @on_surface;
+  color: @foreground;
 }
 
 .keybinds {
@@ -177,12 +174,12 @@ child:selected .item-box {
 }
 
 .keybind-bind {
-  color: @on_surface;
+  color: @foreground;
   font-weight: bold;
 }
 
 .keybind-label {
-  color: @on_surface;
+  color: @foreground;
 }
 
 .error {
