@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Walker
+Comment=Walker Service
+Exec=walker --gapplication-service
+StartupNotify=true
+Terminal=false
+Type=Application

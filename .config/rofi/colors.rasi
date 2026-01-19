@@ -23,7 +23,7 @@
   background-color: #1A1B26;
   background: rgba(26,27,38, 0.9);
   foreground: #C0CAF5;
-  border-color: rgba(199,169,255, 0.75);
+  border-color: rgba(199,169,255, 0.8);
 
   color0: #24283B;
   color1: #F7768E;

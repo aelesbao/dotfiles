@@ -51,6 +51,9 @@ rofi.target = "~/.config/rofi/colors.rasi"
 swaync.template = "gtk.css"
 swaync.target = "~/.config/swaync/colors.css"
 
+walker.template = "gtk.css"
+walker.target = "~/.config/walker/colors.css"
+
 waybar.template = "gtk.css"
 waybar.target = "~/.config/waybar/colors.css"
 
