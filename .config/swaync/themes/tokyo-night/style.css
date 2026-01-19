@@ -1,5 +1,5 @@
 @define-color mantle #181825;
-@define-color crust  #11111b;
+@define-color crust  darker(@background);
 
 * {
   font-family: "Rubik Light", "Symbols Nerd Font", sans-serif;
@@ -11,23 +11,22 @@ label {
 }
 
 .notification {
-  background: inherit;
+  background: alpha(@crust, .80);
   box-shadow: none;
   border-radius: 6px;
-  border: 0px solid @color13;
+  border: 1px solid alpha(@color5, .80);
 }
 
 .notification button {
-  background: transparent;
-  border: none;
+  background: darker(@color0);
   margin: 0px;
   padding: 0px;
   border-radius: 6px;
-  border: 1px solid @color13;
+  border: 1px solid @color0;
 }
 
 .notification button:hover {
-  background: @insensitive_bg_color;
+  background: @color0;
 }
 
 .notification-content {
@@ -51,7 +50,6 @@ label {
   background: transparent;
   border: none;
 }
-
 
 .notification-default-action {
   border-radius: 6px;
@@ -90,7 +88,7 @@ label {
   color: @color15;
   font-size: 12px;
   text-shadow: none;
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
   padding: 2px 0px;
 }
 
@@ -99,7 +97,7 @@ label {
   font-weight: 500;
   color: @color15;
   text-shadow: none;
-  margin: 0px 0px 0px 0px;
+  margin: 0px;
 }
 
 .body-image {
@@ -115,11 +113,13 @@ label {
 /* Control center */
 
 .control-center {
-  background: alpha(@crust, .80);
+  background: alpha(@crust, 0.80);
   border-radius: 6px;
-  border: 1px solid @color13;
-  box-shadow: none;
-  margin: 10px;
+  border: 1px solid @color5;
+  box-shadow:
+    0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  margin: 8px;
   padding: 4px;
 }
 
@@ -133,7 +133,7 @@ label {
 .control-center-list-placeholder,
 .notification-group-icon,
 .notification-group {
-  color: alpha(@theme_text_color, 0.50);
+  color: alpha(@foreground, 0.50);
 }
 
 .notification-group {
