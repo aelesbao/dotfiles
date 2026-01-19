@@ -1,0 +1,44 @@
+[[entries]]
+default = true
+name = "Google"
+url = "https://www.google.com/search?q=%TERM%"
+
+[[entries]]
+prefix = "d"
+name = "DuckDuckGo"
+url = "https://duckduckgo.com/?q=%TERM%"
+
+[[entries]]
+prefix = "arch"
+name = "Arch Linux Wiki"
+url = "https://wiki.archlinux.org/index.php?search=%TERM%"
+
+[[entries]]
+prefix = "gh"
+name = "GitHub"
+url = "https://github.com/search?q=%TERM%"
+
+[[entries]]
+prefix = "crates"
+name = "Crates.io"
+url = "https://crates.io/search?q=%TERM%"
+
+[[entries]]
+prefix = "yt"
+name = "YouTube"
+url = "https://www.youtube.com/results?search_query=%TERM%"
+
+[[entries]]
+prefix = "maps"
+name = "Google Maps"
+url = "https://www.google.com/maps/search/%TERM%?hl=en&source=opensearch"
+
+[[entries]]
+prefix = "amz"
+name = "Amazon (de)"
+url = "https://smile.amazon.de/s/?field-keywords=%TERM%"
+
+[[entries]]
+prefix = "coin"
+name = "CoinGecko"
+url = "https://www.coingecko.com/en/search?query=%TERM%"

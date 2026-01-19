@@ -1,3 +1,19 @@
 show_actions = true
 only_search_title = true
 history = true
+
+single_instance_apps = [
+    "code",
+    "discord",
+    "ferdium",
+    "gnome-calendar",
+    "insomnia",
+    "mailspring",
+    "notion-app",
+    "obsidian",
+    "proton-mail",
+    "slack",
+    "spotify",
+    "steam",
+    "telegram-desktop",
+]

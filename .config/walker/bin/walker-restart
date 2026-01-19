@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+restart_services() {
+  if systemctl --user is-active elephant.service --quiet; then
+    systemctl --user restart elephant.service
+  else
+    elephant service enable
+    systemctl --user enable --now elephant.service
+  fi
+
+  if systemctl --user is-enabled app-walker@autostart.service --quiet; then
+    systemctl --user restart app-walker@autostart.service
+  else
+    cp "${XDG_CONFIG_HOME:-$HOME/.config}/walker/walker.desktop" "${XDG_CONFIG_HOME:-$HOME/.config}/autostart"
+    systemctl --user daemon-reload
+    systemctl --user start app-walker@autostart.service
+  fi
+}
+
+if [[ $EUID -eq 0 ]]; then
+  SCRIPT_OWNER=$(stat -c '%U' "$0")
+  USER_UID=$(id -u "$SCRIPT_OWNER")
+  systemd-run --uid="$SCRIPT_OWNER" --setenv=XDG_RUNTIME_DIR="/run/user/$USER_UID" \
+    bash -c "$(declare -f restart_services); restart_services"
+else
+  restart_services
+fi

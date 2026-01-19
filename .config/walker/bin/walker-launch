@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Launch the Walker application launcher while ensuring that it's data provider (called elephant) is runnig first.
+
+# Ensure elephant is running before launching walker
+if ! systemctl --user is-active elephant.service --quiet; then
+  elephant service enable && systemctl --user enable --now elephant.service
+fi
+
+# Ensure walker service is running
+if ! pgrep -f "walker --gapplication-service" >/dev/null; then
+  setsid uwsm app -- walker --gapplication-service &
+fi
+
+exec walker --minheight 300 "$@"
+# exec nc -U "${XDG_RUNTIME_DIR}/walker/walker.sock"

@@ -1,0 +1,2 @@
+command_install = "paru -S %VALUE%"
+command_remove = "paru -Rcsu %VALUE%"
