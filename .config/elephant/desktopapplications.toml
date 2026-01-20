@@ -1,5 +1,5 @@
 show_actions = true
-only_search_title = true
+only_search_title = false
 history = true
 
 single_instance_apps = [
