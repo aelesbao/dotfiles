@@ -11,12 +11,13 @@
   background: transparent;
   color: @foreground;
   font-family: "Hack Nerd Font";
-  font-size: 1em;
-  padding: 0px 8px;
-  margin: 4px 8px;
-  margin-top: 8px;
+  font-size: 10pt;
   outline: none;
   border: none;
+}
+
+#waybar > box {
+  padding: 0px 8px;
 }
 
 #waybar * {
@@ -25,7 +26,7 @@
 
 tooltip {
   background: alpha(@background, 0.9);
-  border: 1px solid alpha(@color5, 0.7);
+  border: 1px solid alpha(@color5, 0.8);
   border-radius: 6px;
 }
 
@@ -62,27 +63,45 @@ button:hover {
 #network,
 #privacy,
 #pulseaudio,
+#submap,
+#systemd-failed-units,
 #vpn,
-#temperature {
+#window {
   background: alpha(@background, 0.5);
-  padding: 2px 4px;
+  padding: 2px 8px;
 }
 
 #workspaces {
-  margin: 0;
-  margin-right: 16px;
+  background: alpha(@background, 0.5);
+  padding: 0px;
 }
-
 #workspaces .workspace-label {
-  padding: 0 8px;
+  background: transparent;
+  padding: 0px;
   margin: 0px;
-  margin-right: 8px;
+  min-width: 40px;
 }
-#workspaces button box .workspace-label:only-child {
-  margin-right: 0px;
+#workspaces button {
+  border-left:  1px solid transparent;
+  border-right: 1px solid transparent;
+  margin: 0;
+  padding: 0px;
+}
+#workspaces button.active {
+  border-color: @color6;
+  color: @color6;
+}
+#workspaces button.special {
+  border-color: @color5;
+  color: @color5;
+}
+#workspaces button.urgent {
+  border-color: @color2;
+  color: @color2;
 }
 
 #workspaces .taskbar-window {
+  border: none;
   border-bottom: 1px solid transparent;
   border-radius: 0px;
   margin: 0;
@@ -91,34 +110,6 @@ button:hover {
 #workspaces .taskbar-window.active {
   border-color: @color6;
 }
-
-#workspaces button {
-  border-left:  1px solid transparent;
-  border-right: 1px solid transparent;
-  margin: 0 4px;
-  padding: 0;
-}
-/* #workspaces button.visible .workspace-label { */
-/*   color: @color8; */
-/* } */
-#workspaces button.active {
-  background-color: alpha(@color0, 0.5);
-  border-color: @color6;
-}
-#workspaces button.active .workspace-label {
-  background-color: @color0;
-  color: @color6;
-}
-#workspaces button.special {
-  border-color: @color5;
-}
-#workspaces button.special .workspace-label {
-  background-color: @color0;
-  color: @color5;
-}
-#workspaces button.urgent .workspace-label {
-  color: @color2;
-}
 #workspaces button.urgent .taskbar-window {
   border-color: alpha(@color2, 0.8);
 }
@@ -126,7 +117,7 @@ button:hover {
 #window {
   font-size: 0.9em;
   font-weight: 400;
-  margin-right: 16px;
+  margin-right: 8px;
 }
 
 #bartender {
@@ -144,6 +135,7 @@ button:hover {
 
 #vpn {
   padding: 0 4px;
+  min-width: 20px;
 }
 #vpn .drawer box {
   margin: 0 4px;
@@ -153,6 +145,9 @@ button:hover {
   min-width: 20px;
 }
 
+#pulseaudio {
+  padding: 2 8px;
+}
 #pulseaudio.bluetooth {
   color: @color12;
 }
@@ -185,17 +180,23 @@ button:hover {
   border-right: 1px solid alpha(@color6, 0.8);
   color: @color6;
   padding: 2px 8px;
-  margin: 0px 8px;
   background-color: alpha(@background, 0.5);
 }
 
+box#temperature {
+  background: alpha(@background, 0.5);
+}
+#temperature #temperature {
+  background: transparent;
+  border-left:  1px solid transparent;
+  border-right: 1px solid transparent;
+  padding: 2px 8px;
+}
 #temperature.critical {
+  border-color: alpha(@color1, 0.8);
   color: @color1;
 }
 
-#login-menu {
-  margin-right: 8px;
-}
 #login-menu label {
   padding: 0 4px;
   min-width: 20px;
@@ -218,7 +219,6 @@ button:hover {
   border-right: 1px solid alpha(@color3, 0.8);
   color: @color3;
   padding: 2px 8px;
-  margin: 0px 8px;
 }
 
 #idle_inhibitor {
@@ -244,11 +244,14 @@ button:hover {
 /* #network.wifi */
 
 #bluetooth {
+  border-left:  1px solid transparent;
+  border-right: 1px solid transparent;
   min-width: 20px;
 }
 #bluetooth.disabled, #bluetooth.off {
-  color: @color1;
   background-color: alpha(@color8, 0.5);
+  border-color: alpha(@color1, 0.8);
+  color: @color1;
 }
 #bluetooth.connected {
   color: @color12;
@@ -285,8 +288,6 @@ button:hover {
 #custom-notifications {
   border-left:  1px solid transparent;
   border-right: 1px solid transparent;
-  margin: 0;
-  margin-right: 8px;
   min-width: 24px;
   padding-right: 8px;
 }
@@ -300,7 +301,7 @@ button:hover {
 #custom-notifications.dnd-notification,
 #custom-notifications.dnd-inhibited-none,
 #custom-notifications.dnd-inhibited-notification {
-  background-color: alpha(@color9, 0.2);
+  background-color: alpha(@color8, 0.5);
 }
 
 #custom-pomodoro.paused {

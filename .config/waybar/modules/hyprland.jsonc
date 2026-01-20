@@ -6,7 +6,7 @@
         "disable-scroll": false,
         "show-special": true,
         "special-visible-only": true,
-        "format": "{icon} {windows}",
+        "format": "{icon}",
         "format-icons": {
             "default": "",
             "urgent": "",
@@ -22,7 +22,7 @@
         },
         "workspace-taskbar": {
             // Enable the workspace taskbar. Default: false
-            "enable": true,
+            "enable": false,
             // If true, the active/focused window will have an 'active' class. Could cause higher CPU usage due to more frequent redraws. Default: false
             "update-active-window": true,
             // Format of the windows in the taskbar. Default: "{icon}". Allowed variables: {icon}, {title}
@@ -56,18 +56,5 @@
         "format": " {}",
         "tooltip": false,
         "on-click": "hyprctl dispatch submap reset"
-    },
-    "wlr/taskbar": {
-        "active-first": true,
-        "markup": true,
-        "icon-size": 16,
-        "format": "{icon}",
-        "tooltip-format": "{title} - {name} (#{app_id})",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "app_ids-mapping": {},
-        "rewrite": {
-            "Brave Browser": "Brave"
-        }
     }
 }

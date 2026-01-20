@@ -22,10 +22,10 @@
         ]
     },
     "custom/voxtype": {
-        "exec": "voxtype status --follow --format json",
+        "exec": "voxtype status --follow --format json --extended",
         "return-type": "json",
         "format": "{}",
         "tooltip": true,
-        "on-click": "systemctl --user restart voxtype"
+        "on-right-click": "systemctl --user restart voxtype"
     }
 }

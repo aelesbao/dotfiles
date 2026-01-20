@@ -20,15 +20,15 @@
     ],
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
+        "hyprland/window",
         "mpris",
         "cava"
     ],
     "modules-center": [
-        "clock",
-        "hyprland/submap"
+        "hyprland/workspaces"
     ],
     "modules-right": [
+        "hyprland/submap",
         "privacy",
         "custom/voxtype",
         "systemd-failed-units",
@@ -43,7 +43,8 @@
         "bluetooth",
         // "upower",
         "pulseaudio",
-        "custom/pomodoro",
-        "custom/notifications"
+        // "custom/pomodoro",
+        "custom/notifications",
+        "clock"
     ]
 }
