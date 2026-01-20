@@ -1,0 +1,22 @@
+# Config file for the `gpu-usage-waybar` tool
+[general]
+# Interval to update the GPU usage in milliseconds
+interval = 1000
+
+# TEXT CONFIGURATION
+[text]
+format = "{gpu_utilization}% | {temperature}°C | {mem_used}/{mem_total} MiB"
+
+[tooltip]
+format = """GPU: {gpu_utilization}%
+MEM USED: {mem_used}/{mem_total} MiB ({mem_utilization}%)
+MEM R/W: {mem_rw}%
+DEC: {decoder_utilization}%
+ENC: {encoder_utilization}%
+TEMP: {temperature}°C
+POWER: {power}W
+PSTATE: {p_state}
+PLEVEL: {p_level}
+FAN SPEED: {fan_speed}%
+TX: {tx} MiB/s
+RX: {rx} MiB/s"""
