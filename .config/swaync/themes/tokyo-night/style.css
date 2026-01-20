@@ -11,10 +11,10 @@ label {
 }
 
 .notification {
-  background: alpha(@crust, .80);
+  background: inherit;
   box-shadow: none;
   border-radius: 6px;
-  border: 1px solid alpha(@color5, .80);
+  border: 0px solid alpha(@color5, .80);
 }
 
 .notification button {
@@ -116,9 +116,7 @@ label {
   background: alpha(@crust, 0.80);
   border-radius: 6px;
   border: 1px solid @color5;
-  box-shadow:
-    0 19px 38px rgba(0, 0, 0, 0.3),
-    0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: none;
   margin: 8px;
   padding: 4px;
 }
