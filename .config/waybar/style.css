@@ -68,7 +68,9 @@ button:hover {
 #vpn,
 #window {
   background: alpha(@background, 0.5);
-  padding: 2px 8px;
+  padding: 0px 8px;
+  margin: 0px;
+  min-width: 20px;
 }
 
 #workspaces {
@@ -134,8 +136,7 @@ button:hover {
 }
 
 #vpn {
-  padding: 0 4px;
-  min-width: 20px;
+  padding: 0 8px;
 }
 #vpn .drawer box {
   margin: 0 4px;
@@ -146,7 +147,7 @@ button:hover {
 }
 
 #pulseaudio {
-  padding: 2 8px;
+  padding: 0 8px;
 }
 #pulseaudio.bluetooth {
   color: @color12;
@@ -179,7 +180,7 @@ button:hover {
   border-left:  1px solid alpha(@color6, 0.8);
   border-right: 1px solid alpha(@color6, 0.8);
   color: @color6;
-  padding: 2px 8px;
+  padding: 0px 8px;
   background-color: alpha(@background, 0.5);
 }
 
@@ -190,7 +191,7 @@ box#temperature {
   background: transparent;
   border-left:  1px solid transparent;
   border-right: 1px solid transparent;
-  padding: 2px 8px;
+  padding: 0px 8px;
 }
 #temperature.critical {
   border-color: alpha(@color1, 0.8);
@@ -218,11 +219,7 @@ box#temperature {
   border-left:  1px solid alpha(@color3, 0.8);
   border-right: 1px solid alpha(@color3, 0.8);
   color: @color3;
-  padding: 2px 8px;
-}
-
-#idle_inhibitor {
-  min-width: 20px;
+  padding: 0px 8px;
 }
 
 #privacy {
@@ -246,7 +243,6 @@ box#temperature {
 #bluetooth {
   border-left:  1px solid transparent;
   border-right: 1px solid transparent;
-  min-width: 20px;
 }
 #bluetooth.disabled, #bluetooth.off {
   background-color: alpha(@color8, 0.5);
@@ -264,7 +260,7 @@ box#temperature {
 /* #bluetooth.pairable */
 
 #mpris.paused {
-  color: @color8;
+  color: @color7;
 }
 #mpris.playing {
   color: @color2;
@@ -288,7 +284,6 @@ box#temperature {
 #custom-notifications {
   border-left:  1px solid transparent;
   border-right: 1px solid transparent;
-  min-width: 24px;
   padding-right: 8px;
 }
 #custom-notifications.notification,
@@ -312,12 +307,11 @@ box#temperature {
 }
 
 #custom-voxtype {
-  min-width: 20px;
-  padding: 0 8px;
+  padding: 0px 8px;
 }
 #custom-voxtype.recording {
   color: @color1;
-  animation: pulse 1s ease-in-out infinite;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 #custom-voxtype.transcribing {
   color: @color11;
@@ -326,10 +320,11 @@ box#temperature {
   color: @color15;
 }
 #custom-voxtype.stopped {
-  color: @color10;
+  color: @color7;
 }
 
-/* @keyframes pulse { */
-/*   0%, 100% { opacity: 1; } */
-/*   50% { opacity: 0.5; } */
-/* } */
+@keyframes pulse {
+  0%   { color: alpha(@color1, 1); }
+  50%  { color: alpha(@color1, 0.2); }
+  100% { color: alpha(@color1, 1); }
+}

@@ -16,7 +16,8 @@
         "modules/sensors.jsonc",
         "modules/system.jsonc",
         "modules/temperature.jsonc",
-        "modules/tray.jsonc"
+        "modules/tray.jsonc",
+        "modules/voxtype.jsonc"
     ],
     // Choose the order of the modules
     "modules-left": [

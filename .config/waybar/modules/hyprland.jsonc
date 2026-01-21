@@ -18,7 +18,8 @@
             "media": "",
             "planning": "󰻧",
             "studies": "󱉟",
-            "work": ""
+            "work": "",
+            "zen": "󰬡"
         },
         "workspace-taskbar": {
             // Enable the workspace taskbar. Default: false

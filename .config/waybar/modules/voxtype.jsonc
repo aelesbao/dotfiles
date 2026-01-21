@@ -1,0 +1,15 @@
+{
+  "custom/voxtype": {
+    "exec": "voxtype status --follow --format json --extended",
+    "return-type": "json",
+    "format": "{icon}",
+    "format-icons": {
+      "idle": "\uf130",
+      "recording": "\uf111",
+      "transcribing": "\uf110",
+      "stopped": " "
+    },
+    "tooltip": true,
+    "on-click": "if systemctl --user is-active voxtype --quiet; then systemctl --user stop voxtype; else systemctl --user start voxtype; fi"
+  }
+}

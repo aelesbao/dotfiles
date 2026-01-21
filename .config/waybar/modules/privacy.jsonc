@@ -1,31 +1,24 @@
 {
     "privacy": {
         "icon-spacing": 8,
-        "icon-size": 16,
+        "icon-size": 12,
         "transition-duration": 200,
         "modules": [
             {
                 "type": "screenshare",
                 "tooltip": true,
-                "tooltip-icon-size": 24
+                "tooltip-icon-size": 16
             },
             // {
             //     "type": "audio-out",
             //     "tooltip": true,
-            //     "tooltip-icon-size": 24
+            //     "tooltip-icon-size": 16
             // },
             {
                 "type": "audio-in",
                 "tooltip": true,
-                "tooltip-icon-size": 24
+                "tooltip-icon-size": 16
             }
         ]
-    },
-    "custom/voxtype": {
-        "exec": "voxtype status --follow --format json --extended",
-        "return-type": "json",
-        "format": "{}",
-        "tooltip": true,
-        "on-right-click": "systemctl --user restart voxtype"
     }
 }
