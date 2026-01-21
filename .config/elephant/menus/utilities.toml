@@ -1,0 +1,9 @@
+name = "utilities"
+name_pretty = "Utilities"
+icon = "applications-utilities"
+
+[[entries]]
+text = "Color Picker"
+keywords = ["color", "picker", "hypr"]
+actions = { "cp_use" = "wl-copy $(hyprpicker)" }
+icon = "color-picker"

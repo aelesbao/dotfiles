@@ -1,0 +1,6 @@
+name = "systemd"
+name_pretty = "Control systemd"
+description = "Control systemd user units using uuctl"
+icon = "applications-system"
+keywords = ["uuctl", "systemd"]
+submenu = "dmenu:uuctl"

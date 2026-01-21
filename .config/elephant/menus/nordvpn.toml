@@ -1,0 +1,35 @@
+name = "nordvpn"
+name_pretty = "Manage NordVPN Connection"
+icon = "nordvpn"
+action = "nordvpn %VALUE%"
+fixed_order = true
+
+[[entries]]
+text = "Brazil"
+value = "connect Brazil"
+icon = "🇧🇷"
+
+[[entries]]
+text = "Germany"
+value = "connect Germany"
+icon = "🇩🇪"
+
+[[entries]]
+text = "Netherlands"
+value = "connect Netherlands"
+icon = "🇳🇱"
+
+[[entries]]
+text = "Switzerland"
+value = "connect Switzerland"
+icon = "🇨🇭"
+
+[[entries]]
+text = "United States"
+value = "connect United_States"
+icon = "🇺🇸"
+
+[[entries]]
+text = "Disconnect"
+value = "disconnect"
+icon = "󰌙"
