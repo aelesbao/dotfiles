@@ -9,7 +9,7 @@
 
   all: unset;
   font-size: 14px;
-  font-family: "Rubik Light", "Symbols Nerd Font", sans-serif;
+  font-family: "Rubik", "Symbols Nerd Font", sans-serif;
   transition: 200ms;
 }
 

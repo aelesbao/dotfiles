@@ -26,8 +26,9 @@ scrollbar {
 }
 
 .box-wrapper {
-  background: radial-gradient(circle at 50% 250%, alpha(darker(@background),0.9), alpha(@background,0.9)) padding-box,
-      linear-gradient(135deg, @primary, @on_primary) border-box;
+  background:
+    radial-gradient(circle at 50% 250%, alpha(darker(@background),0.9), alpha(@background,0.9)) padding-box,
+    linear-gradient(135deg, @primary, @on_primary) border-box;
   border: 1px solid transparent;	  
   box-shadow:
     0 19px 38px rgba(0, 0, 0, 0.3),
@@ -47,8 +48,9 @@ scrollbar {
 }
 
 .search-container {
-  background: radial-gradient(circle at 50% 250%, alpha(darker(@background),0.9), alpha(@background,0.9)) padding-box,
-      linear-gradient(135deg, @primary, @on_primary) border-box;
+  background:
+    radial-gradient(circle at 50% 250%, alpha(darker(@background),0.9), alpha(@background,0.9)) padding-box,
+    linear-gradient(135deg, @primary, @on_primary) border-box;
   border: 1px solid transparent;	  
   border-radius: 10px;
 }
