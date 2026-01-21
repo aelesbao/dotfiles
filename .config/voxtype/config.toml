@@ -116,7 +116,7 @@ auto_submit = false
 # Example: Block modifier keys during typing with Hyprland submap:
 
 # pre_recording_command = "hyprctl dispatch submap voxtype:recording"
-pre_output_command = "hyprctl dispatch submap voxtype:suppress"
+pre_output_command = "hyprctl dispatch submap voxtype:transcoding"
 post_output_command = "hyprctl dispatch submap reset"
 
 # See troubleshooting docs for the required Hyprland submap configuration.
@@ -170,7 +170,7 @@ icon_theme = "nerd-font"
 
 # Per-state icon overrides (optional, takes precedence over theme)
 [status.icons]
-idle = ""
+# idle = ""
 # recording = "🎤"
 # transcribing = "⏳"
 # stopped = ""
