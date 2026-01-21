@@ -1,4 +1,6 @@
 {
+  "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "stable",
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
   },
@@ -25,5 +27,8 @@
       "Bash(yay:*)"
     ]
   },
-  "model": "haiku"
+  "statusLine": {
+    "command": "ccusage-statusline-rs",
+    "type": "command"
+  }
 }
