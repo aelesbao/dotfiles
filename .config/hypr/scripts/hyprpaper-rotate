@@ -52,7 +52,6 @@ next_idx=$((
 
 # Apply the the next wallpaper in the list
 wallpaper="${wallpapers[$next_idx]}"
-notify-send -e -t 2000 -u low -i cs-desktop -a "hyprpaper" "Hyprpaper" "Wallpaper set to ${wallpaper:t}"
 hyprctl hyprpaper wallpaper ,"$wallpaper"
 
 # Updates ~/.config/hypr/hyprpaper.conf with currently active wallpaper
