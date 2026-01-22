@@ -4,7 +4,7 @@ tap "aelesbao/tools"
 tap "bufbuild/buf"
 tap "hashicorp/tap"
 tap "koekeishiya/formulae"
-
+tap "domcyrus/rustnet"
 
 # Run your GitHub Actions locally 🚀
 brew "act"
@@ -179,6 +179,8 @@ brew "nextdns"
 brew "node"
 # Manage multiple Node.js versions
 brew "nvm"
+# AI coding agent, built for the terminal
+brew "opencode"
 # Development kit for the Java programming language
 brew "openjdk"
 # Reattach to the user's GUI session on macOS during authentication (for Touch ID support in tmux)
@@ -211,6 +213,8 @@ brew "rsync"
 brew "ruby-build"
 # Experimental Rust compiler front-end for IDEs
 brew "rust-analyzer"
+# High-performance, cross-platform network monitoring tool with TUI
+brew "rustnet"
 # Rust toolchain installer
 brew "rustup"
 # Build tool for Scala projects
