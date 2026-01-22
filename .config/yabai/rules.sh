@@ -51,7 +51,8 @@ add_app_rule_manage_off \
     "System Settings" \
     "balenaEtcher" \
     "iStat Menus" \
-    "gcups"
+    "gcups" \
+    "kairo"
 
 # fixed spaces
 add_app_rule "(Messages|Signal|Telegram|WhatsApp)" space="comms"
