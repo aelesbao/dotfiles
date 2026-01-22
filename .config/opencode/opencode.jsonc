@@ -11,39 +11,6 @@
   },
   "keybinds": {},
   "provider": {
-    "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama (local)",
-      "options": {
-        "baseURL": "http://localhost:11434/v1"
-      },
-      "models": {
-        "gpt-oss": {
-          "name": "GPT OSS 20B",
-          "options": {
-            "num_ctx": 131072,
-          },
-        },
-        "qwen3": {
-          "name": "Qwen3 30B",
-          "options": {
-            "num_ctx": 40960,
-          },
-        },
-        "qwen3-coder": {
-          "name": "Qwen3 Coder 30B",
-          "options": {
-            "num_ctx": 262144,
-          },
-        },
-        "gemma3:27b": {
-          "name": "Gemma3 27B",
-          "options": {
-            "num_ctx": 131072,
-          },
-        },
-      }
-    },
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LM Studio (local)",
