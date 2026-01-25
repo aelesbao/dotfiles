@@ -22,7 +22,7 @@ declare tmpdir="${TMPDIR:-/tmp}/nextdns"
 
 mkdir -p "${tmpdir}"
 
-if ps -ux | grep -q nextdns; then
+if ps -ax | grep -q nextdns; then
   msg "NextDNS is already running, skipping setup"
 
 elif (($+commands[nextdns])); then
