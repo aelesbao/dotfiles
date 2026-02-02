@@ -9,6 +9,7 @@
         "modules/hyprland.jsonc",
         "modules/login.jsonc",
         "modules/media.jsonc",
+        "modules/network.jsonc",
         "modules/notifications.jsonc",
         "modules/pomodoro.jsonc",
         "modules/privacy.jsonc",

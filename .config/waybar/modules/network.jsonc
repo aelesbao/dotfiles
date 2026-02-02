@@ -1,0 +1,64 @@
+{
+  "network": {
+    "interval": 5,
+    "format": "󰛳  {ifname}",
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "  {ifname}",
+    "format-linked": "  {ifname}",
+    "format-disconnected": "󰲜 Disconnected",
+    "tooltip-format": "󰛳  {ifname}\n{ipaddr}/{cidr} via {gwaddr}\n󰜷 {bandwidthUpBits} 󰜮 {bandwidthDownBits}",
+    "tooltip-format-wifi": "  {essid}\n{ipaddr}/{cidr} via {gwaddr}\n󰜷 {bandwidthUpBits} 󰜮 {bandwidthDownBits}",
+    "tooltip-format-ethernet": "  {ifname}\n{ipaddr}/{cidr} via {gwaddr}\n󰜷 {bandwidthUpBits} 󰜮 {bandwidthDownBits}",
+    "tooltip-format-disconnected": "",
+    "max-length": 50,
+    "on-click": "nm-connection-editor"
+  },
+  "group/vpn": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 200,
+      "children-class": "not-first",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/vpn-icon",
+      "custom/vpn-usa",
+      "custom/vpn-germany",
+      "custom/vpn-netherlands",
+      "custom/vpn-brasil"
+    ]
+  },
+  "custom/vpn-icon": {
+    "format": "󰖂 {text}",
+    "return-type": "json",
+    "tooltip": true,
+    "interval": 2,
+    "exec": "${XDG_CONFIG_HOME}/waybar/scripts/vpn-status.sh",
+    "exec-on-click": "${XDG_CONFIG_HOME}/waybar/scripts/vpn-status.sh",
+    "on-click": "if ${XDG_CONFIG_HOME}/waybar/scripts/vpn-status.sh | jq -er '.alt == \"disconnected\"'; then nordvpn connect; else nordvpn disconnect; fi"
+  },
+  "custom/vpn-usa": {
+    "format": "🇺🇸",
+    "tooltip": true,
+    "tooltip-format": "Connect to VPN: United States",
+    "on-click": "nordvpn connect United_States"
+  },
+  "custom/vpn-netherlands": {
+    "format": "🇳🇱",
+    "tooltip": true,
+    "tooltip-format": "Connect to VPN: Netherlands",
+    "on-click": "nordvpn connect Netherlands"
+  },
+  "custom/vpn-germany": {
+    "format": "🇩🇪",
+    "tooltip": true,
+    "tooltip-format": "Connect to VPN: Netherlands",
+    "on-click": "nordvpn connect Germany"
+  },
+  "custom/vpn-brasil": {
+    "format": "🇧🇷",
+    "tooltip": true,
+    "tooltip-format": "Connect to VPN: Brasil",
+    "on-click": "nordvpn connect Brazil"
+  }
+}

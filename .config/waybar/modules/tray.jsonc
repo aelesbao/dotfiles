@@ -20,49 +20,5 @@
         "spacing": 4,
         "icon-size": 16,
         "show-passive-items": true
-    },
-    "group/vpn": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "not-first",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/vpn-icon",
-            "custom/vpn-usa",
-            "custom/vpn-germany",
-            "custom/vpn-netherlands",
-            "custom/vpn-brasil"
-        ]
-    },
-    "custom/vpn-icon": {
-        "format": "󰖂 ",
-        "tooltip": true,
-        "tooltip-format": "Connect to VPN"
-    },
-    "custom/vpn-usa": {
-        "format": "🇺🇸",
-        "tooltip": true,
-        "tooltip-format": "Connect to VPN: United States",
-        "on-click": "nordvpn c United_States"
-    },
-    "custom/vpn-netherlands": {
-        "format": "🇳🇱",
-        "tooltip": true,
-        "tooltip-format": "Connect to VPN: Netherlands",
-        "on-click": "nordvpn c Netherlands"
-    },
-    "custom/vpn-germany": {
-        "format": "🇩🇪",
-        "tooltip": true,
-        "tooltip-format": "Connect to VPN: Netherlands",
-        "on-click": "nordvpn c Germany"
-    },
-    "custom/vpn-brasil": {
-        "format": "🇧🇷",
-        "tooltip": true,
-        "tooltip-format": "Connect to VPN: Brasil",
-        "on-click": "nordvpn c Brazil"
     }
 }

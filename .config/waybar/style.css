@@ -145,6 +145,13 @@ button:hover {
   margin: 0 4px;
   min-width: 20px;
 }
+#custom-vpn-icon {
+  border-left:  1px solid transparent;
+  border-right: 1px solid transparent;
+}
+#custom-vpn-icon.connected {
+  color: @color10;
+}
 
 #pulseaudio {
   padding: 0 8px;
