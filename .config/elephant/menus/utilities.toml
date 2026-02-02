@@ -4,6 +4,26 @@ icon = "applications-utilities"
 
 [[entries]]
 text = "Color Picker"
-keywords = ["color", "picker", "hypr"]
-actions = { "cp_use" = "wl-copy $(hyprpicker)" }
 icon = "color-picker"
+keywords = ["color", "picker", "hypr"]
+
+[entries.actions]
+"cp:hex" = "hyprpicker --no-fancy --autocopy --format=hex --lowercase-hex"
+"cp:rgb" = "hyprpicker --no-fancy --autocopy --format=rgb "
+
+[[entries]]
+text = "Screenshot"
+icon = "camera-photo"
+keywords = ["print", "screen", "shot", "hypr"]
+
+[entries.actions]
+"screenshot:region"  = "hyprshot -o ~/Pictures/Screenshots -m region"
+"screenshot:window"  = "hyprshot -o ~/Pictures/Screenshots -m window -m active"
+"screenshot:monitor" = "hyprshot -o ~/Pictures/Screenshots -m output -m active"
+
+[[entries]]
+text = "Systemd"
+subtext = "Control systemd user units using uuctl"
+icon = "applications-system"
+keywords = ["uuctl", "systemd"]
+submenu = "dmenu:uuctl"

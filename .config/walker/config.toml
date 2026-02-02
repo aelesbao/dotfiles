@@ -111,7 +111,9 @@ fallback = [
   { action = "erase_history", label = "clear hist", bind = "ctrl h", after = "AsyncReload" },
 ]
 
-dmenu = [{ action = "select", default = true, bind = "Return" }]
+dmenu = [
+  { action = "select", default = true, bind = "Return" },
+]
 
 providerlist = [
   { action = "activate", default = true, bind = "Return", after = "ClearReload" },
@@ -213,4 +215,12 @@ bookmarks = [
   { action = "import", label = "Import", bind = "ctrl i", after = "AsyncClearReload" },
   { action = "create", bind = "ctrl a", after = "AsyncClearReload" },
   { action = "search", bind = "ctrl a", after = "AsyncClearReload" },
+]
+
+"menus:utilities" = [
+  { action = "cp:hex", label = "hex", default = true, bind = "Return" },
+  { action = "cp:rgb", label = "rgb", bind = "ctrl r", after = "Close" },
+  { action = "screenshot:region",  label = "region", default = true, bind = "Return" },
+  { action = "screenshot:window",  label = "window", bind = "ctrl w" },
+  { action = "screenshot:monitor", label = "monitor", bind = "ctrl m" },
 ]
