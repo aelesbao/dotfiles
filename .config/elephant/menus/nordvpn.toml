@@ -1,8 +1,13 @@
 name = "nordvpn"
-name_pretty = "Manage NordVPN Connection"
+name_pretty = "NordVPN Connection"
 icon = "nordvpn"
 action = "nordvpn %VALUE%"
 fixed_order = true
+
+[[entries]]
+text = "Quick Connect"
+value = "connect"
+icon = "󰌘"
 
 [[entries]]
 text = "Brazil"

@@ -17,3 +17,6 @@
 [submodule "alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule "rebelot/kanagawa.nvim"]
+	path = .local/src/kanagawa.nvim
+	url = https://github.com/rebelot/kanagawa.nvim
