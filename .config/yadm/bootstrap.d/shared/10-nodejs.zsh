@@ -24,14 +24,22 @@ if ! (( $+commands[nvm] )); then
 fi
 
 info "Installing latest stable Node.js version"
-nvm install stable --default --reinstall-packages-from=stable
+nvm install stable --default --latest-npm --reinstall-packages-from=stable
+
+function npm-install() {
+  local package="$1"
+  msg "${package}..."
+  npm install -g "$package"
+  echo
+}
 
 info "Installing global packages"
 nvm use default
-npm install -g @openai/codex
-npm install -g @anthropic-ai/claude-code
-npm install -g @zed-industries/claude-code-acp
-npm install -g mcp-hub
+npm-install openclaw
+npm-install @openai/codex
+npm-install @anthropic-ai/claude-code
+npm-install @zed-industries/claude-code-acp
+npm-install mcp-hub
 
-msg "Installing Claude Code native build"
+info "Installing Claude Code native build"
 claude install
