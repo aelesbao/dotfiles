@@ -12,7 +12,6 @@ fi
 
 
 info "Configuring voxtype"
-voxtype setup --download
 
 if ask "Select model to run?"; then
   voxtype setup model
