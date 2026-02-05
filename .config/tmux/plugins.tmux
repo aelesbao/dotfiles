@@ -40,7 +40,8 @@ set -g @continuum-restore 'on'
 # Session and project manager.
 set -g @plugin 'aelesbao/tmux-ctrlp'
 # Remap to avoid conflict with the prefix
-set -g @ctrlp_session_bind 's'
+set -g @ctrlp_sessions_bind 'S'
+set -g @ctrlp_panes_bind 's'
 
 # Search your tmux scrollback buffer using fuzzy matching
 set -g @plugin 'roosta/tmux-fuzzback'
