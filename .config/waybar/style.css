@@ -184,11 +184,14 @@ button:hover {
 }
 
 #clock {
-  border-left:  1px solid alpha(@color6, 0.8);
-  border-right: 1px solid alpha(@color6, 0.8);
+  border-left:  1px solid transparent;
+  border-right: 1px solid transparent;
   color: @color6;
   padding: 0px 8px;
   background-color: alpha(@background, 0.5);
+}
+#clock.alarm {
+  border-color: alpha(@color6, 0.8);
 }
 
 box#temperature {
