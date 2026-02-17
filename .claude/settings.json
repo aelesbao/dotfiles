@@ -1,6 +1,4 @@
 {
-  "alwaysThinkingEnabled": true,
-  "autoUpdatesChannel": "stable",
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "0"
   },
@@ -28,7 +26,16 @@
     ]
   },
   "statusLine": {
-    "command": "ccusage-statusline-rs",
-    "type": "command"
-  }
+    "type": "command",
+    "command": "ccusage-statusline-rs"
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": false,
+    "feature-dev@claude-code-plugins": true,
+    "security-guidance@claude-code-plugins": false,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "autoUpdatesChannel": "stable"
 }
