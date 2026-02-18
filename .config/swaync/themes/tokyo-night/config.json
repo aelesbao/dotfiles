@@ -39,7 +39,7 @@
     "title": {
       "text": "Control Center",
       "clear-all-button": true,
-      "button-text": ""
+      "button-text": ""
     },
     "dnd": {
       "text": " Do Not Disturb"
@@ -47,7 +47,7 @@
     "inhibitors": {
       "text": "Inhibitors",
       "clear-all-button": true,
-      "button-text": ""
+      "button-text": ""
     },
     "menubar#desktop": {
       "menu#screenshot": {
