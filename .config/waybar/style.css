@@ -296,17 +296,21 @@ box#temperature {
   border-right: 1px solid transparent;
   padding-right: 8px;
 }
-#custom-notifications.notification,
-#custom-notifications.dnd-notification,
-#custom-notifications.dnd-inhibited-notification {
+#custom-notifications.notification {
   border-color: alpha(@color10, 0.8);
   color: @color10;
 }
 #custom-notifications.dnd-none,
-#custom-notifications.dnd-notification,
 #custom-notifications.dnd-inhibited-none,
+#custom-notifications.dnd-notification,
 #custom-notifications.dnd-inhibited-notification {
-  background-color: alpha(@color8, 0.5);
+  color: @color7;
+  border-color: alpha(@color1, 0.8);
+}
+#custom-notifications.dnd-notification,
+#custom-notifications.dnd-inhibited-notification {
+  border-color: alpha(@color1, 0.8);
+  color: @color1;
 }
 
 #custom-pomodoro.paused {

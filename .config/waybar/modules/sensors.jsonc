@@ -39,7 +39,7 @@
     },
     "custom/gpu": {
         "format": "{icon} {text}",
-        "format-icons": "󰾲",
+        "format-icons": "<span size='16000' rise='-3000'>󰾲</span>",
         "exec": "$HOME/.cargo/bin/gpu-usage-waybar",
         "exec-if": "which $HOME/.cargo/bin/gpu-usage-waybar",
         "return-type": "json",
@@ -99,5 +99,34 @@
             "",
             ""
         ]
+    },
+    "custom/cpu": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/waybar-cpu.py",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "missioncenter"
+    },
+    "custom/storage": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/waybar-storage.py",
+        "on-click": "baobab", // Set to your own analyser if you like
+        "on-click-right": "gnome-disks" // as above
+    },
+    "custom/memory": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/waybar-memory.py",
+        "on-click": "btop" // Opens btop directly
+        // },
+        // "custom/gpu": {
+        //     "format": "{}",
+        //     "return-type": "json",
+        //     "interval": 5,
+        //     "exec": "~/.config/waybar/scripts/waybar-gpu.py",
+        //     "on-click": "uwsm app -T -- nvtop"
     }
 }
