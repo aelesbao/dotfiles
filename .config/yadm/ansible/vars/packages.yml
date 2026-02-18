@@ -412,6 +412,9 @@ packages:
   - name: starship
     desc: Cross-shell prompt for astronauts
 
+  - name: strace
+    desc: A diagnostic, debugging and instructional userspace tracer
+
   - name: stylua
     desc: Deterministic code formatter for Lua
 
@@ -1202,6 +1205,9 @@ packages:
     desc: An extensible pomodoro timer
     archlinux:
       aur: uair
+
+  - name: taplo-cli
+    desc: TOML toolkit written in Rust
 
   - name: kairo
     desc: CLI and Desktop application for smart URL routing
