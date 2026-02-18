@@ -7,26 +7,36 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "provider": "copilot",
+  },
   "show_whitespaces": "selection",
   "preferred_line_length": 120,
   "autosave": "on_focus_change",
   "icon_theme": "Colored Zed Icons Theme Dark",
   "telemetry": {
     "diagnostics": true,
-    "metrics": false
+    "metrics": false,
   },
   "base_keymap": "JetBrains",
   "agent": {
     "use_modifier_to_send": true,
     "default_model": {
       "provider": "ollama",
-      "model": "mistral-nemo"
+      "model": "mistral-nemo",
     },
     "commit_message_model": {
       "provider": "ollama",
-      "model": "mistral-nemo"
+      "model": "mistral-nemo",
     },
-    "play_sound_when_agent_done": true
+    "play_sound_when_agent_done": true,
+  },
+  "agent_servers": {
+    "OpenCode": {
+      "type": "custom",
+      "command": "opencode",
+      "args": ["acp"],
+    },
   },
   "ui_font_size": 18,
   "buffer_font_size": 14.0,
@@ -35,10 +45,7 @@
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
-    "use_system_clipboard": "never"
-  },
-  "features": {
-    "edit_prediction_provider": "copilot"
+    "use_system_clipboard": "never",
   },
   "language_models": {
     "ollama": {
@@ -49,80 +56,74 @@
           "display_name": "OpenAI’s open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases.",
           "max_tokens": 131072,
           "supports_tools": true,
-          "supports_thinking": true
+          "supports_thinking": true,
         },
         {
           "name": "gemma3:27b",
           "display_name": "Gemma 3 27B lightweight family of models built on Gemini technology",
           "max_tokens": 131072,
-          "supports_images": true
+          "supports_images": true,
         },
         {
           "name": "deepseek-r1:14b",
           "display_name": "DeepSeek-R1 is a family of open reasoning models with performance approaching that of leading models, such as O3 and Gemini 2.5 Pro",
           "max_tokens": 131072,
           "supports_tools": true,
-          "supports_thinking": true
+          "supports_thinking": true,
         },
         {
           "name": "qwen3:32b",
           "display_name": "Qwen3 32B dense and mixture-of-experts (MoE) models",
           "max_tokens": 40960,
           "supports_tools": true,
-          "supports_thinking": true
+          "supports_thinking": true,
         },
         {
           "name": "qwen3-coder:latest",
           "display_name": "Alibaba's performant long context models for agentic and coding tasks",
           "max_tokens": 262144,
-          "supports_tools": true
-        },
-        {
-          "name": "qwen3-vl:30b",
-          "display_name": "The most powerful vision-language model in the Qwen model family to date",
-          "max_tokens": 262144,
           "supports_tools": true,
-          "supports_images": true
-        }
-      ]
-    }
+        },
+      ],
+    },
   },
   "calls": {
-    "mute_on_join": true
+    "mute_on_join": true,
   },
   "terminal": {
     "option_as_meta": true,
-    "copy_on_select": true
+    "copy_on_select": true,
   },
   "git_panel": {
-    "sort_by_path": true
+    "tree_view": true,
+    "sort_by_path": true,
   },
   "active_pane_modifiers": {
-    "inactive_opacity": 0.7
+    "inactive_opacity": 0.7,
   },
   "tabs": {
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
   },
   "title_bar": {
     "show_menus": false,
-    "show_branch_icon": true
+    "show_branch_icon": true,
   },
   "search": {
     "regex": true,
-    "include_ignored": true
+    "include_ignored": true,
   },
   "use_smartcase_search": true,
   "diagnostics": {
     "inline": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
-    "show_other_hints": true
+    "show_other_hints": true,
   },
   "lsp": {
     "rust-analyzer": {
@@ -130,46 +131,46 @@
         // options to send to rust-analyzer
         // See: https://rust-analyzer.github.io/manual.html#configuration
         "cargo": {
-          "features": "all"
+          "features": "all",
         },
         "check": {
           "features": "all",
           "command": "clippy",
           // run clippy only on the given crate, without linting the dependencies
-          "extraArgs": ["--no-deps"]
+          "extraArgs": ["--no-deps"],
         },
         "checkOnSave": true,
         "imports": {
-          "preferPrelude": true
+          "preferPrelude": true,
         },
         "inlayHints": {
           "bindingModeHints": {
-            "enable": false
+            "enable": false,
           },
           "closureCaptureHints": {
-            "enable": false
-          }
+            "enable": false,
+          },
         },
         "procMacro": {
           "enable": true,
           "ignored": {
             "async-trait": ["async_trait"],
             "napi-derive": ["napi"],
-            "async-recursion": ["async_recursion"]
-          }
+            "async-recursion": ["async_recursion"],
+          },
         },
         "rustfmt": {
-          "extraArgs": ["+nightly"]
+          "extraArgs": ["+nightly"],
         },
         "workspace": {
           "symbol": {
             "search": {
               "scope": "workspace_and_dependencies",
-              "limit": 512
-            }
-          }
-        }
-      }
-    }
-  }
+              "limit": 512,
+            },
+          },
+        },
+      },
+    },
+  },
 }
