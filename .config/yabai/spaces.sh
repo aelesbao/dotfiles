@@ -26,19 +26,16 @@ fullscreen_space() {
     fi
 }
 
-fullscreen_space "Mimestream" 1
-fullscreen_space "Slack" 2
-
 # display 1
-yabai -m space 1 --label email --display "macbook"
-yabai -m space 2 --label slack --display "macbook"
-yabai -m space 3 --label personal --display "macbook"
+yabai -m space 1 --label slack
+yabai -m space 2 --label email
+yabai -m space 3 --label personal
 
 # display 2
 if has_external_display; then
     echo "Configuring spaces with external monitor"
 
-    yabai -m space 4 --label comms --display "macbook"
+    yabai -m space 4 --label comms
     yabai -m space 5 --label development --display "external"
 
     yabai -m config --space personal layout stack
