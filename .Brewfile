@@ -8,12 +8,6 @@ tap "domcyrus/rustnet"
 
 # Run your GitHub Actions locally 🚀
 brew "act"
-# Next-generation aircrack with lots of new features
-brew "aircrack-ng"
-# Record and share terminal sessions
-brew "asciinema"
-# Light UNIX download accelerator
-brew "axel"
 # Terminal bandwidth utilization tool
 brew "bandwhich"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -22,8 +16,6 @@ brew "bash"
 brew "bash-completion"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Compiler infrastructure and toolchain library for WebAssembly
-brew "binaryen"
 # Linux/OSX/FreeBSD resource monitor
 brew "btop"
 # A new way of working with Protocol Buffers.
@@ -108,12 +100,8 @@ brew "golangci-lint"
 brew "gobject-introspection"
 # Go version management
 brew "goenv"
-# Version Control Visualization Tool
-brew "gource"
 # Generic Log Colourizer
 brew "grc"
-# Open-source build automation tool based on the Groovy and Kotlin DSL
-brew "gradle"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Like cURL, but for gRPC
@@ -136,8 +124,6 @@ brew "htop"
 brew "hub"
 # Command-line benchmarking tool
 brew "hyperfine"
-# Build, launch, and maintain any crypto application with Ignite CLI
-brew "ignite"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Peer-to-peer hypermedia protocol
@@ -322,10 +308,6 @@ cask "1password", args: { appdir: "/Applications" }
 cask "1password-cli", args: { appdir: "/Applications" }
 # View, print, and comment on PDF documents
 cask "adobe-acrobat-reader", args: { appdir: "/Applications" }
-## Command-line tools for building and debugging Android apps
-#cask "android-commandlinetools"
-## Android SDK component
-#cask "android-platform-tools"
 # Application uninstaller
 cask "appcleaner", args: { appdir: "/Applications" }
 # Two-way text copying
@@ -342,8 +324,6 @@ cask "caffeine", args: { appdir: "/Applications" }
 # cask "chatgpt" # Not available for Intel processors
 # Semantic code analysis engine
 cask "codeql"
-# Write, edit, and chat about your code with AI
-cask "cursor"
 # Disk space visualizer
 cask "daisydisk", args: { appdir: "/Applications" }
 # Trains AIs to understand and translate texts
@@ -358,10 +338,8 @@ cask "element"
 cask "fing"
 # Web browser
 cask "firefox"
-# Web browser
-cask "google-chrome"
 # Set of tools to manage resources and applications hosted on Google Cloud
-cask "google-cloud-sdk", args: { appdir: "/Applications" }
+# cask "gcloud-cli", args: { appdir: "/Applications" }
 # Tools to protect your emails and files
 cask "gpg-suite", args: { appdir: "/Applications" }
 # GraalVM from Oracle
@@ -381,7 +359,7 @@ cask "keybase"
 # GPU-based terminal emulator
 cask "kitty"
 # Wallet desktop application to maintain multiple cryptocurrencies
-cask "ledger-live"
+cask "ledger-wallet"
 # Free cross-platform office suite, fresh version
 cask "libreoffice", args: { appdir: "/Applications" }
 # Native desktop app for Messenger (formerly Facebook Messenger)
@@ -389,27 +367,19 @@ cask "messenger"
 # Native app email client for Gmail
 cask "mimestream"
 # No Nonsense Neovim Client in Rust
-cask "neovide"
+cask "neovide-app"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # VPN client for secure internet access and private browsing
 cask "nordvpn", args: { appdir: "/Applications" }
-# App to write, plan, collaborate, and get organized
-cask "notion", args: { appdir: "/Applications" }
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Used to access context-specific actions when text is selected
 cask "popclip"
 # GUI client for PostgreSQL databases
 cask "postico"
-# Collaboration platform for API development
-cask "postman"
 # Client for Proton Mail and Proton Calendar
 cask "proton-mail"
-# NAS management application
-cask "qfinder-pro"
-# QNAP Sync utility
-# cask "qsync-client"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
 # Control your tools with a few keystrokes
@@ -436,22 +406,14 @@ cask "whatsapp", args: { appdir: "/Applications" }
 cask "zed"
 
 # Fonts
-cask "font-cascadia-code"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
-cask "font-fira-code"
-cask "font-hack"
 cask "font-hack-nerd-font"
-cask "font-inconsolata"
 cask "font-inconsolata-nerd-font"
-cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "font-montserrat"
-cask "font-roboto-mono"
 cask "font-roboto-mono-nerd-font"
-cask "font-ubuntu"
-cask "font-ubuntu-mono"
 cask "font-ubuntu-mono-nerd-font"
 cask "font-ubuntu-nerd-font"
 # San Francisco symbols font with Apple glyphs
