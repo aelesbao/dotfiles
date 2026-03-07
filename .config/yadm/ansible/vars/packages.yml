@@ -1195,8 +1195,6 @@ packages:
   - name: opencode
     desc: The AI coding agent built for the terminal.
     tags: [ai]
-    archlinux:
-      aur: opencode-bin
 
   - name: ifuse
     desc: A fuse filesystem to access the contents of an iPhone or iPod Touch
