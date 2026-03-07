@@ -43,6 +43,7 @@ function cargo-install() {
 }
 
 function binstall() {
+  msg "$name"
   RUSTC_WRAPPER= CARGO_PROFILE_RELEASE_LTO=true RUSTFLAGS=-Ctarget-cpu=native cargo binstall --no-confirm ${@:$#}
 }
 
@@ -66,7 +67,6 @@ if ask "Update installed crates?"; then
   binstall cargo-nextest
   binstall cargo-outdated
   binstall cargo-run-script
-  binstall cargo-shuttle
   binstall cargo-tarpaulin
   binstall cargo-watch
   binstall evcxr_repl
