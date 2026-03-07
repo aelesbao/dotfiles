@@ -90,3 +90,8 @@ Temporary Items
 
 # AI Helpers
 CLAUDE.md
+AGENTS.md
+.agents/
+.claude/
+# OpenCode ignore file
+.ignore
