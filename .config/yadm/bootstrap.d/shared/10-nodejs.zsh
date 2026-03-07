@@ -35,10 +35,8 @@ function npm-install() {
 
 info "Installing global packages"
 nvm use default
-npm-install openclaw
-npm-install @openai/codex
 npm-install @anthropic-ai/claude-code
-npm-install @zed-industries/claude-code-acp
+npm-install @zed-industries/claude-agent-acp
 npm-install mcp-hub
 
 info "Installing Claude Code native build"
