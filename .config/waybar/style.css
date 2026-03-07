@@ -80,8 +80,9 @@ button:hover {
 #workspaces .workspace-label {
   background: transparent;
   padding: 0px;
+  padding-right: 4px;
   margin: 0px;
-  min-width: 40px;
+  min-width: 32px;
 }
 #workspaces button {
   border-left:  1px solid transparent;
