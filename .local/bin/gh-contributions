@@ -1,0 +1,33 @@
+#!/bin/zsh
+# Extracts and lists all merged pull requests
+# by a specific author across all repositories
+# of a given owner using the GitHub CLI.
+
+author="$1"
+owner="$2"
+
+if [[ -z "$author" ]] || [[ -z "$owner" ]]; then
+  echo "usage: ${0:t} <author> <owner>"
+  exit 1
+fi
+
+local -a repos=( $(gh repo list "$owner" --limit 100 --json name,description --jq '.[] | .name') )
+
+for repo in ${repos[@]}; do
+  local contributions=(
+    "${(@fA)$(gh pr list \
+      --author "$author" \
+      --limit 200 \
+      --state merged \
+      --repo "$owner/$repo" \
+      --json number,title,createdAt \
+      --jq '.[] | (.number | tostring) + " | " + .createdAt + " | " + .title')}"
+  ) 
+
+  if [[ ${#contributions[@]} -gt 0 ]]; then
+    echo "\n$repo:"
+    for contribution in ${contributions[@]}; do
+      echo "  $contribution"
+    done
+  fi
+done
