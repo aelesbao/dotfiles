@@ -1348,6 +1348,11 @@ packages:
     archlinux:
       aur: elephant-windows-bin
 
+  - name: filen-desktop
+    desc: Desktop client including Syncing, Virtual Drive mounting, S3, WebDAV, File Browsing, Chats, Notes, Contacts and more.(Prebuilt version.Use system-wide electron)
+    archlinux:
+      aur: filen-desktop-bin
+
 # Extra repositories to add to the system
 repositories:
   debian:
