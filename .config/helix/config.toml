@@ -1,4 +1,4 @@
-theme = "tokyonight_storm"
+theme = "tokyonight_night"
 
 [editor]
 auto-save = true
@@ -41,3 +41,15 @@ cursor-line = "warning" # show warnings and errors on the cursorline inline
 
 [keys.normal]
 ";" = "command_mode"
+
+"A-h" = "@<C-w>h"
+"A-l" = "@<C-w>l"
+"A-j" = "jump_view_up"
+"A-k" = "jump_view_down"
+
+"C-a" = "goto_line_start"
+"C-e" = "goto_line_end"
+
+[keys.insert]
+"C-a" = "goto_line_start"
+"C-e" = "goto_line_end"
