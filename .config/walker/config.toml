@@ -60,7 +60,6 @@ max_results = 200 # global max results
 [providers.sets] # define your own defaults/empty sets of providers
 
 [providers.max_results_provider] # define max results per provider in here
-desktopapplications = 30
 files = 30
 unicode = 30
 
