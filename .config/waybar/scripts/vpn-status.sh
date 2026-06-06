@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # Get active VPN connections (wireguard, vpn, or tun interfaces)
-vpn_output=$(nmcli con show --active 2>/dev/null | grep -iE '(wireguard|vpn|tun)' || true)
+vpn_output=$(nmcli con show --active 2>/dev/null | grep -iE '(wireguard|vpn)' || true)
 
 if [[ -n "$vpn_output" ]]; then
   # Extract connection name (first column)
