@@ -574,9 +574,11 @@ packages:
     archlinux:
       aur: ttf-rubik-vf
   - name: ttf-font-awesome
+  - name: otf-avenir-next-pro
+    archlinux:
+      aur: otf-avenir-next-pro
 
   # Nerd fonts
-  - name: ttf-nerd-fonts-symbols
   - name: otf-commit-mono-nerd
   - name: otf-geist-mono-nerd
   - name: ttf-0xproto-nerd
@@ -593,6 +595,7 @@ packages:
   - name: ttf-liberation-mono-nerd
   - name: ttf-martian-mono-nerd
   - name: ttf-meslo-nerd
+  - name: ttf-nerd-fonts-symbols
   - name: ttf-nerd-fonts-symbols
   - name: ttf-nerd-fonts-symbols-mono
   - name: ttf-roboto-mono-nerd
@@ -1352,6 +1355,51 @@ packages:
     desc: Desktop client including Syncing, Virtual Drive mounting, S3, WebDAV, File Browsing, Chats, Notes, Contacts and more.(Prebuilt version.Use system-wide electron)
     archlinux:
       aur: filen-desktop-bin
+
+  - name: nvme-cli
+    desc: NVM-Express user space tooling for Linux
+
+  - name: thunar
+    desc: Modern, fast and easy-to-use file manager for Xfce
+  - name: thunar-archive-plugin
+    desc: Adds archive operations to the Thunar file context menus
+  - name: thunar-media-tags-plugin
+    desc: Adds special features for media files to the Thunar File Manager
+  - name: thunar-shares-plugin
+    desc: Thunar plugin to quickly share a folder using Samba without requiring root access
+  - name: thunar-vcs-plugin
+    desc: SVN and GIT integration for Thunar
+  - name: thunar-volman
+    desc: Automatic management of removable drives and media for Thunar
+
+  - name: tesseract
+    desc: An OCR program
+  - name: tesseract-data-eng
+    desc: Tesseract OCR data (eng)
+  - name: tesseract-data-deu
+    desc: Tesseract OCR data (deu)
+  - name: tesseract-data-por
+    desc: Tesseract OCR data (por)
+  - name: tesseract-data-spa
+    desc: Tesseract OCR data (spa)
+  - name: gimagereader-gtk
+    desc: Gtk front-end to tesseract-ocr
+
+  - name: guvcview
+    desc: Simple GTK+ interface for capturing and viewing video from v4l2 devices
+
+  - name: dms-shell-hyprland
+    desc: A Quickshell-based desktop shell with Material 3 design principles (for Hyprland)
+    tags: [hyprland]
+
+  - name: wayle
+    desc: A configurable desktop shell for Wayland compositors
+    tags: [hyprland]
+    archlinux:
+      aur: wayle-bin
+
+  - name: kmon
+    desc: Linux kernel manager and activity monitor
 
 # Extra repositories to add to the system
 repositories:

@@ -18,7 +18,7 @@ if ask "Select model to run?"; then
 fi
 
 if ask "Enable GPU support?"; then
-u sudo voxtype setup gpu --enable
+  sudo voxtype setup gpu --enable
 fi
 
 info "Checking setup status"

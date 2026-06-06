@@ -29,15 +29,18 @@ nvm install stable --default --latest-npm --reinstall-packages-from=stable
 function npm-install() {
   local package="$1"
   msg "${package}..."
-  npm install -g "$package"
+  npm install --global "$package"
   echo
 }
 
 info "Installing global packages"
 nvm use default
-npm-install @anthropic-ai/claude-code
+npm-install yarn
+npm-install typescript
+npm-install typescript-language-server
 npm-install @zed-industries/claude-agent-acp
+npm-install @doist/todoist-cli
 npm-install mcp-hub
 
 info "Installing Claude Code native build"
-claude install
+curl -fsSL https://claude.ai/install.sh | bash

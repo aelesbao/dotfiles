@@ -43,6 +43,8 @@ function cargo-install() {
 }
 
 function binstall() {
+  local name="$1"
+
   msg "$name"
   RUSTC_WRAPPER= CARGO_PROFILE_RELEASE_LTO=true RUSTFLAGS=-Ctarget-cpu=native cargo binstall --no-confirm ${@:$#}
 }
