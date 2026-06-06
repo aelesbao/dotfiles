@@ -72,6 +72,10 @@ set -g @cpu_temp_high_thresh   "85"
 set -g @ram_medium_thresh      "50"
 set -g @ram_high_thresh        "80"
 
+# Better manage and configure the mouse.
+set -g @plugin 'nhdaly/tmux-better-mouse-mode'
+set -g @scroll-speed-num-lines-per-scroll            1
+set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
 
 # Soothing pastel theme for Tmux.
 set -g @plugin 'catppuccin/tmux#v2.1.3'

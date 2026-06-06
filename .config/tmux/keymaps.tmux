@@ -45,6 +45,10 @@ bind '_' split-window -fv -c "#{pane_current_path}"
 bind '%' split-window -h -c "#{pane_current_path}"
 bind '"' split-window -v -c "#{pane_current_path}"
 
+# Forces one step by line on mouse wheel scroll
+# bind -Tcopy-mode WheelUpPane   send -N1 -X scroll-up
+# bind -Tcopy-mode WheelDownPane send -N1 -X scroll-down
+
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' | \
