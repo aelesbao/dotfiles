@@ -1,4 +1,4 @@
-show_actions = true
+show_actions = false
 only_search_title = false
 history = true
 
