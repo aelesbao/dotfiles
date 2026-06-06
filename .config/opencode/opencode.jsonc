@@ -1,20 +1,28 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "tokyonight",
   "autoupdate": false,
   "share": "disabled",
-  "model": "openai/gpt-5.3-codex",
+  "model": "openai/gpt-5.5",
+  "small_model": "opencode/minimax-m2.5-free",
   "permission": {
     "edit": "ask",
     "bash": {
       "*": "ask",
-      "git *": "allow",
-      "cargo *": "allow",
       "rm *": "ask",
       "ls *": "allow",
+      "find *": "allow",
+      "git *": "allow",
+      "gh *": "allow",
+      "rg *": "allow",
+      "cargo *": "allow",
+      "cargo publish *": "deny",
+      "sui move *": "allow",
       "grep *": "allow",
       "head *": "allow",
       "cat *": "allow",
+      "test *": "allow",
+      "npm run lint": "allow",
+      "npm run test*": "allow",
     },
     "grep": "allow",
     "glob": "allow",
@@ -26,7 +34,6 @@
     "webfetch": "ask",
     "external_directory": "deny",
   },
-  "keybinds": {},
   "provider": {
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
@@ -37,15 +44,6 @@
       "models": {
         "openai/gpt-oss-20b": {
           "name": "GPT OSS 20B",
-        },
-        "qwen/qwen3-30b-a3b-2507": {
-          "name": "Qwen3 30B",
-        },
-        "qwen/qwen3-coder-30b": {
-          "name": "Qwen3 Coder 30B",
-        },
-        "deepseek/deepseek-r1-0528-qwen3-8b": {
-          "name": "Distilled DeepSeek R1 0528 (Qwen3 8B post-training)",
         },
       }
     }
@@ -68,5 +66,13 @@
         "rs",
       ]
     }
+  },
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      "target/**",
+      ".git/**"
+    ]
   },
 }
