@@ -87,11 +87,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-# AI Helpers
-CLAUDE.md
-AGENTS.md
-.agents/
-.claude/
-# OpenCode ignore file
-.ignore
