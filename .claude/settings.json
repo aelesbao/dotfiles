@@ -4,6 +4,8 @@
   },
   "permissions": {
     "allow": [
+      "Bash(ls:*)",
+      "Bash(gh:*)",
       "Bash(npm run lint)",
       "Bash(npm run test:*)",
       "Bash(cargo add:*)",
@@ -12,9 +14,10 @@
       "Bash(cargo check:*)",
       "Bash(cargo clippy:*)",
       "Bash(cargo nextest:*)",
-      "Bash(just:*)",
       "Bash(sui move:*)",
-      "Bash(gh:*)"
+      "Bash(just:*)",
+      "Bash(find:*)",
+      "Bash(test:*)"
     ],
     "deny": [
       "Bash(sh:*)",
@@ -34,7 +37,12 @@
     "feature-dev@claude-code-plugins": true,
     "security-guidance@claude-code-plugins": false,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true
+    "ralph-loop@claude-plugins-official": true,
+    "voltagent-infra@voltagent-subagents": true,
+    "voltagent-lang@voltagent-subagents": true,
+    "voltagent-core-dev@voltagent-subagents": true,
+    "voltagent-dev-exp@voltagent-subagents": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "autoUpdatesChannel": "stable"
