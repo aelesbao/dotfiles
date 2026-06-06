@@ -6,8 +6,6 @@ on = ["g", "y"]
 run = "shell 'yadm add $@'"
 desc = "Add all files to yadm."
 
-[[prepend_keymap]]
-
 # Task manager.
 [tasks]
 
