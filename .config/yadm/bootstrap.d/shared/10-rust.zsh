@@ -68,6 +68,7 @@ if ask "Update installed crates?"; then
   binstall cargo-modules
   binstall cargo-nextest
   binstall cargo-outdated
+  binstall cargo-release
   binstall cargo-run-script
   binstall cargo-tarpaulin
   binstall cargo-watch
@@ -76,7 +77,9 @@ if ask "Update installed crates?"; then
   binstall grcov
   binstall mcp-discovery
 
-  cargo-install cargo-release
+  msg "ccusage-statusline-rs"
+  RUSTC_WRAPPER= CARGO_PROFILE_RELEASE_LTO=true RUSTFLAGS=-Ctarget-cpu=native \
+  cargo install --locked --git https://github.com/ticpu/ccusage-statusline-rs --tag v1.12.0
 fi
 
 if (( $+commands[sccache] )); then
