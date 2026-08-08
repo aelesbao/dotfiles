@@ -28,6 +28,7 @@
       "Bash(yay:*)"
     ]
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "ccusage-statusline-rs"
@@ -45,6 +46,7 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
   "autoUpdatesChannel": "stable",
   "editorMode": "vim",
   "preferredNotifChannel": "ghostty"
