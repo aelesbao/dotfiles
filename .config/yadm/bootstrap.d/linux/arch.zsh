@@ -61,4 +61,4 @@ add-pkg \
   jq \
   go-yq \
   python \
-  python-jmespath
+  python-yaml

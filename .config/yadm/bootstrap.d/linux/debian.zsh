@@ -22,7 +22,7 @@ add-pkg \
   git \
   libssl-dev \
   python3 \
-  python3-jmespath
+  python3-yaml
 
 info "Cleaning up"
 sudo apt autoremove -y
