@@ -274,6 +274,11 @@ packages:
   - name: lazygit
     desc: Simple terminal UI for git commands
 
+  - name: lazyjournal
+    desc: TUI for journalctl, file system logs, as well Docker and Podman containers for quick viewing and filtering with fuzzy find and regex support
+    archlinux:
+      aur: lazydocker
+
   - name: leveldb
     desc: Key-value storage library with ordered mapping
 
