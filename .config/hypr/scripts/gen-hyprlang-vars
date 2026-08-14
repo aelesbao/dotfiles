@@ -1,0 +1,28 @@
+#!/usr/bin/env lua
+--
+-- Regenerates vars/colors.conf and vars/fonts.conf from lib/colors.lua and
+-- lib/fonts.lua, for the hypr* daemons that are still hyprlang.
+--
+-- Hyprland runs this itself on every config load; this wrapper exists so yadm
+-- bootstrap (and you) can run it without starting a compositor.
+
+local script = arg[0]
+-- Resolve symlinks so `dirname` lands in the real config tree.
+local resolved = io.popen("readlink -f " .. string.format("%q", script)):read("l")
+local dir = (resolved or script):match("^(.*)/scripts/[^/]+$")
+
+if not dir then
+  io.stderr:write("could not locate the hypr config directory from " .. script .. "\n")
+  os.exit(1)
+end
+
+package.path = dir .. "/?.lua;" .. dir .. "/?/init.lua;" .. package.path
+
+local ok, err = require("lib.gen_vars").generate(dir)
+if not ok then
+  io.stderr:write("failed to generate hyprlang vars: " .. tostring(err) .. "\n")
+  os.exit(1)
+end
+
+print("wrote " .. dir .. "/vars/colors.conf")
+print("wrote " .. dir .. "/vars/fonts.conf")

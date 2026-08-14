@@ -1,0 +1,8 @@
+hl.config({
+  debug = {
+    disable_logs = false,
+    disable_time = false,
+    enable_stdout_logs = true,
+    colored_stdout_logs = true,
+  },
+})

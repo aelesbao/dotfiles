@@ -1,0 +1,28 @@
+-- https://wiki.hyprland.org/Configuring/Variables/#input
+--
+-- kb_variant, kb_model and kb_rules were set to the empty string under
+-- hyprlang, which is what they already default to; omitted here.
+hl.config({
+  input = {
+    kb_layout = "us",
+    -- Check available options with `localectl list-x11-keymap-options`
+    -- Keep in sync with Gnome: gsettings get org.gnome.desktop.input-sources xkb-options
+    kb_options = "caps:escape_shifted_capslock,compose:ralt,terminate:ctrl_alt_bksp",
+    -- kb_options = "caps:escape_shifted_capslock,compose:ralt",
+
+    numlock_by_default = true,
+
+    -- 0 - Cursor movement will not change focus.
+    -- 1 - Cursor movement will always change focus to the window under the cursor.
+    -- 2 - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
+    -- 3 - Cursor focus will be completely separate from keyboard focus. Clicking on a window will not change keyboard focus.
+    follow_mouse = 1,
+    -- mouse input sensitivity. Value is clamped to the range -1.0 - 1.0, 0 means no modification.
+    sensitivity = 0,
+    natural_scroll = true,
+
+    touchpad = {
+      natural_scroll = true,
+    },
+  },
+})

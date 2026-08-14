@@ -1,0 +1,19 @@
+-- https://wiki.hyprland.org/Configuring/Variables/#general
+hl.config({
+  general = {
+    gaps_in = 4,
+    gaps_out = 8,
+    border_size = 1,
+
+    -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = true,
+    hover_icon_on_border = true,
+
+    -- Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+    allow_tearing = true,
+
+    no_focus_fallback = true,
+
+    layout = "dwindle",
+  },
+})

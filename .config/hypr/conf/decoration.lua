@@ -1,0 +1,64 @@
+-- https://wiki.hyprland.org/Configuring/Variables/#decoration
+hl.config({
+  decoration = {
+    rounding = 6,
+    rounding_power = 4,
+
+    -- Change transparency of focused and unfocused windows
+    active_opacity = 1.0,
+    inactive_opacity = 1.0,
+    fullscreen_opacity = 1.0,
+
+    -- Dim
+    dim_inactive = true,
+    dim_strength = 0.3,
+    dim_special = 0.7,
+
+    shadow = {
+      enabled = false,
+      range = 4,
+      render_power = 3,
+    },
+
+    -- https://wiki.hyprland.org/Configuring/Variables/#blur
+    blur = {
+      enabled = true,
+
+      size = 12,
+      passes = 3,
+      xray = true,
+      noise = 0.05,
+      vibrancy = 0.1696,
+
+      ignore_opacity = true,
+      special = false,
+    },
+  },
+
+  -- https://wiki.hyprland.org/Configuring/Variables/#group
+  -- Colors for these live in themes/tokyonight.lua.
+  group = {
+    groupbar = {
+      font_size = 13,
+
+      -- font_family = "monospace",
+      font_weight_active = "normal",
+      font_weight_inactive = "normal",
+
+      height = 22,
+
+      gradients = true,
+      gradient_rounding = 6,
+
+      rounding = 6,
+      indicator_gap = 0,
+      indicator_height = 2,
+
+      gaps_in = 8,
+      gaps_out = 2,
+      keep_upper_gap = false,
+
+      blur = true,
+    },
+  },
+})
