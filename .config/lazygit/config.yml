@@ -3,23 +3,17 @@
 disableStartupPopups: true
 # one of: 'prompt' | 'create' | 'skip' | 'quit'
 notARepository: "quit"
-
 git:
   commit:
     signOff: true
-
   # If true, do not spawn a separate process when using GPG
   overrideGpg: false
-
   merging:
     args: "--no-ff"
-
   parseEmoji: true
-
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never
-
+      command: delta --dark --paging=never
 gui:
   showRandomTip: false
   # show commit hashes alongside branch names
@@ -31,39 +25,32 @@ gui:
   # https://pkg.go.dev/time#Time.Format
   timeFormat: "2006-01-02 15:04:05"
   shortTimeFormat: "15:04"
-
   # Config relating to the commit length indicator
   commitLength:
     # If true, show an indicator of commit message length
     show: true
-
 # Config relating to things outside of Lazygit like how files are opened,
 # copying to clipboard, etc
 os:
   # A built-in preset that sets all of the above settings. Supported presets are
   # defined in the getPreset function in editor_presets.go.
   editPreset: "nvim"
-
 refresher:
   refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
   fetchInterval: 600 # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
-
 update:
   method: never
-
 customCommands:
   - key: t
     command: tig {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
     context: commitFiles
     description: tig file (history of commits affecting file)
     output: terminal
-
   - key: t
     command: tig -- {{.SelectedFile.Name}}
     context: files
     description: tig file (history of commits affecting file)
     output: terminal
-
   - key: "C"
     context: "files"
     description: "Create new conventional commit"
@@ -127,7 +114,6 @@ customCommands:
     command: "git commit --message '{{.Form.Type}}{{if .Form.Scope}}({{.Form.Scope}}){{end}}{{.Form.Breaking}}: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
     output: terminal
-
   - key: "<c-r>"
     context: "global"
     description: "Create a pull request on GitHub"
