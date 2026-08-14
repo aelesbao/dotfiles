@@ -9,10 +9,6 @@
 -- `.` and `/` to path separators, so `conf.d/general` resolves to
 -- `conf/d/general.lua` and a dotted directory name is unreachable.
 
--- Mirror the palette and fonts back into vars/*.conf for hyprlock and the other
--- hypr* daemons, which are still hyprlang and cannot read this file.
-require("lib.gen_vars").generate()
-
 require("conf.general")
 require("conf.decoration")
 require("conf.animations")

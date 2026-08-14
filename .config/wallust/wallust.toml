@@ -39,8 +39,13 @@ check_contrast = true
 cava.template = "cava"
 cava.target = "~/.config/cava/config"
 
+# hyprlang, for hyprlock and the other hypr* daemons
 hypr.template = "hyprland.conf"
 hypr.target = "~/.config/hypr/vars/colors.conf"
+
+# lua, for the compositor config itself (Hyprland 0.55+)
+hyprlua.template = "hyprland.lua"
+hyprlua.target = "~/.config/hypr/lib/colors.lua"
 
 hyprshell.template = "gtk.css"
 hyprshell.target = "~/.config/hyprshell/colors.css"

@@ -1,6 +1,9 @@
--- Tokyo Night color overrides. Required last, so it wins over conf.d/.
+-- Color overrides. Required last, so it wins over conf/.
 --
--- Modified from https://github.com/HyDE-Project/hyde-themes/blob/Tokyo-Night/Configs/.config/hyde/themes/Tokyo%20Night/hypr.theme
+-- The palette itself comes from lib/colors.lua, which wallust rewrites on every
+-- run, so these follow the wallpaper rather than being pinned to Tokyo Night.
+-- Which slot goes where is Tokyo Night's, modified from
+-- https://github.com/HyDE-Project/hyde-themes/blob/Tokyo-Night/Configs/.config/hyde/themes/Tokyo%20Night/hypr.theme
 
 local c = require("lib.colors")
 
