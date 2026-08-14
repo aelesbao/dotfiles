@@ -70,6 +70,7 @@
   fixup   = !git cis --fixup=$(git rev-parse --verify HEAD)
   co      = checkout
   w       = whatchanged
+  wt      = worktree
   wiff    = diff --color-words --word-diff
   ediff   = diff --ext-diff
   search  = log -S
