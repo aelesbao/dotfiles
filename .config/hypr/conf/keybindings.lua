@@ -96,8 +96,8 @@ hl.bind(mods.nav .. " + bracketright", hl.dsp.focus({ workspace = "e+1" }))
 -- hl.bind(mods.nav .. " + bracketright", hl.dsp.exec_cmd("hyprnome"))
 
 -- Scroll through existing workspaces with mod + mouse scroll
-hl.bind(mods.mod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mods.mod .. " + mouse_up", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mods.mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mods.mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 -- hl.bind(mods.mod .. " + mouse_down", hl.dsp.exec_cmd("hyprnome -p"))
 -- hl.bind(mods.mod .. " + mouse_up", hl.dsp.exec_cmd("hyprnome"))
 
