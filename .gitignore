@@ -2,6 +2,7 @@
 .gitconfig.local
 .z*.local
 .tmux.conf
+.claude/settings.local.json
 
 ### Editors
 *.swp
@@ -35,7 +36,6 @@ tags
 ctags
 .bacon-locations
 
-Logs
 *.log
 
 ### direnv
