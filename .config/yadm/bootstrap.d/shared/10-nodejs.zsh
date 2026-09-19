@@ -5,26 +5,23 @@
 
 set -euo pipefail
 
-mkdir -p ~/.nvm
-export NVM_DIR="$HOME/.nvm"
-
-if ! (( $+commands[nvm] )); then
-  if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
-    source "/usr/local/opt/nvm/nvm.sh"
-  elif [ -s "/usr/share/nvm/init-nvm.sh" ]; then
-    source "/usr/share/nvm/init-nvm.sh"
-  elif [ -s "$NVM_DIR/nvm.sh" ]; then
-    source "$NVM_DIR/nvm.sh"
+if ! (( $+commands[fnm] )); then
+  if [ -x "$HOME/.local/share/fnm/fnm" ]; then
+    export PATH="$HOME/.local/share/fnm:$PATH"
+  elif [ -x "$HOME/.fnm/fnm" ]; then
+    export PATH="$HOME/.fnm:$PATH"
   else
-    nvm_version="$(gh-latest-tag nvm-sh/nvm)"
-    info "Installing nvm ${nvm_version}"
-    curl -fsSLo- "https://raw.githubusercontent.com/nvm-sh/nvm/${nvm_version}/install.sh" | bash
-    source "$NVM_DIR/nvm.sh"
+    info "Installing fnm"
+    curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+    export PATH="$HOME/.local/share/fnm:$PATH"
   fi
 fi
 
-info "Installing latest stable Node.js version"
-nvm install stable --default --latest-npm --reinstall-packages-from=stable
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+info "Installing latest Node.js version"
+fnm install --latest
+fnm default latest
 
 function npm-install() {
   local package="$1"
@@ -34,7 +31,7 @@ function npm-install() {
 }
 
 info "Installing global packages"
-nvm use default
+fnm use latest
 npm-install yarn
 npm-install typescript
 npm-install typescript-language-server
