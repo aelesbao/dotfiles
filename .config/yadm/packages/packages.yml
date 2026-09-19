@@ -329,6 +329,13 @@ packages:
     desc: Create, run, and share large language models (LLMs)
     tags: [ai]
 
+  - name: herdr-bin
+    desc: Supervise multiple coding agents in one terminal
+    tags: [ai]
+
+  - name: fnm
+    desc: Fast and simple Node.js version manager, built with Rust
+
   - name: openjdk
     desc: Development kit for the Java programming language
     archlinux: jdk-openjdk
