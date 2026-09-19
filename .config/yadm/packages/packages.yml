@@ -259,6 +259,9 @@ packages:
   - name: k9s
     desc: Kubernetes CLI To Manage Your Clusters In Style!
 
+  - name: kmon
+    desc: Linux kernel manager and activity monitor
+
   - name: krew
     desc: Package manager for kubectl plugins
 
@@ -324,14 +327,6 @@ packages:
   - name: node
     desc: Platform built on V8 to build network applications
     archlinux: nodejs
-
-  - name: ollama
-    desc: Create, run, and share large language models (LLMs)
-    tags: [ai]
-
-  - name: herdr-bin
-    desc: Supervise multiple coding agents in one terminal
-    tags: [ai]
 
   - name: fnm
     desc: Fast and simple Node.js version manager, built with Rust
@@ -1074,10 +1069,6 @@ packages:
     desc: NVIDIA's GPU programming toolkit
     tags: [nvidia]
 
-  - name: llm-manager
-    desc: LLM task->model configuration utility
-    tags: [ai]
-
   - name: newsboat
     desc: RSS/Atom feed reader for text terminals
 
@@ -1200,16 +1191,6 @@ packages:
   - name: snapper
     desc: A tool for managing BTRFS and LVM snapshots
 
-  - name: lmstudio
-    desc: Discover, download, and run local LLMs
-    tags: [ai]
-    archlinux:
-      aur: lmstudio
-
-  - name: opencode
-    desc: The AI coding agent built for the terminal.
-    tags: [ai]
-
   - name: ifuse
     desc: A fuse filesystem to access the contents of an iPhone or iPod Touch
 
@@ -1253,12 +1234,6 @@ packages:
 
   - name: ydotool
     desc: Generic command-line automation tool (no X!)
-
-  - name: voxtype
-    desc: Push-to-talk voice-to-text for Linux (pre-built binaries)
-    tags: [ai]
-    archlinux:
-      aur: voxtype-bin
 
   - name: walker
     desc: wayland application runner
@@ -1409,8 +1384,43 @@ packages:
     archlinux:
       aur: wayle-bin
 
-  - name: kmon
-    desc: Linux kernel manager and activity monitor
+  - name: lmstudio
+    desc: Discover, download, and run local LLMs
+    tags: [ai]
+    archlinux:
+      aur: lmstudio-bin
+
+  - name: llm-manager
+    desc: LLM task->model configuration utility
+    tags: [ai]
+
+  - name: ollama
+    desc: Create, run, and share large language models (LLMs)
+    tags: [ai]
+
+  - name: herdr
+    desc: Supervise multiple coding agents in one terminal
+    tags: [ai]
+    archlinux:
+      aur: herdr-bin
+
+  - name: claude-code
+    desc: An agentic coding tool that lives in your terminal
+    tags: [ai]
+
+  - name: openai-codex
+    desc: OpenAIs lightweight coding agent that runs in your terminal
+    tags: [ai]
+
+  - name: opencode
+    desc: The AI coding agent built for the terminal.
+    tags: [ai]
+
+  - name: voxtype
+    desc: Push-to-talk voice-to-text for Linux (pre-built binaries)
+    tags: [ai]
+    archlinux:
+      aur: voxtype-bin
 
 # Extra repositories to add to the system
 repositories:

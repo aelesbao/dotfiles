@@ -26,7 +26,7 @@ fnm default latest
 function npm-install() {
   local package="$1"
   msg "${package}..."
-  npm install --global "$package"
+  npm install --global --ignore-scripts "$package"
   echo
 }
 
@@ -35,8 +35,9 @@ fnm use latest
 npm-install yarn
 npm-install typescript
 npm-install typescript-language-server
-npm-install @zed-industries/claude-agent-acp
 npm-install @doist/todoist-cli
+npm-install @earendil-works/pi-coding-agent
+npm-install @zed-industries/claude-agent-acp
 npm-install mcp-hub
 
 info "Installing Claude Code native build"
