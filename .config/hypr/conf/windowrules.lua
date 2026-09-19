@@ -41,7 +41,7 @@ hl.window_rule({ match = { initial_class = [[^(steam_.*)$]] }, content = "game",
 hl.window_rule({ match = { initial_class = [[^(steam|net.lutris.Lutris)$]] }, tag = "+game" })
 hl.window_rule({ match = { class = "steam", title = [[(Steam Settings)]] }, float = true })
 -- hl.window_rule({ match = { content = "game" }, tag = "+game" })
-hl.window_rule({ match = { tag = "game" }, workspace = "6", immediate = true })
+hl.window_rule({ match = { tag = "game" }, workspace = "6", immediate = true, opaque = true })
 
 -- Terminal
 hl.window_rule({

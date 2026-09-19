@@ -50,6 +50,7 @@ hl.bind(mods.alt .. " + space", hl.dsp.exec_cmd(apps.calc), { description = "Cal
 
 hl.bind(mods.mod .. " + e", hl.dsp.exec_cmd(apps.file_manager), { description = "File explorer" })
 hl.bind(mods.mod .. " + t", hl.dsp.exec_cmd(apps.terminal), { description = "Terminal" })
+hl.bind(mods.mod .. " + SHIFT + t", hl.dsp.exec_cmd(apps.todo), { description = "Quick add task" })
 
 hl.bind(mods.alt .. " + n", hl.dsp.exec_cmd(apps.notification_history), { description = "Notification History" })
 hl.bind(mods.action .. " + n", hl.dsp.exec_cmd(apps.dismiss_notifications), { description = "Dismiss Notifications" })
@@ -301,3 +302,38 @@ hl.bind(mods.alt .. " + 0", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_fact
 -- KP0 was not a valid keysym and this bind never loaded; the keypad 0 keysym is KP_0.
 hl.bind(mods.alt .. " + KP_0", hl.dsp.exec_cmd("hyprctl -q keyword cursor:zoom_factor 1"))
 -- </zoom>
+
+hl.bind(mods.nav .. " + tab", function()
+  local layouts = { "scrolling", "dwindle", "master", "monocle" }
+  local workspace = hl.get_active_workspace()
+  if hl.get_active_special_workspace() then
+    workspace = hl.get_active_special_workspace()
+  end
+
+  local next_layout = "dwindle"
+
+  if not workspace then
+    return
+  end
+
+  for i = 1, #layouts do
+    if layouts[i] == workspace.tiled_layout then
+      local next_layout_idx = (i % #layouts) + 1
+      next_layout = layouts[next_layout_idx]
+      break
+    end
+  end
+
+  if workspace.special then
+    hl.workspace_rule({ workspace = tostring(workspace.name), layout = next_layout })
+  else
+    hl.workspace_rule({ workspace = "name:" .. tostring(workspace.name), layout = next_layout })
+  end
+
+  hl.notification.create({
+    title = "Layout changed",
+    text = "Layout: " .. next_layout,
+    icon = "info",
+    timeout = 1000,
+  })
+end)

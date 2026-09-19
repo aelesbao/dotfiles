@@ -17,6 +17,8 @@ hl.config({
 
   -- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
   master = {
-    new_status = "master",
+    new_status = "slave",
+    orientation = "right",
+    mfact = 0.6,
   },
 })

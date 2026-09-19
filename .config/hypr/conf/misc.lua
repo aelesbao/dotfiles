@@ -19,7 +19,19 @@ hl.config({
     -- 1 - on
     -- 2 - fullscreen only
     -- 3 - fullscreen with video or game content type
-    vrr = 3,
+    vrr = 1,
+
+    -- If true, keep rendering workspaces below your lock screen
+    session_lock_xray = true,
+    -- Enables blur for lock screen. session_lock_xray must be enabled
+    session_lock_blur = true,
+
+    -- If DPMS is set to off, wake up the monitors if a key is pressed or the mouse moves
+    key_press_enables_dpms = true,
+    mouse_move_enables_dpms = true,
+
+    -- allows you to restart a lock screen app in case it crashes
+    allow_session_lock_restore = true,
   },
 
   ecosystem = {
@@ -28,6 +40,6 @@ hl.config({
   },
 
   render = {
-    cm_sdr_eotf = 3,
+    cm_sdr_eotf = "srgb",
   },
 })

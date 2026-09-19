@@ -3,7 +3,7 @@
 -- Workspace names
 hl.workspace_rule({ workspace = "1", default_name = "planning" })
 hl.workspace_rule({ workspace = "2", default_name = "browsing" })
-hl.workspace_rule({ workspace = "3", default_name = "development" })
+hl.workspace_rule({ workspace = "3", default_name = "development", layout = "master" })
 hl.workspace_rule({ workspace = "4", default_name = "work" })
 hl.workspace_rule({ workspace = "5", default_name = "studies" })
 hl.workspace_rule({ workspace = "6", default_name = "gaming" })
