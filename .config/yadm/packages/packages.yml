@@ -651,6 +651,11 @@ packages:
     desc: Client for Proton Mail and Proton Calendar
     flatpak: me.proton.Mail
 
+  - name: proton-drive-cli
+    desc: Official Proton Drive command-line client (precompiled binary)
+    archlinux:
+      aur: proton-drive-cli-bin
+
   - name: resilio-sync
     desc: File sync and share software
     archlinux:
