@@ -92,6 +92,29 @@ undo-timeout = 1h
 # - alt (alias: opt, option)
 # - super (alias: cmd, command)
 
+# remove unused linux keybindings
+keybind = alt+zero=unbind
+keybind = alt+one=unbind
+keybind = alt+two=unbind
+keybind = alt+three=unbind
+keybind = alt+four=unbind
+keybind = alt+five=unbind
+keybind = alt+six=unbind
+keybind = alt+seven=unbind
+keybind = alt+eight=unbind
+keybind = alt+nine=unbind
+keybind = alt+digit_1=unbind
+keybind = alt+digit_2=unbind
+keybind = alt+digit_3=unbind
+keybind = alt+digit_4=unbind
+keybind = alt+digit_5=unbind
+keybind = alt+digit_6=unbind
+keybind = alt+digit_7=unbind
+keybind = alt+digit_8=unbind
+keybind = alt+digit_9=unbind
+keybind = ctrl+shift+p=unbind
+
+
 # config
 keybind = super+comma=open_config
 keybind = super+shift+comma=reload_config
@@ -203,16 +226,3 @@ keybind = ctrl+alt+six=esc:[7;54~
 keybind = ctrl+alt+seven=esc:[7;55~
 keybind = ctrl+alt+eight=esc:[7;56~
 keybind = ctrl+alt+nine=esc:[7;57~
-
-# remove unused linux keybindings
-keybind = alt+one=unbind
-keybind = alt+two=unbind
-keybind = alt+three=unbind
-keybind = alt+four=unbind
-keybind = alt+five=unbind
-keybind = alt+six=unbind
-keybind = alt+seven=unbind
-keybind = alt+eight=unbind
-keybind = alt+nine=unbind
-keybind = ctrl+shift+p=unbind
-
