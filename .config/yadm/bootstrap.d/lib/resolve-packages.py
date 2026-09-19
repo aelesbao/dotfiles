@@ -5,7 +5,6 @@ Each entry in the package list is projected onto exactly one backend:
 
     OS family key (archlinux / debian)  ->  repo, or aur when it is `{aur: ...}`
     flatpak                             ->  flatpak
-    snap                                ->  snap
     (nothing)                           ->  repo, using `name`
 
 The OS family key always wins, then flatpak beats snap. This mirrors the
@@ -20,7 +19,7 @@ try:
 except ImportError:  # pragma: no cover - guarded by the bootstrap script
     sys.exit("error: PyYAML is required (install python-yaml or python3-yaml)")
 
-BACKENDS = ("repo", "aur", "flatpak", "snap")
+BACKENDS = ("repo", "aur", "flatpak")
 DEFAULT_KEYRING = "/usr/share/keyrings/{name}-archive-keyring.gpg"
 
 

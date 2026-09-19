@@ -634,14 +634,12 @@ packages:
 
   - name: mailspring
     desc: The best email app for people and teams at work
-    snap: mailspring
     flatpak: com.getmailspring.Mailspring
 
   - name: nordvpn
     desc: VPN client for secure internet access and private browsing
     archlinux:
       aur: nordvpn-bin
-    snap: nordvnpn
 
   - name: notion
     desc: App to write, plan, collaborate, and get organised
@@ -651,7 +649,6 @@ packages:
 
   - name: proton-mail
     desc: Client for Proton Mail and Proton Calendar
-    snap: proton-mail
     flatpak: me.proton.Mail
 
   - name: resilio-sync
@@ -665,12 +662,10 @@ packages:
 
   - name: slack
     desc: Team communication and collaboration software
-    snap: slack
     flatpak: com.slack.Slack
 
   - name: spotify
     desc: Music streaming service
-    snap: spotify
     flatpak: com.spotify.Client
     archlinux:
       aur: spotify
@@ -697,7 +692,6 @@ packages:
 
   - name: todoist
     desc: The to-do list to organize work & life
-    snap: todoist
     flatpak: com.todoist.Todoist
 
   - name: vagrant
