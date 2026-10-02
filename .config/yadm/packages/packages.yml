@@ -1223,8 +1223,6 @@ packages:
 
   - name: paru
     desc: Feature packed AUR helper
-    archlinux:
-      aur: paru-bin
 
   - name: libqalculate
     desc: Multi-purpose desktop calculator
