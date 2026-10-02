@@ -1,0 +1,6 @@
+agent/auth.json
+agent/mcp-auth.json
+agent/mcp-onboarding.json
+agent/models-store.json
+agent/sessions
+agent/trust.json

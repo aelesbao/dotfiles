@@ -1,0 +1,41 @@
+{
+  "lastChangelogVersion": "1.0.0",
+  "theme": "dark",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6.1-sol",
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "powerline": {
+    "preset": "nerd",
+    "placement": "below",
+    "separator": "chevron",
+    "welcome": false,
+    "path": {
+      "mode": "basename"
+    },
+    "model": {
+      "display": "qualified"
+    },
+    "cost": {
+      "subscriptionDisplay": "both",
+      "currency": "USD"
+    }
+  },
+  "workingVibe": "star trek",
+  "markdown": {
+    "mermaid": "streaming"
+  },
+  "tuiMode": "fullscreen",
+  "fullscreenExitOutput": "transcript",
+  "packages": [
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:pi-lens",
+    "npm:pi-subagents",
+    "npm:pi-web-access",
+    "npm:pi-powerline-footer",
+    "npm:pi-goal-x"
+  ],
+  "deviceId": "ede69aae-d97c-4db1-9bb1-f28ddbd8e09d"
+}
