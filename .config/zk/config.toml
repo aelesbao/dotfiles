@@ -1,0 +1,124 @@
+[notebook]
+dir = "~/workspace/vaults/notes"
+
+[note]
+# Language used when writing notes.
+# This is used to generate slugs or with date formats.
+language = "en"
+
+# The default title used for new note, if no `--title` flag is provided.
+default-title = "Untitled"
+
+# Template used to generate a note's filename, without extension.
+filename = "{{id}}-{{slug title}}"
+
+# The file extension used for the notes.
+extension = "md"
+
+# Template used to generate a note's content.
+# If not an absolute path, it is relative to .zk/templates/
+template = "default.md"
+
+# Configure random ID generation.
+
+# The charset used for random IDs.
+id-charset = "alphanum"
+
+# Length of the generated IDs.
+id-length = 4
+
+# Letter case for the random IDs.
+id-case = "lower"
+
+[extra]
+author = "Augusto"
+
+# GROUP OVERRIDES
+[group.daily]
+paths = ["journal/daily"]
+
+[group.daily.note]
+filename = "{{format-date now}}"
+template = "daily.md"
+
+[group.idea]
+paths = ["ideas"]
+
+[group.idea.note]
+template = "idea.md"
+
+[format.markdown]
+hashtags = true
+colon-tags = true
+
+# EXTERNAL TOOLS
+[tool]
+
+# Default shell used by aliases and commands.
+shell = "fish"
+
+# Default editor used to open notes.
+editor = "nvim"
+
+# Pager used to scroll through long output.
+pager = "less -FIRX"
+
+# Command used to preview a note during interactive fzf mode.
+fzf-preview = "bat -p --color always {-1}"
+
+# NAMED FILTERS
+[filter]
+recents = "--sort created- --created-after 'last two weeks'"
+
+# COMMAND ALIASES
+[alias]
+
+# List notes for editing.
+ls = "zk edit --interactive"
+
+# Search notes by tags.
+t = "zk edit --interactive --tag $argv"
+
+# Create a note from a free title
+n = 'zk new --title "$args"'
+
+# Create a note and prints its path.
+np = 'zk new --print-path --title "$args"'
+
+# Edit the last modified note.
+edlast = "zk edit --limit 1 --sort modified- $argv"
+
+# Edit the notes selected interactively among the notes created the last two weeks.
+recent = "zk edit --sort created- --created-after 'last two weeks' --interactive"
+
+# Create a new daily note in the journal group.
+daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/daily"'
+ls-daily = 'zk edit "$ZK_NOTEBOOK_DIR/journal/daily" --sort created- --interactive'
+
+# Creates a new note in the ideas group.
+idea = 'zk new --no-input "$ZK_NOTEBOOK_DIR/ideas" --title $argv'
+
+# Commit and push all changes in the notebook directory to the remote repository.
+update = 'git -C "$ZK_NOTEBOOK_DIR" add -A; git -C "$ZK_NOTEBOOK_DIR" commit -am "docs: auto update notes"; git -C "$ZK_NOTEBOOK_DIR" push'
+
+[lsp]
+
+[lsp.diagnostics]
+# Report titles of wiki-links as hints.
+wiki-title = "hint"
+# Warn for dead links between notes.
+dead-link = "error"
+# Warn when a note links to itself.
+self-link = "warning"
+# Report if backlinks are missing (shown at end of file).
+missing-backlink = { level = "hint", position = "bottom" }
+
+[lsp.completion]
+# Show the note title in the completion pop-up, or fallback on its path if empty.
+note-label = "{{title-or-path}}"
+# Only suggest notes matching the given filtering options.
+note-filter = "--tag project --sort modified-"
+# Filter out the completion pop-up using the note title or its path.
+note-filter-text = "{{title}} {{path}}"
+# Show the note filename without extension as detail.
+note-detail = "{{filename-stem}}"
