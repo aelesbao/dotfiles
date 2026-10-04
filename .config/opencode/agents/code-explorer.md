@@ -1,21 +1,15 @@
 ---
-name: code-explorer
 description: Deeply analyzes existing codebase features by tracing execution paths, mapping architecture layers, understanding patterns and abstractions, and documenting dependencies to inform new development
 mode: subagent
-tools:
-  read: true
-  write: false
-  edit: false
-  bash: true
-  grep: true
-  glob: true
-  list: true
-  lsp: true
-  skill: true
-  todowrite: true
-  todoread: true
-  webfetch: true
-  websearch: true
+permissions:
+  - { action: read, resource: "*", effect: allow }
+  - { action: edit, resource: "*", effect: deny }
+  - { action: shell, resource: "*", effect: allow }
+  - { action: grep, resource: "*", effect: allow }
+  - { action: glob, resource: "*", effect: allow }
+  - { action: skill, resource: "*", effect: allow }
+  - { action: webfetch, resource: "*", effect: allow }
+  - { action: websearch, resource: "*", effect: allow }
 color: "#e0af68"
 ---
 

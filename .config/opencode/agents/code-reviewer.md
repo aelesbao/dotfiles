@@ -1,21 +1,15 @@
 ---
-name: code-reviewer
 description: Reviews code for bugs, logic errors, security vulnerabilities, code quality issues, and adherence to project conventions, using confidence-based filtering to report only high-priority issues that truly matter
 mode: subagent
-tools:
-  read: true
-  write: false
-  edit: false
-  bash: true
-  grep: true
-  glob: true
-  list: true
-  lsp: true
-  skill: true
-  todowrite: true
-  todoread: true
-  webfetch: true
-  websearch: true
+permissions:
+  - { action: read, resource: "*", effect: allow }
+  - { action: edit, resource: "*", effect: deny }
+  - { action: shell, resource: "*", effect: allow }
+  - { action: grep, resource: "*", effect: allow }
+  - { action: glob, resource: "*", effect: allow }
+  - { action: skill, resource: "*", effect: allow }
+  - { action: webfetch, resource: "*", effect: allow }
+  - { action: websearch, resource: "*", effect: allow }
 color: "#f7768e"
 ---
 

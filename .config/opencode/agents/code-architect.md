@@ -1,22 +1,18 @@
 ---
-name: code-architect
 description: Designs feature architectures by analyzing existing codebase patterns and conventions, then providing comprehensive implementation blueprints with specific files to create/modify, component designs, data flows, and build sequences
 mode: subagent
-temperature: 0.5
-tools:
-  read: true
-  write: false
-  edit: false
-  bash: true
-  grep: true
-  glob: true
-  list: true
-  lsp: true
-  skill: true
-  todowrite: true
-  todoread: true
-  webfetch: true
-  websearch: true
+request:
+  body:
+    temperature: 0.5
+permissions:
+  - { action: read, resource: "*", effect: allow }
+  - { action: edit, resource: "*", effect: deny }
+  - { action: shell, resource: "*", effect: allow }
+  - { action: grep, resource: "*", effect: allow }
+  - { action: glob, resource: "*", effect: allow }
+  - { action: skill, resource: "*", effect: allow }
+  - { action: webfetch, resource: "*", effect: allow }
+  - { action: websearch, resource: "*", effect: allow }
 color: "#9ece6a"
 ---
 
