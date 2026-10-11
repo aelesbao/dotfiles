@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "toastTimeouts": {
+    "debug": 1000,
+    "info": 3000,
+    "success": 2000,
+    "warning": 5000,
+    "error": 0
+  },
+  "subagents": {
+    "enabled": true,
+    "longCompletionMs": 30000,
+    "toastOnFailure": true,
+    "toastOnLongCompletion": true,
+    "toastOnScheduled": false
+  },
+  "display": {
+    "statuslineEnabled": true,
+    "footerHidden": true,
+    "fixedEditorEnabled": false,
+    "mouseScrollEnabled": true,
+    "iconSet": "nerd-font"
+  },
+  "layout": {
+    "order": [
+      "model",
+      "path",
+      "git",
+      "context",
+      "cost",
+      "cache",
+      "chips",
+      "stash"
+    ],
+    "enabled": {
+      "model": true,
+      "path": true,
+      "git": true,
+      "context": true,
+      "cost": true,
+      "cache": true,
+      "chips": true,
+      "stash": true
+    },
+    "model": {
+      "showThinking": true
+    },
+    "cache": {
+      "hitRate": true,
+      "savings": true,
+      "timer": true
+    },
+    "separator": ":"
+  }
+}

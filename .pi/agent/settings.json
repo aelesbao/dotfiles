@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.0.0",
+  "lastChangelogVersion": "1.1.0",
   "theme": "dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.1-sol",
@@ -8,9 +8,11 @@
   },
   "powerline": {
     "preset": "nerd",
-    "placement": "below",
-    "separator": "chevron",
-    "welcome": false,
+    "disabledSegments": [
+      "hostname",
+      "session"
+    ],
+    "placement": "above",
     "path": {
       "mode": "basename"
     },
@@ -20,7 +22,8 @@
     "cost": {
       "subscriptionDisplay": "both",
       "currency": "USD"
-    }
+    },
+    "welcome": false
   },
   "workingVibe": "star trek",
   "markdown": {
@@ -34,8 +37,9 @@
     "npm:pi-lens",
     "npm:pi-subagents",
     "npm:pi-web-access",
-    "npm:pi-powerline-footer",
-    "npm:pi-goal-x"
+    "npm:pi-goal-x",
+    "npm:@wierdbytes/pi-statusline",
+    "npm:pi-claude-bridge"
   ],
   "deviceId": "ede69aae-d97c-4db1-9bb1-f28ddbd8e09d"
 }
