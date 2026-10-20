@@ -48,6 +48,9 @@ set -g @sensors_gpu_icon_color "#{@thm_sky}"
 if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
    "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
 
+# Override tmux's underline for the current window.
+set -g window-status-current-style none
+
 set -g window-style 'bg=terminal'
 set -g window-active-style 'bg=terminal'
 
