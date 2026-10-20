@@ -6,3 +6,7 @@ windows:
 
   - name: git
     commands: [lazygit -g ~/.local/share/yadm/repo.git -w ~]
+
+  - name: tmux
+    root: ~/.config/tmux
+    commands: [nvim]
