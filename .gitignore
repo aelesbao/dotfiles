@@ -87,3 +87,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Agents
+**/.claude/settings.local.json
+**/.agents/plans/*
+.pi/goals
+.pi/.goals-pool-snapshot.json
+
