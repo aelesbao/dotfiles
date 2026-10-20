@@ -1406,6 +1406,10 @@ packages:
     desc: An agentic coding tool that lives in your terminal
     tags: [ai]
 
+  - name: crit.md-bin
+    desc: Review agent plans, diffs, and web apps in the browser
+    tags: [ai]
+
   - name: openai-codex
     desc: OpenAIs lightweight coding agent that runs in your terminal
     tags: [ai]

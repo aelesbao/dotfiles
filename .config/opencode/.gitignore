@@ -1,0 +1,25 @@
+# OpenCode manages these dependency files.
+node_modules/
+/package.json
+/package-lock.json
+/bun.lock
+/bun.lockb
+
+# This file contains the local service password.
+/service.json
+
+# Keep local secrets out of Git.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Ignore backups and temporary files.
+/backups/
+*.bak
+*.bak.*
+*.log
+*.tmp
+*.swp
+*.swo
+*~
