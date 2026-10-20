@@ -1,6 +1,15 @@
 agent/auth.json
+agent/bin
+agent/install/current-version
+agent/install/managed-install.json
+agent/install/releases
+agent/events.json
 agent/mcp-auth.json
 agent/mcp-onboarding.json
+agent/missions
 agent/models-store.json
+agent/pi-subagents/last-seen-version.json
 agent/sessions
 agent/trust.json
+agent/web-search-cache
+
