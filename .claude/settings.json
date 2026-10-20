@@ -36,18 +36,26 @@
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": false,
     "feature-dev@claude-code-plugins": true,
-    "security-guidance@claude-code-plugins": false,
+    "security-guidance@claude-code-plugins": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
     "voltagent-infra@voltagent-subagents": true,
     "voltagent-lang@voltagent-subagents": true,
     "voltagent-core-dev@voltagent-subagents": true,
     "voltagent-dev-exp@voltagent-subagents": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "mattpocock-skills@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    }
+  },
   "autoUpdatesChannel": "stable",
+  "tui": "fullscreen",
   "editorMode": "vim",
-  "preferredNotifChannel": "ghostty"
+  "preferredNotifChannel": "ghostty",
+  "defaultMode": "default"
 }
