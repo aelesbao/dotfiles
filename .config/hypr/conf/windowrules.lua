@@ -18,7 +18,7 @@ hl.window_rule({ match = { class = [[.*]] }, suppress_event = "maximize" })
 hl.window_rule({ match = { float = true }, persistent_size = true })
 
 -- Floating apps
-hl.window_rule({ match = { class = "1password" }, float = true })
+hl.window_rule({ match = { class = "com.onepassword.OnePassword" }, float = true })
 hl.window_rule({ match = { class = "evolution-alarm-notify" }, float = true })
 hl.window_rule({ match = { class = "blueman-applet" }, float = true })
 hl.window_rule({ match = { class = "re.sonny.Junction" }, float = true })
@@ -63,14 +63,15 @@ hl.window_rule({ match = { class = "signal", title = [[(Signal Desktop Preferenc
 hl.window_rule({ match = { class = [[^(discord)]] }, workspace = "special:discord" })
 
 -- Fix pinentry losing focus
+hl.window_rule({ match = { class = [[((pinentry-)(.*)|1password|com.onepassword.OnePassword)]] }, tag = "+secure" })
 hl.window_rule({ match = { class = [[(pinentry-)(.*)]] }, stay_focused = true, pin = true })
 hl.window_rule({
-  match = { class = "1password", title = [[(Quick Access)(.*)]] },
+  match = { tag = "secure", title = [[(Quick Access)(.*)]] },
   stay_focused = true,
   pin = true,
 })
 -- Secure input
-hl.window_rule({ match = { class = [[^(pinentry-.*|1password)]] }, no_screen_share = true })
+hl.window_rule({ match = { tag = "secure" }, no_screen_share = true })
 
 -- Fix some dragging issues with XWayland
 hl.window_rule({
@@ -88,12 +89,12 @@ hl.window_rule({
 -- Initial workspace
 hl.window_rule({ match = { class = "org.gnome.Calendar" }, workspace = "1" })
 hl.window_rule({ match = { tag = "email" }, workspace = "1" })
-hl.window_rule({ match = { class = [[^(Todoist)]] }, workspace = "1" })
+hl.window_rule({ match = { class = [[^([Tt]odoist|io.github.alainm23.planify)]] }, workspace = "1" })
 hl.window_rule({
   match = { title = [[(Personal|Taxes|Home Lab|Crypto|Shopping)]], tag = "browser" },
   workspace = "2",
 })
-hl.window_rule({ match = { class = "obsidian" }, workspace = "2" })
+hl.window_rule({ match = { class = "md.obsidian.Obsidian" }, workspace = "2" })
 hl.window_rule({ match = { title = "Development", tag = "browser" }, workspace = "3" })
 hl.window_rule({ match = { tag = "term" }, workspace = "3" })
 hl.window_rule({ match = { class = [[[Ss]lack]] }, workspace = "4" })
