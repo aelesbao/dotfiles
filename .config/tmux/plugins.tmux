@@ -78,7 +78,7 @@ set -g @scroll-speed-num-lines-per-scroll            1
 set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
 
 # Soothing pastel theme for Tmux.
-set -g @plugin 'catppuccin/tmux#v2.1.3'
+set -g @plugin 'catppuccin/tmux#latest'
 
 source ~/.config/tmux/theme.tmux
 
