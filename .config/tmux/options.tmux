@@ -71,7 +71,7 @@ set-option -g visual-bell off
 set-option -g bell-action other
 
 # Windows that have been silent for the interval are highlighted in the status line.
-set-option -w monitor-silence 30
+set-window-option -g monitor-silence 30
 
 # Constrain the window only if a smaller client is actively looking at it.
 set-option -g window-size latest

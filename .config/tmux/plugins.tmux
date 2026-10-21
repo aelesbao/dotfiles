@@ -80,17 +80,21 @@ set -g @scroll-speed-num-lines-per-scroll            1
 set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
 
 # Soothing pastel theme for Tmux.
-set -g @plugin 'catppuccin/tmux#latest'
+set -g @plugin 'catppuccin/tmux#latest alias=catppuccin'
 
 source ~/.config/tmux/theme.tmux
 
 # Plugin Manager installation {{{
 
-# Automatic tpm installation
-if "test ! -d ~/.config/tmux/plugins/tpm" \
-   "run 'git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm && ~/.config/tmux/plugins/tpm/bin/install_plugins'"
+if "command -v tpack >/dev/null 2>&1" {
+   run "tpack init"
+} {
+   # Automatic tpm installation
+   if "test ! -d ~/.tmux/plugins/tpm" \
+      "run 'git clone https://github.com/tmuxpack/tpack ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run ~/.config/tmux/plugins/tpm/tpm
+   # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+   run ~/.config/tmux/plugins/tpm/tpm
+}
 
 # }}}

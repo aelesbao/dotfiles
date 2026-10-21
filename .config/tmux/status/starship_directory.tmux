@@ -8,4 +8,4 @@ set -ogq @catppuccin_starship_directory_icon  "#{?#{E:@starship_directory_icon},
 set -ogq @catppuccin_starship_directory_color "#{@thm_blue}"
 set -ogq @catppuccin_starship_directory_text  " #{E:@starship_directory_path}"
 
-source -F "#{d:current_file}/../plugins/tmux/utils/status_module.conf"
+source -Fq "#{@catppuccin_dir}/utils/status_module.conf"

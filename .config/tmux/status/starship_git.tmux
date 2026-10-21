@@ -12,4 +12,4 @@ set -ogq @catppuccin_starship_git_icon  " "
 set -ogq @catppuccin_starship_git_color "#{E:@thm_mauve}"
 set -gq  @catppuccin_starship_git_text  " #{E:@git_branch} #{E:@starship_git_commit}#{E:@starship_git_status}#{E:@starship_git_state}"
 
-source -F "#{d:current_file}/../plugins/tmux/utils/status_module.conf"
+source -Fq "#{@catppuccin_dir}/utils/status_module.conf"

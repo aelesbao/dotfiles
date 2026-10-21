@@ -156,4 +156,4 @@ if-shell "command -v nvidia-smi >/dev/null 2>&1 || command -v cuda-smi >/dev/nul
    set -gaq "@catppuccin_${MODULE_NAME}_text"  "#[fg=#{l:#{gram_fg_color}}]#{l:#{gram_icon}}#{l:#{gram_used}}#[dim]/#[nodim]#{l:#{gram_total}}#[fg=#{@catppuccin_status_${MODULE_NAME}_text_fg}]"
 }
 
-source -F "#{d:current_file}/../plugins/tmux/utils/status_module.conf"
+source -Fq "#{@catppuccin_dir}/utils/status_module.conf"

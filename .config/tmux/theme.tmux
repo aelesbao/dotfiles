@@ -45,8 +45,8 @@ set -g @sensors_cpu_icon_color "#{@thm_green}"
 set -g @sensors_ram_icon_color "#{@thm_teal}"
 set -g @sensors_gpu_icon_color "#{@thm_sky}"
 
-if "test -f ~/.config/tmux/plugins/tmux/catppuccin.tmux" \
-   "run ~/.config/tmux/plugins/tmux/catppuccin.tmux"
+if "test -f '#{@catppuccin_dir}/catppuccin.tmux'" \
+   "run '#{@catppuccin_dir}/catppuccin.tmux'"
 
 # Override tmux's underline for the current window.
 set -g window-status-current-style none
