@@ -64,14 +64,12 @@ set-option -g status-position bottom
 set-option -g status-justify left
 
 # Enable visual alerts for windows. Hide bells/silence.
-set-window-option -g monitor-activity off # highlight active windows?
-set-option -g visual-activity off         # show a message on window activity?
-set-option -g visual-silence both
+set-window-option -g monitor-activity off # highlight active windows
+set-window-option -g monitor-silence 30   # highlight windows that have been silent for the interval
+set-option -g visual-activity off         # show a message on window activity
+set-option -g visual-silence off
 set-option -g visual-bell off
 set-option -g bell-action other
-
-# Windows that have been silent for the interval are highlighted in the status line.
-set-window-option -g monitor-silence 30
 
 # Constrain the window only if a smaller client is actively looking at it.
 set-option -g window-size latest

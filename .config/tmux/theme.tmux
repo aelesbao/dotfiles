@@ -17,6 +17,11 @@ set -g @catppuccin_window_current_text " #W"
 set -g @catppuccin_window_status_style "basic"
 set -g @catppuccin_window_flags        "icon" # none, icon, or text
 
+# Only show the silence flag (monitor-silence) when a pane in the window runs a
+# coding agent. Wrapped in #{l:...} to survive catppuccin's -F expansion.
+set -g @agent_commands_regex "^(claude|codex|pi|opencode)$"
+set -g @catppuccin_window_flags_icon_silent "#{l:#{?#{P:#{?#{m/r:#{@agent_commands_regex},#{pane_current_command}},1,}}, 󰂛,}}"
+
 # Status line options
 set -g @catppuccin_status_left_separator    "█" # ░
 set -g @catppuccin_status_middle_separator  ""
