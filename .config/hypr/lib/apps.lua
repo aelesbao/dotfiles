@@ -10,7 +10,8 @@ return {
 
   -- uses proposed xdg-terminal-exec
   terminal = "uwsm app -- ghostty +new-window",
-  file_manager = "uwsm app -- thunar --window",
+  -- file_manager = "uwsm app -- thunar --window",
+  file_manager = "uwsm app -- nautilus --new-window",
   password_manager = "uwsm app -a 1password-quick-access -- 1password --quick-access",
 
   notification_history = "swaync-client --skip-wait --toggle-panel",
