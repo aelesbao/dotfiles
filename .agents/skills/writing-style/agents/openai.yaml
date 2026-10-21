@@ -1,0 +1,11 @@
+interface:
+  display_name: Personal Writing Style
+  short_description: Draft in the writer's concise, warm, conversational style
+  default_prompt: Write this in my usual concise, warm, and conversational style.
+policy:
+  products:
+    - chatgpt
+    - codex
+    - api
+    - atlas
+  allow_implicit_invocation: true
