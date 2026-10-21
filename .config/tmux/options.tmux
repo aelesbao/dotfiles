@@ -31,6 +31,9 @@ set -sa terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{25
 set -g extended-keys on
 set -g extended-keys-format csi-u
 
+# Let notifications and progress updates pass through to the outer terminal
+set -g allow-passthrough on
+
 # Set the clipboard to on to both make tmux set the clipboard for the outside terminal,
 # and allows applications inside tmux to set tmux's clipboard (adding a paste buffer).
 set -s set-clipboard on
@@ -63,9 +66,12 @@ set-option -g status-justify left
 # Enable visual alerts for windows. Hide bells/silence.
 set-window-option -g monitor-activity off # highlight active windows?
 set-option -g visual-activity off         # show a message on window activity?
-set-option -g visual-silence on
+set-option -g visual-silence both
 set-option -g visual-bell off
-set-option -g bell-action none
+set-option -g bell-action other
+
+# Windows that have been silent for the interval are highlighted in the status line.
+set-option -w monitor-silence 30
 
 # Constrain the window only if a smaller client is actively looking at it.
 set-option -g window-size latest
