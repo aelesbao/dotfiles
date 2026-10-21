@@ -60,7 +60,9 @@ hl.window_rule({ match = { class = [[^(signal|org.telegram.desktop|ferdium)]] },
 hl.window_rule({ match = { tag = "comms" }, workspace = "special:comms" })
 hl.window_rule({ match = { class = "signal", title = [[(Signal Desktop Preferences)]] }, float = true })
 
-hl.window_rule({ match = { class = [[^(discord)]] }, workspace = "special:discord" })
+-- Widgets
+hl.window_rule({ match = { tag = "widget" }, float = true, workspace = "special:widgets" })
+hl.window_rule({ match = { class = "token-monitor" }, tag = "+widget", size = "600 960" })
 
 -- Fix pinentry losing focus
 hl.window_rule({ match = { class = [[((pinentry-)(.*)|1password|com.onepassword.OnePassword)]] }, tag = "+secure" })

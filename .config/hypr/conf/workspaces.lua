@@ -8,6 +8,16 @@ hl.workspace_rule({ workspace = "4", default_name = "work" })
 hl.workspace_rule({ workspace = "5", default_name = "studies" })
 hl.workspace_rule({ workspace = "6", default_name = "gaming" })
 
+hl.workspace_rule({
+  workspace = "special:widgets",
+  layout = "scrolling",
+  no_rounding = true,
+  decorate = false,
+  gaps_in = 0,
+  gaps_out = 0,
+  no_border = true,
+})
+
 -- Remove gaps on fullscreen workspaces
 hl.workspace_rule({ workspace = "f[1]s[false]", gaps_out = 0, gaps_in = 0 })
 

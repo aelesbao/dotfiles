@@ -116,9 +116,9 @@ hl.bind(mods.action .. " + bracketright", hl.dsp.window.move({ workspace = "r+1"
 
 -- Special workspaces: navMod toggles, actionMod sends the active window there.
 for _, entry in ipairs({
-  { "s", "media" },
   { "c", "comms" },
-  { "d", "discord" },
+  { "s", "media" },
+  { "w", "widgets" },
   { "z", "zen" },
 }) do
   local key, name = entry[1], entry[2]
