@@ -116,8 +116,8 @@ auto_submit = false
 # Example: Block modifier keys during typing with Hyprland submap:
 
 # pre_recording_command = "hyprctl dispatch submap voxtype:recording"
-pre_output_command = "hyprctl dispatch submap voxtype:transcoding"
-post_output_command = "hyprctl dispatch submap reset"
+pre_output_command = "hyprctl eval 'hl.dispatch(hl.dsp.submap(\"voxtype:transcoding\"))'"
+post_output_command = "hyprctl eval 'hl.dispatch(hl.dsp.submap(\"reset\"))'"
 
 # See troubleshooting docs for the required Hyprland submap configuration.
 
