@@ -1,8 +1,5 @@
 # vim:fileencoding=utf-8:ft=tmux:foldmethod=marker
 
-# Tmux Plugin Manager.
-set -g @plugin 'tmux-plugins/tpm'
-
 # Basic tmux settings everyone can agree on.
 set -g @plugin 'tmux-plugins/tmux-sensible'
 
