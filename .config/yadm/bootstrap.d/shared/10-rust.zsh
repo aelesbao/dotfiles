@@ -57,6 +57,7 @@ if ask "Update installed crates?"; then
   binstall cargo-about
   binstall cargo-audit
   binstall cargo-bundle
+  binstall cargo-cache
   binstall cargo-deny
   binstall cargo-dist
   binstall cargo-edit
@@ -76,10 +77,6 @@ if ask "Update installed crates?"; then
   binstall git-cliff
   binstall grcov
   binstall mcp-discovery
-
-  msg "ccusage-statusline-rs"
-  RUSTC_WRAPPER= CARGO_PROFILE_RELEASE_LTO=true RUSTFLAGS=-Ctarget-cpu=native \
-  cargo install --locked --git https://github.com/ticpu/ccusage-statusline-rs --tag v1.12.0
 fi
 
 if (( $+commands[sccache] )); then
