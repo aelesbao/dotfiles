@@ -8,6 +8,11 @@
 	url = https://github.com/aelesbao/nvim.git
 	branch = main
 	update = rebase
+[submodule ".config/fish"]
+	path = .config/fish
+	url = https://github.com/aelesbao/fish.git
+	branch = main
+	update = rebase
 [submodule "folke/tokyonight.nvim"]
 	path = .local/src/tokyonight.nvim
 	url = https://github.com/folke/tokyonight.nvim
