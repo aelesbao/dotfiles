@@ -450,6 +450,11 @@ packages:
   - name: tmux
     desc: Terminal multiplexer
 
+  - name: tpack
+    desc: Tmux Plugin Manager
+    archlinux:
+      aur: tpack-bin
+
   - name: toilet
     desc: Color-based alternative to figlet (uses libcaca)
 
@@ -1191,6 +1196,9 @@ packages:
   - name: snapper
     desc: A tool for managing BTRFS and LVM snapshots
 
+  - name: stylua
+    desc: Deterministic code formatter for Lua
+
   - name: ifuse
     desc: A fuse filesystem to access the contents of an iPhone or iPod Touch
 
@@ -1406,16 +1414,29 @@ packages:
     desc: An agentic coding tool that lives in your terminal
     tags: [ai]
 
-  - name: crit.md-bin
+  - name: ccusage-statusline
+    desc: Fast statusline for Claude Code w/usage tracking, billing blocks, burn rate monitoring
+    tags: [ai]
+    archlinux:
+      aur: ccusage-statusline-rs-bin
+
+  - name: crit.md
     desc: Review agent plans, diffs, and web apps in the browser
     tags: [ai]
+    archlinux:
+      aur: crit.md-bin
 
-  - name: openai-codex
+  - name: codex
     desc: OpenAIs lightweight coding agent that runs in your terminal
     tags: [ai]
+    archlinux: openai-codex
 
   - name: opencode
     desc: The AI coding agent built for the terminal.
+    tags: [ai]
+
+  - name: llmfit
+    desc: CLI tool to tell which LLM models will run best on your hardware
     tags: [ai]
 
   - name: voxtype
@@ -1423,6 +1444,12 @@ packages:
     tags: [ai]
     archlinux:
       aur: voxtype-bin
+
+  - name: token-monitor
+    desc: Real-time token, cost, and AI limits widget with multi-device sync for Claude Code, Codex, OpenCode and more
+    tags: [ai]
+    archlinux:
+      aur: token-monitor-bin
 
   - name: presenterm
     desc: A markdown terminal slideshow tool
