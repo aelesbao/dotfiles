@@ -1,0 +1,26 @@
+# Allowlist: ignore everything in ~/.claude, then re-include only config.
+# Claude Code keeps credentials, history, sessions and caches here, and adds
+# new state directories over time, so anything not listed below stays out.
+/*
+
+!/.gitignore
+!/CLAUDE.md
+!/settings.json
+!/keybindings.json
+!/ccusage-statusline-config.json
+!/statusline*
+
+!/agents/
+!/commands/
+!/hooks/
+!/output-styles/
+!/skills/
+
+# Plugins: enabledPlugins and extraKnownMarketplaces in settings.json are the
+# source of truth; the files under plugins/ are install state with timestamps.
+
+# Defensive: never commit these even if they appear inside an allowed dir
+.credentials.json
+*.local.json
+*.lock
+.DS_Store

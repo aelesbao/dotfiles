@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "enabled_elements": [
+    "model",
+    "block_cost",
+    "time_remaining5h",
+    "burn_rate",
+    "context",
+    "api_metrics5h",
+    "api_metrics7d",
+    "update_stable",
+    "directory"
+  ],
+  "thresholds": {
+    "burn_rate_show": 80,
+    "burn_rate_warning": 80,
+    "burn_rate_danger": 100,
+    "context_warning": 50,
+    "context_danger": 70
+  },
+  "cache": {
+    "output_cache_secs": 300,
+    "api_refresh_secs": 300,
+    "api_max_backoff_secs": 1800
+  },
+  "show_emojis": true
+}
