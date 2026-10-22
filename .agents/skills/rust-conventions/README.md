@@ -1,245 +1,132 @@
-# Rust Conventions Skill for Claude Code
+# Rust conventions
 
-This skill teaches Claude Code to write Rust following battle-tested conventions used across popular open source projects.
+A portable agent skill for Rust implementation, debugging, refactoring, and review.
+It uses repository policy first, then explicit house defaults for areas such as
+error handling and functional style. It does not prescribe application architecture
+or require moving binary logic into a library.
 
-## What This Skill Does
+Start with [SKILL.md](SKILL.md) for the inspect/change/test/report workflow and
+cross-cutting conventions. The description supports skill discovery; this README
+does not promise automatic selection, universal enforcement, or host reload behavior.
 
-When you ask Claude Code to write Rust code, this skill automatically guides it to:
+## Where to read each topic
 
-- ✅ Use proper error handling with `Result<T, E>` and context
-- ✅ Follow idiomatic naming conventions
-- ✅ Write functional-style code with iterator combinators
-- ✅ Structure projects with clean hexagonal architecture
-- ✅ Use `tokio` for async with proper concurrency patterns
-- ✅ Add comprehensive documentation to public APIs
-- ✅ Encode invariants in the type system
-- ✅ Avoid common anti-patterns
+| Resource | Read it when |
+| --- | --- |
+| [SKILL.md](SKILL.md) | Beginning Rust work: inspect repository policy, compatibility, scope, and validation needs. |
+| [Error handling](references/error-handling.md) | Designing typed errors, adding context, choosing fallbacks, or assessing a deliberate panic. |
+| [Async and concurrency](references/async-and-concurrency.md) | Changing runtimes, locks, bounded work, cancellation, or shutdown. |
+| [Functional style](references/functional-style.md) | Transforming data or assessing ownership, mutation, allocations, and equivalent behavior. |
+| [Review](references/review.md) | Reviewing a change and labeling findings as defect, convention, or nit. Replaces the old checklist. |
+| [Example guide](examples/GUIDE.md) | Running the teaching package or distinguishing runnable code, stand-ins, and compile-fail snippets. |
+| [Error source](examples/src/error_handling.rs) | Looking for tested typed-error, lazy-context, validation, and logger-setup examples. |
+| [Functional source](examples/src/functional_patterns.rs) | Looking for tested transformation, aggregation, deterministic processing, and warning-return patterns. |
+| [Async source](examples/src/async_concurrency.rs) | Looking for measured task/work bounds, owned shutdown, cancellation, backpressure, and lock examples. |
 
-## Installation
+## Directory layout
 
-### For Personal Use (All Projects)
-
-Copy this skill to your personal skills directory:
-
-```bash
-# Create the directory if it doesn't exist
-mkdir -p ~/.claude/skills
-
-# Copy the skill folder
-cp -r rust-conventions-skill ~/.claude/skills/rust-conventions
-```
-
-### For Project-Specific Use
-
-Copy to your project's skills directory:
-
-```bash
-# In your project root
-mkdir -p .claude/skills
-cp -r rust-conventions-skill .claude/skills/rust-conventions
-```
-
-### For Enterprise/Team Use
-
-Your organization admin can install this in the shared enterprise skills location for all team members.
-
-## Usage
-
-### Automatic Invocation
-
-Claude Code automatically uses this skill when you ask Rust-related questions:
-
-```
-"Create a new user service with proper error handling"
-"Review this Rust code for best practices"
-"Refactor this function to be more idiomatic"
-"How should I structure my Rust web API?"
-```
-
-### Manual Invocation
-
-You can explicitly invoke the skill with a slash command:
-
-```
-/rust-conventions - implement a user repository with clean architecture
-```
-
-### Example Prompts
-
-**Generate new code:**
-```
-Create a Rust module for handling user authentication with proper error types
-```
-
-**Review existing code:**
-```
-Review this Rust file and suggest improvements based on best practices
-```
-
-**Architectural guidance:**
-```
-Help me structure a Rust microservice using hexagonal architecture
-```
-
-**Refactoring:**
-```
-Refactor this function to use iterator combinators instead of manual loops
-```
-
-## What's Included
-
-```
+```text
 rust-conventions/
-├── SKILL.md                          # Main skill file with all guidelines
-├── CHECKLIST.md                      # Code review checklist
-├── README.md                         # This file
+├── SKILL.md
+├── README.md
+├── references/
+│   ├── async-and-concurrency.md
+│   ├── error-handling.md
+│   ├── functional-style.md
+│   └── review.md
 └── examples/
-    ├── error-handling.rs             # Error handling patterns
-    ├── hexagonal-architecture.rs     # Clean architecture example
-    └── functional-patterns.rs        # Functional programming examples
+    ├── .gitignore
+    ├── Cargo.toml
+    ├── Cargo.lock
+    ├── rust-toolchain.toml
+    ├── GUIDE.md
+    ├── src/
+    │   ├── lib.rs
+    │   ├── async_concurrency.rs
+    │   ├── error_handling.rs
+    │   └── functional_patterns.rs
+    └── tests/
+        ├── fixtures/user.toml
+        └── logger_initialization.rs
 ```
 
-## Key Conventions Enforced
+The tree lists maintained files, not ignored Cargo output in `examples/target/`.
+The former loose Rust sources and architecture example have been removed; the
+examples are now one unpublished Cargo package, not an application framework.
 
-### Code Style
-- Run `rustfmt` with nightly toolchain
-- Run `clippy` with `-D warnings`
-- Follow Rust naming conventions
+## Filesystem installation
 
-### Error Handling
-- Use `Result<T, E>` for recoverable errors
-- Libraries use `thiserror`, binaries use `anyhow`
-- Always add context when propagating errors
-- Avoid `unwrap()` in production code
+Keep the complete `rust-conventions/` directory together so relative resource
+links work. Choose a skill location supported by your agent's documented setup.
+Check for an existing file, directory, or symlink before copying or linking; do
+not overwrite another installed copy without approval.
 
-### Architecture
-- Separate domain, application, and infrastructure layers
-- Define ports (traits) at boundaries
-- Keep domain pure (no I/O)
-- Make dependencies explicit via constructor injection
+For a host whose documented skills directory accepts symlinks, a portable setup
+is to link the source directory after checking the destination. Set both paths
+explicitly for that host:
 
-### Functional Style
-- Prefer iterator combinators over manual loops
-- Favor expressions over statements with mutation
-- Use `Option` and `Result` combinators
-
-### Async
-- Always use `tokio` runtime
-- Never hold locks across `.await` points
-- Use structured concurrency patterns
-
-### Documentation
-- All public items have `///` docs
-- Include `# Errors`, `# Panics`, `# Safety` sections
-- Provide code examples
-
-## Customization
-
-You can customize this skill by editing `SKILL.md`:
-
-1. Add project-specific conventions
-2. Adjust error handling patterns for your domain
-3. Add examples from your codebase
-4. Modify architectural preferences
-
-## Verification
-
-To verify the skill is installed correctly:
-
-```bash
-# Check that the skill exists
-ls ~/.claude/skills/rust-conventions/SKILL.md
-
-# Start Claude Code in a Rust project
-claude-code
-
-# Ask: "What Rust conventions should I follow?"
-# Claude should reference the guidelines from this skill
+```sh
+SOURCE=/absolute/path/to/rust-conventions
+SKILLS_DIR=/absolute/path/to/host/skills
+# Inspect the destination, including dangling symlinks, before creating anything.
+ls -ld "$SOURCE" "$SKILLS_DIR"
+if [ -e "$SKILLS_DIR/rust-conventions" ] || [ -L "$SKILLS_DIR/rust-conventions" ]; then
+    printf '%s\n' 'Destination exists; inspect it and stop.' >&2
+else
+    ln -s "$SOURCE" "$SKILLS_DIR/rust-conventions"
+fi
 ```
 
-## Examples from the Skill
+This procedure assumes the source and destination parent already exist. It only
+sets up files; it does not verify agent discovery or refresh behavior.
 
-### Error Handling with Context
+In this dotfiles checkout, the verified local layout is:
 
-```rust
-use anyhow::{Context, Result};
-
-async fn load_config() -> Result<Config> {
-    let content = tokio::fs::read_to_string("config.toml")
-        .await
-        .context("failed to read config file")?;
-    
-    toml::from_str(&content)
-        .context("failed to parse config")
-}
+```text
+~/.claude/skills/rust-conventions -> ../../.agents/skills/rust-conventions
 ```
 
-### Iterator Combinators
+You can inspect this filesystem relationship without changing host configuration:
 
-```rust
-// Transform, filter, collect in one chain
-let active_users: Vec<_> = users
-    .into_iter()
-    .filter(|user| user.is_active())
-    .map(|user| user.name.to_uppercase())
-    .collect();
+```sh
+ls -ld ~/.claude/skills/rust-conventions
+readlink ~/.claude/skills/rust-conventions
+test -f ~/.claude/skills/rust-conventions/SKILL.md
 ```
 
-### Hexagonal Architecture
+Do not infer invocation commands or reload behavior from the presence of this link.
+For another host, consult that host's documentation rather than copying a
+host-specific directory assumption into the core skill.
 
-```rust
-// Domain - pure logic
-pub struct User { id: UserId, name: String }
+## Contributing and validation
 
-// Application - defines ports
-#[async_trait]
-pub trait UserRepository {
-    async fn find(&self, id: UserId) -> Result<User>;
-}
+1. Read the repository's instructions and the relevant primary topic reference.
+   Keep substantive rules in one place; update navigation when resources move.
+2. Preserve the skill name `rust-conventions`. Keep the core focused on workflow
+   and defaults (roughly 150-250 lines), with detailed topic guidance in references.
+3. Check policy consistency: repository exceptions, documented panic invariants,
+   unsafe API versus block explanations, accurate ownership/stdout guidance, and
+   stable/unstable feature gates. Check every local link and reconcile the
+   directory layout whenever resources change.
+4. If examples change, follow [GUIDE.md](examples/GUIDE.md) and run its formatting,
+   tests, Clippy, and documentation checks. Preserve MSRV, edition, and pinned
+   dependency compatibility; do not install missing prerequisites silently.
+5. Validate frontmatter with the sibling skill-creator helper if available:
 
-// Infrastructure - implements ports
-pub struct PostgresUserRepository { pool: PgPool }
+   ```sh
+   # From this skill directory; requires Python 3 and an existing PyYAML install.
+   python3 ../skill-creator/scripts/validate_skill.py .
+   wc -l SKILL.md
+   ```
 
-#[async_trait]
-impl UserRepository for PostgresUserRepository {
-    async fn find(&self, id: UserId) -> Result<User> {
-        // database query
-    }
-}
-```
+   The helper checks the portable frontmatter profile, not links, Rust claims,
+   discovery, or task quality. Inspect whitespace and actual on-disk layout too.
+6. Report changed files, commands actually run, outcomes, and remaining blockers.
+   Behavioral comparisons and discovery probes need separate, approved trials;
+   keep their artifacts outside the installed skill and do not claim unmeasured
+   improvements.
 
-## Troubleshooting
-
-**Skill not being invoked?**
-- Check that `SKILL.md` has proper YAML frontmatter
-- Verify the file is in the correct directory
-- Restart Claude Code
-
-**Want to update the skill?**
-- Edit the `SKILL.md` file
-- Changes take effect immediately (no restart needed)
-
-**Want to disable the skill temporarily?**
-- Rename the folder (e.g., `rust-conventions.disabled`)
-- Or remove it from the skills directory
-
-## Contributing
-
-If you find issues or have improvements:
-
-1. Update `SKILL.md` with your changes
-2. Add examples to the `examples/` directory
-3. Update `CHECKLIST.md` if adding new checks
-4. Test with Claude Code to ensure guidelines are followed
-
-## License
-
-These guidelines are based on public conventions from the Rust community and popular open source projects. Feel free to adapt them for your team's needs.
-
-## Resources
-
-- [Official Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)
-- [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
-- [The Rust Book](https://doc.rust-lang.org/book/)
-- [Tokio Documentation](https://tokio.rs/)
-- [Effective Rust](https://www.lurklurk.org/effective-rust/)
+For general API background, see the
+[Rust API Guidelines](https://rust-lang.github.io/api-guidelines/). Technical claims
+must match the project's tool/dependency versions; house preferences are not
+presented as universal community requirements.
