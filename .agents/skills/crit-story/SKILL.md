@@ -1,7 +1,6 @@
 ---
 name: crit-story
-description: "Author a crit story and continue the interactive review loop only when the user explicitly invokes /crit-story or directly asks you to generate a crit story. Do not infer this skill from generic review, PR, or diff-review requests."
-compatibility: opencode
+description: "Author a crit story and continue the interactive review loop only when the user explicitly invokes $crit-story or directly asks you to generate a crit story. Do not infer this skill from generic review, PR, or diff-review requests."
 ---
 
 # Author a crit story with `crit story`
@@ -63,11 +62,11 @@ printed to stdout as JSON on every attempt, success or failure. If rejected:
 - A drift error ("diff changed since prep"): re-run `crit story --prep` and
   re-author from the fresh prep file.
 
-## Step 5: Reconnect and block until Finish Review
+## Step 5: Reconnect and wait until Finish Review
 
 **CRITICAL — you MUST run this step after a successful ingest. Do NOT skip it. Do NOT proceed without it.**
 
-Story ingest opens the review UI and exits — it does **not** wait for the human. Run `crit` in the foreground and block until it exits:
+Story ingest opens the review UI and exits — it does **not** wait for the human. Run `crit` and wait until it exits:
 
 ```bash
 crit
@@ -79,7 +78,9 @@ If ingest printed a review URL, relay it verbatim:
 
 > **"Crit is open at http://localhost:<port>. Leave inline comments on the diff, then click Finish Review."**
 
-**Do NOT proceed until `crit` completes.** Do NOT ask the user to type anything. Do NOT read the review file early. Wait for the foreground command to finish — that is how you know the human is done reviewing.
+**Do NOT proceed until `crit` completes.** Do NOT ask the user to type anything. Do NOT read the review file early. Wait for the command to finish — that is how you know the human is done reviewing.
+
+While `crit` is still running, do not send user-facing progress updates. Treat the wait loop as internal state.
 
 ## Step 6: Read the review output
 
@@ -103,9 +104,13 @@ For each unresolved comment:
 1. Understand what the comment asks for
 2. If it contains a suggestion block, apply that specific change
 3. Revise the referenced source file
-4. Reply with what you did: `crit comment --reply-to <id> --author 'OpenCode' '<what you did>'` (reply bodies support markdown)
+4. Reply with what you did: `crit comment --reply-to <id> --author 'Codex' '<what you did>'` (reply bodies support markdown)
 5. **Do not pass `--resolve`.** Resolving is the reviewer's call. Only add `--resolve` if the user explicitly asks.
 
+
+<important if="you are revising in plan mode">
+Re-emit the revised plan inside `<proposed_plan>...</proposed_plan>` so Crit can review the new version.
+</important>
 ### When replying to multiple comments
 
 Use `--json` for a single bulk call instead of one invocation per comment:
@@ -114,13 +119,13 @@ Use `--json` for a single bulk call instead of one invocation per comment:
 echo '[
   {"reply_to": "c_a1b2c3", "body": "Fixed"},
   {"reply_to": "c_d4e5f6", "body": "Refactored as suggested"}
-]' | crit comment --json --author 'OpenCode'
+]' | crit comment --json --author 'Codex'
 ```
 
 For long or multi-line bodies, write the JSON to a file and pass `--file`. Use `--file`, not a `<` redirect.
 
 ```bash
-crit comment --json --file /tmp/replies.json --author 'OpenCode'
+crit comment --json --file /tmp/replies.json --author 'Codex'
 ```
 
 ## Step 8: Signal completion and start next round
@@ -133,7 +138,7 @@ On subsequent calls, `crit` automatically signals round-complete first, then blo
 
 Tell the user only: **"Replied in Crit. Review the changes in your browser and click Finish Review when ready."** Do not repeat your replies or list the comments in chat. The reviewer reads them in Crit.
 
-**Do NOT proceed until `crit` completes.** When it does, return to Step 6. If the user finishes with zero comments, the review is approved — stop the loop and proceed.
+**Do NOT proceed until the background `crit` task completes.** When it does, return to Step 6. If the user finishes with zero comments, the review is approved — stop the loop and proceed.
 
 ## What this skill does NOT do
 
