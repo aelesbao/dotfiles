@@ -72,7 +72,7 @@ set -ga status-left "#{E:@catppuccin_status_host}"
 set -ga status-left "#{E:@catppuccin_status_session}"
 set -ga status-left "#[fg=#{@thm_fg},bg=#{@thm_bg}] "
 
-set -g status-right ""
+set -g status-right "#{agenmux} "
 set -ga status-right "#{E:@catppuccin_status_application}"
 set -ga status-right "#{E:@catppuccin_status_starship_directory}"
 set -ga status-right "#{?#{&&:#{>:#{client_width},240},#{E:@git_branch}},#{E:@catppuccin_status_starship_git},}"

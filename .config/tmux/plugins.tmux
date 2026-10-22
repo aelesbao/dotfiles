@@ -76,6 +76,9 @@ set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 set -g @scroll-speed-num-lines-per-scroll            1
 set -g @emulate-scroll-for-no-mouse-alternate-buffer "on"
 
+# Agent monitor and session manager
+set -g @plugin 'snirt/agenmux'
+
 # Soothing pastel theme for Tmux.
 set -g @plugin 'catppuccin/tmux#latest alias=catppuccin'
 
