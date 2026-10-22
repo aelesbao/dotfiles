@@ -20,12 +20,10 @@
       "Bash(test:*)"
     ],
     "deny": [
-      "Bash(sh:*)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
       "Bash(brew:*)",
       "Bash(pacman:*)",
-      "Bash(yay:*)"
+      "Bash(yay:*)",
+      "Bash(paru:*)"
     ]
   },
   "hooks": {
@@ -63,7 +61,7 @@
   "effortLevel": "high",
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "medium"
+      "effortLevel": "high"
     }
   },
   "autoUpdatesChannel": "stable",
