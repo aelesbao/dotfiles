@@ -56,7 +56,7 @@ hl.window_rule({ match = { class = [[^([Ss]potify|de.haeckerfelix.Shortwave|vlc|
 hl.window_rule({ match = { tag = "media" }, workspace = "special:media" })
 
 -- Communication
-hl.window_rule({ match = { class = [[^(signal|org.telegram.desktop|ferdium)]] }, tag = "+comms" })
+hl.window_rule({ match = { class = [[^(signal|org.telegram.desktop|ferdium|zapfast)]] }, tag = "+comms" })
 hl.window_rule({ match = { tag = "comms" }, workspace = "special:comms" })
 hl.window_rule({ match = { class = "signal", title = [[(Signal Desktop Preferences)]] }, float = true })
 
