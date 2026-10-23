@@ -866,9 +866,6 @@ packages:
   - name: wine-mono
     desc: Wine's built-in replacement for Microsoft's .NET Framework
 
-  - name: crossover
-    desc: Run Windows Programs on Linux
-
   - name: libreoffice-fresh
     desc: LibreOffice branch which contains new features and program enhancements
 
@@ -877,6 +874,18 @@ packages:
 
   - name: libreoffice-fresh-pt-br
     desc: Portuguese (Brasil) Language Pack for LibreOffice
+
+  - name: photocraft
+    desc: vibe coded clean-room reimplementation of Adobe Photoshop
+
+  - name: vectorcraft
+    desc: vibe coded clean-room reimplementation of Adobe Illustrator
+
+  - name: pdfcraft
+    desc: vibe coded clean-room reimplementation of Adobe Acrobat
+
+  - name: wordcraft
+    desc: vibe coded clean-room reimplementation of Microsoft Word
 
   - name: postgresql
     desc: Sophisticated object-relational DBMS
@@ -1459,6 +1468,12 @@ packages:
 
   - name: up
     desc: A tool for writing Linux pipes with instant live preview
+
+  - name: rustnet
+    desc: Real-time network monitoring TUI with process identification via eBPF and deep packet inspection
+
+  - name: zapfast
+    desc: Fast native WhatsApp client built with Rust and egui
 
 # Extra repositories to add to the system
 repositories:
