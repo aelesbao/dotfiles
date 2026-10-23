@@ -1,0 +1,13 @@
+{
+  "startupNoticeShown": "2026-10-23",
+  "askClaude": {
+    "enabled": true,
+    "allowFullMode": true,
+    "appendSkills": true
+  },
+  "provider": {
+    "plan": "pro",
+    "longContextExtraUsage": false,
+    "strictMcpConfig": true
+  }
+}
