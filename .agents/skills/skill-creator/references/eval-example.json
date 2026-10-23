@@ -1,0 +1,51 @@
+{
+  "purpose": "Unexecuted planning example for a CSV cleanup skill; not benchmark results",
+  "skill_name": "csv-cleanup",
+  "requested_trials": 3,
+  "task_cases": [
+    {
+      "id": "preserve-id",
+      "split": "development",
+      "prompt": "Clean accounts.csv: trim name whitespace, keep account IDs unchanged, and write clean.csv. Do not modify the input.",
+      "files": ["fixtures/accounts.csv"],
+      "fixture_setup": "Create a UTF-8 CSV with header account_id,name and row 0017, Alice followed by one trailing space.",
+      "expected_output": "clean.csv contains account_id 0017 and name Alice; source bytes unchanged",
+      "assertions": [
+        {"id": "leading-zero", "check": "Parse clean.csv as strings and verify account_id equals 0017"},
+        {"id": "trim-name", "check": "Verify name equals Alice, with no surrounding whitespace"},
+        {"id": "input-unchanged", "check": "Compare the input hash before and after execution"}
+      ]
+    },
+    {
+      "id": "missing-input",
+      "split": "validation",
+      "prompt": "Clean missing.csv and save clean.csv, trimming whitespace without changing IDs.",
+      "files": [],
+      "fixture_setup": "Use an empty isolated directory with no missing.csv file.",
+      "expected_output": "Reports missing input and does not invent records or claim completion",
+      "assertions": [
+        {"id": "honest-error", "check": "Inspect response and artifacts for explicit missing-input report and no fabricated CSV"}
+      ]
+    }
+  ],
+  "discovery_cases": [
+    {
+      "id": "cleanup-positive",
+      "split": "development",
+      "query": "Our exported accounts CSV has padded names. Can you trim them but preserve the leading zeros in account IDs and save a separate clean copy?",
+      "should_select": true
+    },
+    {
+      "id": "cleanup-negative",
+      "split": "development",
+      "query": "Explain why spreadsheets strip leading zeros when opening account CSV files. I only want an explanation, not a file cleanup.",
+      "should_select": false
+    },
+    {
+      "id": "query-negative",
+      "split": "validation",
+      "query": "Write a SQL query to find accounts whose names have surrounding spaces in our database. Do not export or edit any CSV files.",
+      "should_select": false
+    }
+  ]
+}
