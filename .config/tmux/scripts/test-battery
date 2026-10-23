@@ -8,8 +8,11 @@ if type pmset >/dev/null 2>&1; then
   # macOS
   pmset -g batt | grep -q "Battery Power"
 elif type upower >/dev/null 2>&1; then
-  # Linux with UPower
-  upower -e | grep -q "battery"
+  # Linux with UPower; ignore peripheral batteries (mice, keyboards)
+  for dev in $(upower -e | grep battery); do
+    upower -i "$dev" | grep -q 'power supply: *yes' && exit 0
+  done
+  exit 1
 elif type acpi >/dev/null 2>&1; then
   # Linux with ACPI
   acpi -b | grep -q "Battery"
