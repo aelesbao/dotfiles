@@ -38,8 +38,7 @@
     "npm:pi-subagents",
     "npm:pi-web-access",
     "npm:pi-goal-x",
-    "npm:@wierdbytes/pi-statusline",
-    "npm:pi-claude-bridge"
+    "npm:@wierdbytes/pi-statusline"
   ],
   "deviceId": "ede69aae-d97c-4db1-9bb1-f28ddbd8e09d",
   "enableInstallTelemetry": false,
